@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Results — w2w</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/results.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/results.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/results.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/results.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a><span class="wip">work in progress</span>
+  <nav><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html" class="on">Results</a><a href="monitor.html">Oversight</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
+</div></div>
+<div class="wrap">
+<section>
+  <h1>Live trading results</h1>
+  <p class="lead">This page will carry figures from the account, not calculations on history.
+  Updated automatically.</p>
+</section>
+
+<section>
+  <div class="soon">Live trading has not started yet.<br>
+  As soon as the account is running, this section will show: the equity curve
+  from the platform, a month-by-month breakdown, the list of trades and the current drawdown.</div>
+</section>
+
+<section>
+  <h2>What will be here</h2>
+  <p><b>The platform widget.</b> The data will come from the broker, not from us —
+  the figures can be neither adjusted nor cherry-picked by period.</p>
+  <p><b>A monthly grid</b> in the same form as in the strategy description: years
+  down the rows, months across the columns. That way the historical calculation and the live result
+  can be compared directly.</p>
+  <p><b>A list of trades</b> — each with its date, instrument and result.</p>
+  <p class="note">There will be divergence from the historical calculation — that is normal.
+  Copies open at current market prices, and the difference accumulates
+  from spread and slippage on every trade. We will show
+  that as well.</p>
+</section>
+<footer class="sitefoot">
+  <span>w2w — an algorithmic portfolio</span>
+  <span>Calculations on 2021–2026 history. Not investment advice.</span>
+</footer>
+</div></body></html>

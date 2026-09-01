@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="ru"><head>
 <meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Контроль — w2w</title>
 <link rel="icon" href="assets/favicon.png">
@@ -8,10 +10,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/monitor.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/monitor.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/monitor.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/monitor.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
 </head><body>
 <div class="topbar"><div class="topbar-in">
-  <a class="brandlink" href="index.html"><img src="assets/w2w-logo.svg" alt="w2w"></a>
-  <nav><a href="index.html">Стратегия</a><a href="tickmill.html">Как подключиться</a><a href="results.html">Результаты</a><a href="monitor.html" class="on">Контроль</a><a href="about.html">Автор</a></nav>
+  <a class="brandlink" href="index.html"><img src="assets/w2w-logo.svg" alt="w2w"></a><span class="wip">страница наполняется</span>
+  <nav><a href="index.html">Стратегия</a><a href="tickmill.html">Как подключиться</a><a href="results.html">Результаты</a><a href="monitor.html" class="on">Контроль</a><a href="about.html">Автор</a></nav><div class="langsw" role="group" aria-label="Language"><a href="monitor.html" hreflang="ru" class="on" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="en/monitor.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="es/monitor.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
 </div></div>
 <div class="wrap">
 <section>

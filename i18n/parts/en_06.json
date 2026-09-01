@@ -1,0 +1,6 @@
+{
+ "index.t111": "<b>It depends on the risk\n      you choose.</b> The lower the risk per trade, the smaller the position size —\n      and the sooner it runs into the smallest lot the broker allows. What happens next\n      is not what it looks like: the trade still opens, but <b>at the minimum lot,\n      and its risk turns out larger than the one you set</b>. You will think you are risking\n      0.25%, while on some instruments the risk will be two or three times that.\n      ",
+ "index.t118": "\n      Gold is the most demanding of all: it has the highest cost per stop,\n      so the limit bites there first. For example: on a $1,000 deposit\n      at 0.25% risk some instruments will go at an inflated size,\n      and on gold the risk will exceed the one set by almost three times.",
+ "tickmill.t013": "From <b>$1,000</b> at 1% risk per trade.\n      Below that, some positions will go at the minimum lot with inflated risk.\n      A detailed calculation for other risk levels is in the ",
+ "monitor.t014": "The watcher makes no trading decisions and never\n  intervenes in trades — it measures and reports. The actions for each level\n  are defined in advance, before things get unpleasant. In detail —\n  in the "
+}

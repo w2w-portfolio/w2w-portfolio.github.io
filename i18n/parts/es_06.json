@@ -1,0 +1,6 @@
+{
+ "index.t111": "<b>Depende del riesgo\n      que usted elija.</b> Cuanto menor es el riesgo por operación, menor es el volumen de la posición,\n      y antes choca con el lote mínimo que permite el bróker. Lo que ocurre entonces\n      no es lo que parece: la operación se abre igualmente, pero <b>con el lote mínimo,\n      y su riesgo resulta mayor que el fijado</b>. Usted creerá que arriesga\n      un 0,25%, mientras que en algunos instrumentos el riesgo será dos o tres veces mayor.\n      ",
+ "index.t118": "\n      El oro es el más exigente de todos: tiene el coste de stop más alto\n      y en él la limitación aparece primero. Por ejemplo: con un depósito de 1.000 $\n      y un riesgo del 0,25%, parte de los instrumentos irán con un volumen excesivo,\n      y en el oro el riesgo superará el fijado casi el triple.",
+ "tickmill.t013": "Desde <b>1.000 $</b> con un riesgo del 1% por operación.\n      Por debajo, parte de las posiciones irán con el lote mínimo y un riesgo excesivo.\n      El cálculo detallado para otros niveles de riesgo está en la ",
+ "monitor.t014": "El observador no toma decisiones de trading ni\n  interviene en las operaciones: mide e informa. Las acciones para cada nivel\n  están definidas de antemano, antes de que la situación se vuelva incómoda. En detalle,\n  en la "
+}

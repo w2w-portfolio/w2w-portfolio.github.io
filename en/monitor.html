@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oversight — w2w</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/monitor.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/monitor.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/monitor.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/monitor.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a><span class="wip">work in progress</span>
+  <nav><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html">Results</a><a href="monitor.html" class="on">Oversight</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../monitor.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/monitor.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/monitor.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
+</div></div>
+<div class="wrap">
+<section>
+  <h1>Oversight</h1>
+  <p class="lead">Every week the watcher algorithm checks two numbers
+  and compares them against thresholds set in advance. The result of every check
+  is published here.</p>
+</section>
+
+<section>
+  <div class="soon">The feed will start filling up together with live trading.<br>
+  Each entry: date of the check, current drawdown, expectancy
+  over the last 100 trades, status under the rules and the actions taken.</div>
+</section>
+
+<section>
+  <h2>What exactly is checked</h2>
+  <p><b>Drawdown</b> answers the question “how much does it hurt right now”.
+  Thresholds: up to 27% — normal, 27–34% — attention, 34–41% — review,
+  above 41% — trading halted.</p>
+  <p><b>Expectancy over 100 trades</b> answers the question
+  “is the system still working”. The alarm threshold is below −0.05% per trade.</p>
+  <p><b>The number of trades</b> is reconciled against the expected one: this is how
+  a stopped or hung algorithm is detected, which would otherwise look simply
+  like a prolonged drawdown.</p>
+  <p class="note">The watcher makes no trading decisions and never
+  intervenes in trades — it measures and reports. The actions for each level
+  are defined in advance, before things get unpleasant. In detail —
+  in the <a href="index.html">strategy description</a>.</p>
+</section>
+<footer class="sitefoot">
+  <span>w2w — an algorithmic portfolio</span>
+  <span>Calculations on 2021–2026 history. Not investment advice.</span>
+</footer>
+</div></body></html>

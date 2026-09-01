@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to join — w2w</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/tickmill.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/tickmill.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/tickmill.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/tickmill.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a><span class="wip">work in progress</span>
+  <nav><a href="index.html">Strategy</a><a href="tickmill.html" class="on">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
+</div></div>
+<div class="wrap">
+<section>
+  <h1>How to join</h1>
+  <p class="lead">Copy trading is set up once and then runs
+  without your involvement. Below is what you will need, and in what order.</p>
+</section>
+
+<section>
+  <h2>What is required from you</h2>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>A broker account</th><td class="l">Hedging is <b>mandatory</b>,
+      not netting. The two algorithms work independently and may hold opposing
+      positions on one instrument; on a netting account the second trade would close
+      the first, and the result would diverge from the strategy.</td></tr>
+    <tr><th>Deposit</th><td class="l">From <b>$1,000</b> at 1% risk per trade.
+      Below that, some positions will go at the minimum lot with inflated risk.
+      A detailed calculation for other risk levels is in the <a href="index.html">strategy description</a>.</td></tr>
+    <tr><th>Leverage</th><td class="l">From 1:100. No more than seven positions are open
+      at once, and half the time no more than two, so there is margin
+      to spare.</td></tr>
+    <tr><th>Terminal</th><td class="l">MetaTrader 5. For copying it is enough
+      that the terminal is connected to the network — on your own computer or on a VPS.</td></tr>
+    </tbody></table></div>
+</section>
+
+<section>
+  <h2>The order of steps</h2>
+  <div class="soon">A step-by-step guide will appear once the official materials
+  arrive from Tickmill — the request has been sent. Instead of a retelling in my own words,
+  their documents will go here: opening an account, connecting to the signal,
+  setting up the terminal.</div>
+</section>
+
+<section>
+  <h2>What it costs</h2>
+  <p>The fee is taken as a <b>percentage of profit</b> and only from profit:
+  no profit, no fee. The exact terms and the charging mechanism
+  will appear here after the broker replies.</p>
+  <p class="note">The usual market rate for copy trading is 25–30% of profit.
+  While the strategy has no public record of live trading, the rate is below
+  market. As statistics accumulate it will rise towards the usual one.</p>
+</section>
+<footer class="sitefoot">
+  <span>w2w — an algorithmic portfolio</span>
+  <span>Calculations on 2021–2026 history. Not investment advice.</span>
+</footer>
+</div></body></html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cómo unirse — w2w</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/tickmill.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/tickmill.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/tickmill.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/tickmill.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a><span class="wip">en construcción</span>
+  <nav><a href="index.html">Estrategia</a><a href="tickmill.html" class="on">Cómo unirse</a><a href="results.html">Resultados</a><a href="monitor.html">Control</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
+</div></div>
+<div class="wrap">
+<section>
+  <h1>Cómo unirse</h1>
+  <p class="lead">La copia de operaciones se configura una vez y después funciona
+  sin su intervención. A continuación, qué hará falta y en qué orden.</p>
+</section>
+
+<section>
+  <h2>Qué se necesita por su parte</h2>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>Una cuenta en el bróker</th><td class="l">Obligatoriamente de <b>cobertura</b> (hedging),
+      no de compensación (netting). Los dos algoritmos trabajan de forma independiente y pueden mantener posiciones
+      opuestas en un mismo instrumento; en una cuenta netting la segunda operación cerraría
+      la primera y el resultado se apartaría de la estrategia.</td></tr>
+    <tr><th>Depósito</th><td class="l">Desde <b>1.000 $</b> con un riesgo del 1% por operación.
+      Por debajo, parte de las posiciones irán con el lote mínimo y un riesgo excesivo.
+      El cálculo detallado para otros niveles de riesgo está en la <a href="index.html">descripción de la estrategia</a>.</td></tr>
+    <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones
+      abiertas a la vez y, la mitad del tiempo, no más de dos, así que el margen sobra
+      con holgura.</td></tr>
+    <tr><th>Terminal</th><td class="l">MetaTrader 5. Para copiar basta con
+      que el terminal esté conectado a la red, ya sea en su ordenador o en un VPS.</td></tr>
+    </tbody></table></div>
+</section>
+
+<section>
+  <h2>Orden de los pasos</h2>
+  <div class="soon">La guía paso a paso aparecerá cuando lleguen los materiales oficiales
+  de Tickmill; la solicitud ya está enviada. En lugar de un resumen con mis propias palabras,
+  aquí irán sus documentos: apertura de la cuenta, conexión a la señal
+  y configuración del terminal.</div>
+</section>
+
+<section>
+  <h2>Cuánto cuesta</h2>
+  <p>La comisión se cobra como <b>porcentaje del beneficio</b> y solo de él:
+  si no hay beneficio, no hay comisión. Las condiciones exactas y el mecanismo de cobro
+  aparecerán aquí después de la respuesta del bróker.</p>
+  <p class="note">La tarifa habitual del mercado por copia es del 25–30% del beneficio.
+  Mientras la estrategia no tenga un historial público de operativa real, la tarifa está por debajo
+  del mercado. A medida que se acumulen estadísticas irá subiendo hasta la habitual.</p>
+</section>
+<footer class="sitefoot">
+  <span>w2w — cartera algorítmica</span>
+  <span>Cálculos sobre el historial 2021–2026. No constituye una recomendación de inversión.</span>
+</footer>
+</div></body></html>

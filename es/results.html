@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resultados — w2w</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/results.html">
+<link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/results.html">
+<link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/results.html">
+<link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/results.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a><span class="wip">en construcción</span>
+  <nav><a href="index.html">Estrategia</a><a href="tickmill.html">Cómo unirse</a><a href="results.html" class="on">Resultados</a><a href="monitor.html">Control</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
+</div></div>
+<div class="wrap">
+<section>
+  <h1>Resultados de la operativa real</h1>
+  <p class="lead">Aquí habrá cifras de la cuenta, no cálculos sobre el historial.
+  Se actualizan automáticamente.</p>
+</section>
+
+<section>
+  <div class="soon">La operativa en cuenta real aún no ha comenzado.<br>
+  En cuanto la cuenta esté funcionando, en esta sección aparecerán: la curva de rentabilidad
+  de la plataforma, el desglose mensual, la lista de operaciones y el drawdown actual.</div>
+</section>
+
+<section>
+  <h2>Qué habrá aquí</h2>
+  <p><b>El widget de la plataforma.</b> Los datos los proporcionará el propio bróker, no nosotros:
+  las cifras no se pueden retocar ni escoger por periodos convenientes.</p>
+  <p><b>Una cuadrícula mensual</b> con el mismo formato que en la descripción de la estrategia: los años
+  en las filas y los meses en las columnas. Así el cálculo sobre el historial y el resultado real
+  pueden compararse directamente.</p>
+  <p><b>Una lista de operaciones</b>, cada una con su fecha, instrumento y resultado.</p>
+  <p class="note">Habrá divergencia respecto al cálculo sobre el historial, y es normal.
+  Las copias se abren a los precios de mercado del momento, y la diferencia se acumula
+  por el spread y el deslizamiento en cada operación. También la
+  mostraremos.</p>
+</section>
+<footer class="sitefoot">
+  <span>w2w — cartera algorítmica</span>
+  <span>Cálculos sobre el historial 2021–2026. No constituye una recomendación de inversión.</span>
+</footer>
+</div></body></html>

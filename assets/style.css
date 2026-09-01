@@ -1,21 +1,6 @@
-
+/* Тёмная тема — единственная: страница выглядит одинаково у всех читателей,
+   независимо от настроек их системы. Светлого набора токенов нет намеренно. */
 :root {
-  color-scheme: light;
-  --ground:#F5F6F8; --surface:#FFFFFF; --line:#DDE1E7; --ink:#12151B;
-  --ink-soft:#4E5765; --ink-faint:#8A93A1;
-  --series-1:#2a78d6; --series-2:#eb6834; --series-3:#1baf7a;
-  --bar:#C3CBD6; --warn:#B26A00; --crit:#B3261E; --good:#1baf7a;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    color-scheme: dark;
-    --ground:#0E1116; --surface:#171B22; --line:#28303A; --ink:#E9EDF2;
-    --ink-soft:#9AA5B4; --ink-faint:#6B7686;
-    --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
-    --bar:#39414D; --warn:#E0A030; --crit:#E66767; --good:#199e70;
-  }
-}
-:root[data-theme="dark"] {
   color-scheme: dark;
   --ground:#0E1116; --surface:#171B22; --line:#28303A; --ink:#E9EDF2;
   --ink-soft:#9AA5B4; --ink-faint:#6B7686;
@@ -169,3 +154,22 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
  gap:16px;flex-wrap:wrap}
 .soon{background:var(--surface);border:1px dashed var(--line);border-radius:8px;
  padding:26px 24px;color:var(--ink-faint);text-align:center;font-size:15px}
+
+/* переключатель языка */
+.langsw{margin-left:auto;display:flex;gap:2px;font-family:var(--mono,"IBM Plex Mono",monospace);
+ font-size:12px;letter-spacing:.04em;flex:none}
+.langsw a{color:var(--ink-faint);text-decoration:none;padding:3px 7px;border-radius:5px;
+ border:1px solid transparent;line-height:1}
+.langsw a:hover{color:var(--ink);background:var(--surface)}
+.langsw a.on{color:var(--ink);border-color:var(--line);background:var(--surface)}
+@media (max-width:700px){.langsw{margin-left:0}}
+.ddfill{fill:var(--series-3);opacity:.22;stroke:none}
+.flband{fill:var(--series-2);opacity:.18;stroke:none}
+
+/* вывеска о том, что сайт ещё наполняется */
+.wip{flex:none;font-size:11px;letter-spacing:.06em;text-transform:uppercase;
+ color:var(--warn);border:1px solid var(--warn);border-radius:4px;padding:2px 7px;
+ opacity:.85;white-space:nowrap}
+@media (max-width:700px){.wip{font-size:10px}}
+.tile-hi{border-color:color-mix(in srgb,var(--series-3) 45%,var(--line))}
+.tile-hi .v{color:var(--series-3)}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="{{LANG}}"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{results.t001}}</title>
+<link rel="icon" href="{{BASE}}assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="{{BASE}}assets/style.css">
+{{HREFLANG}}
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+</head><body>
+<div class="topbar"><div class="topbar-in">
+  <a class="brandlink" href="index.html"><img src="{{BASE}}assets/w2w-logo.svg" alt="w2w"></a><span class="wip">{{wip.badge}}</span>
+  <nav><a href="index.html">{{results.t002}}</a><a href="tickmill.html">{{results.t003}}</a><a href="results.html" class="on">{{results.t004}}</a><a href="monitor.html">{{results.t005}}</a><a href="about.html">{{results.t006}}</a></nav>{{LANGSWITCH}}
+</div></div>
+<div class="wrap">
+<section>
+  <h1>{{results.t007}}</h1>
+  <p class="lead">{{results.t008}}</p>
+</section>
+
+<section>
+  <div class="soon">{{results.t009}}</div>
+</section>
+
+<section>
+  <h2>{{results.t010}}</h2>
+  <p>{{results.t011}}</p>
+  <p>{{results.t012}}</p>
+  <p>{{results.t013}}</p>
+  <p class="note">{{results.t014}}</p>
+</section>
+<footer class="sitefoot">
+  <span>{{results.t015}}</span>
+  <span>{{results.t016}}</span>
+</footer>
+</div></body></html>
