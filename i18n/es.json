@@ -261,7 +261,9 @@
  "index.t118": "\n      El oro es el más exigente de todos: tiene el coste de stop más alto\n      y en él la limitación aparece primero. Por ejemplo: con un depósito de 1.000 $\n      y un riesgo del 0,25%, parte de los instrumentos irán con un volumen excesivo,\n      y en el oro el riesgo superará el fijado casi el triple.",
  "tickmill.t013": "Desde <b>1.000 $</b> con un riesgo del 1% por operación.\n      Por debajo, parte de las posiciones irán con el lote mínimo y un riesgo excesivo.\n      El cálculo detallado para otros niveles de riesgo está en la ",
  "monitor.t014": "El observador no toma decisiones de trading ni\n  interviene en las operaciones: mide e informa. Las acciones para cada nivel\n  están definidas de antemano, antes de que la situación se vuelva incómoda. En detalle,\n  en la ",
- "wip.badge": "en construcción",
  "tile.total.k": "total en 5 años",
- "tile.total.n": "196% anual de media, sin reinversión"
+ "tile.total.n": "196% anual de media, sin reinversión",
+ "wip.title": "El sitio aún se está completando",
+ "wip.text": "Algunas secciones están todavía vacías: los resultados de la operativa real y la sección sobre el autor aparecerán más adelante. Todo lo que se muestra ahora en las páginas es un cálculo sobre datos históricos, no el resultado de operativa real.",
+ "wip.ok": "Entendido"
 }

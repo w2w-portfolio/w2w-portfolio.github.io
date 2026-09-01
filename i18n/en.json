@@ -261,7 +261,9 @@
  "index.t118": "\n      Gold is the most demanding of all: it has the highest cost per stop,\n      so the limit bites there first. For example: on a $1,000 deposit\n      at 0.25% risk some instruments will go at an inflated size,\n      and on gold the risk will exceed the one set by almost three times.",
  "tickmill.t013": "From <b>$1,000</b> at 1% risk per trade.\n      Below that, some positions will go at the minimum lot with inflated risk.\n      A detailed calculation for other risk levels is in the ",
  "monitor.t014": "The watcher makes no trading decisions and never\n  intervenes in trades — it measures and reports. The actions for each level\n  are defined in advance, before things get unpleasant. In detail —\n  in the ",
- "wip.badge": "work in progress",
  "tile.total.k": "total, 5 years",
- "tile.total.n": "196% a year on average, without reinvestment"
+ "tile.total.n": "196% a year on average, without reinvestment",
+ "wip.title": "This site is still being filled in",
+ "wip.text": "Some sections are still empty: live trading results and the section about the author will appear later. Everything shown on the pages right now is a calculation on historical data, not the result of live trading.",
+ "wip.ok": "Got it"
 }

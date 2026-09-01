@@ -41,7 +41,6 @@
   <nav><a href="index.html">Стратегия</a><a href="tickmill.html">Как подключиться</a><a href="results.html">Результаты</a><a href="monitor.html" class="on">Контроль</a><a href="about.html">Автор</a></nav><div class="langsw" role="group" aria-label="Language"><a href="monitor.html" hreflang="ru" class="on" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="en/monitor.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="es/monitor.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
 </div></div>
 <div class="wrap">
-<div class="wip-sticker">страница наполняется</div>
 <section>
   <h1>Контроль</h1>
   <p class="lead">Каждую неделю алгоритм-наблюдатель проверяет два числа
@@ -74,4 +73,29 @@
   <span>w2w — алгоритмический портфель</span>
   <span>Расчёты на истории 2021–2026. Не является инвестиционной рекомендацией.</span>
 </footer>
-</div></body></html>
+</div><div class="wip-veil" id="wipVeil" hidden>
+  <div class="wip-box" role="dialog" aria-modal="true" aria-labelledby="wipTitle">
+    <h2 id="wipTitle">Сайт ещё наполняется</h2>
+    <p>Часть разделов пока пуста: результаты реальной торговли и рассказ об авторе появятся позже. Всё, что показано на страницах сейчас, — расчёт на исторических данных, а не результат живой торговли.</p>
+    <button type="button" id="wipOk">Понятно</button>
+  </div>
+</div>
+<script>
+/* Предупреждение о том, что сайт наполняется. Показываем один раз:
+   человек согласился — больше не мешаем ему ходить по разделам. */
+(function(){
+ var v=document.getElementById('wipVeil'), b=document.getElementById('wipOk'), seen=null;
+ try{seen=localStorage.getItem('w2w-wip-seen')}catch(e){}
+ if(seen) return;
+ v.hidden=false; document.body.style.overflow='hidden';
+ function close(){
+   v.hidden=true; document.body.style.overflow='';
+   try{localStorage.setItem('w2w-wip-seen','1')}catch(e){}
+ }
+ b.addEventListener('click', close);
+ v.addEventListener('click', function(e){ if(e.target===v) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&!v.hidden) close(); });
+ b.focus();
+})();
+</script>
+</body></html>

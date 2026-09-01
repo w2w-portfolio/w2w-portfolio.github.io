@@ -38,7 +38,6 @@
   <nav><a href="index.html">{{monitor.t002}}</a><a href="tickmill.html">{{monitor.t003}}</a><a href="results.html">{{monitor.t004}}</a><a href="monitor.html" class="on">{{monitor.t005}}</a><a href="about.html">{{monitor.t006}}</a></nav>{{LANGSWITCH}}
 </div></div>
 <div class="wrap">
-<div class="wip-sticker">{{wip.badge}}</div>
 <section>
   <h1>{{monitor.t007}}</h1>
   <p class="lead">{{monitor.t008}}</p>
@@ -59,4 +58,29 @@
   <span>{{monitor.t016}}</span>
   <span>{{monitor.t017}}</span>
 </footer>
-</div></body></html>
+</div><div class="wip-veil" id="wipVeil" hidden>
+  <div class="wip-box" role="dialog" aria-modal="true" aria-labelledby="wipTitle">
+    <h2 id="wipTitle">{{wip.title}}</h2>
+    <p>{{wip.text}}</p>
+    <button type="button" id="wipOk">{{wip.ok}}</button>
+  </div>
+</div>
+<script>
+/* Предупреждение о том, что сайт наполняется. Показываем один раз:
+   человек согласился — больше не мешаем ему ходить по разделам. */
+(function(){
+ var v=document.getElementById('wipVeil'), b=document.getElementById('wipOk'), seen=null;
+ try{seen=localStorage.getItem('w2w-wip-seen')}catch(e){}
+ if(seen) return;
+ v.hidden=false; document.body.style.overflow='hidden';
+ function close(){
+   v.hidden=true; document.body.style.overflow='';
+   try{localStorage.setItem('w2w-wip-seen','1')}catch(e){}
+ }
+ b.addEventListener('click', close);
+ v.addEventListener('click', function(e){ if(e.target===v) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&!v.hidden) close(); });
+ b.focus();
+})();
+</script>
+</body></html>

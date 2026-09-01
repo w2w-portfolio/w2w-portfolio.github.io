@@ -166,16 +166,23 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .ddfill{fill:var(--series-3);opacity:.22;stroke:none}
 .flband{fill:var(--series-2);opacity:.18;stroke:none}
 
-/* наклейка: сайт ещё наполняется. Наискосок и в цветах предупреждения,
-   чтобы читатель сразу понимал, что часть разделов ещё пуста. */
-.wrap{position:relative}
-.wip-sticker{position:absolute;left:4px;top:104px;z-index:6;
- transform:rotate(-30deg);transform-origin:left center;
- background:#fff;color:#cc1122;border:2px solid #cc1122;border-radius:3px;
- font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:14px;
- letter-spacing:.09em;text-transform:uppercase;white-space:nowrap;
- padding:9px 20px;box-shadow:0 6px 18px rgba(0,0,0,.45)}
-@media (max-width:1140px){.wip-sticker{position:static;transform:rotate(-2deg);
- display:inline-block;margin:0 0 4px;font-size:12px;padding:7px 15px}}
+
 .tile-hi{border-color:color-mix(in srgb,var(--series-3) 45%,var(--line))}
 .tile-hi .v{color:var(--series-3)}
+
+/* предупреждение при первом заходе: часть разделов ещё пуста */
+.wip-veil{position:fixed;inset:0;z-index:100;display:flex;align-items:center;
+ justify-content:center;padding:24px;background:rgba(6,8,11,.82);
+ backdrop-filter:blur(3px)}
+.wip-veil[hidden]{display:none}
+.wip-box{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--warn);
+ border-radius:8px;max-width:520px;padding:26px 28px 22px;
+ box-shadow:0 24px 60px rgba(0,0,0,.6)}
+.wip-box h2{font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:500;
+ margin:0 0 10px;color:var(--ink);letter-spacing:-.015em}
+.wip-box p{margin:0 0 20px;color:var(--ink-soft);font-size:14.5px;line-height:1.62}
+.wip-box button{font:inherit;font-size:14px;font-weight:500;cursor:pointer;
+ background:var(--warn);color:#12151B;border:0;border-radius:5px;padding:9px 22px}
+.wip-box button:hover{filter:brightness(1.08)}
+.wip-box button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+@media (max-width:560px){.wip-box{padding:22px 20px 18px}.wip-box h2{font-size:19px}}
