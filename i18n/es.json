@@ -263,7 +263,5 @@
  "monitor.t014": "El observador no toma decisiones de trading ni\n  interviene en las operaciones: mide e informa. Las acciones para cada nivel\n  están definidas de antemano, antes de que la situación se vuelva incómoda. En detalle,\n  en la ",
  "tile.total.k": "total en 5 años",
  "tile.total.n": "196% anual de media, sin reinversión",
- "wip.title": "El sitio aún se está completando",
- "wip.text": "Algunas secciones están todavía vacías: los resultados de la operativa real y la sección sobre el autor aparecerán más adelante. Todo lo que se muestra ahora en las páginas es un cálculo sobre datos históricos, no el resultado de operativa real.",
- "wip.ok": "Entendido"
+ "wip.badge": "en construcción"
 }

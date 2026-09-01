@@ -12,6 +12,24 @@ body{margin:0;background:var(--ground);color:var(--ink);
  font-family:Archivo,system-ui,sans-serif;font-size:15.5px;line-height:1.6;
  padding:44px 20px 80px}
 .wrap{max-width:1000px;margin:0 auto;display:flex;flex-direction:column;gap:34px}
+
+/* шапка: логотип крупно на каждой странице, под ним меню */
+.masthead{position:relative;display:flex;justify-content:center;padding:4px 0 16px;margin:-30px 0 0}
+.masthead-logo{display:block;line-height:0}
+.masthead-logo .logo{height:clamp(84px,9.5vw,116px);width:auto;max-width:86vw}
+.navbar{position:sticky;top:0;z-index:20;margin:0 -20px 30px;padding:0 20px;
+ background:color-mix(in srgb,var(--ground) 92%,transparent);
+ backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.navbar-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:26px;
+ height:50px}
+.navbar nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
+.navbar nav a{color:var(--ink-soft);text-decoration:none;padding:4px 0;
+ border-bottom:2px solid transparent}
+.navbar nav a:hover{color:var(--ink)}
+.navbar nav a.on{color:var(--ink);border-bottom-color:var(--series-1)}
+@media (max-width:700px){.navbar-in{height:auto;padding:9px 0;flex-direction:column;
+ align-items:flex-start;gap:9px}.navbar nav{gap:14px;font-size:13.5px}
+ .masthead{margin-top:-24px;padding-bottom:12px}}
 h1{font-family:Newsreader,Georgia,serif;font-size:clamp(30px,4.4vw,44px);font-weight:500;
  margin:0 0 10px;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
 .brand{margin:0 0 20px;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -135,20 +153,6 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 
 
 /* ── навигация сайта ─────────────────────────────────────────── */
-.topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 92%,transparent);
- backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin:-44px -20px 34px;
- padding:0 20px}
-.topbar-in{max-width:1000px;margin:0 auto;display:flex;align-items:center;gap:26px;
- height:56px}
-.topbar .brandlink{display:flex;align-items:center;gap:9px;text-decoration:none;flex:none}
-.topbar .brandlink img{height:26px;width:auto;display:block}
-.topbar nav{display:flex;gap:20px;flex-wrap:wrap;font-size:14px}
-.topbar nav a{color:var(--ink-soft);text-decoration:none;padding:4px 0;
- border-bottom:2px solid transparent}
-.topbar nav a:hover{color:var(--ink)}
-.topbar nav a.on{color:var(--ink);border-bottom-color:var(--series-1)}
-@media (max-width:700px){.topbar-in{height:auto;padding:10px 0;flex-direction:column;
- align-items:flex-start;gap:10px}.topbar nav{gap:14px;font-size:13.5px}}
 .sitefoot{border-top:1px solid var(--line);margin-top:46px;padding-top:22px;
  color:var(--ink-faint);font-size:13.5px;display:flex;justify-content:space-between;
  gap:16px;flex-wrap:wrap}
@@ -170,19 +174,14 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .tile-hi{border-color:color-mix(in srgb,var(--series-3) 45%,var(--line))}
 .tile-hi .v{color:var(--series-3)}
 
-/* предупреждение при первом заходе: часть разделов ещё пуста */
-.wip-veil{position:fixed;inset:0;z-index:100;display:flex;align-items:center;
- justify-content:center;padding:24px;background:rgba(6,8,11,.82);
- backdrop-filter:blur(3px)}
-.wip-veil[hidden]{display:none}
-.wip-box{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--warn);
- border-radius:8px;max-width:520px;padding:26px 28px 22px;
- box-shadow:0 24px 60px rgba(0,0,0,.6)}
-.wip-box h2{font-family:Newsreader,Georgia,serif;font-size:22px;font-weight:500;
- margin:0 0 10px;color:var(--ink);letter-spacing:-.015em}
-.wip-box p{margin:0 0 20px;color:var(--ink-soft);font-size:14.5px;line-height:1.62}
-.wip-box button{font:inherit;font-size:14px;font-weight:500;cursor:pointer;
- background:var(--warn);color:#12151B;border:0;border-radius:5px;padding:9px 22px}
-.wip-box button:hover{filter:brightness(1.08)}
-.wip-box button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
-@media (max-width:560px){.wip-box{padding:22px 20px 18px}.wip-box h2{font-size:19px}}
+
+/* наклейка: сайт ещё наполняется. Слева от эпиграфа, где поле свободно. */
+.wip-sticker{position:absolute;right:max(12px,calc(50% - 430px));top:50%;z-index:6;
+ transform:translateY(-50%) rotate(-11deg);
+ background:#fff;color:#cc1122;border:2px solid #cc1122;border-radius:3px;
+ font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:12px;
+ letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;
+ padding:7px 15px;box-shadow:0 6px 18px rgba(0,0,0,.45);pointer-events:none}
+@media (max-width:900px){.wip-sticker{position:static;transform:rotate(-2deg);
+ display:inline-block;margin:8px 0 0;font-size:11px;padding:6px 12px;align-self:center}
+ .masthead{flex-direction:column;align-items:center}}

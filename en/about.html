@@ -36,10 +36,58 @@
 })();
 </script>
 </head><body>
-<div class="topbar"><div class="topbar-in">
-  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a>
-  <nav><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a><a href="about.html" class="on">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../about.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/about.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/about.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
-</div></div>
+<div class="masthead">
+  <a class="masthead-logo" href="index.html" aria-label="w2w">
+<svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
+  <defs>
+    <radialGradient id="w2w-field" cx="0.42" cy="0.3" r="0.78">
+      <stop offset="0" stop-color="#17171C"/><stop offset="0.55" stop-color="#0E0E11"/>
+      <stop offset="1" stop-color="#060607"/>
+    </radialGradient>
+    <linearGradient id="w2w-wood" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#C97B4A"/><stop offset="0.32" stop-color="#8A3E1C"/><stop offset="0.55" stop-color="#B05A28"/><stop offset="0.78" stop-color="#6B2C11"/><stop offset="1" stop-color="#A44E22"/></linearGradient>
+    <linearGradient id="w2w-silver" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#EDF2F7"/><stop offset="0.3" stop-color="#8794A3"/><stop offset="0.5" stop-color="#D6E0EA"/><stop offset="0.72" stop-color="#68757F"/><stop offset="1" stop-color="#B4C2CE"/></linearGradient>
+    <linearGradient id="w2w-gold" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#FBEFB4"/><stop offset="0.28" stop-color="#D9A81E"/><stop offset="0.5" stop-color="#F7DE72"/><stop offset="0.75" stop-color="#8E6410"/><stop offset="1" stop-color="#EFC94E"/></linearGradient>
+    <linearGradient id="w2w-rim" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#E0C57E"/><stop offset="0.34" stop-color="#6B5930"/>
+      <stop offset="0.62" stop-color="#4A3E22"/><stop offset="1" stop-color="#A38B4E"/>
+    </linearGradient>
+    <linearGradient id="w2w-kant" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#9C8449"/><stop offset="0.5" stop-color="#463A20"/>
+      <stop offset="1" stop-color="#7A6738"/>
+    </linearGradient>
+    <linearGradient id="w2w-sheen" x1="0.15" y1="0" x2="0.55" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".10"/>
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="w2w-clip"><ellipse cx="150" cy="54" rx="146" ry="50"/></clipPath>
+    <filter id="w2w-lay" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity=".6"/>
+    </filter>
+    <path id="w2w-arc" d="M-9.7 77.9 A 170 70 0 0 0 309.7 77.9" fill="none"/>
+  </defs>
+
+  <ellipse cx="150" cy="54" rx="146" ry="50" fill="url(#w2w-field)"
+           stroke="url(#w2w-rim)" stroke-width="3"/>
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="none" stroke="#000"
+           stroke-width="1.2" opacity=".45"/>
+  <ellipse cx="150" cy="54" rx="137" ry="43" fill="none" stroke="url(#w2w-kant)"
+           stroke-width="1.1" opacity=".7"/>
+
+  <!-- знак лежит на плоскости: штрих убывает вглубь 11.5 → 11 → 10.5, тень падает вниз -->
+  <g clip-path="url(#w2w-clip)" filter="url(#w2w-lay)">
+    <path fill="url(#w2w-wood)" d="M69.2 56.1 62.1 79.1H49.2L35.7 44.1Q32.3 43.2 31.1 42.0L31.9 37.0H51.3L52.2 42.0Q50.8 43.3 47.7 44.0L53.6 61.9Q55.0 65.8 55.7 69.6L55.9 70.6H57.1Q57.1 67.0 58.7 62.0L66.2 37.5H79.1L86.6 61.9Q88.0 66.3 88.5 69.6L88.6 70.7H89.8Q90.0 67.0 91.8 62.0L98.5 44.3Q94.9 43.4 93.6 42.0L94.4 37.0H113.0L113.8 42.0Q112.2 43.5 108.2 44.4L94.1 79.1H80.9L74.1 56.2Q72.9 52.1 72.3 48.2L72.2 46.9H71.0Q70.7 51.1 69.2 56.1Z"/><path fill="url(#w2w-silver)" d="M150.3 28.9Q171.8 28.9 171.8 41.4Q171.8 44.1 169.9 47.2Q168.0 50.2 165.4 52.4L151.0 64.8Q147.8 67.6 143.3 70.2L141.7 71.2L142.2 72.0Q146.8 71.3 151.9 71.3H159.8Q160.5 67.4 162.2 65.2L171.7 65.6Q173.8 68.3 173.8 74.3Q173.8 76.8 173.1 78.8H127.6L125.3 69.9L150.0 50.6Q156.9 45.2 156.9 40.2Q156.9 37.7 155.1 36.4Q153.3 35.2 148.8 35.2Q144.2 35.2 140.9 36.2Q140.0 41.4 138.7 43.1L129.8 42.7Q127.9 40.4 127.7 34.8Q127.7 33.6 127.8 33.1Q136.8 28.9 150.3 28.9Z"/><path fill="url(#w2w-gold)" d="M225.2 56.1 218.2 79.1H205.2L191.8 44.1Q188.3 43.2 187.2 42.0L188.0 37.0H207.4L208.2 42.0Q206.8 43.3 203.7 44.0L209.7 61.9Q211.0 65.8 211.8 69.6L211.9 70.6H213.1Q213.2 67.0 214.7 62.0L222.3 37.5H235.1L242.7 61.9Q244.0 66.3 244.5 69.6L244.7 70.7H245.9Q246.0 67.0 247.9 62.0L254.5 44.3Q251.0 43.4 249.7 42.0L250.5 37.0H269.1L269.9 42.0Q268.3 43.5 264.3 44.4L250.2 79.1H237.0L230.2 56.2Q229.0 52.1 228.4 48.2L228.2 46.9H227.1Q226.7 51.1 225.2 56.1Z"/>
+  </g>
+
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="url(#w2w-sheen)"/>
+
+  <path d="M48 101.5 L50.6 104.5 L48 107.5 L45.4 104.5 Z" fill="#7A6A45"/>
+  <path d="M252 101.5 L254.6 104.5 L252 107.5 L249.4 104.5 Z" fill="#7A6A45"/>
+  <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
+</svg>
+  </a>
+  <div class="wip-sticker">work in progress</div>
+</div>
+<div class="navbar"><div class="navbar-in"><nav><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a><a href="about.html" class="on">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../about.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/about.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/about.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
   <h1>About the author</h1>
@@ -61,29 +109,4 @@
   <span>w2w — an algorithmic portfolio</span>
   <span>Calculations on 2021–2026 history. Not investment advice.</span>
 </footer>
-</div><div class="wip-veil" id="wipVeil" hidden>
-  <div class="wip-box" role="dialog" aria-modal="true" aria-labelledby="wipTitle">
-    <h2 id="wipTitle">This site is still being filled in</h2>
-    <p>Some sections are still empty: live trading results and the section about the author will appear later. Everything shown on the pages right now is a calculation on historical data, not the result of live trading.</p>
-    <button type="button" id="wipOk">Got it</button>
-  </div>
-</div>
-<script>
-/* Предупреждение о том, что сайт наполняется. Показываем один раз:
-   человек согласился — больше не мешаем ему ходить по разделам. */
-(function(){
- var v=document.getElementById('wipVeil'), b=document.getElementById('wipOk'), seen=null;
- try{seen=localStorage.getItem('w2w-wip-seen')}catch(e){}
- if(seen) return;
- v.hidden=false; document.body.style.overflow='hidden';
- function close(){
-   v.hidden=true; document.body.style.overflow='';
-   try{localStorage.setItem('w2w-wip-seen','1')}catch(e){}
- }
- b.addEventListener('click', close);
- v.addEventListener('click', function(e){ if(e.target===v) close(); });
- document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&!v.hidden) close(); });
- b.focus();
-})();
-</script>
-</body></html>
+</div></body></html>

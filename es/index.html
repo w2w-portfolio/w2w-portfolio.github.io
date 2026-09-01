@@ -36,14 +36,8 @@
 })();
 </script>
 </head><body>
-<div class="topbar"><div class="topbar-in">
-  <a class="brandlink" href="index.html"><img src="../assets/w2w-logo.svg" alt="w2w"></a>
-  <nav><a href="index.html" class="on">Estrategia</a><a href="tickmill.html">Cómo unirse</a><a href="results.html">Resultados</a><a href="monitor.html">Control</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../index.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/index.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/index.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div>
-</div></div>
-<div class="wrap">
-
-<header>
-  <div class="brand">
+<div class="masthead">
+  <a class="masthead-logo" href="index.html" aria-label="w2w">
 <svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
   <defs>
     <radialGradient id="w2w-field" cx="0.42" cy="0.3" r="0.78">
@@ -90,7 +84,14 @@
   <path d="M252 101.5 L254.6 104.5 L252 107.5 L249.4 104.5 Z" fill="#7A6A45"/>
   <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
 </svg>
-  </div>
+  </a>
+  <div class="wip-sticker">en construcción</div>
+</div>
+<div class="navbar"><div class="navbar-in"><nav><a href="index.html" class="on">Estrategia</a><a href="tickmill.html">Cómo unirse</a><a href="results.html">Resultados</a><a href="monitor.html">Control</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../index.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/index.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/index.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+<div class="wrap">
+
+<header>
+  
   <figure class="epi">
   <blockquote>Diligence is the mother of good luck.</blockquote>
   <p class="epi-ru">La diligencia es la madre de la buena suerte.</p>
@@ -640,29 +641,4 @@
   <span>w2w — cartera algorítmica</span>
   <span>Cálculos sobre el historial 2021–2026. No constituye una recomendación de inversión.</span>
 </footer>
-</div><div class="wip-veil" id="wipVeil" hidden>
-  <div class="wip-box" role="dialog" aria-modal="true" aria-labelledby="wipTitle">
-    <h2 id="wipTitle">El sitio aún se está completando</h2>
-    <p>Algunas secciones están todavía vacías: los resultados de la operativa real y la sección sobre el autor aparecerán más adelante. Todo lo que se muestra ahora en las páginas es un cálculo sobre datos históricos, no el resultado de operativa real.</p>
-    <button type="button" id="wipOk">Entendido</button>
-  </div>
-</div>
-<script>
-/* Предупреждение о том, что сайт наполняется. Показываем один раз:
-   человек согласился — больше не мешаем ему ходить по разделам. */
-(function(){
- var v=document.getElementById('wipVeil'), b=document.getElementById('wipOk'), seen=null;
- try{seen=localStorage.getItem('w2w-wip-seen')}catch(e){}
- if(seen) return;
- v.hidden=false; document.body.style.overflow='hidden';
- function close(){
-   v.hidden=true; document.body.style.overflow='';
-   try{localStorage.setItem('w2w-wip-seen','1')}catch(e){}
- }
- b.addEventListener('click', close);
- v.addEventListener('click', function(e){ if(e.target===v) close(); });
- document.addEventListener('keydown', function(e){ if(e.key==='Escape'&&!v.hidden) close(); });
- b.focus();
-})();
-</script>
-</body></html>
+</div></body></html>
