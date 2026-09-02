@@ -91,46 +91,47 @@
 <div class="wrap">
 <section>
   <h1>Cómo unirse</h1>
-  <p class="lead">La copia de operaciones se configura una vez y después funciona
-  sin su intervención. A continuación, qué hará falta y en qué orden.</p>
+  <p class="lead">Su dinero permanece en su propia cuenta del bróker: no se lo entrega a nadie. La suscripción se formaliza en el área de cliente de Tickmill y, a partir de ahí, las operaciones de la estrategia se repiten en su cuenta automáticamente. No hay que instalar nada ni mantener nada encendido.</p>
 </section>
 
 <section>
   <h2>Qué se necesita por su parte</h2>
   <div class="card" style="padding:0"><table>
     <tbody>
-    <tr><th>Una cuenta en el bróker</th><td class="l">Obligatoriamente de <b>cobertura</b> (hedging),
-      no de compensación (netting). Los dos algoritmos trabajan de forma independiente y pueden mantener posiciones
-      opuestas en un mismo instrumento; en una cuenta netting la segunda operación cerraría
-      la primera y el resultado se apartaría de la estrategia.</td></tr>
+    <tr><th>Una cuenta en el bróker</th><td class="l">Una cuenta de trading activa en Tickmill, MT4 o MT5, en cualquier servidor. Las cuentas demo, archivadas o restringidas no sirven. La cuenta debe ser <b>de cobertura (hedging)</b>: los dos algoritmos trabajan de forma independiente y pueden mantener posiciones opuestas en un mismo instrumento.</td></tr>
     <tr><th>Depósito</th><td class="l">Desde <b>1.000 $</b> con un riesgo del 1% por operación.
       Por debajo, parte de las posiciones irán con el lote mínimo y un riesgo excesivo.
       El cálculo detallado para otros niveles de riesgo está en la <a href="index.html">descripción de la estrategia</a>.</td></tr>
-    <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones
-      abiertas a la vez y, la mitad del tiempo, no más de dos, así que el margen sobra
-      con holgura.</td></tr>
-    <tr><th>Terminal</th><td class="l">MetaTrader 5. Para copiar basta con
-      que el terminal esté conectado a la red, ya sea en su ordenador o en un VPS.</td></tr>
+    <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones abiertas a la vez y, la mitad del tiempo, no más de dos, así que el margen sobra.</td></tr>
+    <tr><th>Terminal</th><td class="l"><b>No hace falta.</b> La copia se ejecuta del lado del bróker: su terminal puede estar cerrado y su ordenador apagado. MetaTrader solo le servirá si quiere ver las operaciones por su cuenta o cerrar algo a mano.</td></tr>
     </tbody></table></div>
+  <p class="note">Una misma cuenta no puede ser proveedor de estrategia y seguidor a la vez. Si ya comparte una estrategia propia, necesitará una cuenta aparte para la suscripción.</p>
 </section>
 
 <section>
   <h2>Orden de los pasos</h2>
-  <div class="soon">La guía paso a paso aparecerá cuando lleguen los materiales oficiales
-  de Tickmill; la solicitud ya está enviada. En lugar de un resumen con mis propias palabras,
-  aquí irán sus documentos: apertura de la cuenta, conexión a la señal
-  y configuración del terminal.</div>
+  <ol class="steps">
+    <li>Abrir una cuenta en Tickmill, si aún no la tiene, y depositar fondos.</li>
+    <li>Registrarse en Tickmill Social Trading como <b>Follower</b>, con el mismo usuario y contraseña de la cuenta de trading.</li>
+    <li>Buscar la estrategia w2w y formalizar la suscripción.</li>
+    <li>Configurar la copia: el multiplicador de volumen y, si lo desea, los límites de riesgo.</li>
+    <li><b>Activar la suscripción.</b> Se crea desactivada a propósito, para que tenga tiempo de configurarlo todo antes de la primera operación.</li>
+  </ol>
+  <p class="note">Las pantallas y los botones exactos pueden variar: guíese por el manual oficial de Social Trading de Tickmill.</p>
+</section>
+
+<section>
+  <h2>Cómo ajustar el tamaño y el riesgo</h2>
+  <p>Por defecto el volumen copiado se calcula automáticamente: se escala según la proporción entre su saldo y el de la estrategia. Si la cuenta de la estrategia tiene 10.000 y la suya 1.000, una operación de 1 lote se repite en su cuenta como 0,1 lotes. Además puede fijar un <b>multiplicador</b>: uno a la mitad reduce a la mitad tanto la rentabilidad como el drawdown, y es la forma de ajustar el riesgo a su medida.</p>
+  <p>Aparte, puede fijar límites de riesgo para toda la suscripción: cerrar las operaciones al alcanzar una pérdida o un beneficio determinados, suspender la copia o darse de baja. Es su propio seguro por encima de lo que hace la estrategia.</p>
 </section>
 
 <section>
   <h2>Cuánto cuesta</h2>
-  <p>La comisión se cobra como <b>porcentaje del beneficio</b> y solo de él:
-  si no hay beneficio, no hay comisión. Las condiciones exactas y el mecanismo de cobro
-  aparecerán aquí después de la respuesta del bróker.</p>
-  <p class="note">La tarifa habitual del mercado por copia es del 25–30% del beneficio.
-  Mientras la estrategia no tenga un historial público de operativa real, la tarifa está por debajo
-  del mercado. A medida que se acumulen estadísticas irá subiendo hasta la habitual.</p>
+  <p>La comisión se cobra como <b>porcentaje del beneficio</b> y solo de él: si no hay beneficio, no hay comisión. Ahora mismo es del <b>10%</b>, dos o tres veces por debajo del mercado.</p>
+  <p class="note">La tarifa habitual del mercado por copia es del 25–30% del beneficio. Mientras la estrategia no tenga un historial público de operativa real, no me parece correcto pedir tanto. A medida que se acumulen estadísticas la tarifa subirá hasta la habitual, pero solo para nuevos suscriptores: las condiciones de una suscripción vigente no cambian una vez formalizada.</p>
 </section>
+
 <footer class="sitefoot">
   <span>w2w — cartera algorítmica</span>
   <span>Cálculos sobre el historial 2021–2026. No constituye una recomendación de inversión.</span>
