@@ -4,7 +4,7 @@
 <meta name="color-scheme" content="dark">
 <meta name="theme-color" content="#0E1116">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Author — w2w</title>
+<title>From the author — w2w</title>
 <link rel="icon" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,23 +87,49 @@
   </a>
   <div class="wip-sticker">work in progress</div>
 </div>
-<div class="navbar"><div class="navbar-in"><nav><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a><a href="about.html" class="on">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../about.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/about.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/about.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+<div class="navbar"><div class="navbar-in"><nav><a href="about.html" class="on">Author</a><a href="index.html">Strategy</a><a href="tickmill.html">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../about.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/about.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/about.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
-  <h1>About the author</h1>
+  <h1>From the author</h1>
+  <p class="lead">Welcome to my site!</p>
+  <p class="lead">My name is Sergey. Let me start with why it appeared at all. It was meant not as a shop window but as a <b>control mechanism</b> — I needed to see what the algorithms are doing right now, to keep the reporting in one place and to notice failures in time. Later it became clear that the experience might be useful to more than just me, and the pages were opened up. But first things first.</p>
 </section>
 
 <section>
-  <div class="soon">This section is being written.</div>
+  <h2>How it started</h2>
+  <p>I opened my first account in 2003, right after finishing university, with Alpari. My experience is not limited to currencies: I traded equities, futures and options on the Moscow Exchange through BCS. Today only the algorithms trade — I write them.</p>
 </section>
 
 <section>
-  <h2>What is worth telling here</h2>
-  <p>Anyone considering copying needs to understand
-  who stands behind the system: how many years in the market, how this strategy came about,
-  why algorithms rather than manual trading.</p>
-  <p>And separately — that the author trades the same algorithms with their own
-  money, not only managing other people’s.</p>
+  <h2>Why I stopped trading by hand</h2>
+  <p>I studied seriously and for a long time. And I did learn — I mastered more than one trading system, understood the mechanics, knew what I was doing and why. It did not help.</p>
+  <p>The problem was not knowledge. I am a compulsive gambler. I could follow the rules for a week and then undo all of it in a single evening: hold too long, add to a loser, enter outside the system. The knowledge did not go anywhere — it simply stopped mattering.</p>
+  <p>For a long time I would not admit it, looking for the cause in the system, the broker, the chart markup — anywhere else. When I finally did admit it, things got easier: the problem had a name, and something could be done about it.</p>
+</section>
+
+<section>
+  <h2>Where the approach came from</h2>
+  <p>First came the courses, free and paid — that period stretched over about ten years. What I took from it was a simple thought: mastering a trading system in a general stream takes an enormous amount of time, and without mentoring — with someone checking your work and pointing out mistakes — it is practically impossible. From 2016 I switched to <b>one-to-one training</b> — directly with the authors of the strategies, people who traded their own systems rather than retelling someone else’s. Five such courses in all. The experience accumulated, and at some point it became clear that all of it could be written as rules and calculated. That is how the idea of the first algorithm appeared.</p>
+  <p>The thinking behind my algorithms today came from <b>options</b> — real, exchange-traded ones. Not to be confused with so-called “binary options”: the two share nothing but the word. With real options you cannot work by guessing direction — you have to count probabilities, distributions and expectancy, and decide not by where “the market will go” but by whether the risk pays for itself over a long series.</p>
+  <p>Between the idea and a working bot there used to stand programming, and for many that was an impassable barrier. Today, with AI, writing a trading robot has become feasible even for someone far from code. My own competitive programming from school years came in unexpectedly handy — I never thought it would be of use again.</p>
+</section>
+
+<section>
+  <h2>Why algorithms</h2>
+  <p>The solution is simple to state and slow to build: <b>take myself out of the process</b>. Not “learn discipline” — I had tried that — but make my participation in trades technically impossible. An algorithm has no emotions: it does not chase losses, does not move a stop, does not enter outside its rules.</p>
+  <p>The manual trading experience was not wasted — all of it went into the code. What I came to understand about markets over those years now executes without me. The work changed completely: instead of watching charts I test hypotheses against history, measure drawdowns and discard whatever fails the checks.</p>
+</section>
+
+<section>
+  <h2>Why there is so much about risk here</h2>
+  <p>That is where the slant of these pages comes from: there is far more here about <b>risk, probabilities and drawdowns</b> than about returns. Not because returns do not matter, but because they are a consequence. If a system does not fall apart on a bad stretch, the profit will come on its own; if it does fall apart, no percentages will help.</p>
+  <p>So I show not only the best case but the worst one too: how deep the account sank, how long it lasted, what would have happened in a different order of trades, and at what point trading stops under the rules. To my mind, that is what is worth looking at before making a decision.</p>
+</section>
+
+<section>
+  <h2>What I do with my own money</h2>
+  <p>I trade the same algorithms with my own funds — this is not a shop window for other people’s money. A prototype has been running since May on a small account, and in September I am launching <b>my first portfolio of algorithms</b> on Tickmill so that it starts gathering live statistics. I do not plan to switch it off: the whole point is for the system to run a long distance without my interference.</p>
+  <p class="note">Tickmill is not a random choice: I have worked with them for over ten years and have tried many others. What decided it was their approach to copy trading and their reputation.</p>
 </section>
 <footer class="sitefoot">
   <span>w2w — an algorithmic portfolio</span>
