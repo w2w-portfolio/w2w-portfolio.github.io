@@ -61,7 +61,7 @@
  "index.t037": "Un stop fijo significa que la pérdida de una operación está limitada al 1% del depósito.\n  La excepción es un hueco de precio en la apertura del mercado: si el precio salta por encima\n  del nivel del stop, la pérdida será mayor que la calculada. El Algoritmo 2, que mantiene posiciones\n  de un día para otro, está expuesto a este riesgo; el Algoritmo 1 casi nunca lo está.",
  "index.t038": "Resultado acumulado",
  "index.a187": "Resultado acumulado",
- "index.t039": "Porcentaje del depósito con un riesgo del 1% por operación, <b>sin reinversión</b>:\n  se trata de una suma aritmética de resultados, no de interés compuesto. <b>983% en cinco años</b>\n  (alrededor del 16% mensual de media): más en unos meses y negativo en otros.\n  La curva está construida a partir de operaciones cerradas.",
+ "index.t039": "Porcentaje del depósito con un riesgo del 1% por operación, <b>sin reinversión</b>:\n  se trata de una suma aritmética de resultados, no de interés compuesto. <b>983% en cinco años</b>\n  (alrededor del 16% mensual de media): más en unos meses y negativo en otros.\n  La curva está construida a partir de operaciones cerradas, <b>incluyendo comisiones y swaps de Tickmill</b>: no es un cálculo idealizado, sino cómo se habría movido realmente la cuenta.",
  "index.t040": "<i style=\"background:var(--series-1)\"></i>Algoritmo 2 — 12 setups",
  "index.t041": "<i style=\"background:var(--series-2)\"></i>Algoritmo 1 — 4 setups",
  "index.t042": "ene",
@@ -293,5 +293,6 @@
  "tickmill.t036": "Por defecto el volumen copiado se calcula automáticamente: se escala según la proporción entre su saldo y el de la estrategia. Si la cuenta de la estrategia tiene 10.000 y la suya 1.000, una operación de 1 lote se repite en su cuenta como 0,1 lotes. Además puede fijar un <b>multiplicador</b>: uno a la mitad reduce a la mitad tanto la rentabilidad como el drawdown, y es la forma de ajustar el riesgo a su medida.",
  "tickmill.t035": "Cómo ajustar el tamaño y el riesgo",
  "tickmill.t037": "Aparte, puede fijar límites de riesgo para toda la suscripción: cerrar las operaciones al alcanzar una pérdida o un beneficio determinados, suspender la copia o darse de baja. Es su propio seguro por encima de lo que hace la estrategia.",
- "index.t193": "<b>¿Es mucho o poco?</b> La estrategia funcionará en la plataforma Tickmill Social Trading, y allí hay con qué compararse. De las mil estrategias públicas de la plataforma, la mitad presenta un drawdown máximo que llega al <b>98%</b>: es decir, la cuenta quedaba prácticamente a cero. Un drawdown por debajo del 23% se sitúa en el diez por ciento superior. Medición del 2 de septiembre de 2026 con los datos abiertos del ranking de la plataforma; el conjunto de participantes cambia con el tiempo."
+ "index.t193": "<b>¿Es mucho o poco?</b> La estrategia funcionará en la plataforma Tickmill Social Trading, y allí hay con qué compararse. De las mil estrategias públicas de la plataforma, la mitad presenta un drawdown máximo que llega al <b>98%</b>: es decir, la cuenta quedaba prácticamente a cero. Un drawdown por debajo del 23% se sitúa en el diez por ciento superior. Medición del 2 de septiembre de 2026 con los datos abiertos del ranking de la plataforma; el conjunto de participantes cambia con el tiempo.",
+ "index.t194": "con comisiones y swaps"
 }
