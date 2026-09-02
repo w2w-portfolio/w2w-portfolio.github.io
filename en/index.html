@@ -508,8 +508,8 @@
   <p style="margin-bottom:0">The watcher makes no trading decisions
   and never intervenes in trades — it only measures and reports. Its logic
   has been checked against the full five-year history: the drawdown threshold was never reached,
-  and the expectancy alarm fired twice — both times right at the boundary, and both times
-  a review would have shown the system operating normally. On simulated deep
+  and the expectancy alarm fired once — right at the boundary, and a review
+  would have shown the system operating normally. On simulated deep
   drawdowns the warning arrives a month to six weeks before the critical level.</p></div>
   <div class="card" style="padding:0"><table>
     <thead><tr><th>drawdown on closed trades</th><th>status</th><th style="text-align:left">action</th></tr></thead>
@@ -548,11 +548,7 @@
   We show this openly, so that a line beneath the threshold does not look like
   a contradiction of the text: the weekly control step is a deliberate choice, it damps out
   short spikes that there is nothing to be done about.</p>
-  <div class="note"><p><b>There are deliberately no intermediate thresholds.</b> Over five years
-  expectancy fell to zero <b>17 times</b>, and the following hundred trades after that
-  were never once unprofitable — from <b>+0.19%</b> to <b>+0.56%</b> per trade
-  against a historical average of +0.25%; in 11 cases out of 16, better than average. Reacting to such dips would mean trading against
-  a reversion to the mean.</p></div>
+  <div class="note"><p><b>There are deliberately no intermediate thresholds.</b> Over five years expectancy fell to zero <b>11 times</b>. Nine of those had a full following hundred trades to play out, and not one of those hundreds came out unprofitable — from <b>+0.20%</b> to <b>+0.53%</b> per trade against a historical average of +0.30%; in eight cases out of nine, better than average. Reacting to such dips would mean trading against a reversion to the mean.</p></div>
   <p><b>Parameters are not changed during a drawdown.</b> The settings were fitted on the entire available history of the instruments — six
   to seven years — while a drawdown is an event spanning a hundred trades. Changing parameters inside one
   means fitting the system to a random stretch.</p>
