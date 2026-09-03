@@ -144,19 +144,22 @@ def render_feed(arch):
         key = {'норма': 'monitor.t028', 'внимание': 'monitor.t029',
                'разбор': 'monitor.t030', 'стоп': 'monitor.t031'}.get(a['level'], 'monitor.t028')
         money = a['money_week']
+        r = ' style="text-align:right"'
         rows.append(
             f"<tr><th>{a['week_from']} — {a['week_to']}</th>"
-            f"<td>{a['trades_week']}</td>"
-            f"<td>{money:+,.0f}</td>"
-            f"<td>{a['grow_total_pct']:+.1f}%</td>"
-            f"<td>{a['dd_now_pct']:.1f}%</td>"
-            f'<td><span class="lvl {cls}">{{{{{key}}}}}</span></td></tr>')
+            f"<td{r}>{a['trades_week']}</td>"
+            f"<td{r}>{money:+,.0f}</td>"
+            f"<td{r}>{a['grow_total_pct']:+.1f}%</td>"
+            f"<td{r}>{a['dd_now_pct']:.1f}%</td>"
+            f'<td{r}><span class="lvl {cls}">{{{{{key}}}}}</span></td></tr>')
     head = '<p class="note">{{monitor.t027}}</p>' if demo_only else ''
+    R = ' style="text-align:right"'
     html = (head + '<div class="scroll"><table class="feed">'
             '<thead><tr>'
-            '<th>{{monitor.t021}}</th><th>{{monitor.t022}}</th>'
-            '<th>{{monitor.t023}}</th><th>{{monitor.t024}}</th>'
-            '<th>{{monitor.t025}}</th><th>{{monitor.t026}}</th>'
+            '<th>{{monitor.t021}}</th>'
+            f'<th{R}>{{{{monitor.t022}}}}</th><th{R}>{{{{monitor.t023}}}}</th>'
+            f'<th{R}>{{{{monitor.t024}}}}</th><th{R}>{{{{monitor.t025}}}}</th>'
+            f'<th{R}>{{{{monitor.t026}}}}</th>'
             '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>')
     (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
 
