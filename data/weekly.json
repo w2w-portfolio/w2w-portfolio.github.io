@@ -7,7 +7,7 @@
   "server": "Tickmill-Demo",
   "account_type": "demo",
   "balance": 100000.0,
-  "equity": 100000.0,
+  "equity": 99954.86,
   "start_balance": 100000.0,
   "trades_week": 0,
   "wins_week": 0,
