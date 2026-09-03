@@ -188,3 +188,8 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .steps{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:11px;color:var(--ink-soft)}
 .steps li{padding-left:4px;line-height:1.62}
 .steps li::marker{color:var(--series-1);font-weight:600}
+
+/* Пульс: подписи бывают в две строки, поэтому значения прижимаем
+   к низу — тогда числа стоят на одной линии независимо от длины. */
+.tiles.pulse .tile{justify-content:space-between;min-height:96px}
+.tiles.pulse .tile .k{min-height:2.4em}

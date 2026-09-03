@@ -194,7 +194,7 @@ def render_pulse(st, trades, base):
     # плитки — тот же компонент, что на остальных страницах сайта
     cards = ''.join(f'<div class="tile"><span class="k">{k}</span>'
                     f'<span class="v">{v}</span></div>' for k, v in cells)
-    html = (stale + f'<div class="tiles">{cards}</div>'
+    html = (stale + f'<div class="tiles pulse">{cards}</div>'
             f'<p class="note">{{{{monitor.t039}}}} {snap}</p>')
     (TABLES / 'pulse.html').write_text(html, encoding='utf-8')
     return snap, hours
