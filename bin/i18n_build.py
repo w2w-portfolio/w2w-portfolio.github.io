@@ -46,7 +46,7 @@ def langswitch(page, cur):
 def feed_html():
     """Лента недель: готовый кусок от bin/weekly_report.py, ключи в нём
     переводятся дальше общим механизмом."""
-    p = Path(__file__).resolve().parent.parent / 'site' / 'tables' / 'weekly.html'
+    p = SITE / 'tables' / 'weekly.html'
     return p.read_text(encoding='utf-8') if p.exists() else ''
 
 

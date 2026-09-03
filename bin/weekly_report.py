@@ -28,7 +28,10 @@ from pathlib import Path
 # Отчёты наблюдателя приезжают с VDS через Яндекс.Диск (задание w2w_sync.bat
 # копирует их из папки терминала в синхронизируемую папку). Если там пусто —
 # берём из локального терминала: так работает, когда торгуем с мака.
-YD  = Path.home() / 'Yandex.Disk.localized' / '!FOREX_VDS' / 'w2w_live'
+# Папка терминала на VDS подключена к Яндекс.Диску напрямую
+# (Настройки → Автоматическое сохранение папок), поэтому файлы
+# приезжают сами, без копировальщиков и заданий.
+YD  = Path.home() / 'Yandex.Disk.localized' / 'Компьютер WIN-G1OC1NJFU3O' / 'Files'
 LOC = (Path.home() / 'Library' / 'Application Support'
        / 'net.metaquotes.wine.metatrader5' / 'drive_c'
        / 'Program Files' / 'MetaTrader 5' / 'MQL5' / 'Files')
@@ -137,6 +140,9 @@ def render_feed(arch):
     for a in reversed(arch):                       # свежие сверху
         cls = {'норма': 'ok', 'внимание': 'warn',
                'разбор': 'warn', 'стоп': 'bad'}.get(a['level'], 'ok')
+        # уровень выводим ключом: на англ. и исп. страницах он переводится
+        key = {'норма': 'monitor.t028', 'внимание': 'monitor.t029',
+               'разбор': 'monitor.t030', 'стоп': 'monitor.t031'}.get(a['level'], 'monitor.t028')
         money = a['money_week']
         rows.append(
             f"<tr><th>{a['week_from']} — {a['week_to']}</th>"
@@ -144,8 +150,9 @@ def render_feed(arch):
             f"<td>{money:+,.0f}</td>"
             f"<td>{a['grow_total_pct']:+.1f}%</td>"
             f"<td>{a['dd_now_pct']:.1f}%</td>"
-            f'<td><span class="lvl {cls}">{a["level"]}</span></td></tr>')
-    html = ('<div class="scroll"><table class="feed">'
+            f'<td><span class="lvl {cls}">{{{{{key}}}}}</span></td></tr>')
+    head = '<p class="note">{{monitor.t027}}</p>' if demo_only else ''
+    html = (head + '<div class="scroll"><table class="feed">'
             '<thead><tr>'
             '<th>{{monitor.t021}}</th><th>{{monitor.t022}}</th>'
             '<th>{{monitor.t023}}</th><th>{{monitor.t024}}</th>'

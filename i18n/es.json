@@ -306,5 +306,9 @@
  "monitor.t024": "Crecimiento",
  "monitor.t025": "Caída",
  "monitor.t026": "Nivel",
- "monitor.t027": "Se muestran semanas de una cuenta demo: por ahora es el cálculo puesto a prueba por la operativa real. Al iniciar la cuenta real, el registro empieza de nuevo y muestra solo esa cuenta."
+ "monitor.t027": "Se muestran semanas de una cuenta demo: por ahora es el cálculo puesto a prueba por la operativa real. Al iniciar la cuenta real, el registro empieza de nuevo y muestra solo esa cuenta.",
+ "monitor.t028": "normal",
+ "monitor.t029": "atención",
+ "monitor.t030": "revisión",
+ "monitor.t031": "alto"
 }

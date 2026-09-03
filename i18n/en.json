@@ -306,5 +306,9 @@
  "monitor.t024": "Growth",
  "monitor.t025": "Drawdown",
  "monitor.t026": "Level",
- "monitor.t027": "These are weeks of a demo account: for now this is the calculation being tested by live trading. Once the real account starts, the log begins anew and shows only that account."
+ "monitor.t027": "These are weeks of a demo account: for now this is the calculation being tested by live trading. Once the real account starts, the log begins anew and shows only that account.",
+ "monitor.t028": "normal",
+ "monitor.t029": "attention",
+ "monitor.t030": "review",
+ "monitor.t031": "stop"
 }
