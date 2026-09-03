@@ -7,6 +7,11 @@ on:
   schedule:
     - cron: '7 * * * *'
   workflow_dispatch:
+    inputs:
+      test:
+        description: 'Проверить связь с Телеграмом (прислать тестовое сообщение)'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,7 +56,7 @@ jobs:
           W2W_DATA: live
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
-        run: python3 bin/tg_watch.py
+        run: python3 bin/tg_watch.py ${{ inputs.test && '--test' || '' }}
 
       - name: Опубликовать, если изменилось
         run: |
