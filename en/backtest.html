@@ -165,12 +165,8 @@ is computed on the past, not the result of live trading. The live account is on 
       <div class="card" style="padding:0"><div class="scroll"><table class="src"><thead><tr><th class="l">instrument</th><th>result</th><th>drawdown</th><th>average RR</th><th>win rate</th><th>PF</th></tr></thead><tbody><tr><td class="l">XAUUSD</td><td><b>+88%</b></td><td>11.1%</td><td>2.60</td><td>36%</td><td>1.47</td></tr><tr><td class="l">EURJPY</td><td><b>+71%</b></td><td>5.9%</td><td>2.93</td><td>46%</td><td>2.46</td></tr><tr><td class="l">NZDUSD</td><td><b>+52%</b></td><td>8.1%</td><td>1.37</td><td>54%</td><td>1.60</td></tr><tr><td class="l">USTEC</td><td><b>+44%</b></td><td>6.6%</td><td>1.63</td><td>50%</td><td>1.65</td></tr></tbody></table></div></div>
     </div>
   </div>
-  <p>A row is <b>one instrument under one algorithm</b>. Three instruments — gold, the kiwi and the Nasdaq — are traded by both, so they appear in both lists: these are different setups with different entry rules, not a repeat.</p>
-  <p>The <b>average RR</b> column together with the win rate reveals the mechanics of a source.
-  Gold takes <b>6.44</b> per unit of risk at a 20% win rate — rarely, but in large amounts;
-  oil is the opposite, <b>0.73</b> at a 71% win rate — often and in small amounts.
-  Both designs are profitable but behave in opposite ways, and they fall into
-  drawdown at different times.</p>
+  <p>XAUUSD, NZDUSD and USTEC are traded by both algorithms, so they appear in both lists: these are different setups with different entry rules, not the same position twice.</p>
+  <p><b>Average RR</b> together with the win rate reveals the mechanics of a source: XAUUSD takes <b>6.44</b> per unit of risk at a 20% win rate — rarely, but in large amounts; BRENT is the opposite, <b>0.73</b> at a 71% win rate — often and in small amounts. Both designs are profitable but behave in opposite ways, and they fall into drawdown at different times.</p>
   <p>Note the drawdowns: <b>the individual drawdown of a source
   does not add up into the portfolio one</b> — the sum of all sixteen would be
   <b>141%</b>, while the portfolio drew down <b>17.6%</b>.</p>
