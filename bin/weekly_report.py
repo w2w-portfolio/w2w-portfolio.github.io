@@ -52,6 +52,12 @@ CHARTS = SITE / 'charts'
 TABLES = SITE / 'tables'
 
 DD_OK, DD_WATCH, DD_RARE = 25.0, 36.0, 44.0     # см. МОНИТОРИНГ.md, пересчёт 03.09.2026
+# Через сколько часов молчания наблюдателя считать данные протухшими.
+# Он пишет раз в 15 минут, забираем раз в час, поэтому простой в несколько
+# часов — уже событие. Запас нужен потому, что снимок помечен временем
+# торгового сервера (Tickmill идёт по UTC+2/+3), а облачная сборка считает
+# в UTC: без запаса разница часовых поясов сама выглядела бы как простой.
+STALE_HOURS = 6
 EXPECTED_PER_MONTH = 63                          # ожидаемый поток портфеля
 
 
@@ -170,13 +176,10 @@ def render_pulse(st, trades, base):
     поэтому видно, что счёт живой, а не замер неделю назад."""
     TABLES.mkdir(parents=True, exist_ok=True)
     snap = st.get('time', '')
-    stale = ''
     try:                                    # время снимка — по часам торгового сервера
         t = datetime.strptime(snap, '%Y.%m.%d %H:%M:%S')
         snap = t.strftime('%d.%m.%Y, %H:%M')   # без секунд: читать удобнее
         hours = (datetime.now() - t).total_seconds() / 3600
-        if hours > 24:
-            stale = '<p class="warnbox">{{monitor.t040}}</p>'
     except ValueError:
         hours = 0
 
@@ -194,7 +197,7 @@ def render_pulse(st, trades, base):
     # плитки — тот же компонент, что на остальных страницах сайта
     cards = ''.join(f'<div class="tile"><span class="k">{k}</span>'
                     f'<span class="v">{v}</span></div>' for k, v in cells)
-    html = (stale + f'<div class="tiles pulse">{cards}</div>'
+    html = (f'<div class="tiles pulse">{cards}</div>'
             f'<p class="note">{{{{monitor.t039}}}} {snap}</p>')
     (TABLES / 'pulse.html').write_text(html, encoding='utf-8')
     return snap, hours

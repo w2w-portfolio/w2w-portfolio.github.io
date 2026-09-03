@@ -319,7 +319,7 @@
  "monitor.t037": "Growth",
  "monitor.t038": "Drawdown",
  "monitor.t039": "Data as of",
- "monitor.t040": "Data has not been updated for more than a day. The figures are valid as of the time below.",
+ "monitor.t040": "The data has not updated for several hours — the terminal or the sync may have stopped. The figures below are correct as of the time shown.",
  "nav.results": "Results",
  "nav.backtest": "Backtests",
  "nav.connect": "How to join",

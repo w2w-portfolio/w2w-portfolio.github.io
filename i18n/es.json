@@ -319,7 +319,7 @@
  "monitor.t037": "Crecimiento",
  "monitor.t038": "Caída",
  "monitor.t039": "Datos a fecha de",
- "monitor.t040": "Los datos llevan más de un día sin actualizarse. Las cifras son válidas a la hora indicada abajo.",
+ "monitor.t040": "Los datos llevan varias horas sin actualizarse — puede haberse detenido el terminal o la sincronización. Las cifras son correctas a la hora indicada abajo.",
  "nav.results": "Resultados",
  "nav.backtest": "Backtests",
  "nav.connect": "Cómo unirse",
