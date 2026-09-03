@@ -173,6 +173,7 @@ def render_pulse(st, trades, base):
     stale = ''
     try:                                    # время снимка — по часам торгового сервера
         t = datetime.strptime(snap, '%Y.%m.%d %H:%M:%S')
+        snap = t.strftime('%d.%m.%Y, %H:%M')   # без секунд: читать удобнее
         hours = (datetime.now() - t).total_seconds() / 3600
         if hours > 24:
             stale = '<p class="warnbox">{{monitor.t040}}</p>'
