@@ -191,5 +191,6 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 
 /* Пульс: подписи бывают в две строки, поэтому значения прижимаем
    к низу — тогда числа стоят на одной линии независимо от длины. */
-.tiles.pulse .tile{justify-content:space-between;min-height:96px}
+.tiles.pulse .tile{justify-content:space-between;min-height:96px;
+ align-items:center;text-align:center}
 .tiles.pulse .tile .k{min-height:2.4em}
