@@ -194,7 +194,7 @@
  "index.t167": "todo 2024",
  "index.t168": "todo 2025",
  "index.t169": "ene — ago 2026",
- "index.t170": "Cada fila es <b>un instrumento en un algoritmo</b>, y el color de la marca indica cuál.\n  Tres instrumentos los operan ambos algoritmos y por eso aparecen en la lista\n  dos veces: <b>XAUUSD, NZDUSD y USTEC</b>.",
+ "index.t170": "Cada fila es <b>un instrumento en un algoritmo</b>. Tres instrumentos — el oro, el kiwi y el Nasdaq — los operan ambos, por eso aparecen en las dos listas: son configuraciones distintas con reglas de entrada distintas, no una repetición.",
  "index.t171": "La columna <b>RR medio</b>, junto con la tasa de acierto, revela la mecánica de cada fuente.\n  El oro obtiene <b>6,44</b> por unidad de riesgo con una tasa de acierto del 20%: pocas veces, pero mucho;\n  el petróleo es lo contrario, <b>0,73</b> con una tasa de acierto del 71%: a menudo y poco.\n  Ambas construcciones son rentables, pero se comportan de forma opuesta y entran\n  en drawdown en momentos distintos.",
  "index.t172": "Fíjese en los drawdowns: <b>el drawdown individual de una fuente\n  no se suma al de la cartera</b>: la suma de las dieciséis sería del\n  <b>141%</b>, mientras que la cartera cayó un <b>17,6%</b>.",
  "index.t173": "El oro es el que más aporta: <b>+249%</b> con el Algoritmo 2 y <b>+88%</b>\n  con el Algoritmo 1, juntos <b>un tercio</b> del resultado total. La dependencia de él\n  se suaviza porque son dos algoritmos distintos con reglas de entrada distintas,\n  no una sola apuesta con el doble de volumen.",
@@ -353,5 +353,7 @@
  "home.next_backtest": "Cinco años de historial: de qué se compone el resultado, la profundidad de las caídas, la prueba de barajado, de dónde salen los umbrales",
  "home.next_connect": "Qué se necesita de usted, los pasos a seguir y cuánto cuesta",
  "res.curves_note": "Las curvas se construyen con las operaciones cerradas de esta cuenta, no con el historial: esa es justamente la comprobación del cálculo con operativa real.",
- "nav.home": "la presentación"
+ "nav.home": "la presentación",
+ "src.a2": "Algoritmo 2 — 12 configuraciones",
+ "src.a1": "Algoritmo 1 — 4 configuraciones"
 }

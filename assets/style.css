@@ -213,3 +213,26 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
  transition:text-decoration-color .15s,color .15s}
 .wrap p a:hover, .wrap li a:hover, .wrap td a:hover{
  color:#fff;text-decoration-color:var(--series-1)}
+
+/* Источники разнесены по алгоритмам и стоят рядом: в каждой таблице свой
+   набор сетапов, сравнивать имеет смысл внутри колонки, а не между ними. */
+.srccol{display:flex;flex-direction:column;gap:8px}
+.srccol h3{margin:0;font-family:Newsreader,Georgia,serif;font-size:16px;
+ font-weight:500;color:var(--ink-soft)}
+.srcgrid{grid-template-columns:1fr 1fr;align-items:start}
+.srccol .src td{padding:6px 8px}
+/* Без min-width:0 колонка грида не даёт таблице сжаться, и правая уезжает за край. */
+.srccol{min-width:0}
+.srccol table{width:100%}
+/* В половине ширины шесть колонок помещаются только ужатыми:
+   шапка переносится по словам, отступы меньше, цифры чуть мельче. */
+.srccol .src{font-size:12.5px}
+.srccol .src th{white-space:normal;padding:6px 5px;line-height:1.25}
+.srccol .src td{padding:6px 5px}
+/* Одинаковая сетка колонок в обеих таблицах: рядом они читаются как одна,
+   и глаз не спотыкается о разъехавшиеся заголовки. */
+.srccol .src{table-layout:fixed}
+.srccol .src th:first-child,.srccol .src td:first-child{width:27%}
+.srccol .src th:nth-child(2),.srccol .src td:nth-child(2){width:17%}
+/* Шапка в узких колонках жмётся к соседке — уменьшаем кегль и добавляем воздух. */
+.srccol .src th{font-size:10.5px;letter-spacing:.02em;padding:7px 7px}

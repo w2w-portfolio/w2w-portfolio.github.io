@@ -194,7 +194,7 @@
  "index.t167": "all of 2024",
  "index.t168": "all of 2025",
  "index.t169": "Jan — Aug 2026",
- "index.t170": "A row is <b>one instrument for one algorithm</b>, and the marker colour shows which.\n  Three instruments are traded by both algorithms and therefore appear in the list\n  twice: <b>XAUUSD, NZDUSD and USTEC</b>.",
+ "index.t170": "A row is <b>one instrument under one algorithm</b>. Three instruments — gold, the kiwi and the Nasdaq — are traded by both, so they appear in both lists: these are different setups with different entry rules, not a repeat.",
  "index.t171": "The <b>average RR</b> column together with the win rate reveals the mechanics of a source.\n  Gold takes <b>6.44</b> per unit of risk at a 20% win rate — rarely, but in large amounts;\n  oil is the opposite, <b>0.73</b> at a 71% win rate — often and in small amounts.\n  Both designs are profitable but behave in opposite ways, and they fall into\n  drawdown at different times.",
  "index.t172": "Note the drawdowns: <b>the individual drawdown of a source\n  does not add up into the portfolio one</b> — the sum of all sixteen would be\n  <b>141%</b>, while the portfolio drew down <b>17.6%</b>.",
  "index.t173": "Gold brings in the most: <b>+249%</b> from Algorithm 2 and <b>+88%</b>\n  from Algorithm 1, together <b>a third</b> of the entire result. The dependence on it\n  is softened by the fact that these are two different algorithms with different entry rules —\n  not one bet doubled in size.",
@@ -353,5 +353,7 @@
  "home.next_backtest": "Five years of history: what makes up the result, how deep the drawdowns went, the reshuffling test, where the thresholds come from",
  "home.next_connect": "What is required from you, the steps to take and what it costs",
  "res.curves_note": "The curves are built from this account’s closed trades, not from history: that is the point — checking the calculation against live trading.",
- "nav.home": "the overview"
+ "nav.home": "the overview",
+ "src.a2": "Algorithm 2 — 12 setups",
+ "src.a1": "Algorithm 1 — 4 setups"
 }
