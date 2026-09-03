@@ -24,7 +24,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from weekly_report import (MT5, SITE, load_status, load_trades, curve,
-                           DD_OK, DD_WATCH, DD_RARE, STALE_HOURS)
+                           data_age, DD_OK, DD_WATCH, DD_RARE, STALE_HOURS)
 
 STATE = SITE / 'data' / 'alerts.json'
 API   = 'https://api.telegram.org/bot{token}/sendMessage'
@@ -80,11 +80,10 @@ def main():
 
     snap = st.get('time', '')
     try:
-        t = datetime.strptime(snap, '%Y.%m.%d %H:%M:%S')
-        hours = (datetime.now() - t).total_seconds() / 3600
-        when = t.strftime('%d.%m %H:%M')
+        when = datetime.strptime(snap, '%Y.%m.%d %H:%M:%S').strftime('%d.%m %H:%M')
     except ValueError:
-        hours, when = 0.0, snap or '—'
+        when = snap or '—'
+    hours, measurable = data_age(st)
 
     pts = curve(trades, base)
     dd = pts[-1]['dd'] if pts else 0.0
@@ -95,7 +94,9 @@ def main():
     elif dd > DD_WATCH:  level = 'разбор'
     elif dd > DD_OK:     level = 'внимание'
 
-    silent = hours > STALE_HOURS
+    # Со старой версией наблюдателя (без time_utc) возраст не измерить,
+    # и тревогу о молчании не поднимаем — иначе каждые выходные ложная.
+    silent = measurable and hours > STALE_HOURS
     old = read_state()
     msgs = []
 
@@ -137,7 +138,8 @@ def main():
     for m in msgs:
         send(m, dry)
     if not msgs:
-        print(f'без событий: снимок {when}, уровень {level}, сделок {now_deals}')
+        note = '' if measurable else '  (наблюдатель старее 1.01: молчание не отслеживается)'
+        print(f'без событий: снимок {when}, уровень {level}, сделок {now_deals}{note}')
 
     if not dry:
         STATE.parent.mkdir(parents=True, exist_ok=True)
