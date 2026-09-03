@@ -3,6 +3,7 @@
 
     python3 bin/weekly_report.py             собрать отчёт на сегодня
     python3 bin/weekly_report.py --dry       посчитать и показать, ничего не писать
+    python3 bin/weekly_report.py --pulse      только пульс: состояние счёта на сейчас
     python3 bin/weekly_report.py --drop-demo убрать из архива все записи демо-счёта
 
 Демо-период нужен, чтобы проверить расчёт живой торговлей, но в витрину
@@ -164,6 +165,40 @@ def render_feed(arch):
     (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
 
 
+def render_pulse(st, trades, base):
+    """Пульс: состояние счёта на сейчас. Обновляется чаще ленты — раз в час,
+    поэтому видно, что счёт живой, а не замер неделю назад."""
+    TABLES.mkdir(parents=True, exist_ok=True)
+    snap = st.get('time', '')
+    stale = ''
+    try:                                    # время снимка — по часам торгового сервера
+        t = datetime.strptime(snap, '%Y.%m.%d %H:%M:%S')
+        hours = (datetime.now() - t).total_seconds() / 3600
+        if hours > 24:
+            stale = '<p class="warnbox">{{monitor.t040}}</p>'
+    except ValueError:
+        hours = 0
+
+    pts = curve(trades, base)
+    dd = pts[-1]['dd'] if pts else 0.0
+    grow = pts[-1]['grow'] if pts else 0.0
+    cells = [
+        ('{{monitor.t033}}', f"{st.get('balance', 0):,.0f}"),
+        ('{{monitor.t034}}', f"{st.get('equity', 0):,.0f}"),
+        ('{{monitor.t035}}', f"{st.get('open_positions', 0)}"),
+        ('{{monitor.t036}}', f"{st.get('deals', 0)}"),
+        ('{{monitor.t037}}', f"{grow:+.1f}%"),
+        ('{{monitor.t038}}', f"{dd:.1f}%"),
+    ]
+    # плитки — тот же компонент, что на остальных страницах сайта
+    cards = ''.join(f'<div class="tile"><span class="k">{k}</span>'
+                    f'<span class="v">{v}</span></div>' for k, v in cells)
+    html = (stale + f'<div class="tiles">{cards}</div>'
+            f'<p class="note">{{{{monitor.t039}}}} {snap}</p>')
+    (TABLES / 'pulse.html').write_text(html, encoding='utf-8')
+    return snap, hours
+
+
 def week_bounds(day):
     start = day - timedelta(days=day.weekday())          # понедельник
     return (datetime.combine(start, datetime.min.time()),
@@ -185,6 +220,15 @@ def drop_demo():
 def main():
     if '--drop-demo' in sys.argv:
         drop_demo(); return
+    if '--pulse' in sys.argv:
+        st = load_status()
+        trades = load_trades()
+        base = float(st.get('start_balance') or st.get('balance') or 0) or 1.0
+        snap, hours = render_pulse(st, trades, base)
+        print(f'пульс: снимок {snap} ({hours:.1f} ч назад)')
+        print(f"  баланс {st.get('balance'):,.2f}  эквити {st.get('equity'):,.2f}"
+              f"  позиций {st.get('open_positions')}  закрытых {st.get('deals')}")
+        return
     dry = '--dry' in sys.argv
     st = load_status()
     src = ('переменная W2W_DATA' if os.environ.get('W2W_DATA')
@@ -253,6 +297,7 @@ def main():
     ARCHIVE.write_text(json.dumps(arch, ensure_ascii=False, indent=1), encoding='utf-8')
 
     render_feed(arch)
+    render_pulse(st, trades, base)
     svg_line(pts, 'grow', '#4db6a0', 'Доходность, % депозита', 'live_growth.svg')
     svg_line(pts, 'dd', '#c9705c', 'Просадка от максимума, %', 'live_drawdown.svg', invert=True)
 

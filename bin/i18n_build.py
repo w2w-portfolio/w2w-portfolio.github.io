@@ -43,10 +43,10 @@ def langswitch(page, cur):
             f'{NAMES[L]}</a>')
     return '<div class="langsw" role="group" aria-label="Language">' + ''.join(parts) + '</div>'
 
-def feed_html():
-    """Лента недель: готовый кусок от bin/weekly_report.py, ключи в нём
+def part_html(name):
+    """Готовый кусок от bin/weekly_report.py (лента, пульс). Ключи внутри
     переводятся дальше общим механизмом."""
-    p = SITE / 'tables' / 'weekly.html'
+    p = SITE / 'tables' / name
     return p.read_text(encoding='utf-8') if p.exists() else ''
 
 
@@ -99,7 +99,8 @@ def build(lang, outdir):
                   .replace('{{BASE}}', '' if lang == 'ru' else '../')
                   .replace('{{HREFLANG}}', hreflang(f))
                   .replace('{{LANGSWITCH}}', langswitch(f, lang))
-                  .replace('{{FEED}}', feed_html()))
+                  .replace('{{FEED}}', part_html('weekly.html'))
+                  .replace('{{PULSE}}', part_html('pulse.html')))
         # Эпиграф Франклина уже приведён в оригинале, по-английски. На английской
         # странице перевод под ним был бы повтором той же строки — убираем.
         tpl = tpl.replace('{{EPI_TRANS}}',

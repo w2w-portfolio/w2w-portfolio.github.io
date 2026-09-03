@@ -1,32 +1,29 @@
-name: Еженедельный отчёт
+name: Пульс счёта
 
-# По субботам в 09:00 UTC (12:00 МСК) и вручную кнопкой.
-# Мак для этого не нужен: данные приезжают с VDS по публичной ссылке.
+# Каждый час: обновляет блок «Счёт сейчас» на странице «Контроль».
+# Ленту недель не трогает — она собирается по субботам отдельным заданием.
 on:
   schedule:
-    - cron: '0 9 * * 6'
+    - cron: '7 * * * *'
   workflow_dispatch:
 
 permissions:
   contents: write
 
-# Пульс обновляется каждый час и тоже публикует — чтобы задания
-# не столкнулись на push, ставим их в одну очередь.
 concurrency:
   group: site-publish
   cancel-in-progress: false
 
 jobs:
-  report:
+  pulse:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Скачать отчёты наблюдателя с Яндекс.Диска
+      - name: Скачать сводку счёта
         env:
           YD_PUBLIC: ${{ secrets.YD_PUBLIC }}
         run: |
@@ -37,28 +34,27 @@ jobs:
                         --data-urlencode "path=/$f" \
                         https://cloud-api.yandex.net/v1/disk/public/resources/download \
                   | python3 -c 'import sys,json; print(json.load(sys.stdin).get("href",""))')
-            if [ -z "$url" ]; then echo "не получена ссылка на $f"; exit 1; fi
+            [ -n "$url" ] || { echo "нет ссылки на $f"; exit 1; }
             curl -sL "$url" -o "live/$f"
-            echo "скачан $f: $(wc -c < "live/$f") байт"
           done
 
-      - name: Собрать отчёт и страницы
+      - name: Обновить пульс
         env:
           W2W_DATA: live
         run: |
-          python3 bin/weekly_report.py
+          python3 bin/weekly_report.py --pulse
           python3 bin/i18n_build.py
 
-      - name: Опубликовать, если что-то изменилось
+      - name: Опубликовать, если изменилось
         run: |
           git config user.name  'w2w'
           git config user.email 'w2w@users.noreply.github.com'
           rm -rf live
           git add -A
           if git diff --cached --quiet; then
-            echo 'изменений нет'
+            echo 'без изменений'
           else
-            git commit -m "отчёт за неделю $(date -u +%Y-%m-%d)"
+            git commit -m "пульс $(date -u +'%Y-%m-%d %H:%M')"
             git pull --rebase --autostash
             git push
           fi

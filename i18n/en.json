@@ -310,5 +310,14 @@
  "monitor.t028": "normal",
  "monitor.t029": "attention",
  "monitor.t030": "review",
- "monitor.t031": "stop"
+ "monitor.t031": "stop",
+ "monitor.t032": "Account right now",
+ "monitor.t033": "Balance",
+ "monitor.t034": "Equity",
+ "monitor.t035": "Open positions",
+ "monitor.t036": "Closed trades",
+ "monitor.t037": "Growth",
+ "monitor.t038": "Drawdown",
+ "monitor.t039": "Data as of",
+ "monitor.t040": "Data has not been updated for more than a day. The figures are valid as of the time below."
 }
