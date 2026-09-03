@@ -36,6 +36,7 @@
 })();
 </script>
 </head><body>
+
 <div class="masthead">
   <a class="masthead-logo" href="index.html" aria-label="w2w">
 <svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
@@ -87,7 +88,8 @@
   </a>
   <div class="wip-sticker">en construcción</div>
 </div>
-<div class="navbar"><div class="navbar-in"><nav><a href="about.html">Autor</a><a href="index.html">Estrategia</a><a href="tickmill.html" class="on">Cómo unirse</a><a href="results.html">Resultados</a><a href="monitor.html">Control</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html">Resultados</a><a href="backtest.html">Backtests</a><a href="tickmill.html" class="on">Cómo unirse</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
   <h1>Cómo unirse</h1>
@@ -99,13 +101,41 @@
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>Una cuenta en el bróker</th><td class="l">Una cuenta de trading activa en Tickmill, MT4 o MT5, en cualquier servidor. Las cuentas demo, archivadas o restringidas no sirven. La cuenta debe ser <b>de cobertura (hedging)</b>: los dos algoritmos trabajan de forma independiente y pueden mantener posiciones opuestas en un mismo instrumento.</td></tr>
-    <tr><th>Depósito</th><td class="l">Desde <b>1.000 $</b> con un riesgo del 1% por operación.
-      Por debajo, parte de las posiciones irán con el lote mínimo y un riesgo excesivo.
-      El cálculo detallado para otros niveles de riesgo está en la <a href="index.html">descripción de la estrategia</a>.</td></tr>
-    <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones abiertas a la vez y, la mitad del tiempo, no más de dos, así que el margen sobra.</td></tr>
+    <tr><th>Depósito mínimo</th><td class="l"><b>Depende del riesgo
+      que usted elija.</b> Cuanto menor es el riesgo por operación, menor es el volumen de la posición,
+      y antes choca con el lote mínimo que permite el bróker. Lo que ocurre entonces
+      no es lo que parece: la operación se abre igualmente, pero <b>con el lote mínimo,
+      y su riesgo resulta mayor que el fijado</b>. Usted creerá que arriesga
+      un 0,25%, mientras que en algunos instrumentos el riesgo será dos o tres veces mayor.
+      <table style="margin-top:10px;width:auto">
+        <tr><th style="padding:4px 16px 4px 0">riesgo del 1% por operación</th>
+            <td style="text-align:left;padding:4px 0"><b>desde 1.000 $</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">riesgo del 0,5%</th>
+            <td style="text-align:left;padding:4px 0"><b>desde 1.500 $</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">riesgo del 0,25%</th>
+            <td style="text-align:left;padding:4px 0"><b>desde 3.000 $</b></td></tr>
+      </table>
+      El oro es el más exigente de todos: tiene el coste de stop más alto
+      y en él la limitación aparece primero. Por ejemplo: con un depósito de 1.000 $
+      y un riesgo del 0,25%, parte de los instrumentos irán con un volumen excesivo,
+      y en el oro el riesgo superará el fijado casi el triple.</td></tr>
+    <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones
+      abiertas a la vez y, la mitad del tiempo, no más de dos, de modo que el margen sobra.
+      Con 1:500 la carga del depósito no supera el 10%.</td></tr>
+    <tr><th>Tipo de cuenta</th><td class="l"><b>Obligatoriamente de cobertura</b> (hedging),
+      no de compensación (netting). Los algoritmos son independientes y pueden mantener posiciones opuestas
+      en un mismo instrumento; en una cuenta netting la segunda operación cerraría la primera
+      y el resultado se apartaría de la estrategia. La ejecución es a mercado y los instrumentos
+      son corrientes: pares de divisas, oro, índices y petróleo.</td></tr>
     <tr><th>Terminal</th><td class="l"><b>No hace falta.</b> La copia se ejecuta del lado del bróker: su terminal puede estar cerrado y su ordenador apagado. MetaTrader solo le servirá si quiere ver las operaciones por su cuenta o cerrar algo a mano.</td></tr>
     </tbody></table></div>
   <p class="note">Una misma cuenta no puede ser proveedor de estrategia y seguidor a la vez. Si ya comparte una estrategia propia, necesitará una cuenta aparte para la suscripción.</p>
+  <p class="note"><b>Sobre la divergencia de resultados.</b> Las copias se abren a los precios
+  de mercado del momento, así que su resultado no coincidirá exactamente con la estrategia: la diferencia
+  se acumula por el spread y el deslizamiento (slippage) en cada operación. Con un flujo de unas
+  60 operaciones al mes es una magnitud apreciable, y cuanto menor es la cuenta, mayor resulta
+  en porcentaje. Un depósito desde 1.000 $ y una conexión estable reducen la divergencia;
+  eliminarla por completo no es posible.</p>
 </section>
 
 <section>

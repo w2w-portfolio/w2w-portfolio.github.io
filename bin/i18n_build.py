@@ -8,6 +8,10 @@
 #   {{BASE}}       — путь к assets/ ('' из корня, '../' из подпапки)
 #   {{HREFLANG}}   — ссылки на языковые версии для поисковиков
 #   {{LANGSWITCH}} — переключатель в шапке; ссылки готовые, работает без JS
+#   {{MASTHEAD}}   — логотип из tpl/_masthead.html (общий для всех страниц)
+#   {{NAV}}        — меню; текущий пункт сборщик подсвечивает сам
+# Голова страницы тоже общая — tpl/_head.html, {{TITLE}} в ней разворачивается
+# в ключ заголовка текущей страницы (title.index, title.results и так далее).
 import json, re, sys
 from pathlib import Path
 
@@ -15,7 +19,10 @@ from pathlib import Path
 # site/bin/) или на уровень выше (на маке — personal/bin/).
 _here = Path(__file__).resolve().parent
 SITE  = _here.parent if (_here.parent/'tpl').is_dir() else _here.parent/'site'
-PAGES = ['index.html','tickmill.html','results.html','monitor.html','about.html']
+PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html']
+# Меню: главной в нём нет намеренно — на неё ведёт логотип, как принято.
+MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
+         ('tickmill.html', 'nav.connect'), ('about.html', 'nav.author')]
 LANGS = ['ru','en','es']
 NAMES = {'ru':'RU','en':'EN','es':'ES'}
 HOST  = 'https://w2w-portfolio.github.io'
@@ -42,6 +49,22 @@ def langswitch(page, cur):
             f'onclick="try{{localStorage.setItem(\'w2w-lang\',\'{L}\')}}catch(e){{}}">'
             f'{NAMES[L]}</a>')
     return '<div class="langsw" role="group" aria-label="Language">' + ''.join(parts) + '</div>'
+
+def nav(page):
+    """Меню страницы: текущий пункт получает class="on" и остаётся ссылкой."""
+    items = ''.join(
+        f'<a href="{href}"{" class=\"on\"" if href == page else ""}>{{{{{key}}}}}</a>'
+        for href, key in MENU)
+    return f'<nav>{items}</nav>'
+
+
+def shell(page):
+    """Голова и шапка страницы — общие куски tpl/_head.html и _masthead.html."""
+    slug = page.replace('.html', '')
+    head = (SITE/'tpl'/'_head.html').read_text(encoding='utf-8')
+    head = head.replace('{{TITLE}}', '{{title.' + slug + '}}')
+    return head, (SITE/'tpl'/'_masthead.html').read_text(encoding='utf-8')
+
 
 def part_html(name):
     """Готовый кусок от bin/weekly_report.py (лента, пульс). Ключи внутри
@@ -95,7 +118,11 @@ def build(lang, outdir):
     missing = []
     for f in PAGES:
         tpl = (SITE/'tpl'/f).read_text(encoding='utf-8')
-        tpl = (tpl.replace('{{LANG}}', lang)
+        head, mast = shell(f)
+        tpl = (tpl.replace('{{HEAD}}', head)
+                  .replace('{{MASTHEAD}}', mast)
+                  .replace('{{NAV}}', nav(f))
+                  .replace('{{LANG}}', lang)
                   .replace('{{BASE}}', '' if lang == 'ru' else '../')
                   .replace('{{HREFLANG}}', hreflang(f))
                   .replace('{{LANGSWITCH}}', langswitch(f, lang))

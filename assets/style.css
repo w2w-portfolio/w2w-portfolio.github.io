@@ -194,3 +194,12 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .tiles.pulse .tile{justify-content:space-between;min-height:96px;
  align-items:center;text-align:center}
 .tiles.pulse .tile .k{min-height:2.4em}
+
+/* Три перехода в конце главной: страница коротка намеренно, дальше — по ссылкам. */
+.next{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.next a{background:var(--surface);border:1px solid var(--line);border-radius:5px;
+ padding:16px 18px;display:flex;flex-direction:column;gap:6px;text-decoration:none;
+ color:var(--ink-soft);transition:border-color .15s,color .15s}
+.next a:hover{border-color:var(--series-1);color:var(--ink)}
+.next a b{font-family:Newsreader,Georgia,serif;font-size:18px;font-weight:500;color:var(--ink)}
+.next a span{font-size:13.5px;line-height:1.55}

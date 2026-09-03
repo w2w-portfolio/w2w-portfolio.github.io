@@ -36,6 +36,7 @@
 })();
 </script>
 </head><body>
+
 <div class="masthead">
   <a class="masthead-logo" href="index.html" aria-label="w2w">
 <svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
@@ -87,32 +88,39 @@
   </a>
   <div class="wip-sticker">en construcción</div>
 </div>
-<div class="navbar"><div class="navbar-in"><nav><a href="about.html">Autor</a><a href="index.html">Estrategia</a><a href="tickmill.html">Cómo unirse</a><a href="results.html" class="on">Resultados</a><a href="monitor.html">Control</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html" class="on">Resultados</a><a href="backtest.html">Backtests</a><a href="tickmill.html">Cómo unirse</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
-  <h1>Resultados de la operativa real</h1>
-  <p class="lead">Aquí habrá cifras de la cuenta, no cálculos sobre el historial.
-  Se actualizan automáticamente.</p>
+  <h1>Resultados</h1>
+  <p class="lead">La cuenta real: lo que ocurre de verdad, sin cálculos ni supuestos.
+El historial de cinco años y sus pruebas están aparte — se calculan sobre
+el pasado y viven en la página «Backtests».</p>
 </section>
 
 <section>
-  <div class="soon">La operativa en cuenta real aún no ha comenzado.<br>
-  En cuanto la cuenta esté funcionando, en esta sección aparecerán: la curva de rentabilidad
-  de la plataforma, el desglose mensual, la lista de operaciones y el drawdown actual.</div>
+  <h2>La cuenta ahora</h2>
+  <div class="tiles pulse"><div class="tile"><span class="k">Saldo</span><span class="v">98,904</span></div><div class="tile"><span class="k">Fondos</span><span class="v">98,540</span></div><div class="tile"><span class="k">Posiciones abiertas</span><span class="v">4</span></div><div class="tile"><span class="k">Operaciones cerradas</span><span class="v">1</span></div><div class="tile"><span class="k">Crecimiento</span><span class="v">-1,1%</span></div><div class="tile"><span class="k">Caída</span><span class="v">1,1%</span></div></div><p class="note">Datos a fecha de 03,09.2026, 22:00</p>
+  <p class="note">Por ahora es una <b>cuenta demo de Tickmill</b> — con los mismos ajustes que en los cálculos y en el mismo servidor donde operará la cuenta real. Así se comprueba que la ejecución real coincide con la calculada. Al pasar a la cuenta real, el registro empieza de nuevo.</p>
 </section>
 
 <section>
-  <h2>Qué habrá aquí</h2>
-  <p><b>El widget de la plataforma.</b> Los datos los proporcionará el propio bróker, no nosotros:
-  las cifras no se pueden retocar ni escoger por periodos convenientes.</p>
-  <p><b>Una cuadrícula mensual</b> con el mismo formato que en la descripción de la estrategia: los años
-  en las filas y los meses en las columnas. Así el cálculo sobre el historial y el resultado real
-  pueden compararse directamente.</p>
-  <p><b>Una lista de operaciones</b>, cada una con su fecha, instrumento y resultado.</p>
-  <p class="note">Habrá divergencia respecto al cálculo sobre el historial, y es normal.
-  Las copias se abren a los precios de mercado del momento, y la diferencia se acumula
-  por el spread y el deslizamiento en cada operación. También la
-  mostraremos.</p>
+  <h2>Cómo va la cuenta</h2>
+  <p class="note">Las curvas se construyen con las operaciones cerradas de esta cuenta, no con el historial: esa es justamente la comprobación del cálculo con operativa real.</p>
+  <div class="card"><img src="../charts/live_growth.svg" alt="Rentabilidad de la cuenta en vivo, % del depósito" loading="lazy"></div>
+  <div class="card"><img src="../charts/live_drawdown.svg" alt="Caída de la cuenta en vivo desde el máximo" loading="lazy"></div>
+</section>
+
+<section>
+  <h2>Registro semanal</h2>
+  <p class="note">Se muestran semanas de una cuenta demo: por ahora es el cálculo puesto a prueba por la operativa real. Al iniciar la cuenta real, el registro empieza de nuevo y muestra solo esa cuenta.</p><div class="scroll"><table class="feed"><thead><tr><th>Semana</th><th style="text-align:right">Operaciones</th><th style="text-align:right">Resultado</th><th style="text-align:right">Crecimiento</th><th style="text-align:right">Caída</th><th style="text-align:right">Nivel</th></tr></thead><tbody><tr><th>2026-08-31 — 2026-09-06</th><td style="text-align:right">1</td><td style="text-align:right">-1,068</td><td style="text-align:right">-1,1%</td><td style="text-align:right">1,1%</td><td style="text-align:right"><span class="lvl ok">normal</span></td></tr></tbody></table></div>
+</section>
+
+<section>
+  <h2>Cómo se vigila el riesgo</h2>
+  <p><b>El control lo lleva un algoritmo observador</b>, no una persona según su ánimo. Funciona en el mismo servidor, lee el historial de la cuenta y compara dos cifras con umbrales fijados de antemano: la caída actual y la esperanza matemática de las últimas 100 operaciones. No toma decisiones de trading — solo mide e informa.</p>
+  <p>Umbrales de caída: hasta <b>25%</b> — normal, <b>25–36%</b> — atención, <b>36–44%</b> — análisis, por encima del <b>44%</b> — parada de la operativa. El nivel actual se ve en el registro semanal de arriba. Durante una caída los parámetros no se cambian: los ajustes se hicieron sobre todo el historial disponible, y adaptarlos a un mes malo rompería lo que costó años comprobar.</p>
+  <p class="note">De dónde salen estos umbrales, cómo se probaron sobre el historial y por qué no hay escalones intermedios — en la página <a href="backtest.html">Backtests</a>.</p>
 </section>
 <footer class="sitefoot">
   <span>w2w — cartera algorítmica</span>

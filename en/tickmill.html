@@ -36,6 +36,7 @@
 })();
 </script>
 </head><body>
+
 <div class="masthead">
   <a class="masthead-logo" href="index.html" aria-label="w2w">
 <svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
@@ -87,7 +88,8 @@
   </a>
   <div class="wip-sticker">work in progress</div>
 </div>
-<div class="navbar"><div class="navbar-in"><nav><a href="about.html">Author</a><a href="index.html">Strategy</a><a href="tickmill.html" class="on">How to join</a><a href="results.html">Results</a><a href="monitor.html">Oversight</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html">Results</a><a href="backtest.html">Backtests</a><a href="tickmill.html" class="on">How to join</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
   <h1>How to join</h1>
@@ -99,13 +101,41 @@
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>A broker account</th><td class="l">An active trading account with Tickmill — MT4 or MT5, any server. Demo, archived and restricted accounts do not qualify. The account must be <b>hedging</b>: the two algorithms work independently and may hold opposing positions on one instrument.</td></tr>
-    <tr><th>Deposit</th><td class="l">From <b>$1,000</b> at 1% risk per trade.
-      Below that, some positions will go at the minimum lot with inflated risk.
-      A detailed calculation for other risk levels is in the <a href="index.html">strategy description</a>.</td></tr>
-    <tr><th>Leverage</th><td class="l">From 1:100. No more than seven positions are open at once, and half the time no more than two, so there is margin to spare.</td></tr>
+    <tr><th>Minimum deposit</th><td class="l"><b>It depends on the risk
+      you choose.</b> The lower the risk per trade, the smaller the position size —
+      and the sooner it runs into the smallest lot the broker allows. What happens next
+      is not what it looks like: the trade still opens, but <b>at the minimum lot,
+      and its risk turns out larger than the one you set</b>. You will think you are risking
+      0.25%, while on some instruments the risk will be two or three times that.
+      <table style="margin-top:10px;width:auto">
+        <tr><th style="padding:4px 16px 4px 0">1% risk per trade</th>
+            <td style="text-align:left;padding:4px 0"><b>from $1,000</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">0.5% risk</th>
+            <td style="text-align:left;padding:4px 0"><b>from $1,500</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">0.25% risk</th>
+            <td style="text-align:left;padding:4px 0"><b>from $3,000</b></td></tr>
+      </table>
+      Gold is the most demanding of all: it has the highest cost per stop,
+      so the limit bites there first. For example: on a $1,000 deposit
+      at 0.25% risk some instruments will go at an inflated size,
+      and on gold the risk will exceed the one set by almost three times.</td></tr>
+    <tr><th>Leverage</th><td class="l">From 1:100. No more than seven positions are
+      open at once, and half the time no more than two, so the margin is ample.
+      At 1:500 the deposit load never exceeds 10%.</td></tr>
+    <tr><th>Account type</th><td class="l"><b>Hedging is mandatory</b>,
+      not netting. The algorithms are independent and may hold opposing positions
+      on one instrument; on a netting account the second trade would close the first,
+      and the result would diverge from the strategy. Execution is market; the instruments
+      are ordinary: currency pairs, gold, indices, oil.</td></tr>
     <tr><th>Terminal</th><td class="l"><b>Not needed.</b> Copying runs on the broker’s side: your terminal can be closed and your computer switched off. MetaTrader is only useful if you want to look at the trades yourself or close something by hand.</td></tr>
     </tbody></table></div>
   <p class="note">One trading account cannot be a strategy provider and a follower at the same time. If you already share a strategy of your own, a separate account will be needed for the subscription.</p>
+  <p class="note"><b>On divergence of results.</b> Copies open at current market
+  prices, so your result will not match the strategy exactly — the difference
+  accumulates from spread and slippage on every trade. At a flow of about
+  60 trades a month this is a noticeable amount, and the smaller the account, the larger it is
+  in percentage terms. A deposit from $1,000 and a stable connection reduce the divergence;
+  removing it entirely is impossible.</p>
 </section>
 
 <section>

@@ -36,6 +36,7 @@
 })();
 </script>
 </head><body>
+
 <div class="masthead">
   <a class="masthead-logo" href="index.html" aria-label="w2w">
 <svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
@@ -87,7 +88,8 @@
   </a>
   <div class="wip-sticker">страница наполняется</div>
 </div>
-<div class="navbar"><div class="navbar-in"><nav><a href="about.html">Автор</a><a href="index.html">Стратегия</a><a href="tickmill.html" class="on">Как подключиться</a><a href="results.html">Результаты</a><a href="monitor.html">Контроль</a></nav><div class="langsw" role="group" aria-label="Language"><a href="tickmill.html" hreflang="ru" class="on" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html">Результаты</a><a href="backtest.html">Бэктесты</a><a href="tickmill.html" class="on">Как подключиться</a><a href="about.html">Автор</a></nav><div class="langsw" role="group" aria-label="Language"><a href="tickmill.html" hreflang="ru" class="on" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
 <section>
   <h1>Как подключиться</h1>
@@ -99,14 +101,41 @@
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>Счёт у брокера</th><td class="l">Действующий торговый счёт в Tickmill — MT4 или MT5, любой сервер. Демо-счета, архивные и с ограничениями не подходят. Счёт должен быть <b>хеджинговым</b>: два алгоритма работают независимо и могут держать встречные позиции по одному инструменту.</td></tr>
-    <tr><th>Депозит</th><td class="l">От <b>1 000 $</b> при риске 1% на сделку.
-      Меньше — часть позиций пойдёт минимальным лотом с завышенным риском.
-      Подробный расчёт под другие уровни риска — в <a href="index.html">описании
-      стратегии</a>.</td></tr>
-    <tr><th>Плечо</th><td class="l">От 1:100. Одновременно открыто не больше семи позиций, а половину времени — не больше двух, так что запаса хватает с избытком.</td></tr>
+    <tr><th>Минимальный депозит</th><td class="l"><b>Зависит от того, какой риск
+      вы выбираете.</b> Чем меньше риск на сделку, тем меньше объём позиции —
+      и тем раньше он упирается в минимально возможный лот. Дальше происходит
+      не то, что кажется: сделка всё равно откроется, но <b>минимальным лотом,
+      и риск по ней окажется больше заданного</b>. Вы будете думать, что рискуете
+      0.25%, а по отдельным инструментам риск составит вдвое-втрое больше.
+      <table style="margin-top:10px;width:auto">
+        <tr><th style="padding:4px 16px 4px 0">риск 1% на сделку</th>
+            <td style="text-align:left;padding:4px 0"><b>от 1 000$</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">риск 0.5%</th>
+            <td style="text-align:left;padding:4px 0"><b>от 1 500$</b></td></tr>
+        <tr><th style="padding:4px 16px 4px 0">риск 0.25%</th>
+            <td style="text-align:left;padding:4px 0"><b>от 3 000$</b></td></tr>
+      </table>
+      Требовательнее всех золото: у него самая высокая стоимость стопа,
+      и на нём ограничение срабатывает первым. Для примера: при депозите 1 000$
+      и риске 0.25% часть инструментов пойдёт завышенным объёмом,
+      а по золоту риск превысит заданный почти втрое.</td></tr>
+    <tr><th>Плечо</th><td class="l">От 1:100. Одновременно открыто не больше
+      семи позиций, а половину времени — не больше двух, поэтому запаса хватает
+      с избытком. При 1:500 загрузка депозита не превышает 10%.</td></tr>
+    <tr><th>Тип счёта</th><td class="l"><b>Обязательно хеджинговый</b> (hedging),
+      не неттинговый. Алгоритмы независимы и могут держать встречные позиции
+      по одному инструменту; на неттинговом счёте вторая сделка закроет первую,
+      и результат разойдётся со стратегией. Исполнение — рыночное, инструменты
+      обычные: валютные пары, золото, индексы, нефть.</td></tr>
     <tr><th>Терминал</th><td class="l"><b>Не нужен.</b> Копирование выполняется на стороне брокера: ваш терминал может быть выключен, компьютер — тоже. MetaTrader понадобится только если вы захотите сами посмотреть сделки или закрыть что-то вручную.</td></tr>
     </tbody></table></div>
   <p class="note">Один торговый счёт не может быть одновременно поставщиком стратегии и подписчиком. Если вы уже делитесь своей стратегией, для подписки понадобится отдельный счёт.</p>
+  <p class="note"><b>О расхождении результатов.</b> Копии открываются по текущим рыночным
+  ценам, поэтому ваш результат не совпадёт со стратегией в точности — разница
+  накапливается из спреда и проскальзывания на каждой сделке. При потоке около
+  60 сделок в месяц это заметная величина, и чем меньше счёт, тем она больше
+  в процентах. Депозит от 1 000$ и стабильное подключение сокращают расхождение;
+  полностью убрать его нельзя.</p>
 </section>
 
 <section>
