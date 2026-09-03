@@ -6,19 +6,21 @@
   "account": 25367356,
   "server": "Tickmill-Demo",
   "account_type": "demo",
-  "balance": 100000.0,
-  "equity": 99954.86,
+  "balance": 98904.21,
+  "equity": 98505.02,
   "start_balance": 100000.0,
-  "trades_week": 0,
+  "trades_week": 1,
   "wins_week": 0,
-  "losses_week": 0,
-  "money_week": 0,
-  "pf_week": null,
-  "trades_total": 0,
-  "grow_total_pct": 0.0,
-  "dd_now_pct": 0.0,
-  "dd_max_pct": 0.0,
+  "losses_week": 1,
+  "money_week": -1067.56,
+  "pf_week": 0.0,
+  "trades_total": 1,
+  "grow_total_pct": -1.07,
+  "dd_now_pct": 1.07,
+  "dd_max_pct": 1.07,
   "level": "норма",
-  "symbols_week": []
+  "symbols_week": [
+   "USTEC"
+  ]
  }
 ]
