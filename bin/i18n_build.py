@@ -27,6 +27,12 @@ LANGS = ['ru','en','es']
 NAMES = {'ru':'RU','en':'EN','es':'ES'}
 HOST  = 'https://w2w-portfolio.github.io'
 KEY   = re.compile(r'\{\{([a-z][a-z0-9_.]*)\}\}')
+# Упоминание страницы в тексте: [[backtest]] разворачивается в ссылку с её
+# названием на нужном языке. На самоё себя страница не ссылается — остаётся
+# просто название. Так читателю не нужно искать, где про это сказано подробно.
+LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about)\]\]')
+NAVKEY = {'index': 'nav.home', 'results': 'nav.results', 'backtest': 'nav.backtest',
+          'tickmill': 'nav.connect', 'about': 'nav.author'}
 NUM   = re.compile(r'\{\{#(\d+)\}\}')
 # Разделитель тысяч: у русского — неразрывный пробел, у английского запятая,
 # у испанского точка. Маркер {{#3801}} в шаблоне разворачивается по языку.
@@ -64,6 +70,16 @@ def shell(page):
     head = (SITE/'tpl'/'_head.html').read_text(encoding='utf-8')
     head = head.replace('{{TITLE}}', '{{title.' + slug + '}}')
     return head, (SITE/'tpl'/'_masthead.html').read_text(encoding='utf-8')
+
+
+def links(html, page, d, ru):
+    def one(m):
+        slug = m.group(1)
+        key  = NAVKEY[slug]
+        name = d.get(key) or ru.get(key, slug)
+        href = slug + '.html'
+        return name if href == page else f'<a href="{href}">{name}</a>'
+    return LINK.sub(one, html)
 
 
 def part_html(name):
@@ -140,7 +156,7 @@ def build(lang, outdir):
             k = m.group(1)
             if k in d: return d[k]
             missing.append(k); return ru.get(k, m.group(0))
-        (outdir/f).write_text(KEY.sub(rep, tpl), encoding='utf-8')
+        (outdir/f).write_text(links(KEY.sub(rep, tpl), f, d, ru), encoding='utf-8')
     return missing
 
 if __name__ == '__main__':
