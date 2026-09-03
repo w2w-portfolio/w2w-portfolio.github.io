@@ -1,0 +1,24 @@
+[
+ {
+  "date": "2026-09-03",
+  "week_from": "2026-08-31",
+  "week_to": "2026-09-06",
+  "account": 25367356,
+  "server": "Tickmill-Demo",
+  "account_type": "demo",
+  "balance": 100000.0,
+  "equity": 100000.0,
+  "start_balance": 100000.0,
+  "trades_week": 0,
+  "wins_week": 0,
+  "losses_week": 0,
+  "money_week": 0,
+  "pf_week": null,
+  "trades_total": 0,
+  "grow_total_pct": 0.0,
+  "dd_now_pct": 0.0,
+  "dd_max_pct": 0.0,
+  "level": "норма",
+  "symbols_week": []
+ }
+]

@@ -97,16 +97,22 @@
 </section>
 
 <section>
-  <div class="soon">The feed will start filling up together with live trading.<br>
-  Each entry: date of the check, current drawdown, expectancy
-  over the last 100 trades, status under the rules and the actions taken.</div>
+  <h2>Live account</h2>
+  <p class="note">The portfolio trades on a Tickmill demo account with the same settings as in the calculations. The curves are built from closed trades of that account, not from history — this is the calculation tested by real trading.</p>
+  <div class="card"><img src="../charts/live_growth.svg" alt="Live account return, % of deposit" loading="lazy"></div>
+  <div class="card"><img src="../charts/live_drawdown.svg" alt="Live account drawdown from peak" loading="lazy"></div>
+</section>
+
+<section>
+  <h2>Weekly log</h2>
+  
 </section>
 
 <section>
   <h2>What exactly is checked</h2>
-  <p><b>Drawdown</b> answers the question “how much does it hurt right now”.
-  Thresholds: up to 27% — normal, 27–34% — attention, 34–41% — review,
-  above 41% — trading halted.</p>
+  <p><b>Drawdown</b> answers the question «how much does it hurt right now».
+  Thresholds: up to 25% — normal, 25–36% — attention, 36–44% — review,
+  above 44% — trading stops.</p>
   <p><b>Expectancy over 100 trades</b> answers the question
   “is the system still working”. The alarm threshold is below −0.05% per trade.</p>
   <p><b>The number of trades</b> is reconciled against the expected one: this is how
@@ -115,10 +121,10 @@
   <p class="note">The watcher makes no trading decisions and never
   intervenes in trades — it measures and reports. The actions for each level
   are defined in advance, before things get unpleasant. In detail —
-  in the <a href="index.html">strategy description</a>.</p>
+  in the <a href="index.html">Live account</a>.</p>
 </section>
 <footer class="sitefoot">
-  <span>w2w — an algorithmic portfolio</span>
-  <span>Calculations on 2021–2026 history. Not investment advice.</span>
+  <span>The portfolio trades on a Tickmill demo account with the same settings as in the calculations. The curves are built from closed trades of that account, not from history — this is the calculation tested by real trading.</span>
+  <span>Live account return, % of deposit</span>
 </footer>
 </div></body></html>

@@ -1,0 +1,57 @@
+name: Еженедельный отчёт
+
+# По субботам в 09:00 UTC (12:00 МСК) и вручную кнопкой.
+# Мак для этого не нужен: данные приезжают с VDS по публичной ссылке.
+on:
+  schedule:
+    - cron: '0 9 * * 6'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Скачать отчёты наблюдателя с Яндекс.Диска
+        env:
+          YD_PUBLIC: ${{ secrets.YD_PUBLIC }}
+        run: |
+          set -eu
+          mkdir -p live
+          for f in w2w_status.json w2w_trades.csv; do
+            url=$(curl -sG --data-urlencode "public_key=$YD_PUBLIC" \
+                        --data-urlencode "path=/$f" \
+                        https://cloud-api.yandex.net/v1/disk/public/resources/download \
+                  | python3 -c 'import sys,json; print(json.load(sys.stdin).get("href",""))')
+            if [ -z "$url" ]; then echo "не получена ссылка на $f"; exit 1; fi
+            curl -sL "$url" -o "live/$f"
+            echo "скачан $f: $(wc -c < "live/$f") байт"
+          done
+
+      - name: Собрать отчёт и страницы
+        env:
+          W2W_DATA: live
+        run: |
+          python3 bin/weekly_report.py
+          python3 bin/i18n_build.py
+
+      - name: Опубликовать, если что-то изменилось
+        run: |
+          git config user.name  'w2w'
+          git config user.email 'w2w@users.noreply.github.com'
+          rm -rf live
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'изменений нет'
+          else
+            git commit -m "отчёт за неделю $(date -u +%Y-%m-%d)"
+            git push
+          fi
