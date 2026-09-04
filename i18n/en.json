@@ -328,7 +328,7 @@
  "title.tickmill": "How to join — w2w",
  "title.about": "From the author — w2w",
  "res.h1": "Results",
- "res.lead": "The live account: what is actually happening, with no modelling and no assumptions.\nThe five-year history and its stress tests are kept separate — they are computed\non the past and live on the [[backtest]] page.",
+ "res.lead": "The live account: what is actually happening, with no modelling and no assumptions.\nThe figures are taken by an independent service connected directly to the broker account.\nThe five-year history and its stress tests are computed on the past and live on [[backtest]].",
  "res.demo": "For now this is a <b>Tickmill demo account</b> — same settings as in the calculations, on the same server where live trading will run. It checks that real execution matches the computed one. When the live account starts, the log begins anew.",
  "res.curves": "How the account is doing",
  "res.risk_h": "How risk is watched",

@@ -328,7 +328,7 @@
  "title.tickmill": "Cómo unirse — w2w",
  "title.about": "Del autor — w2w",
  "res.h1": "Resultados",
- "res.lead": "La cuenta real: lo que ocurre de verdad, sin cálculos ni supuestos.\nEl historial de cinco años y sus pruebas están aparte — se calculan sobre\nel pasado y viven en la página [[backtest]].",
+ "res.lead": "La cuenta real: lo que ocurre de verdad, sin cálculos ni supuestos.\nLas cifras las toma un servicio independiente conectado directamente a la cuenta del bróker.\nEl historial de cinco años y sus pruebas se calculan sobre el pasado y están en [[backtest]].",
  "res.demo": "Por ahora es una <b>cuenta demo de Tickmill</b> — con los mismos ajustes que en los cálculos y en el mismo servidor donde operará la cuenta real. Así se comprueba que la ejecución real coincide con la calculada. Al pasar a la cuenta real, el registro empieza de nuevo.",
  "res.curves": "Cómo va la cuenta",
  "res.risk_h": "Cómo se vigila el riesgo",
