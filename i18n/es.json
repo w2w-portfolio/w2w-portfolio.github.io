@@ -305,7 +305,7 @@
  "monitor.t023": "Resultado",
  "monitor.t024": "Crecimiento",
  "monitor.t025": "Caída",
- "monitor.t026": "Nivel",
+ "monitor.t026": "Control",
  "monitor.t027": "Se muestran semanas de una cuenta demo: por ahora es el cálculo puesto a prueba por la operativa real. Al iniciar la cuenta real, el registro empieza de nuevo y muestra solo esa cuenta.",
  "monitor.t028": "normal",
  "monitor.t029": "atención",
@@ -355,5 +355,10 @@
  "res.curves_note": "Las curvas se construyen con las operaciones cerradas de esta cuenta, no con el historial: esa es justamente la comprobación del cálculo con operativa real.",
  "nav.home": "la presentación",
  "src.a2": "Algoritmo 2 — 12 configuraciones",
- "src.a1": "Algoritmo 1 — 4 configuraciones"
+ "src.a1": "Algoritmo 1 — 4 configuraciones",
+ "res.mfb_h": "La cuenta, verificada por Myfxbook",
+ "res.mfb_note": "Estas cifras no las toma <b>el autor</b>, sino Myfxbook: un servicio independiente conectado directamente a la cuenta del bróker. La curva se actualiza sola; al hacer clic se abre la estadística completa.",
+ "res.mfb_alt": "Curva de rentabilidad de la cuenta, verificada por Myfxbook",
+ "res.mfb_link": "Ver la estadística completa en Myfxbook →",
+ "res.mfb_auto": "se actualiza automáticamente"
 }
