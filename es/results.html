@@ -104,11 +104,17 @@ el pasado y viven en la página <a href="backtest.html">Backtests</a>.</p>
   <p class="note">Por ahora es una <b>cuenta demo de Tickmill</b> — con los mismos ajustes que en los cálculos y en el mismo servidor donde operará la cuenta real. Así se comprueba que la ejecución real coincide con la calculada. Al pasar a la cuenta real, el registro empieza de nuevo.</p>
 </section>
 
+<!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
+     При переходе на боевой счёт меняются только id и title. -->
 <section>
-  <h2>Cómo va la cuenta</h2>
-  <p class="note">Las curvas se construyen con las operaciones cerradas de esta cuenta, no con el historial: esa es justamente la comprobación del cálculo con operativa real.</p>
-  <div class="card"><img src="../charts/live_growth.svg" alt="Rentabilidad de la cuenta en vivo, % del depósito" loading="lazy"></div>
-  <div class="card"><img src="../charts/live_drawdown.svg" alt="Caída de la cuenta en vivo desde el máximo" loading="lazy"></div>
+  <h2>La cuenta, verificada por Myfxbook</h2>
+  <p class="note">Estas cifras no las toma <b>el autor</b>, sino Myfxbook: un servicio independiente conectado directamente a la cuenta del bróker. La curva se actualiza sola; al hacer clic se abre la estadística completa.</p>
+  <div class="card" style="padding:14px">
+    <a href="https://www.myfxbook.com/members/SergeyYanyshev/tickmi%C4%BAl-100/9785578" target="_blank" rel="noopener">
+      <img class="mfb" alt="Curva de rentabilidad de la cuenta, verificada por Myfxbook" loading="lazy"
+        src="https://widgets.mfbcdn.net/custom-widget?id=9785578&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
+    <p class="mfb-foot"><span>Ver la estadística completa en Myfxbook →</span><span>se actualiza automáticamente</span></p>
+  </div>
 </section>
 
 <section>

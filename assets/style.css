@@ -236,3 +236,9 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .srccol .src th:nth-child(2),.srccol .src td:nth-child(2){width:17%}
 /* Шапка в узких колонках жмётся к соседке — уменьшаем кегль и добавляем воздух. */
 .srccol .src th{font-size:10.5px;letter-spacing:.02em;padding:7px 7px}
+
+/* Виджет Myfxbook — картинка 800×300 от площадки. Тянем по ширине карточки:
+   фон у него наш, поэтому шва не видно. */
+.mfb{display:block;width:100%;height:auto;border-radius:4px}
+.mfb-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+ font-size:13px;color:var(--ink-faint);margin:10px 0 0}
