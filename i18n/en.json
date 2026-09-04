@@ -297,7 +297,7 @@
  "index.t196": "The second limitation matters more than the first. In real life bad periods come in <b>streaks</b>: the market enters an unfavourable regime and instruments sink together for weeks. A random order breaks those streaks up. We shuffled by whole trading days to preserve at least the fact that instruments fall together within a day — but the link between weeks is lost all the same. So the table should be read as a <b>lower bound on trouble</b>, not as a full list of what is possible: a real prolonged drawdown may turn out deeper and longer. That is exactly what the trading halt threshold is for.",
  "monitor.t018": "Live account drawdown from peak",
  "monitor.t019": "Weekly log",
- "monitor.t020": "Trading started on 3 September 2026. The first entry will appear here at the end of the week.",
+ "monitor.t020": "The log updates automatically on Saturdays. The first entry will appear once the week is over.",
  "monitor.t021": "Week",
  "monitor.t022": "Trades",
  "monitor.t023": "Result",
@@ -365,5 +365,6 @@
  "home.algo2_n": "Algorithm 2",
  "home.algo1": "<b>Trades against a false breakout.</b> Price breaks yesterday’s high or low, fails to hold beyond it and comes back — the entry goes with the return. At most two trades a day per instrument, and the position is force-closed by the end of the session.",
  "home.algo2": "<b>Trades against an exhausted move.</b> After an impulse the price pulls back and shows a reversal sign — the entry goes against the impulse.",
- "home.algos_warn": "<b>Both are counter-trend logics</b>, and that is worth knowing: by their nature they do not insure each other — a market is conceivable where both end up on the wrong side. Their independence does not follow from the design, it is measured: correlation of results <b>−0.13</b>, losing days coincide no more often than chance would give, and in five years there was not a single month out of 61 where both algorithms were down."
+ "home.algos_warn": "<b>Both are counter-trend logics</b>, and that is worth knowing: by their nature they do not insure each other — a market is conceivable where both end up on the wrong side. Their independence does not follow from the design, it is measured: correlation of results <b>−0.13</b>, losing days coincide no more often than chance would give, and in five years there was not a single month out of 61 where both algorithms were down.",
+ "res.mfb_demo": "The chart currently shows a <b>demo account</b>. It runs the same portfolio and the same settings that will go live: this is how the whole chain gets tested — how trades are executed, how risk is measured and how alerts arrive. When live trading starts, the account changes and the count begins from zero."
 }

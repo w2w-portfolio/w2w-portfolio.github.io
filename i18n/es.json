@@ -297,7 +297,7 @@
  "index.t196": "La segunda limitación importa más que la primera. En la vida real los periodos malos vienen <b>en rachas</b>: el mercado entra en un régimen incómodo y los instrumentos caen juntos durante semanas. Un orden aleatorio rompe esas rachas. Barajamos por días de negociación completos para conservar al menos que los instrumentos caen juntos dentro de un mismo día, pero el vínculo entre semanas se pierde igualmente. Por eso la tabla debe leerse como un <b>límite inferior de los problemas</b>, no como la lista completa de lo posible: un drawdown prolongado real puede resultar más profundo y más largo. Justo para eso está fijado el umbral de detención de la operativa.",
  "monitor.t018": "Caída de la cuenta en vivo desde el máximo",
  "monitor.t019": "Registro semanal",
- "monitor.t020": "La operativa comenzó el 3 de septiembre de 2026. La primera entrada aparecerá aquí al final de la semana.",
+ "monitor.t020": "El registro se actualiza automáticamente los sábados. La primera entrada aparecerá al terminar la semana.",
  "monitor.t021": "Semana",
  "monitor.t022": "Operaciones",
  "monitor.t023": "Resultado",
@@ -365,5 +365,6 @@
  "home.algo2_n": "Algoritmo 2",
  "home.algo1": "<b>Opera contra la ruptura falsa.</b> El precio rompe el máximo o el mínimo del día anterior, no logra afianzarse y vuelve — la entrada acompaña ese regreso. Como mucho dos operaciones al día por instrumento, y la posición se cierra de forma forzosa al final de la sesión.",
  "home.algo2": "<b>Opera contra el movimiento agotado.</b> Tras el impulso el precio retrocede y muestra una señal de giro — la entrada va contra el impulso.",
- "home.algos_warn": "<b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo."
+ "home.algos_warn": "<b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo.",
+ "res.mfb_demo": "En el gráfico hay ahora una <b>cuenta demo</b>. Ejecuta la misma cartera y los mismos ajustes que operarán en real: así se comprueba toda la cadena — cómo se ejecutan las operaciones, cómo se mide el riesgo y cómo llegan los avisos. Cuando empiece la operativa real, la cuenta cambiará y la cuenta atrás empezará de cero."
 }
