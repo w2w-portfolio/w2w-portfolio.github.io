@@ -161,6 +161,17 @@ and everything is measured in percent of the deposit.</p>
 </section>
 
 <section>
+  <h2>How the two algorithms differ</h2>
+  <p>Their risk mechanics are the same — described above. The difference is in the signal that opens a trade.</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>Algorithm 1</th><td class="l"><b>Trades against a false breakout.</b> Price breaks yesterday’s high or low, fails to hold beyond it and comes back — the entry goes with the return. At most two trades a day per instrument, and the position is force-closed by the end of the session.</td></tr>
+    <tr><th>Algorithm 2</th><td class="l"><b>Trades against an exhausted move.</b> After an impulse the price pulls back and shows a reversal sign — the entry goes against the impulse.</td></tr>
+    </tbody></table></div>
+  <div class="note"><p><b>Both are counter-trend logics</b>, and that is worth knowing: by their nature they do not insure each other — a market is conceivable where both end up on the wrong side. Their independence does not follow from the design, it is measured: correlation of results <b>−0.13</b>, losing days coincide no more often than chance would give, and in five years there was not a single month out of 61 where both algorithms were down.</p></div>
+</section>
+
+<section>
   <h2>What comes next</h2>
   <p><b>This is the strategy’s debut on the platform.</b> The historical calculation exists; live
   statistics are only beginning (<a href="results.html">Results</a>) — and accumulating them is the main task right now.
@@ -202,9 +213,7 @@ and everything is measured in percent of the deposit.</p>
   in their design. A market regime in which both draw down simultaneously is theoretically
   possible. In five years of history this has never happened: there is not a single month
   out of 61 in which both would have ended negative.</p>
-  <p>Copying is executed at current market prices, so a subscriber’s result
-  will differ from the strategy’s. On accounts smaller than $1,000 the
-  divergence is noticeably larger because of rounding in position size.</p>
+  <p>Copying is executed at current market prices, so a subscriber’s result will differ from the strategy’s. On accounts below <b>$2,000</b> the gap is noticeably wider: the position size hits the minimum lot, and the risk on some instruments — gold above all — comes out higher than the one set.</p>
 </footer>
 
 <footer class="sitefoot">

@@ -101,24 +101,12 @@
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>A broker account</th><td class="l">An active trading account with Tickmill — MT4 or MT5, any server. Demo, archived and restricted accounts do not qualify. The account must be <b>hedging</b>: the two algorithms work independently and may hold opposing positions on one instrument.</td></tr>
-    <tr><th>Minimum deposit</th><td class="l"><b>It depends on the risk
-      you choose.</b> The lower the risk per trade, the smaller the position size —
-      and the sooner it runs into the smallest lot the broker allows. What happens next
-      is not what it looks like: the trade still opens, but <b>at the minimum lot,
-      and its risk turns out larger than the one you set</b>. You will think you are risking
-      0.25%, while on some instruments the risk will be two or three times that.
-      <table style="margin-top:10px;width:auto">
+    <tr><th>Minimum deposit</th><td class="l"><b>It depends on the risk you choose.</b> The smaller the risk per trade, the smaller the position — and the sooner it hits the smallest lot the broker allows. What follows is not what you would expect: the trade still opens, but <b>at the minimum lot, and its risk ends up larger than the one you set</b>. You would think you had lowered your risk, while lowering it only on paper.<table style="margin-top:10px;width:auto">
         <tr><th style="padding:4px 16px 4px 0">1% risk per trade</th>
-            <td style="text-align:left;padding:4px 0"><b>from $1,000</b></td></tr>
+            <td style="text-align:left;padding:4px 0"><b>from $2,000</b></td></tr>
         <tr><th style="padding:4px 16px 4px 0">0.5% risk</th>
-            <td style="text-align:left;padding:4px 0"><b>from $1,500</b></td></tr>
-        <tr><th style="padding:4px 16px 4px 0">0.25% risk</th>
             <td style="text-align:left;padding:4px 0"><b>from $3,000</b></td></tr>
-      </table>
-      Gold is the most demanding of all: it has the highest cost per stop,
-      so the limit bites there first. For example: on a $1,000 deposit
-      at 0.25% risk some instruments will go at an inflated size,
-      and on gold the risk will exceed the one set by almost three times.</td></tr>
+      </table> Gold is the most demanding: its stop costs the most, so the limit bites there first. The thresholds below are computed on 2026 trades rather than five-year averages: gold has doubled in price over that period and the cost of its stop has tripled, so the older averages would understate the requirement. For example, on a $1,000 deposit a declared 1% risk comes out at about 1.5% on gold, and a declared 0.5% comes out at 0.84% — nearly double what you chose.</td></tr>
     <tr><th>Leverage</th><td class="l">From 1:100. No more than seven positions are
       open at once, and half the time no more than two, so the margin is ample.
       At 1:500 the deposit load never exceeds 10%.</td></tr>

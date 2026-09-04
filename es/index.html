@@ -162,6 +162,17 @@ y todo se mide en porcentaje del depósito.</p>
 </section>
 
 <section>
+  <h2>En qué se diferencian los algoritmos</h2>
+  <p>La mecánica de riesgo es común y está descrita arriba. La diferencia está en la señal que abre la operación.</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>Algoritmo 1</th><td class="l"><b>Opera contra la ruptura falsa.</b> El precio rompe el máximo o el mínimo del día anterior, no logra afianzarse y vuelve — la entrada acompaña ese regreso. Como mucho dos operaciones al día por instrumento, y la posición se cierra de forma forzosa al final de la sesión.</td></tr>
+    <tr><th>Algoritmo 2</th><td class="l"><b>Opera contra el movimiento agotado.</b> Tras el impulso el precio retrocede y muestra una señal de giro — la entrada va contra el impulso.</td></tr>
+    </tbody></table></div>
+  <div class="note"><p><b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo.</p></div>
+</section>
+
+<section>
   <h2>Qué viene después</h2>
   <p><b>Este es el debut de la estrategia en la plataforma.</b> El cálculo sobre el historial existe; las
   estadísticas en vivo apenas comienzan (<a href="results.html">Resultados</a>), y acumularlas es ahora la tarea principal.
@@ -203,9 +214,7 @@ y todo se mide en porcentaje del depósito.</p>
   en su diseño. Es teóricamente posible un régimen de mercado en el que ambos caigan
   a la vez. En cinco años de historial no ha ocurrido nunca: no hay un solo mes
   de los 61 en que ambos hayan terminado en negativo.</p>
-  <p>La copia se ejecuta a los precios de mercado del momento, por lo que el resultado
-  del suscriptor diferirá del de la estrategia. En cuentas inferiores a 1.000 $ la
-  divergencia es bastante mayor debido al redondeo del volumen de la posición.</p>
+  <p>La copia se ejecuta a precios de mercado, por lo que el resultado del suscriptor será distinto del de la estrategia. En cuentas por debajo de <b>2 000$</b> la diferencia es bastante mayor: el volumen choca con el lote mínimo y el riesgo en algunos instrumentos —sobre todo el oro— resulta superior al fijado.</p>
 </footer>
 
 <footer class="sitefoot">
