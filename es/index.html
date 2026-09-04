@@ -126,6 +126,17 @@ y todo se mide en porcentaje del depósito.</p>
 <p class="note">Esto es un <b>cálculo sobre cinco años de historial</b>, no el resultado de operativa real. Cómo se obtuvo y qué queda en el peor de los casos está en la página <a href="backtest.html">Backtests</a>; lo que ocurre en la cuenta real, en <a href="results.html">Resultados</a>.</p>
 
 <section>
+  <h2>En qué se diferencian los algoritmos</h2>
+  <p>La diferencia está en la señal que abre la operación. La mecánica de riesgo es común y se describe en el apartado siguiente.</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>Algoritmo 1</th><td class="l"><b>Opera contra la ruptura falsa.</b> El precio rompe el máximo o el mínimo del día anterior, no logra afianzarse y vuelve — la entrada acompaña ese regreso. Como mucho dos operaciones al día por instrumento, y la posición se cierra de forma forzosa al final de la sesión.</td></tr>
+    <tr><th>Algoritmo 2</th><td class="l"><b>Opera contra el movimiento agotado.</b> Tras el impulso el precio retrocede y muestra una señal de giro — la entrada va contra el impulso.</td></tr>
+    </tbody></table></div>
+  <div class="note"><p><b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo.</p></div>
+</section>
+
+<section>
   <h2>Cómo funciona la operativa</h2>
   <p>La mecánica es idéntica en ambos algoritmos y no cambia de una operación a otra.</p>
   <div class="card" style="padding:0"><table>
@@ -162,18 +173,7 @@ y todo se mide en porcentaje del depósito.</p>
 </section>
 
 <section>
-  <h2>En qué se diferencian los algoritmos</h2>
-  <p>La mecánica de riesgo es común y está descrita arriba. La diferencia está en la señal que abre la operación.</p>
-  <div class="card" style="padding:0"><table>
-    <tbody>
-    <tr><th>Algoritmo 1</th><td class="l"><b>Opera contra la ruptura falsa.</b> El precio rompe el máximo o el mínimo del día anterior, no logra afianzarse y vuelve — la entrada acompaña ese regreso. Como mucho dos operaciones al día por instrumento, y la posición se cierra de forma forzosa al final de la sesión.</td></tr>
-    <tr><th>Algoritmo 2</th><td class="l"><b>Opera contra el movimiento agotado.</b> Tras el impulso el precio retrocede y muestra una señal de giro — la entrada va contra el impulso.</td></tr>
-    </tbody></table></div>
-  <div class="note"><p><b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo.</p></div>
-</section>
-
-<section>
-  <h2>Qué viene después</h2>
+  <h2>En qué punto está el proyecto</h2>
   <p><b>Este es el debut de la estrategia en la plataforma.</b> El cálculo sobre el historial existe; las
   estadísticas en vivo apenas comienzan (<a href="results.html">Resultados</a>), y acumularlas es ahora la tarea principal.
   El objetivo del próximo año: reunir un cuerpo completo de estadísticas de operativa real
