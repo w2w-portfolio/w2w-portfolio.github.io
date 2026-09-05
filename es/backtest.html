@@ -105,6 +105,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <p>Las cifras provienen de los <b>informes del probador de estrategias de MT5</b> sobre el historial de ticks del bróker — tal como los emite el terminal, sin retoques manuales. Cada instrumento se calculó en una cuenta propia, arriesgando el 1% de su saldo, igual que operará en real.</p>
   <p><b>Los costes ya están dentro del resultado:</b> spread, ambas comisiones y swap se restan en cada operación — así se mueve el saldo de verdad. La diferencia es notable: en el Algoritmo 2 los costes de cinco años se comieron <b>67 puntos porcentuales</b> de 814 y profundizaron la caída en 1.0 punto. Aquí no hay salidas idealizadas.</p>
   <p class="note">El periodo va del 18 de agosto de 2021 al 20 de agosto de 2026 — cinco años seguidos, sin elegir un tramo cómodo. Los ajustes no cambiaron en ese tiempo: lo que se calcula abajo es un mismo conjunto de parámetros sobre todo el historial.</p>
+  <p class="note">Todas las cifras aquí van en porcentaje del depósito. <b>R</b> es el riesgo de una operación, el 1% de la cuenta: 14,9R significa el 15% del depósito y, en una cuenta de 2 000 dólares, 300 dólares.</p>
 </section>
 
 <section>
@@ -150,6 +151,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   es regular: <b>+142%, +205%, +232%, +180%, +218%</b>; los cinco son rentables
   y ninguno aporta más de una cuarta parte del total. El resultado no se sostiene
   sobre un único año afortunado.</p>
+  <div class="note"><p><b>El conjunto no está congelado.</b> Cada nuevo instrumento pasa la misma selección: estabilidad en las dos mitades del historial, control de aleatoriedad, estimación de costes de ejecución y, sobre todo, su aporte a la cartera y no su rentabilidad propia. Lo que no pasa no se añade, aunque por sí solo sea rentable.</p></div>
 </section>
 
 <section>
@@ -308,9 +310,38 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
 </section>
 
 <section>
+  <h2>Cuántas veces seguidas puede fallar</h2>
+  <p>Solo el <b>38.4%</b> de las operaciones son ganadoras, así que las pérdidas llegan en rachas: es aritmética, no una avería. En cinco años hubo <b>793</b> rachas. Así de a menudo se dieron las largas:</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">pérdidas seguidas</th>
+      <th>veces en 5 años</th><th style="text-align:left">es decir</th></tr></thead>
+    <tbody>
+    <tr><th>5</th><td>48</td><td class="l">una vez al mes aproximadamente</td></tr>
+    <tr><th>7</th><td>22</td><td class="l">una vez cada tres meses</td></tr>
+    <tr><th>10 o más</th><td>8</td><td class="l">una vez cada ocho meses</td></tr>
+    <tr><th>14 — el récord</th><td>1</td><td class="l">una vez en todo el historial</td></tr>
+    </tbody></table></div>
+  <p>La racha más larga costó <b>14.9R</b>: con un riesgo del 1% eso es el <b>15% del depósito</b>, perdido sin una sola operación ganadora entre medias. Un algoritmo por separado encadena rachas más largas que la cartera: el Algoritmo 1 llegó a 17 seguidas y el oro a 23. La cartera las acorta porque sus fuentes pierden en días distintos.</p>
+  <div class="note"><p>Saber esto de antemano importa más que saber la rentabilidad. Las estrategias se abandonan no en la caída en sí, sino en la séptima u octava pérdida seguida, cuando parece que todo se ha roto. Según los números es un suceso corriente: ocurre varias veces al año.</p></div>
+</section>
+
+<section>
+  <h2>Y si el mercado abre más allá del stop</h2>
+  <p>El <b>Algoritmo 2</b> mantiene el 29% de sus posiciones toda la noche, y ese es el único punto donde la pérdida puede superar la calculada: si el mercado abre más allá del nivel del stop, la posición se cierra a peor precio. El <b>Algoritmo 1</b> cierra al final de la sesión y no está expuesto. Así se ve en 2 390 operaciones de cinco años:</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>un stop normal</th><td class="l">cuesta <b>1,02R</b>: el extra se va en spread y comisión</td></tr>
+    <tr><th>95 de cada cien operaciones</th><td class="l">se quedan dentro de <b>1,19R</b></td></tr>
+    <tr><th>nueve veces en cinco años</th><td class="l">la pérdida superó el riesgo en vez y media o más: unos dos casos al año</td></tr>
+    <tr><th>el peor caso</th><td class="l"><b>−5,93R en USDJPY</b>: la posición se abrió el viernes 3 de octubre de 2025 y pasó el fin de semana; el lunes el mercado abrió muy lejos del stop</td></tr>
+    </tbody></table></div>
+  <div class="note"><p>En el Algoritmo 1 no hubo <b>ninguno</b> en cinco años. El riesgo de hueco es real, pero raro y limitado a uno de los dos algoritmos: el que mantiene posiciones más de un día no está en la cartera.</p></div>
+</section>
+
+<section>
   <h2>Comprobación del orden de las operaciones</h2>
   <p>El historial transcurrió en un orden concreto de operaciones. Para saber
-  cuánto depende el resultado de ese orden, lo barajamos
+  cuánto depende el resultado de ese orden, lo barajé
   <b>20.000 veces</b> y observamos qué salía.</p>
   
     <h3 style="margin-top:24px">Cómo podría haber evolucionado la cuenta</h3>
@@ -428,7 +459,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
     <div><p>El suscriptor puede reducir a la mitad tanto la rentabilidad como el drawdown tomando
     un multiplicador de copia a la mitad: ambos escalan juntos.</p>
     <p><b>Tres meses sin un nuevo máximo son normales</b>, no una avería. Saberlo
-    de antemano importa: es en el cuarto mes de drawdown cuando se toman las peores decisiones.</p></div>
+    de antemano importa: es en el cuarto mes de drawdown cuando se toman las peores decisiones. En el historial real de cinco años la cuenta estuvo sin nuevo máximo como mucho <b>68 días</b>: del 22 de mayo al 29 de julio de 2026. Nunca hubo tramos de más de tres meses, aunque el barajado muestra que son posibles.</p></div>
   </div>
   <p class="note" style="margin-top:16px"><b>Lo que este método no puede hacer.</b> Barajar trabaja con las operaciones que ya ocurrieron. Si el mercado cambia de carácter —el oro entra en un rango de varios años, la volatilidad se desploma—, nada de eso está en estas veinte mil variantes: están hechas con el pasado.</p>
   <p class="note">La segunda limitación importa más que la primera. En la vida real los periodos malos vienen <b>en rachas</b>: el mercado entra en un régimen incómodo y los instrumentos caen juntos durante semanas. Un orden aleatorio rompe esas rachas. Barajamos por días de negociación completos para conservar al menos que los instrumentos caen juntos dentro de un mismo día, pero el vínculo entre semanas se pierde igualmente. Por eso la tabla debe leerse como un <b>límite inferior de los problemas</b>, no como la lista completa de lo posible: un drawdown prolongado real puede resultar más profundo y más largo. Justo para eso está fijado el umbral de detención de la operativa.</p>

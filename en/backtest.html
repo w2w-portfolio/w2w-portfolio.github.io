@@ -105,6 +105,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <p>The numbers come from <b>MT5 strategy tester reports</b> on the broker’s tick history — exactly as the terminal produces them, with no manual edits. Each instrument was computed on its own account, risking 1% of that account’s balance, the way it will actually trade.</p>
   <p><b>Costs are already inside the result:</b> spread, both commissions and swap are subtracted per trade — that is how the balance really moves. The difference is material: for Algorithm 2, five years of costs ate <b>67 percentage points</b> out of 814 and deepened the drawdown by 1.0 point. There are no idealised exits «exactly at the take» here.</p>
   <p class="note">The period is 18 August 2021 to 20 August 2026 — five consecutive years, with no convenient stretch picked out. The settings did not change over that time: what is computed below is one and the same set of parameters across the whole history.</p>
+  <p class="note">All figures here are in percent of the deposit. <b>R</b> is the risk of a single trade, 1% of the account: 14.9R means 15% of the deposit — on a $2,000 account, $300.</p>
 </section>
 
 <section>
@@ -150,6 +151,7 @@ is computed on the past, not the result of live trading. The live account is on 
   is even: <b>+142%, +205%, +232%, +180%, +218%</b> — all five are profitable,
   and none accounts for more than a quarter of the total. The result does not rest
   on a single lucky year.</p>
+  <div class="note"><p><b>The set is not frozen.</b> Every new instrument goes through the same selection: stability across both halves of the history, a randomness check, an estimate of execution costs and — most importantly — its contribution to the portfolio rather than its own return. What does not pass is not added, even if it is profitable on its own.</p></div>
 </section>
 
 <section>
@@ -308,9 +310,38 @@ is computed on the past, not the result of live trading. The live account is on 
 </section>
 
 <section>
+  <h2>How long a losing run can get</h2>
+  <p>Only <b>38.4%</b> of trades are winners, so losses come in runs — that is arithmetic, not a malfunction. Over five years there were <b>793</b> such runs. Here is how often the long ones happened:</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">losses in a row</th>
+      <th>times in 5 years</th><th style="text-align:left">that is</th></tr></thead>
+    <tbody>
+    <tr><th>5</th><td>48</td><td class="l">about once a month</td></tr>
+    <tr><th>7</th><td>22</td><td class="l">once in three months</td></tr>
+    <tr><th>10 or more</th><td>8</td><td class="l">once in eight months</td></tr>
+    <tr><th>14 — the record</th><td>1</td><td class="l">once in the whole history</td></tr>
+    </tbody></table></div>
+  <p>The longest run cost <b>14.9R</b> — at 1% risk that is <b>15% of the deposit</b>, lost without a single winning trade in between. A single algorithm runs longer than the portfolio: Algorithm 1 reached 17 in a row, gold alone 23. The portfolio shortens them because its sources lose on different days.</p>
+  <div class="note"><p>Knowing this in advance matters more than knowing the return. Strategies are abandoned not at the drawdown itself but at the seventh or eighth loss in a row, when it feels like everything is broken. By the numbers it is an ordinary event — it happens several times a year.</p></div>
+</section>
+
+<section>
+  <h2>What if the market opens beyond the stop</h2>
+  <p><b>Algorithm 2</b> carries 29% of its positions overnight — the only place where a loss can exceed the planned one: if the market opens beyond the stop level, the position closes at a worse price. <b>Algorithm 1</b> closes by the end of the session and is not exposed to this. Here is how it looks across 2,390 trades over five years:</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>a normal stop</th><td class="l">costs <b>1.02R</b> — the extra goes on spread and commission</td></tr>
+    <tr><th>95 trades out of a hundred</th><td class="l">stay within <b>1.19R</b></td></tr>
+    <tr><th>nine times in five years</th><td class="l">the loss exceeded the risk by half or more — about two cases a year</td></tr>
+    <tr><th>the worst case</th><td class="l"><b>−5.93R on USDJPY</b>: the position opened on Friday 3 October 2025 and survived the weekend; on Monday the market opened far beyond the stop</td></tr>
+    </tbody></table></div>
+  <div class="note"><p>For Algorithm 1 there were <b>none</b> in five years. The gap risk is real but rare, and confined to one algorithm of the two — the one that holds positions longer than a day is not in the portfolio at all.</p></div>
+</section>
+
+<section>
   <h2>Testing the order of trades</h2>
   <p>History happened to run in one particular order of trades. To see
-  how much the result depends on that order, we shuffled it
+  how much the result depends on that order, I shuffled it
   <b>20,000 times</b> and looked at what came out.</p>
   
     <h3 style="margin-top:24px">How the account might have gone</h3>
@@ -428,7 +459,7 @@ is computed on the past, not the result of live trading. The live account is on 
     <div><p>A subscriber can halve both the return and the drawdown by taking
     a half copy multiplier — they scale together.</p>
     <p><b>Three months without a new high is normal</b>, not a breakdown. Knowing this
-    in advance matters: it is in the fourth month of a drawdown that the worst decisions get made.</p></div>
+    in advance matters: it is in the fourth month of a drawdown that the worst decisions get made. In the actual five-year history the account went without a new high for at most <b>68 days</b> — from 22 May to 29 July 2026. Stretches longer than three months never happened, though the reshuffling shows they are possible.</p></div>
   </div>
   <p class="note" style="margin-top:16px"><b>What this method cannot do.</b> Shuffling works with the trades that have already happened. If the market changes character — gold enters a multi-year range, volatility collapses — none of that is in these twenty thousand variants: they are assembled from the past.</p>
   <p class="note">The second limitation matters more than the first. In real life bad periods come in <b>streaks</b>: the market enters an unfavourable regime and instruments sink together for weeks. A random order breaks those streaks up. We shuffled by whole trading days to preserve at least the fact that instruments fall together within a day — but the link between weeks is lost all the same. So the table should be read as a <b>lower bound on trouble</b>, not as a full list of what is possible: a real prolonged drawdown may turn out deeper and longer. That is exactly what the trading halt threshold is for.</p>

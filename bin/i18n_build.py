@@ -5,6 +5,7 @@
 # Помимо перевода строк подставляет четыре служебных маркера:
 #   {{LANG}}       — код языка в <html lang=...>
 #   {{FEED}}       — лента недель из site/tables/weekly.html (строит weekly_report.py)
+#   {{LIVE}}       — таблица живых цифр рядом с расчётными (он же)
 #   {{BASE}}       — путь к assets/ ('' из корня, '../' из подпапки)
 #   {{HREFLANG}}   — ссылки на языковые версии для поисковиков
 #   {{LANGSWITCH}} — переключатель в шапке; ссылки готовые, работает без JS
@@ -143,6 +144,7 @@ def build(lang, outdir):
                   .replace('{{HREFLANG}}', hreflang(f))
                   .replace('{{LANGSWITCH}}', langswitch(f, lang))
                   .replace('{{FEED}}', part_html('weekly.html'))
+                  .replace('{{LIVE}}', part_html('live.html'))
                   .replace('{{PULSE}}', part_html('pulse.html')))
         # Эпиграф Франклина уже приведён в оригинале, по-английски. На английской
         # странице перевод под ним был бы повтором той же строки — убираем.

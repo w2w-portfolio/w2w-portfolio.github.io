@@ -188,6 +188,52 @@ def render_feed(arch):
     (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
 
 
+def render_live(st, trades, base):
+    """Таблица «что показывает живой счёт» — рядом с расчётными значениями.
+
+    Пять строк, по которым инвестор проверяет чужую статистику: срок работы,
+    число сделок, доля прибыльных, профит-фактор, средний RR и просадка.
+    Смысл в правой колонке: читатель сразу видит, сходится живое с расчётом
+    или нет, и не должен искать эти числа по другим страницам.
+    """
+    TABLES.mkdir(parents=True, exist_ok=True)
+    wins = [t for t in trades if t['money'] > 0]
+    loss = [t for t in trades if t['money'] <= 0]
+    gp = sum(t['money'] for t in wins)
+    gl = -sum(t['money'] for t in loss)
+    pf = gp / gl if gl > 0 else 0.0
+    avg_win = gp / len(wins) if wins else 0.0
+    avg_loss = gl / len(loss) if loss else 0.0
+    rr = avg_win / avg_loss if avg_loss > 0 else 0.0
+    pts = curve(trades, base)
+    dd_max = max((p['dd'] for p in pts), default=0.0)
+    since = trades[0]['t'].strftime('%d.%m.%Y') if trades else '—'
+    n = len(trades)
+
+    # «—» вместо процентов, пока сделок совсем мало: доля от трёх сделок
+    # это не статистика, а случайность, и показывать её числом нечестно
+    few = n < 5
+    rows = [
+        ('{{live.since}}', since, '{{live.since_bt}}'),
+        ('{{live.deposit}}', f'{base:,.0f}'.replace(',', '\u202f'), '{{live.deposit_bt}}'),
+        ('{{live.trades}}', str(n), '3\u202f291'),
+        ('{{live.winrate}}', '—' if few else f'{100*len(wins)/n:.0f}%', '38.4%'),
+        ('{{live.pf}}', '—' if few else f'{pf:.2f}', '1.5'),
+        ('{{live.rr}}', '—' if few else f'{rr:.2f}', '2.39'),
+        ('{{live.dd}}', f'{dd_max:.1f}%', '22.6%'),
+    ]
+    body = ''.join(
+        f'<tr><th>{k}</th><td class="l">{v}</td><td class="l">{b}</td></tr>'
+        for k, v, b in rows)
+    html = ('<div class="card" style="padding:0"><table>'
+            '<thead><tr><th style="text-align:left">{{live.col1}}</th>'
+            '<th style="text-align:left">{{live.col2}}</th>'
+            '<th style="text-align:left">{{live.col3}}</th></tr></thead>'
+            f'<tbody>{body}</tbody></table></div>')
+    (TABLES / 'live.html').write_text(html, encoding='utf-8')
+    return n
+
+
 def render_pulse(st, trades, base):
     """Пульс: состояние счёта на сейчас. Обновляется чаще ленты — раз в час,
     поэтому видно, что счёт живой, а не замер неделю назад."""
@@ -318,6 +364,7 @@ def main():
     ARCHIVE.write_text(json.dumps(arch, ensure_ascii=False, indent=1), encoding='utf-8')
 
     render_feed(arch)
+    render_live(st, trades, base)
     render_pulse(st, trades, base)
     svg_line(pts, 'grow', '#4db6a0', 'Доходность, % депозита', 'live_growth.svg')
     svg_line(pts, 'dd', '#c9705c', 'Просадка от максимума, %', 'live_drawdown.svg', invert=True)
