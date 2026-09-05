@@ -1,1 +1,31 @@
-[]
+[
+ {
+  "date": "2026-09-05",
+  "week_from": "2026-08-31",
+  "week_to": "2026-09-06",
+  "account": 25367356,
+  "server": "Tickmill-Demo",
+  "account_type": "demo",
+  "balance": 102521.0,
+  "equity": 102681.9,
+  "start_balance": 100000.0,
+  "trades_week": 7,
+  "wins_week": 4,
+  "losses_week": 3,
+  "money_week": 2567.23,
+  "pf_week": 1.83,
+  "trades_total": 7,
+  "grow_total_pct": 2.57,
+  "dd_now_pct": 0.26,
+  "dd_max_pct": 2.05,
+  "level": "норма",
+  "symbols_week": [
+   "BRENT",
+   "EURUSD",
+   "US500",
+   "USDCAD",
+   "USTEC",
+   "XAUUSD"
+  ]
+ }
+]
