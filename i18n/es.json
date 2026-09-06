@@ -86,7 +86,7 @@
  "index.t058": "<i style=\"background:var(--series-2)\"></i>Algoritmo 1",
  "index.t153": "<i style=\"background:var(--series-2)\"></i>Algoritmo 1",
  "index.t059": "<i style=\"background:var(--series-3)\"></i>conjunto",
- "index.t060": "Por separado, el Algoritmo 2 tuvo un drawdown del <b>17,6%</b> y el Algoritmo 1 del\n  <b>13,0%</b>, sumando un 30,6%. El drawdown de la cartera es del\n  <b>17,6%</b>: el riesgo se amortigua porque los algoritmos pierden en días distintos.\n  Esto está medido, no afirmado: en 556 días de operativa conjunta ambos estuvieron en negativo\n  144 veces frente a las 153 esperadas por azar.",
+ "index.t060": "Por separado, el Algoritmo 2 tuvo un drawdown del <b>17,6%</b> y el Algoritmo 1 del <b>13,0%</b>, sumando un 30,6%. El drawdown de la cartera se quedó en <b>17,6%</b>, el mismo que el del Algoritmo 2 en solitario, mientras el resultado subía del 729% al 983%. Eso es lo que aporta combinarlos: los cuatro setups del Algoritmo 1 sumaron <b>+254%</b> y ni un punto de drawdown, y la relación entre resultado y drawdown pasó de 41 a 56. Esto está medido, no afirmado: en 556 días de operativa conjunta ambos estuvieron en negativo 144 veces frente a las 153 esperadas por azar.",
  "index.t061": "Balance y equity",
  "index.t062": "Todo lo mostrado arriba está calculado <b>sobre el balance</b>, es decir, sobre operaciones cerradas.\n  Pero mientras una posición está abierta la cuenta fluctúa, y en la pantalla aparece otra cifra:\n  el <b>equity</b>, los fondos junto con el resultado flotante. Su drawdown es más profundo,\n  y es el equity lo que usted verá en su propia cuenta.",
  "index.a189": "Drawdown sobre balance y sobre equity",

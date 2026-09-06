@@ -86,7 +86,7 @@
  "index.t058": "<i style=\"background:var(--series-2)\"></i>Algorithm 1",
  "index.t153": "<i style=\"background:var(--series-2)\"></i>Algorithm 1",
  "index.t059": "<i style=\"background:var(--series-3)\"></i>combined",
- "index.t060": "Separately, Algorithm 2 drew down <b>17.6%</b> and Algorithm 1 <b>13.0%</b>,\n  summing to 30.6%. The portfolio drawdown is\n  <b>17.6%</b>: risk is dampened because the algorithms lose on different days.\n  This is measured, not asserted — across 556 days of joint trading both were negative\n  144 times against 153 expected by chance.",
+ "index.t060": "Separately, Algorithm 2 drew down <b>17.6%</b> and Algorithm 1 <b>13.0%</b>, summing to 30.6%. The portfolio drawdown stayed at <b>17.6%</b> — exactly that of Algorithm 2 alone — while the result grew from 729% to 983%. That is what combining them buys: the four setups of Algorithm 1 added <b>+254%</b> and not a single percent of drawdown, and the ratio of result to drawdown rose from 41 to 56. This is measured, not asserted — across 556 days of joint trading both were negative 144 times against 153 expected by chance.",
  "index.t061": "Balance and equity",
  "index.t062": "Everything shown above is calculated <b>on balance</b> — on closed trades.\n  But while a position is open the account fluctuates, and the screen shows a different figure —\n  <b>equity</b>, the funds together with the floating result. Its drawdown is deeper,\n  and it is equity that you will see in your own account.",
  "index.a189": "Drawdown on balance and on equity",
