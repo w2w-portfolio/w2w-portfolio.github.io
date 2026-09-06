@@ -316,7 +316,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <p>Only <b>38.4%</b> of trades are winners, so losses come in runs — that is arithmetic, not a malfunction. Over five years there were <b>793</b> such runs. Here is how often the long ones happened:</p>
   <div class="card" style="padding:0"><table>
     <thead><tr><th style="text-align:left">losses in a row</th>
-      <th>times in 5 years</th><th style="text-align:left">that is</th></tr></thead>
+      <th style="text-align:right">times in 5 years</th><th style="text-align:left">that is</th></tr></thead>
     <tbody>
     <tr><th>5</th><td>48</td><td class="l">about once a month</td></tr>
     <tr><th>7</th><td>22</td><td class="l">once in three months</td></tr>
@@ -335,7 +335,9 @@ is computed on the past, not the result of live trading. The live account is on 
     <tr><th>a normal stop</th><td class="l">costs <b>1.02R</b> — the extra goes on spread and commission</td></tr>
     <tr><th>95 trades out of a hundred</th><td class="l">stay within <b>1.19R</b></td></tr>
     <tr><th>nine times in five years</th><td class="l">the loss exceeded the risk by half or more — about two cases a year</td></tr>
+    <tr><th>the average loss in those nine</th><td class="l"><b>2.09R</b>, median 1.59R; without the heaviest case, 1.61R</td></tr>
     <tr><th>the worst case</th><td class="l"><b>−5.93R on USDJPY</b>: the position opened on Friday 3 October 2025 and survived the weekend; on Monday the market opened far beyond the stop</td></tr>
+    <tr><th>over the last 12 months</th><td class="l"><b>one case</b> in 470 trades — the October one; in 2026, none in 277 trades</td></tr>
     </tbody></table></div>
   <div class="note"><p>For Algorithm 1 there were <b>none</b> in five years. The gap risk is real but rare, and confined to one algorithm of the two — the one that holds positions longer than a day is not in the portfolio at all.</p></div>
 </section>
