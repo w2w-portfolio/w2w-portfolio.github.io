@@ -368,6 +368,42 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
     <tr><th>en los últimos 12 meses</th><td class="l"><b>un caso</b> en 470 operaciones, el de octubre; en 2026, ninguno en 277 operaciones</td></tr>
     </tbody></table></div>
   <div class="note"><p>En el Algoritmo 1 no hubo <b>ninguno</b> en cinco años. El riesgo de hueco es real, pero raro y limitado a uno de los dos algoritmos: el que mantiene posiciones más de un día no está en la cartera.</p></div>
+
+  <h3 style="margin-top:26px">¿Y hay huecos a nuestro favor?</h3>
+  <p>Los hay, y casi tantos. El mismo mecanismo funciona en ambos sentidos: el precio salta por encima del take-profit igual que del stop, la operación se cierra donde hubo contraparte y el beneficio sale mayor que el previsto. Esto se mide con precios, no con el resultado: el comentario de la operación guarda el nivel que saltó y el informe, el precio al que se cerró de verdad. La diferencia entre ambos, dividida por la distancia de la entrada al stop, es el desplazamiento en unidades de R. De 3.291 operaciones, <b>3.044</b> se cerraron en un nivel; las demás las cerró la lógica del algoritmo y no tienen nivel que fallar.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">huecos</th>
+      <th style="text-align:right">operaciones</th>
+      <th style="text-align:right">medio</th>
+      <th style="text-align:right">extremo</th>
+      <th style="text-align:right">suma</th></tr></thead>
+    <tbody>
+    <tr><th>en contra</th><td>37</td><td>−0,27R</td><td>−4,97R</td><td>−9,9R</td></tr>
+    <tr><th>a favor</th><td>34</td><td>+0,34R</td><td>+1,60R</td><td>+11,4R</td></tr>
+    </tbody></table></div>
+  <p>El total de cinco años es de <b>−2,9R</b>: los huecos se comieron tres décimas de punto porcentual del resultado del 983%. Están igualados tanto en número (37 frente a 34) como en tamaño: el caso más grave es en contra, la media más alta es a favor. Los extremos: <b>−4,97R</b> en USDJPY el 6 de octubre de 2025 y <b>+1,60R</b> en BRENT el 13 de abril de 2026. El Algoritmo 1 tiene <b>cero</b> huecos en cinco años sobre 656 operaciones cerradas en un nivel, en ninguna dirección.</p>
+  <div class="note"><p>Un límite importante de este cálculo: esto es el <b>probador</b>, no una cuenta real. En el probador no hay deslizamiento de ejecución: solo se ven los huecos reales de las cotizaciones. En una cuenta real el lado «en contra» será algo más pesado y el lado «a favor», parecido. Por eso −2,9R debe leerse como una cota inferior del coste, no como una promesa.</p></div>
+</section>
+
+<section>
+  <h2>¿Crece el riesgo año tras año?</h2>
+  <p>Es la pregunta que conviene hacerle a cualquier autor de una estrategia: ¿sube el riesgo tras una buena racha?, ¿dobla la apuesta tras las pérdidas? Una curva bonita no responde a nada de esto: un riesgo creciente es justo lo que dibuja una curva bonita, hasta que liquida la cuenta. Lo resuelven dos números, y ambos salen de operaciones reales y no de los ajustes.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">año</th>
+      <th style="text-align:right">pérdida media</th>
+      <th style="text-align:right">posiciones a la vez</th>
+      <th style="text-align:right">máximo</th></tr></thead>
+    <tbody>
+    <tr><th>2021</th><td>−1,02R</td><td>2</td><td>7</td></tr>
+    <tr><th>2022</th><td>−0,98R</td><td>2</td><td>5</td></tr>
+    <tr><th>2023</th><td>−0,97R</td><td>2</td><td>7</td></tr>
+    <tr><th>2024</th><td>−0,97R</td><td>2</td><td>6</td></tr>
+    <tr><th>2025</th><td>−1,00R</td><td>2</td><td>7</td></tr>
+    <tr><th>2026</th><td>−0,98R</td><td>2</td><td>5</td></tr>
+    </tbody></table></div>
+  <p>El primero es <b>cuánto cuesta de verdad una operación perdedora</b>. El riesgo declarado es del 1% del depósito; si el stop aguanta, la pérdida media se mantiene cerca de −1R en cualquier año. En seis años nunca salió del intervalo de <b>−0,97R a −1,02R</b>: una amplitud de cinco centésimas. La mediana ni se mueve: −1,01R y −1,02R, año tras año.</p>
+  <p>El segundo es <b>cuántas posiciones están abiertas a la vez</b>: dieciséis fuentes al 1% permitirían hasta un 16% de riesgo simultáneo, y ahí está el peligro de una cartera, no en una operación suelta. La mediana es de <b>dos posiciones</b> en cada uno de los seis años, el 95% del tiempo no hay más de cuatro abiertas y el máximo histórico es siete. Con cinco o más posiciones a la vez la cartera estuvo el <b>1,2% del tiempo</b>.</p>
+  <div class="note"><p>La ocupación está ponderada por tiempo y no por número de operaciones: «mediana dos» significa que durante la mitad de todas las horas no hubo más de dos posiciones abiertas; de otro modo una operación larga contaría igual que una de una hora. Los fines de semana se incluyen: una posición mantenida durante el fin de semana está en riesgo todas esas horas, y es justo entonces cuando ocurre el hueco de apertura.</p></div>
 </section>
 
 <section>

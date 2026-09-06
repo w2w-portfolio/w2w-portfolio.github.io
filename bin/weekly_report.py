@@ -84,6 +84,10 @@ def data_age(st):
     return (now - t).total_seconds() / 3600, True
 
 
+# День, когда портфель пошёл на реальном счёте Tickmill.
+LIVE_START = '07.09.2026'
+
+
 def load_status():
     p = MT5 / 'w2w_status.json'
     if not p.exists():
@@ -219,7 +223,10 @@ def render_live(st, trades, base):
     rr = avg_win / avg_loss if avg_loss > 0 else 0.0
     pts = curve(trades, base)
     dd_max = max((p['dd'] for p in pts), default=0.0)
-    since = trades[0]['t'].strftime('%d.%m.%Y') if trades else '—'
+    # Счёт торгует с даты запуска, а не с первой закрытой сделки:
+    # между ними может пройти несколько дней, и прочерк в этой строке
+    # читался бы как «неизвестно когда».
+    since = LIVE_START
     n = len(trades)
 
     # «—» вместо процентов, пока сделок совсем мало: доля от трёх сделок

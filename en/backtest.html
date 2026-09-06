@@ -368,6 +368,42 @@ is computed on the past, not the result of live trading. The live account is on 
     <tr><th>over the last 12 months</th><td class="l"><b>one case</b> in 470 trades — the October one; in 2026, none in 277 trades</td></tr>
     </tbody></table></div>
   <div class="note"><p>For Algorithm 1 there were <b>none</b> in five years. The gap risk is real but rare, and confined to one algorithm of the two — the one that holds positions longer than a day is not in the portfolio at all.</p></div>
+
+  <h3 style="margin-top:26px">And do gaps ever fall in our favour?</h3>
+  <p>They do, and almost as often. The same mechanism works both ways: price jumps over the take-profit as well as the stop, the trade closes wherever a counterparty was found, and the profit comes out larger than planned. This is measured from prices rather than from the result: the trade comment holds the level that triggered, the report holds the price at which it actually closed. The difference between them, divided by the distance from entry to stop, is the shift in units of R. Of 3,291 trades, <b>3,044</b> closed at a level; the rest were closed by the algorithm’s own logic and have no level to miss.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">gaps</th>
+      <th style="text-align:right">trades</th>
+      <th style="text-align:right">average</th>
+      <th style="text-align:right">extreme</th>
+      <th style="text-align:right">total</th></tr></thead>
+    <tbody>
+    <tr><th>against us</th><td>37</td><td>−0.27R</td><td>−4.97R</td><td>−9.9R</td></tr>
+    <tr><th>in our favour</th><td>34</td><td>+0.34R</td><td>+1.60R</td><td>+11.4R</td></tr>
+    </tbody></table></div>
+  <p>The five-year total is <b>−2.9R</b> — gaps ate three tenths of a percent of the 983% result. They are evenly matched both in count (37 against 34) and in size: the heaviest single case is against us, the higher average is in our favour. The extremes: <b>−4.97R</b> on USDJPY on 6 October 2025 and <b>+1.60R</b> on BRENT on 13 April 2026. Algorithm 1 has <b>zero</b> gaps over five years out of 656 trades closed at a level — in either direction.</p>
+  <div class="note"><p>An important limit of this calculation: this is the <b>tester</b>, not a live account. The tester has no execution slippage — only genuine gaps in the quotes show up. On a live account the “against us” side will be somewhat heavier and the “in our favour” side about the same. So −2.9R should be read as a lower bound on the cost, not as a promise.</p></div>
+</section>
+
+<section>
+  <h2>Does the risk creep up year by year?</h2>
+  <p>This is the question worth asking any strategy author: does he push the risk up after a good run, or double down after losses? An attractive equity curve answers none of it — rising risk is exactly what draws an attractive curve, right up until it kills the account. Two numbers settle it, and both are taken from actual trades rather than from settings.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">year</th>
+      <th style="text-align:right">average loss</th>
+      <th style="text-align:right">positions at once</th>
+      <th style="text-align:right">peak</th></tr></thead>
+    <tbody>
+    <tr><th>2021</th><td>−1.02R</td><td>2</td><td>7</td></tr>
+    <tr><th>2022</th><td>−0.98R</td><td>2</td><td>5</td></tr>
+    <tr><th>2023</th><td>−0.97R</td><td>2</td><td>7</td></tr>
+    <tr><th>2024</th><td>−0.97R</td><td>2</td><td>6</td></tr>
+    <tr><th>2025</th><td>−1.00R</td><td>2</td><td>7</td></tr>
+    <tr><th>2026</th><td>−0.98R</td><td>2</td><td>5</td></tr>
+    </tbody></table></div>
+  <p>The first is <b>what a losing trade actually costs</b>. The declared risk is 1% of the deposit; if the stop holds, the average loss stays near −1R in any year. Over six years it never left the range from <b>−0.97R to −1.02R</b>: a spread of five hundredths. The median does not move at all — −1.01R and −1.02R, year after year.</p>
+  <p>The second is <b>how many positions are open at once</b>: sixteen sources at 1% each would allow up to 16% of risk at a time, and that is where a portfolio’s danger lives, not in a single trade. The median is <b>two positions</b> in each of the six years, 95% of the time no more than four are open, and the all-time peak is seven. The portfolio stood with five or more positions for <b>1.2% of the time</b>.</p>
+  <div class="note"><p>Occupancy is weighted by time, not by trade count: “median two” means that for half of all hours no more than two positions were open — otherwise one long trade would count the same as an hour-long one. Weekends are included: a position carried through the weekend is at risk for every one of those hours, and that is exactly when a gap at the open happens.</p></div>
 </section>
 
 <section>
