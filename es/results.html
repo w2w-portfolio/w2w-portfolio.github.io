@@ -125,7 +125,6 @@
   <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
 </svg>
   </a>
-  <div class="wip-sticker">en construcción</div>
 </div>
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html" class="on">Resultados</a><a href="backtest.html">Backtests</a><a href="tickmill.html">Cómo unirse</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
@@ -137,33 +136,45 @@ Las cifras las toma un servicio independiente conectado directamente a la cuenta
 El historial de cinco años y sus pruebas se calculan sobre el pasado y están en <a href="backtest.html">Backtests</a>.</p>
 </section>
 
-<!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
-     При переходе на боевой счёт меняются только id и title. -->
+<!-- Карточка на площадке копирования. Страница виджета длинная (около 3300px),
+     поэтому высота фиксирована, а прокрутка идёт внутри рамки. -->
+<section>
+  <h2>La ficha de la estrategia en Tickmill</h2>
+  <p class="note">La primera fuente es la propia plataforma donde ocurre la copia: el puesto en el ranking, el saldo, la rentabilidad y el drawdown los calcula ella, no yo. El recuento de la ficha empieza el <b>7 de septiembre de 2026</b>.</p>
+  <div class="card" style="padding:14px">
+    <iframe class="tmw" title="Ficha de la estrategia w2w-portfolio en Tickmill Social Trading" loading="lazy"
+      src="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark"></iframe>
+    <p class="mfb-foot">
+      <span><a href="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark" target="_blank" rel="noopener">Abrir la ficha en la plataforma →</a></span>
+      <span>lo calcula la plataforma</span></p>
+  </div>
+</section>
+
 <!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
      При переходе на боевой счёт меняются только id и title. -->
 <section>
   <h2>La cuenta, verificada por Myfxbook</h2>
   <p class="note">Estas cifras no las toma <b>el autor</b>, sino Myfxbook: un servicio independiente conectado directamente a la cuenta del bróker. La curva se actualiza sola; al hacer clic se abre la estadística completa.</p>
   <div class="card" style="padding:14px">
-    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-demo/12184976" target="_blank" rel="noopener">
+    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-portfolio/12189213" target="_blank" rel="noopener">
       <img class="mfb" alt="Curva de rentabilidad de la cuenta, verificada por Myfxbook" loading="lazy"
-        src="https://widgets.mfbcdn.net/custom-widget?id=12184976&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
+        src="https://widgets.mfbcdn.net/custom-widget?id=12189213&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w-portfolio&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
     <p class="mfb-foot"><span>Ver la estadística completa en Myfxbook →</span><span>se actualiza automáticamente</span></p>
   </div>
-  <div class="note"><p>En el gráfico hay ahora una <b>cuenta demo</b>. Ejecuta la misma cartera y los mismos ajustes que operarán en real: así se comprueba toda la cadena — cómo se ejecutan las operaciones, cómo se mide el riesgo y cómo llegan los avisos. Cuando empiece la operativa real, la cuenta cambiará y la cuenta atrás empezará de cero.</p></div>
+  <div class="note"><p>La cuenta es <b>real</b>, está en Tickmill y conectada a Myfxbook mediante una contraseña de inversor: solo de lectura, con ella no se puede operar. Se han superado las dos comprobaciones del servicio: el historial está verificado contra los datos que él mismo toma del bróker y los permisos de acceso están confirmados. Las operaciones cerradas se ven por completo; las posiciones abiertas quedan ocultas, porque de otro modo la estrategia podría repetirse a mano sin suscribirse. El recuento empieza el <b>7 de septiembre de 2026</b>.</p></div>
 </section>
 
 <section>
   <h2>Qué muestra la cuenta real</h2>
   <p class="note">Las cinco líneas con las que se comprueba la estadística ajena, y al lado las mismas del cálculo histórico: así se ve si lo real coincide con lo calculado.</p>
-  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">cuenta real</th><th style="text-align:left">calculado</th></tr></thead><tbody><tr><th>opera desde</th><td class="l">03,09.2026</td><td class="l">5 años de historial</td></tr><tr><th>depósito inicial</th><td class="l">100 000</td><td class="l">10 000 por fuente</td></tr><tr><th>operaciones</th><td class="l">7</td><td class="l">3 291</td></tr><tr><th>ganadoras</th><td class="l">57%</td><td class="l">38,4%</td></tr><tr><th>factor de beneficio</th><td class="l">1,83</td><td class="l">1,5</td></tr><tr><th>RR medio</th><td class="l">1,38</td><td class="l">2,39</td></tr><tr><th>caída máxima</th><td class="l">2,0%</td><td class="l">22,6%</td></tr></tbody></table></div>
-  <p>Todavía hay pocas operaciones y cualquier proporción aquí es casualidad: un 57% de ganadoras sobre siete operaciones es coincidencia, no una tasa de acierto. Los primeros meses las cifras oscilarán a ambos lados de las calculadas, y es normal. El sentido de la tabla no es comparar hoy, sino ver hacia dónde van cuando la cuenta acumule historial.</p>
+  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">cuenta real</th><th style="text-align:left">calculado</th></tr></thead><tbody><tr><th>opera desde</th><td class="l">—</td><td class="l">5 años de historial</td></tr><tr><th>depósito inicial</th><td class="l">1 000</td><td class="l">10 000 por fuente</td></tr><tr><th>operaciones</th><td class="l">0</td><td class="l">3 291</td></tr><tr><th>ganadoras</th><td class="l">—</td><td class="l">38,4%</td></tr><tr><th>factor de beneficio</th><td class="l">—</td><td class="l">1,5</td></tr><tr><th>RR medio</th><td class="l">—</td><td class="l">2,39</td></tr><tr><th>caída máxima</th><td class="l">0,0%</td><td class="l">22,6%</td></tr></tbody></table></div>
+  <p>Todavía no hay operaciones: la operativa comienza el <b>7 de septiembre de 2026</b>. Los primeros meses las cifras oscilarán a ambos lados de las calculadas, y es normal: en la primera decena de operaciones cualquier proporción es azar, un 57% de aciertos en siete operaciones no es un ratio, es una casualidad. El sentido de la tabla no es compararla hoy línea a línea, sino ver hacia dónde van las cifras cuando la cuenta acumule historial.</p>
 </section>
 
 <section>
   <h2>Registro semanal</h2>
   <p>En el registro hay dos números bajo control. La <b>caída</b> responde a cuánto duele ahora; la <b>esperanza</b>, a si el sistema sigue funcionando: es el resultado medio por operación de las últimas cien, en porcentaje del depósito, con umbral del −0,05%. Mientras no haya cien operaciones, esa media es ruido, y la columna indica «faltan datos».</p>
-  <p class="note">Se muestran semanas de una cuenta demo: por ahora es el cálculo puesto a prueba por la operativa real. Al iniciar la cuenta real, el registro empieza de nuevo y muestra solo esa cuenta.</p><div class="scroll"><table class="feed"><thead><tr><th>Semana</th><th style="text-align:right">Operaciones</th><th style="text-align:right">Resultado</th><th style="text-align:right">Crecimiento</th><th style="text-align:right">Caída</th><th style="text-align:right">Esperanza</th><th style="text-align:right">Control</th></tr></thead><tbody><tr><th>2026-08-31 — 2026-09-06</th><td style="text-align:right">7</td><td style="text-align:right">+2,567</td><td style="text-align:right">+2,6%</td><td style="text-align:right">0,3%</td><td style="text-align:right"><span class="muted">faltan datos</span></td><td style="text-align:right"><span class="lvl ok">normal</span></td></tr></tbody></table></div>
+  <p class="muted">El registro se actualiza automáticamente los sábados. La primera entrada aparecerá al terminar la semana.</p>
 </section>
 
 <section>
@@ -176,6 +187,6 @@ El historial de cinco años y sus pruebas se calculan sobre el pasado y están e
 <footer class="sitefoot">
   <span>w2w — cartera algorítmica</span>
   <span>Cálculos sobre el historial 2021–2026. No constituye una recomendación de inversión.</span>
-  <span>Estadísticas anónimas de visitas — Yandex Metrica.</span>
+  <span>Estadísticas de visitas anonimizadas — Yandex Metrica. La página de resultados incrusta fichas de Myfxbook y Tickmill.</span>
 </footer>
 </div></body></html>

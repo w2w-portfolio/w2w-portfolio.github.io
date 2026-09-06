@@ -125,7 +125,6 @@
   <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
 </svg>
   </a>
-  <div class="wip-sticker">work in progress</div>
 </div>
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html" class="on">Results</a><a href="backtest.html">Backtests</a><a href="tickmill.html">How to join</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../results.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/results.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/results.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
@@ -137,33 +136,45 @@ The figures are taken by an independent service connected directly to the broker
 The five-year history and its stress tests are computed on the past and live on <a href="backtest.html">Backtests</a>.</p>
 </section>
 
-<!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
-     При переходе на боевой счёт меняются только id и title. -->
+<!-- Карточка на площадке копирования. Страница виджета длинная (около 3300px),
+     поэтому высота фиксирована, а прокрутка идёт внутри рамки. -->
+<section>
+  <h2>The strategy card on Tickmill</h2>
+  <p class="note">The first source is the platform where the copying itself happens: the ranking position, balance, return and drawdown are all computed by it, not by me. The count in the card starts on <b>7 September 2026</b>.</p>
+  <div class="card" style="padding:14px">
+    <iframe class="tmw" title="The w2w-portfolio strategy card on Tickmill Social Trading" loading="lazy"
+      src="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark"></iframe>
+    <p class="mfb-foot">
+      <span><a href="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark" target="_blank" rel="noopener">Open the card on the platform →</a></span>
+      <span>counted by the platform</span></p>
+  </div>
+</section>
+
 <!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
      При переходе на боевой счёт меняются только id и title. -->
 <section>
   <h2>The account, verified by Myfxbook</h2>
   <p class="note">These figures are taken from the account <b>not by the author</b> but by Myfxbook — an independent service connected directly to the broker account. The curve updates itself; click through for the full statistics.</p>
   <div class="card" style="padding:14px">
-    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-demo/12184976" target="_blank" rel="noopener">
+    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-portfolio/12189213" target="_blank" rel="noopener">
       <img class="mfb" alt="Account growth curve, verified by Myfxbook" loading="lazy"
-        src="https://widgets.mfbcdn.net/custom-widget?id=12184976&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
+        src="https://widgets.mfbcdn.net/custom-widget?id=12189213&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w-portfolio&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
     <p class="mfb-foot"><span>Open full statistics on Myfxbook →</span><span>updates automatically</span></p>
   </div>
-  <div class="note"><p>The chart currently shows a <b>demo account</b>. It runs the same portfolio and the same settings that will go live: this is how the whole chain gets tested — how trades are executed, how risk is measured and how alerts arrive. When live trading starts, the account changes and the count begins from zero.</p></div>
+  <div class="note"><p>The account is <b>live</b>, held at Tickmill and connected to Myfxbook through an investor password — read-only, it cannot be traded on. Both of the service’s checks are passed: the track record is verified against data it takes from the broker itself, and the access rights are confirmed. Closed trades are visible in full; open positions are hidden — otherwise the strategy could simply be repeated by hand without subscribing. The count starts on <b>7 September 2026</b>.</p></div>
 </section>
 
 <section>
   <h2>What the live account shows</h2>
   <p class="note">The five lines by which people check someone else’s statistics — with the same figures from the historical calculation beside them, so it is clear whether live matches computed.</p>
-  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">live account</th><th style="text-align:left">computed</th></tr></thead><tbody><tr><th>trading since</th><td class="l">03.09.2026</td><td class="l">5 years of history</td></tr><tr><th>starting deposit</th><td class="l">100 000</td><td class="l">10,000 per source</td></tr><tr><th>trades</th><td class="l">7</td><td class="l">3 291</td></tr><tr><th>winners</th><td class="l">57%</td><td class="l">38.4%</td></tr><tr><th>profit factor</th><td class="l">1.83</td><td class="l">1.5</td></tr><tr><th>average RR</th><td class="l">1.38</td><td class="l">2.39</td></tr><tr><th>max drawdown</th><td class="l">2.0%</td><td class="l">22.6%</td></tr></tbody></table></div>
-  <p>There are still few trades, and any ratios here are down to chance: 57% winners out of seven trades is a coincidence, not a win rate. For the first months the figures will swing either side of the computed ones, and that is normal. The point of the table is not to compare today, but to see where they head once the account builds a history.</p>
+  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">live account</th><th style="text-align:left">computed</th></tr></thead><tbody><tr><th>trading since</th><td class="l">—</td><td class="l">5 years of history</td></tr><tr><th>starting deposit</th><td class="l">1 000</td><td class="l">10,000 per source</td></tr><tr><th>trades</th><td class="l">0</td><td class="l">3 291</td></tr><tr><th>winners</th><td class="l">—</td><td class="l">38.4%</td></tr><tr><th>profit factor</th><td class="l">—</td><td class="l">1.5</td></tr><tr><th>average RR</th><td class="l">—</td><td class="l">2.39</td></tr><tr><th>max drawdown</th><td class="l">0.0%</td><td class="l">22.6%</td></tr></tbody></table></div>
+  <p>There are no trades yet: trading starts on <b>7 September 2026</b>. Over the first months the figures will swing either side of the computed ones, and that is normal — over the first dozen trades any ratio is chance: 57% winners out of seven trades is not a win rate, it is a coincidence. The point of the table is not to compare it line by line today, but to see where the figures go once the account has built up a history.</p>
 </section>
 
 <section>
   <h2>Weekly log</h2>
   <p>Two numbers are under control here. <b>Drawdown</b> answers how painful it is right now; <b>expectancy</b> answers whether the system still works: the average result per trade over the last hundred, as a percentage of the deposit, with a −0.05% threshold. Until there are a hundred trades, an average over them is noise, so the column reads “not enough data”.</p>
-  <p class="note">These are weeks of a demo account: for now this is the calculation being tested by live trading. Once the real account starts, the log begins anew and shows only that account.</p><div class="scroll"><table class="feed"><thead><tr><th>Week</th><th style="text-align:right">Trades</th><th style="text-align:right">Result</th><th style="text-align:right">Growth</th><th style="text-align:right">Drawdown</th><th style="text-align:right">Expectancy</th><th style="text-align:right">Control</th></tr></thead><tbody><tr><th>2026-08-31 — 2026-09-06</th><td style="text-align:right">7</td><td style="text-align:right">+2,567</td><td style="text-align:right">+2.6%</td><td style="text-align:right">0.3%</td><td style="text-align:right"><span class="muted">not enough data</span></td><td style="text-align:right"><span class="lvl ok">normal</span></td></tr></tbody></table></div>
+  <p class="muted">The log updates automatically on Saturdays. The first entry will appear once the week is over.</p>
 </section>
 
 <section>
@@ -176,6 +187,6 @@ The five-year history and its stress tests are computed on the past and live on 
 <footer class="sitefoot">
   <span>w2w — an algorithmic portfolio</span>
   <span>Calculations on 2021–2026 history. Not investment advice.</span>
-  <span>Anonymous visit statistics — Yandex Metrica.</span>
+  <span>Anonymised visit statistics — Yandex Metrica. The results page embeds cards from Myfxbook and Tickmill.</span>
 </footer>
 </div></body></html>

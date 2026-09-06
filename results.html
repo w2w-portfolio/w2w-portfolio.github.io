@@ -125,7 +125,6 @@
   <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
 </svg>
   </a>
-  <div class="wip-sticker">страница наполняется</div>
 </div>
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html" class="on">Результаты</a><a href="backtest.html">Бэктесты</a><a href="tickmill.html">Как подключиться</a><a href="about.html">Автор</a></nav><div class="langsw" role="group" aria-label="Language"><a href="results.html" hreflang="ru" class="on" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="en/results.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="es/results.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
@@ -137,33 +136,45 @@
 Пятилетняя история и её проверки посчитаны на прошлом и стоят на странице <a href="backtest.html">Бэктесты</a>.</p>
 </section>
 
-<!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
-     При переходе на боевой счёт меняются только id и title. -->
+<!-- Карточка на площадке копирования. Страница виджета длинная (около 3300px),
+     поэтому высота фиксирована, а прокрутка идёт внутри рамки. -->
+<section>
+  <h2>Карточка стратегии на Tickmill</h2>
+  <p class="note">Первый источник — сама площадка, где идёт копирование: место в рейтинге, баланс, доходность и просадку считает она, а не я. Отсчёт в карточке начинается <b>7 сентября 2026 года</b>.</p>
+  <div class="card" style="padding:14px">
+    <iframe class="tmw" title="Карточка стратегии w2w-portfolio на Tickmill Social Trading" loading="lazy"
+      src="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark"></iframe>
+    <p class="mfb-foot">
+      <span><a href="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark" target="_blank" rel="noopener">Открыть карточку на площадке →</a></span>
+      <span>считает площадка</span></p>
+  </div>
+</section>
+
 <!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
      При переходе на боевой счёт меняются только id и title. -->
 <section>
   <h2>Счёт, заверенный Myfxbook</h2>
   <p class="note">Эти цифры снимает со счёта <b>не автор стратегии</b>, а Myfxbook — независимый сервис, подключённый к счёту у брокера напрямую. Кривая обновляется сама, по клику открывается полная статистика.</p>
   <div class="card" style="padding:14px">
-    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-demo/12184976" target="_blank" rel="noopener">
+    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-portfolio/12189213" target="_blank" rel="noopener">
       <img class="mfb" alt="Кривая доходности счёта, заверенная Myfxbook" loading="lazy"
-        src="https://widgets.mfbcdn.net/custom-widget?id=12184976&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
+        src="https://widgets.mfbcdn.net/custom-widget?id=12189213&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w-portfolio&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
     <p class="mfb-foot"><span>Открыть полную статистику на Myfxbook →</span><span>обновляется автоматически</span></p>
   </div>
-  <div class="note"><p>Сейчас на графике <b>демонстрационный счёт</b>. На нём работает тот же портфель и те же настройки, что пойдут в бой: так проверяется вся цепочка целиком — как исполняются сделки, как считается риск и как приходят предупреждения. С началом реальной торговли счёт сменится, а отсчёт пойдёт с нуля.</p></div>
+  <div class="note"><p>Счёт <b>реальный</b>, у Tickmill, подключён к Myfxbook по инвесторскому паролю — только на чтение, торговать по нему нельзя. Обе проверки сервиса пройдены: история сверена с данными, которые он берёт у брокера сам, и права доступа подтверждены. Закрытые сделки видны целиком, открытые позиции закрыты — иначе стратегию можно было бы повторять руками, не подписываясь. Отсчёт начинается <b>7 сентября 2026 года</b>.</p></div>
 </section>
 
 <section>
   <h2>Что показывает живой счёт</h2>
   <p class="note">Пять строк, по которым принято проверять чужую статистику, — и рядом то же самое из расчёта на истории. Так видно, сходится живое с расчётным или расходится.</p>
-  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">живой счёт</th><th style="text-align:left">в расчёте</th></tr></thead><tbody><tr><th>торгует с</th><td class="l">03.09.2026</td><td class="l">5 лет истории</td></tr><tr><th>начальный депозит</th><td class="l">100 000</td><td class="l">10 000 на каждый источник</td></tr><tr><th>сделок</th><td class="l">7</td><td class="l">3 291</td></tr><tr><th>прибыльных</th><td class="l">57%</td><td class="l">38.4%</td></tr><tr><th>профит-фактор</th><td class="l">1.83</td><td class="l">1.5</td></tr><tr><th>средний RR</th><td class="l">1.38</td><td class="l">2.39</td></tr><tr><th>просадка максимум</th><td class="l">2.0%</td><td class="l">22.6%</td></tr></tbody></table></div>
-  <p>Сделок пока мало, и любые доли здесь случайны: 57% прибыльных при семи сделках — это ещё не винрейт, а совпадение. Первые месяцы цифры будут скакать в обе стороны от расчётных, и это нормально. Смысл таблицы не в том, чтобы сравнивать сегодня, а в том, чтобы видеть, куда они идут, когда счёт наберёт историю.</p>
+  <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">живой счёт</th><th style="text-align:left">в расчёте</th></tr></thead><tbody><tr><th>торгует с</th><td class="l">—</td><td class="l">5 лет истории</td></tr><tr><th>начальный депозит</th><td class="l">1 000</td><td class="l">10 000 на каждый источник</td></tr><tr><th>сделок</th><td class="l">0</td><td class="l">3 291</td></tr><tr><th>прибыльных</th><td class="l">—</td><td class="l">38.4%</td></tr><tr><th>профит-фактор</th><td class="l">—</td><td class="l">1.5</td></tr><tr><th>средний RR</th><td class="l">—</td><td class="l">2.39</td></tr><tr><th>просадка максимум</th><td class="l">0.0%</td><td class="l">22.6%</td></tr></tbody></table></div>
+  <p>Сделок пока нет: торговля начинается <b>7 сентября 2026 года</b>. Первые месяцы цифры будут скакать в обе стороны от расчётных, и это нормально — на первом десятке сделок любая доля случайна, 57% прибыльных при семи сделках это ещё не винрейт, а совпадение. Смысл таблицы не в том, чтобы сравнивать сегодня, а в том, чтобы видеть, куда они идут, когда счёт наберёт историю.</p>
 </section>
 
 <section>
   <h2>Лента недель</h2>
   <p>В ленте два числа под контролем. <b>Просадка</b> отвечает, насколько сейчас больно; <b>ожидание</b> — работает ли ещё система: это средний результат сделки за последнюю сотню, в процентах депозита, порог −0.05%. Пока сделок меньше сотни, среднее по ним — шум, поэтому в колонке стоит «мало данных».</p>
-  <p class="note">Показаны недели демонстрационного счёта: пока это проверка расчёта живой торговлей. С запуском реального счёта лента начнётся заново и будет показывать только его.</p><div class="scroll"><table class="feed"><thead><tr><th>Неделя</th><th style="text-align:right">Сделок</th><th style="text-align:right">Результат</th><th style="text-align:right">Рост</th><th style="text-align:right">Просадка</th><th style="text-align:right">Ожидание</th><th style="text-align:right">Контроль</th></tr></thead><tbody><tr><th>2026-08-31 — 2026-09-06</th><td style="text-align:right">7</td><td style="text-align:right">+2,567</td><td style="text-align:right">+2.6%</td><td style="text-align:right">0.3%</td><td style="text-align:right"><span class="muted">мало данных</span></td><td style="text-align:right"><span class="lvl ok">норма</span></td></tr></tbody></table></div>
+  <p class="muted">Лента обновляется автоматически по субботам. Первая запись появится по итогам недели.</p>
 </section>
 
 <section>
@@ -176,6 +187,6 @@
 <footer class="sitefoot">
   <span>w2w — алгоритмический портфель</span>
   <span>Расчёты на истории 2021–2026. Не является инвестиционной рекомендацией.</span>
-  <span>Обезличенная статистика посещений — Яндекс Метрика.</span>
+  <span>Обезличенная статистика посещений — Яндекс Метрика. На странице результатов встроены карточки Myfxbook и Tickmill.</span>
 </footer>
 </div></body></html>

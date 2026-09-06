@@ -7,17 +7,29 @@
   <p class="lead">{{res.lead}}</p>
 </section>
 
-<!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
-     При переходе на боевой счёт меняются только id и title. -->
+<!-- Карточка на площадке копирования. Страница виджета длинная (около 3300px),
+     поэтому высота фиксирована, а прокрутка идёт внутри рамки. -->
+<section>
+  <h2>{{res.tm_h}}</h2>
+  <p class="note">{{res.tm_note}}</p>
+  <div class="card" style="padding:14px">
+    <iframe class="tmw" title="{{res.tm_alt}}" loading="lazy"
+      src="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark"></iframe>
+    <p class="mfb-foot">
+      <span><a href="https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark" target="_blank" rel="noopener">{{res.tm_link}}</a></span>
+      <span>{{res.tm_auto}}</span></p>
+  </div>
+</section>
+
 <!-- Виджет Myfxbook: картинка 800x300, все настройки в адресе.
      При переходе на боевой счёт меняются только id и title. -->
 <section>
   <h2>{{res.mfb_h}}</h2>
   <p class="note">{{res.mfb_note}}</p>
   <div class="card" style="padding:14px">
-    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-demo/12184976" target="_blank" rel="noopener">
+    <a href="https://www.myfxbook.com/members/SergeyYanyshev/w2w-portfolio/12189213" target="_blank" rel="noopener">
       <img class="mfb" alt="{{res.mfb_alt}}" loading="lazy"
-        src="https://widgets.mfbcdn.net/custom-widget?id=12184976&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
+        src="https://widgets.mfbcdn.net/custom-widget?id=12189213&width=800&height=300&bart=0&linet=0&symbol=NAT.GA&magic=-1&title=w2w-portfolio&titles=13&bgColor=171b22&gridColor=28303a&lineColor=199e70&barColor=3987e5&bar1Color=d95926&fontColor=e9edf2&chartbgc=171b22&equityColor=3987e5"></a>
     <p class="mfb-foot"><span>{{res.mfb_link}}</span><span>{{res.mfb_auto}}</span></p>
   </div>
   <div class="note"><p>{{res.mfb_demo}}</p></div>
