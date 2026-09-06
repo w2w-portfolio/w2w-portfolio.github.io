@@ -433,5 +433,5 @@
  "author.alt": "Sergey Yanyshev",
  "bt.dump_1": "<b>Check it yourself.</b> All 3,291 trades behind the numbers on this page are available as a single file:",
  "bt.dump_link": "download CSV (250 KB)",
- "bt.dump_2": ". It holds entry and exit times, instrument, algorithm, the result in units of risk and in money, and how the trade ended — stop or take. The sum of the result_r column is exactly those +983%."
+ "bt.dump_2": ". It holds entry and exit times, instrument, algorithm, the result in units of risk and in money, and how the trade ended — stop or take. The sum of the result_r column is exactly those +983%. If you would rather not compute by hand, the same repository the site is built from contains <b>bin/check_numbers.py</b>: a short standard-library script that reads this file and prints everything on the page — the result, the drawdown, the profit factor, the losing streaks, the gaps. The site and the weekly live-account report are built by that same open code: <a href=\"https://github.com/w2w-portfolio/w2w-portfolio.github.io\">github.com/w2w-portfolio</a>."
 }

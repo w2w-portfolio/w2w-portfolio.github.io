@@ -433,5 +433,5 @@
  "author.alt": "Sergey Yanyshev",
  "bt.dump_1": "<b>Compruébelo usted mismo.</b> Las 3 291 operaciones de las que salen las cifras de esta página están en un solo archivo:",
  "bt.dump_link": "descargar CSV (250 KB)",
- "bt.dump_2": ". Contiene la hora de entrada y salida, el instrumento, el algoritmo, el resultado en unidades de riesgo y en dinero, y cómo terminó la operación: stop o take. La suma de la columna result_r es justamente ese +983%."
+ "bt.dump_2": ". Contiene la hora de entrada y salida, el instrumento, el algoritmo, el resultado en unidades de riesgo y en dinero, y cómo terminó la operación: stop o take. La suma de la columna result_r es justamente ese +983%. Si prefiere no calcular a mano, en el mismo repositorio con el que se construye el sitio está <b>bin/check_numbers.py</b>: un script breve, solo con la biblioteca estándar, que lee este archivo e imprime todo lo que figura en la página: el resultado, el drawdown, el factor de beneficio, las rachas de pérdidas y los huecos. El sitio y el informe semanal de la cuenta real se generan con ese mismo código abierto: <a href=\"https://github.com/w2w-portfolio/w2w-portfolio.github.io\">github.com/w2w-portfolio</a>."
 }
