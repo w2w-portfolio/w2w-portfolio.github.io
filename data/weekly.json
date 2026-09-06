@@ -1,6 +1,6 @@
 [
  {
-  "date": "2026-09-05",
+  "date": "2026-09-06",
   "week_from": "2026-08-31",
   "week_to": "2026-09-06",
   "account": 25367356,
@@ -19,6 +19,9 @@
   "dd_now_pct": 0.26,
   "dd_max_pct": 2.05,
   "level": "норма",
+  "exp_pct": 0.367,
+  "exp_n": 7,
+  "exp_ready": false,
   "symbols_week": [
    "BRENT",
    "EURUSD",

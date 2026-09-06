@@ -58,6 +58,12 @@ DD_OK, DD_WATCH, DD_RARE = 25.0, 36.0, 44.0     # см. МОНИТОРИНГ.md,
 # оно идёт всегда и не зависит от часового пояса сервера.
 STALE_HOURS = 2
 EXPECTED_PER_MONTH = 63                          # ожидаемый поток портфеля
+# Второй контролируемый параметр — среднее на сделку за последние сделки.
+# Просадка отвечает «насколько сейчас больно», ожидание — «работает ли ещё
+# система». Окно и порог те же, что у наблюдателя в терминале (TC_Watch):
+# по семи сделкам среднее — шум, поэтому до сотни в ленте стоит «мало данных».
+EXP_WINDOW = 100
+EXP_ALERT = -0.05
 
 
 def data_age(st):
@@ -168,6 +174,11 @@ def render_feed(arch):
         key = {'норма': 'monitor.t028', 'внимание': 'monitor.t029',
                'разбор': 'monitor.t030', 'стоп': 'monitor.t031'}.get(a['level'], 'monitor.t028')
         money = a['money_week']
+        # Второй контролируемый параметр. Пока окно не набралось — так и
+        # пишем: среднее по десятку сделок ничего не говорит, а пустая
+        # ячейка читается как «не следим».
+        exp = (f"{a['exp_pct']:+.2f}%" if a.get('exp_ready')
+               else '<span class="muted">{{monitor.t042}}</span>')
         r = ' style="text-align:right"'
         rows.append(
             f"<tr><th>{a['week_from']} — {a['week_to']}</th>"
@@ -175,6 +186,7 @@ def render_feed(arch):
             f"<td{r}>{money:+,.0f}</td>"
             f"<td{r}>{a['grow_total_pct']:+.1f}%</td>"
             f"<td{r}>{a['dd_now_pct']:.1f}%</td>"
+            f'<td{r}>{exp}</td>'
             f'<td{r}><span class="lvl {cls}">{{{{{key}}}}}</span></td></tr>')
     head = '<p class="note">{{monitor.t027}}</p>' if demo_only else ''
     R = ' style="text-align:right"'
@@ -183,7 +195,7 @@ def render_feed(arch):
             '<th>{{monitor.t021}}</th>'
             f'<th{R}>{{{{monitor.t022}}}}</th><th{R}>{{{{monitor.t023}}}}</th>'
             f'<th{R}>{{{{monitor.t024}}}}</th><th{R}>{{{{monitor.t025}}}}</th>'
-            f'<th{R}>{{{{monitor.t026}}}}</th>'
+            f'<th{R}>{{{{monitor.t041}}}}</th><th{R}>{{{{monitor.t026}}}}</th>'
             '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>')
     (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
 
@@ -317,6 +329,10 @@ def main():
     dd_now = pts[-1]['dd'] if pts else 0.0
     grow = pts[-1]['grow'] if pts else 0.0
 
+    # ожидание на сделку за последнюю сотню — в процентах депозита
+    win = trades[-EXP_WINDOW:]
+    exp_pct = (100.0 * sum(t['money'] for t in win) / len(win) / base) if win else 0.0
+
     level = 'норма'
     if dd_now > DD_RARE:     level = 'стоп'
     elif dd_now > DD_WATCH:  level = 'разбор'
@@ -338,6 +354,9 @@ def main():
         dd_now_pct=round(dd_now, 2),
         dd_max_pct=round(max((p['dd'] for p in pts), default=0.0), 2),
         level=level,
+        exp_pct=round(exp_pct, 3),
+        exp_n=len(win),
+        exp_ready=len(win) >= EXP_WINDOW,
         symbols_week=sorted({t['symbol'] for t in week}),
     )
 
@@ -349,6 +368,9 @@ def main():
           f" просадка сейчас {entry['dd_now_pct']:.2f}%, максимум {entry['dd_max_pct']:.2f}%")
     print(f"  уровень: {entry['level']}"
           f"   (пороги {DD_OK:.0f} / {DD_WATCH:.0f} / {DD_RARE:.0f})")
+    exp_note = (f"{entry['exp_pct']:+.3f}% на сделку" if entry['exp_ready']
+                else f"мало данных ({entry['exp_n']} из {EXP_WINDOW} сделок)")
+    print(f"  ожидание: {exp_note}   (порог {EXP_ALERT:+.2f}%)")
     if entry['symbols_week']:
         print(f"  инструменты недели: {' '.join(entry['symbols_week'])}")
 
