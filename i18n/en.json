@@ -333,8 +333,8 @@
  "res.curves": "How the account is doing",
  "res.risk_h": "How risk is watched",
  "res.risk_1": "<b>Oversight is run by a watchdog algorithm</b>, not by a person in a given mood. It runs on the same server, reads the account history and compares two numbers with thresholds set in advance: the current drawdown and the expectancy over the last 100 trades. It makes no trading decisions — it only measures and reports.",
- "res.risk_2": "Drawdown thresholds: up to <b>25%</b> — normal, <b>25–36%</b> — watch, <b>36–44%</b> — review, above <b>44%</b> — trading stops. The current level is shown in the weekly log above. Parameters are not changed during a drawdown: the settings were fitted on all available history, and tuning them to a bad month would break what took years to verify.",
- "res.risk_3": "Where these thresholds came from, how they were tested on history and why there are no intermediate steps — on the [[backtest]] page.",
+ "res.risk_2": "The first parameter is <b>drawdown</b>. Thresholds: up to <b>25%</b> — normal, <b>25–36%</b> — watch, <b>36–44%</b> — review, above <b>44%</b> — trading stops. The current level is shown in the weekly log above.",
+ "res.risk_3": "Parameters are not changed during a drawdown: the settings were fitted on all available history, and tuning them to a bad month would break what took years to verify. Where the thresholds came from, how they were tested and why there are no intermediate steps — on the ",
  "bt.h1": "Backtests",
  "bt.lead": "Five years of history: what the portfolio would have earned, at what cost,\nand what would have remained had the trades fallen differently. Everything on this page\nis computed on the past, not the result of live trading. The live account is on [[results]].",
  "bt.thresh_h": "Where the thresholds come from",
@@ -396,7 +396,7 @@
  "live.pf": "profit factor",
  "live.rr": "average RR",
  "live.dd": "max drawdown",
- "live.after": "While there are few trades, percentages are not shown: a win rate from three trades is self-deception. They will appear once there are at least five, and the first months will swing either side of the computed values anyway. The point of the table is not to compare today, but to see where the numbers are heading.",
+ "live.after": "There are still few trades, and any ratios here are down to chance: 57% winners out of seven trades is a coincidence, not a win rate. For the first months the figures will swing either side of the computed ones, and that is normal. The point of the table is not to compare today, but to see where they head once the account builds a history.",
  "res.gap_h": "How far live execution drifts from the calculation",
  "res.gap_1": "Every closed trade is re-run on the same data and the results compared. The gap is spread, commission and slippage: in real life the entry price differs slightly while the stop sits at the same level, so the risk drifts a little.",
  "res.gap_c1": "trade",
@@ -419,5 +419,6 @@
  "bt.gap_v4": "<b>−5.93R on USDJPY</b>: the position opened on Friday 3 October 2025 and survived the weekend; on Monday the market opened far beyond the stop",
  "bt.gap_2": "For Algorithm 1 there were <b>none</b> in five years. The gap risk is real but rare, and confined to one algorithm of the two — the one that holds positions longer than a day is not in the portfolio at all.",
  "bt.r_note": "All figures here are in percent of the deposit. <b>R</b> is the risk of a single trade, 1% of the account: 14.9R means 15% of the deposit — on a $2,000 account, $300.",
- "bt.composition": "<b>The set is not frozen.</b> Every new instrument goes through the same selection: stability across both halves of the history, a randomness check, an estimate of execution costs and — most importantly — its contribution to the portfolio rather than its own return. What does not pass is not added, even if it is profitable on its own."
+ "bt.composition": "<b>The set is not frozen.</b> Every new instrument goes through the same selection: stability across both halves of the history, a randomness check, an estimate of execution costs and — most importantly — its contribution to the portfolio rather than its own return. What does not pass is not added, even if it is profitable on its own.",
+ "res.risk_exp": "The second is <b>expectancy over the last 100 trades</b>: what an average trade brings in. Drawdown answers “how much it hurts right now”, expectancy answers “does the system still work”. The alert threshold is below <b>−0.05%</b> of the deposit per trade. Computing it before a hundred trades have accumulated makes no sense — an average over ten is noise — so while the account is young the watchdog gathers statistics and stays quiet."
 }

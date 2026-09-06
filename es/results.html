@@ -118,15 +118,17 @@ El historial de cinco años y sus pruebas se calculan sobre el pasado y están e
   <h2>Qué muestra la cuenta real</h2>
   <p class="note">Las cinco líneas con las que se comprueba la estadística ajena, y al lado las mismas del cálculo histórico: así se ve si lo real coincide con lo calculado.</p>
   <div class="card" style="padding:0"><table><thead><tr><th style="text-align:left"></th><th style="text-align:left">cuenta real</th><th style="text-align:left">calculado</th></tr></thead><tbody><tr><th>opera desde</th><td class="l">03,09.2026</td><td class="l">5 años de historial</td></tr><tr><th>depósito inicial</th><td class="l">100 000</td><td class="l">10 000 por fuente</td></tr><tr><th>operaciones</th><td class="l">7</td><td class="l">3 291</td></tr><tr><th>ganadoras</th><td class="l">57%</td><td class="l">38,4%</td></tr><tr><th>factor de beneficio</th><td class="l">1,83</td><td class="l">1,5</td></tr><tr><th>RR medio</th><td class="l">1,38</td><td class="l">2,39</td></tr><tr><th>caída máxima</th><td class="l">2,0%</td><td class="l">22,6%</td></tr></tbody></table></div>
-  <p>Mientras haya pocas operaciones no se muestran porcentajes: calcular la tasa de acierto con tres operaciones es engañarse. Aparecerán cuando haya al menos cinco, y los primeros meses oscilarán igualmente a ambos lados del cálculo. El sentido de la tabla no es comparar hoy, sino ver hacia dónde van las cifras.</p>
+  <p>Todavía hay pocas operaciones y cualquier proporción aquí es casualidad: un 57% de ganadoras sobre siete operaciones es coincidencia, no una tasa de acierto. Los primeros meses las cifras oscilarán a ambos lados de las calculadas, y es normal. El sentido de la tabla no es comparar hoy, sino ver hacia dónde van cuando la cuenta acumule historial.</p>
 </section>
 
 <section>
   <h2>Cuánto se aparta la ejecución real del cálculo</h2>
   <p>Cada operación cerrada se vuelve a pasar sobre los mismos datos y se comparan los resultados. La diferencia es spread, comisión y deslizamiento: en la vida real el precio de entrada es algo distinto y el stop está en el mismo nivel, así que el riesgo se mueve un poco.</p>
   <div class="card" style="padding:0"><table>
-    <thead><tr><th style="text-align:left">operación</th><th>calculado</th>
-      <th>real</th><th style="text-align:left">diferencia</th></tr></thead>
+    <thead><tr><th style="text-align:left">operación</th>
+      <th style="text-align:right;width:110px">calculado</th>
+      <th style="text-align:right;width:110px">real</th>
+      <th style="text-align:left">diferencia</th></tr></thead>
     <tbody>
     <tr><th>EURUSD</th><td>+1 926</td><td>+1 976</td><td class="l">+2,6% a nuestro favor</td></tr>
     <tr><th>BRENT</th><td>+757</td><td>+768</td><td class="l">+1,4% a nuestro favor</td></tr>
@@ -143,8 +145,9 @@ El historial de cinco años y sus pruebas se calculan sobre el pasado y están e
 <section>
   <h2>Cómo se vigila el riesgo</h2>
   <p><b>El control lo lleva un algoritmo observador</b>, no una persona según su ánimo. Funciona en el mismo servidor, lee el historial de la cuenta y compara dos cifras con umbrales fijados de antemano: la caída actual y la esperanza matemática de las últimas 100 operaciones. No toma decisiones de trading — solo mide e informa.</p>
-  <p>Umbrales de caída: hasta <b>25%</b> — normal, <b>25–36%</b> — atención, <b>36–44%</b> — análisis, por encima del <b>44%</b> — parada de la operativa. El nivel actual se ve en el registro semanal de arriba. Durante una caída los parámetros no se cambian: los ajustes se hicieron sobre todo el historial disponible, y adaptarlos a un mes malo rompería lo que costó años comprobar.</p>
-  <p class="note">De dónde salen estos umbrales, cómo se probaron sobre el historial y por qué no hay escalones intermedios — en la página <a href="backtest.html">Backtests</a>.</p>
+  <p>El primer parámetro es la <b>caída</b>. Umbrales: hasta <b>25%</b> — normal, <b>25–36%</b> — atención, <b>36–44%</b> — análisis, por encima del <b>44%</b> — parada de la operativa. El nivel actual se ve en el registro semanal de arriba.</p>
+  <p>El segundo es la <b>esperanza matemática de las últimas 100 operaciones</b>: cuánto aporta de media una operación. La caída responde a «cuánto duele ahora»; la esperanza, a «¿sigue funcionando el sistema?». El umbral de alerta está por debajo del <b>−0,05%</b> del depósito por operación. Calcularla antes de acumular cien operaciones no tiene sentido — una media sobre diez es ruido —, así que mientras la cuenta es joven el observador acumula estadística y calla.</p>
+  <p class="note">Durante una caída los parámetros no se cambian: los ajustes se hicieron sobre todo el historial disponible y adaptarlos a un mes malo rompería lo que costó años comprobar. De dónde salen los umbrales, cómo se probaron y por qué no hay escalones intermedios — en la página </p>
 </section>
 <footer class="sitefoot">
   <span>w2w — cartera algorítmica</span>

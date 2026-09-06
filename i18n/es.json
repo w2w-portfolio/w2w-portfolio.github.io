@@ -333,8 +333,8 @@
  "res.curves": "Cómo va la cuenta",
  "res.risk_h": "Cómo se vigila el riesgo",
  "res.risk_1": "<b>El control lo lleva un algoritmo observador</b>, no una persona según su ánimo. Funciona en el mismo servidor, lee el historial de la cuenta y compara dos cifras con umbrales fijados de antemano: la caída actual y la esperanza matemática de las últimas 100 operaciones. No toma decisiones de trading — solo mide e informa.",
- "res.risk_2": "Umbrales de caída: hasta <b>25%</b> — normal, <b>25–36%</b> — atención, <b>36–44%</b> — análisis, por encima del <b>44%</b> — parada de la operativa. El nivel actual se ve en el registro semanal de arriba. Durante una caída los parámetros no se cambian: los ajustes se hicieron sobre todo el historial disponible, y adaptarlos a un mes malo rompería lo que costó años comprobar.",
- "res.risk_3": "De dónde salen estos umbrales, cómo se probaron sobre el historial y por qué no hay escalones intermedios — en la página [[backtest]].",
+ "res.risk_2": "El primer parámetro es la <b>caída</b>. Umbrales: hasta <b>25%</b> — normal, <b>25–36%</b> — atención, <b>36–44%</b> — análisis, por encima del <b>44%</b> — parada de la operativa. El nivel actual se ve en el registro semanal de arriba.",
+ "res.risk_3": "Durante una caída los parámetros no se cambian: los ajustes se hicieron sobre todo el historial disponible y adaptarlos a un mes malo rompería lo que costó años comprobar. De dónde salen los umbrales, cómo se probaron y por qué no hay escalones intermedios — en la página ",
  "bt.h1": "Backtests",
  "bt.lead": "Cinco años de historial: cuánto habría ganado la cartera, a qué precio\ny qué quedaría si las operaciones hubieran caído de otro modo. Todo lo de esta página\nes cálculo sobre el pasado, no resultado real. La cuenta real está en [[results]].",
  "bt.thresh_h": "De dónde salen los umbrales",
@@ -396,7 +396,7 @@
  "live.pf": "factor de beneficio",
  "live.rr": "RR medio",
  "live.dd": "caída máxima",
- "live.after": "Mientras haya pocas operaciones no se muestran porcentajes: calcular la tasa de acierto con tres operaciones es engañarse. Aparecerán cuando haya al menos cinco, y los primeros meses oscilarán igualmente a ambos lados del cálculo. El sentido de la tabla no es comparar hoy, sino ver hacia dónde van las cifras.",
+ "live.after": "Todavía hay pocas operaciones y cualquier proporción aquí es casualidad: un 57% de ganadoras sobre siete operaciones es coincidencia, no una tasa de acierto. Los primeros meses las cifras oscilarán a ambos lados de las calculadas, y es normal. El sentido de la tabla no es comparar hoy, sino ver hacia dónde van cuando la cuenta acumule historial.",
  "res.gap_h": "Cuánto se aparta la ejecución real del cálculo",
  "res.gap_1": "Cada operación cerrada se vuelve a pasar sobre los mismos datos y se comparan los resultados. La diferencia es spread, comisión y deslizamiento: en la vida real el precio de entrada es algo distinto y el stop está en el mismo nivel, así que el riesgo se mueve un poco.",
  "res.gap_c1": "operación",
@@ -419,5 +419,6 @@
  "bt.gap_v4": "<b>−5,93R en USDJPY</b>: la posición se abrió el viernes 3 de octubre de 2025 y pasó el fin de semana; el lunes el mercado abrió muy lejos del stop",
  "bt.gap_2": "En el Algoritmo 1 no hubo <b>ninguno</b> en cinco años. El riesgo de hueco es real, pero raro y limitado a uno de los dos algoritmos: el que mantiene posiciones más de un día no está en la cartera.",
  "bt.r_note": "Todas las cifras aquí van en porcentaje del depósito. <b>R</b> es el riesgo de una operación, el 1% de la cuenta: 14,9R significa el 15% del depósito y, en una cuenta de 2 000 dólares, 300 dólares.",
- "bt.composition": "<b>El conjunto no está congelado.</b> Cada nuevo instrumento pasa la misma selección: estabilidad en las dos mitades del historial, control de aleatoriedad, estimación de costes de ejecución y, sobre todo, su aporte a la cartera y no su rentabilidad propia. Lo que no pasa no se añade, aunque por sí solo sea rentable."
+ "bt.composition": "<b>El conjunto no está congelado.</b> Cada nuevo instrumento pasa la misma selección: estabilidad en las dos mitades del historial, control de aleatoriedad, estimación de costes de ejecución y, sobre todo, su aporte a la cartera y no su rentabilidad propia. Lo que no pasa no se añade, aunque por sí solo sea rentable.",
+ "res.risk_exp": "El segundo es la <b>esperanza matemática de las últimas 100 operaciones</b>: cuánto aporta de media una operación. La caída responde a «cuánto duele ahora»; la esperanza, a «¿sigue funcionando el sistema?». El umbral de alerta está por debajo del <b>−0,05%</b> del depósito por operación. Calcularla antes de acumular cien operaciones no tiene sentido — una media sobre diez es ruido —, así que mientras la cuenta es joven el observador acumula estadística y calla."
 }
