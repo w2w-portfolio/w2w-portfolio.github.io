@@ -122,22 +122,6 @@ The five-year history and its stress tests are computed on the past and live on 
 </section>
 
 <section>
-  <h2>How far live execution drifts from the calculation</h2>
-  <p>Every closed trade is re-run on the same data and the results compared. The gap is spread, commission and slippage: in real life the entry price differs slightly while the stop sits at the same level, so the risk drifts a little.</p>
-  <div class="card" style="padding:0"><table>
-    <thead><tr><th style="text-align:left">trade</th>
-      <th style="text-align:right;width:110px">computed</th>
-      <th style="text-align:right;width:110px">live</th>
-      <th style="text-align:left">difference</th></tr></thead>
-    <tbody>
-    <tr><th>EURUSD</th><td>+1 926</td><td>+1 976</td><td class="l">+2.6% in our favour</td></tr>
-    <tr><th>BRENT</th><td>+757</td><td>+768</td><td class="l">+1.4% in our favour</td></tr>
-    <tr><th>USTEC</th><td>−990</td><td>−1 068</td><td class="l">−7.9% against us</td></tr>
-    </tbody></table></div>
-  <p>The volumes are not token ones: 83 lots on the index, 835 on oil. The account is still a demo, and demo execution is usually kinder than real — the same comparisons will be repeated on the live account, and if the gap widens it will show up here.</p>
-</section>
-
-<section>
   <h2>Weekly log</h2>
   <p>Two numbers are under control here. <b>Drawdown</b> answers how painful it is right now; <b>expectancy</b> answers whether the system still works: the average result per trade over the last hundred, as a percentage of the deposit, with a −0.05% threshold. Until there are a hundred trades, an average over them is noise, so the column reads “not enough data”.</p>
   <p class="note">These are weeks of a demo account: for now this is the calculation being tested by live trading. Once the real account starts, the log begins anew and shows only that account.</p><div class="scroll"><table class="feed"><thead><tr><th>Week</th><th style="text-align:right">Trades</th><th style="text-align:right">Result</th><th style="text-align:right">Growth</th><th style="text-align:right">Drawdown</th><th style="text-align:right">Expectancy</th><th style="text-align:right">Control</th></tr></thead><tbody><tr><th>2026-08-31 — 2026-09-06</th><td style="text-align:right">7</td><td style="text-align:right">+2,567</td><td style="text-align:right">+2.6%</td><td style="text-align:right">0.3%</td><td style="text-align:right"><span class="muted">not enough data</span></td><td style="text-align:right"><span class="lvl ok">normal</span></td></tr></tbody></table></div>
