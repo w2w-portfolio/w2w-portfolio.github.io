@@ -106,6 +106,8 @@ is computed on the past, not the result of live trading. The live account is on 
   <p><b>Costs are already inside the result:</b> spread, both commissions and swap are subtracted per trade — that is how the balance really moves. The difference is material: for Algorithm 2, five years of costs ate <b>67 percentage points</b> out of 814 and deepened the drawdown by 1.0 point. There are no idealised exits «exactly at the take» here.</p>
   <p class="note">The period is 18 August 2021 to 20 August 2026 — five consecutive years, with no convenient stretch picked out. The settings did not change over that time: what is computed below is one and the same set of parameters across the whole history.</p>
   <p class="note">All figures here are in percent of the deposit. <b>R</b> is the risk of a single trade, 1% of the account: 14.9R means 15% of the deposit — on a $2,000 account, $300.</p>
+  <div class="note"><p><b>Check it yourself.</b> All 3,291 trades behind the numbers on this page are available as a single file:
+    <a href="../data/w2w-backtest-trades.csv" download>download CSV (250 KB)</a>. It holds entry and exit times, instrument, algorithm, the result in units of risk and in money, and how the trade ended — stop or take. The sum of the result_r column is exactly those +983%.</p></div>
 </section>
 
 <section>

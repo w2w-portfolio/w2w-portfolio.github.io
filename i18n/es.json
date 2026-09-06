@@ -426,5 +426,8 @@
  "ask.2": "Las preguntas del tipo «¿y qué pasa si…?» son las más útiles: casi todo lo que hay en estas páginas apareció porque alguien preguntó y resultó que no había respuesta.",
  "author.name": "Sergey Yanyshev",
  "author.tg": "Canal de Telegram del proyecto — @w2w_portfolio",
- "author.alt": "Sergey Yanyshev"
+ "author.alt": "Sergey Yanyshev",
+ "bt.dump_1": "<b>Compruébelo usted mismo.</b> Las 3 291 operaciones de las que salen las cifras de esta página están en un solo archivo:",
+ "bt.dump_link": "descargar CSV (250 KB)",
+ "bt.dump_2": ". Contiene la hora de entrada y salida, el instrumento, el algoritmo, el resultado en unidades de riesgo y en dinero, y cómo terminó la operación: stop o take. La suma de la columna result_r es justamente ese +983%."
 }

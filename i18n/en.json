@@ -426,5 +426,8 @@
  "ask.2": "Questions of the “what happens if…” kind are the most useful: almost everything on these pages appeared because somebody asked and it turned out there was no answer.",
  "author.name": "Sergey Yanyshev",
  "author.tg": "Project’s Telegram channel — @w2w_portfolio",
- "author.alt": "Sergey Yanyshev"
+ "author.alt": "Sergey Yanyshev",
+ "bt.dump_1": "<b>Check it yourself.</b> All 3,291 trades behind the numbers on this page are available as a single file:",
+ "bt.dump_link": "download CSV (250 KB)",
+ "bt.dump_2": ". It holds entry and exit times, instrument, algorithm, the result in units of risk and in money, and how the trade ended — stop or take. The sum of the result_r column is exactly those +983%."
 }
