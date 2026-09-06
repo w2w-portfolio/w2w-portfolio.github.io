@@ -35,6 +35,45 @@
  location.replace('/'+want+'/'+f);
 })();
 </script>
+<script>
+/* Статистика посещений — только после согласия.
+   Метрика ставит куки и пишет сессию Вебвизором, поэтому скрипт грузится
+   не сразу, а после ответа посетителя; ответ лежит в localStorage и больше
+   не спрашивается. Отказ так же доступен, как согласие: иначе согласие
+   не согласие. Без ответа не грузится ничего. */
+(function(){
+ var KEY='w2w-stats', ID=112331649;
+ function load(){
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for(var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,
+   a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+ID,'ym');
+  ym(ID,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
+ }
+ var saved=null; try{saved=localStorage.getItem(KEY)}catch(e){}
+ if(saved==='yes'){ load(); return; }
+ if(saved==='no'){ return; }
+ function answer(v){
+  try{localStorage.setItem(KEY,v)}catch(e){}
+  var b=document.getElementById('cookiebar'); if(b) b.remove();
+  if(v==='yes') load();
+ }
+ function bar(){
+  var d=document.createElement('div'); d.id='cookiebar';
+  var t=document.createElement('p'); t.textContent="This site collects anonymous visit statistics: which sections people read and how far they get. No personal data.";
+  var g=document.createElement('div'); g.className='cb-btns';
+  var y=document.createElement('button'); y.textContent="Fine";
+  var n=document.createElement('button'); n.className='cb-no'; n.textContent="No statistics";
+  y.onclick=function(){answer('yes')}; n.onclick=function(){answer('no')};
+  g.appendChild(y); g.appendChild(n); d.appendChild(t); d.appendChild(g);
+  document.body.appendChild(d);
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bar);
+ else bar();
+})();
+</script>
 </head><body>
 
 <div class="masthead">
@@ -137,5 +176,6 @@ The five-year history and its stress tests are computed on the past and live on 
 <footer class="sitefoot">
   <span>w2w — an algorithmic portfolio</span>
   <span>Calculations on 2021–2026 history. Not investment advice.</span>
+  <span>Anonymous visit statistics — Yandex Metrica.</span>
 </footer>
 </div></body></html>
