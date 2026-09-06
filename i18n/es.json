@@ -423,5 +423,8 @@
  "res.risk_exp": "El segundo es la <b>esperanza matemática de las últimas 100 operaciones</b>: cuánto aporta de media una operación. La caída responde a «cuánto duele ahora»; la esperanza, a «¿sigue funcionando el sistema?». El umbral de alerta está por debajo del <b>−0,05%</b> del depósito por operación. Calcularla antes de acumular cien operaciones no tiene sentido — una media sobre diez es ruido —, así que mientras la cuenta es joven el observador acumula estadística y calla.",
  "ask.h": "¿Preguntas?",
  "ask.1": "Escriba y le respondo. Lo más sencillo es a través del <a href=\"https://t.me/w2w_portfolio\" target=\"_blank\" rel=\"noopener\">canal de Telegram del proyecto</a>: el contacto está en su descripción y allí mismo están el análisis de las plataformas de copia y las notas sobre cómo va la operativa.",
- "ask.2": "Las preguntas del tipo «¿y qué pasa si…?» son las más útiles: casi todo lo que hay en estas páginas apareció porque alguien preguntó y resultó que no había respuesta."
+ "ask.2": "Las preguntas del tipo «¿y qué pasa si…?» son las más útiles: casi todo lo que hay en estas páginas apareció porque alguien preguntó y resultó que no había respuesta.",
+ "author.name": "Sergey Yanyshev",
+ "author.tg": "Canal de Telegram del proyecto — @w2w_portfolio",
+ "author.alt": "Sergey Yanyshev"
 }
