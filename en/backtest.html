@@ -211,9 +211,7 @@ is computed on the past, not the result of live trading. The live account is on 
   </div>
   <p>XAUUSD, NZDUSD and USTEC are traded by both algorithms, so they appear in both lists: these are different setups with different entry rules, not the same position twice.</p>
   <p><b>Average RR</b> together with the win rate reveals the mechanics of a source: XAUUSD takes <b>6.44</b> per unit of risk at a 20% win rate — rarely, but in large amounts; BRENT is the opposite, <b>0.73</b> at a 71% win rate — often and in small amounts. Both designs are profitable but behave in opposite ways, and they fall into drawdown at different times.</p>
-  <p>Note the drawdowns: <b>the individual drawdown of a source
-  does not add up into the portfolio one</b> — the sum of all sixteen would be
-  <b>141%</b>, while the portfolio drew down <b>17.6%</b>.</p>
+  <p>Note the drawdowns: the individual drawdown of a source does not add up into the portfolio one — the sum of all sixteen would be 142%, while the portfolio drew down 18.1%.</p>
   <p>Gold brings in the most: <b>+249%</b> from Algorithm 2 and <b>+88%</b>
   from Algorithm 1, together <b>a third</b> of the entire result. The dependence on it
   is softened by the fact that these are two different algorithms with different entry rules —
@@ -251,7 +249,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <span><i style="background:var(--series-2)"></i>Algorithm 1</span>
   <span><i style="background:var(--series-3)"></i>combined</span></p>
   </div>
-  <p>Separately, Algorithm 2 drew down <b>17.6%</b> and Algorithm 1 <b>13.0%</b>, summing to 30.6%. The portfolio drawdown stayed at <b>17.6%</b> — exactly that of Algorithm 2 alone — while the result grew from 729% to 983%. That is what combining them buys: the four setups of Algorithm 1 added <b>+254%</b> and not a single percent of drawdown, and the ratio of result to drawdown rose from 41 to 56. This is measured, not asserted — across 556 days of joint trading both were negative 144 times against 153 expected by chance.</p>
+  <p>Separately, Algorithm 2 drew down <b>18.4%</b> and Algorithm 1 <b>13.2%</b>, summing to 31.6%. The portfolio drew down <b>18.1%</b> — less than Algorithm 2 alone, while the result is a third higher: 983% against 729%. The ratio of result to drawdown rose from 40 to 54: the four setups of Algorithm 1 added <b>+254%</b> without deepening the drawdown. This is measured, not asserted — across 556 days of joint trading both were negative 144 times against 153 expected by chance.</p>
 
   <h3>Balance and equity</h3>
   <p>Everything shown above is calculated <b>on balance</b> — on closed trades.
@@ -282,17 +280,11 @@ is computed on the past, not the result of live trading. The live account is on 
 </svg></div>
   <p class="legend"><span><i style="background:var(--series-1)"></i>on balance</span>
   <span><i style="background:var(--crit)"></i>on equity</span></p></div>
-  <p>On closed trades the account drew down <b>17.6%</b>, on equity —
-  <b>22.6%</b>: deeper by a factor of <b>1.29</b>. Sampling is hourly,
-  31 thousand readings per source.</p>
+  <p>On closed trades the account drew down <b>18.1%</b>, on equity — <b>22.6%</b>: deeper by a factor of <b>1.25</b>. The balance drawdown is measured on every closed trade, the equity one hourly, 31 thousand readings per source.</p>
   <p class="note"><b>Is that a lot or a little?</b> The strategy will run on Tickmill Social Trading, and there is something to compare it with: out of <b>1,438</b> public strategies on the platform, half have a maximum drawdown reaching <b>98%</b> — the account was effectively wiped out. A drawdown below 23% puts you in the top ten percent. To check whether this is a quirk of one platform, I went through three more — RoboForex CopyFX, MQL5 Signals and Myfxbook: <b>9,784 public strategies</b> in total. The picture is much the same everywhere, and popularity has little to do with restraint in risk — on CopyFX the leader with 2,539 subscribers has a 99.2% drawdown and a loss. Drawdowns <b>between</b> platforms cannot be compared: each counts them its own way. My own account, published in two places at once, showed 12.96% and 2.82% — a 4.6-fold difference with return and balance matching to the cent. So the comparison above is within Tickmill only, where the trading will happen. Measured on 2 September 2026 from public ratings; the line-up changes over time. A breakdown of each platform with numbers is <a href="https://t.me/w2w_portfolio" target="_blank" rel="noopener">in my Telegram channel</a>.</p>
 
   <h3 style="margin-top:22px">Where the difference comes from</h3>
-  <p>The equity drawdown is <b>5.0%</b> deeper than the balance one — the gap
-  between 22.6% and 17.6%. You would expect a floating loss to explain it:
-  open positions go negative, the account sinks further. But over five years the floating loss
-  <b>never once exceeded 1.9%</b> of the deposit — almost three times less than
-  what would be needed. So where does the rest come from? Let us take apart the worst episode.</p>
+  <p>The equity drawdown is <b>4.5%</b> deeper than the balance one — the gap between 22.6% and 18.1%. You would expect a floating loss to explain it: open positions go negative, the account sinks further. But over five years the floating loss <b>never once exceeded 1.9%</b> of the deposit — less than half of what would be needed. So where does the rest come from? Let us take apart the worst episode.</p>
   <div class="card" style="padding:0"><table>
     <thead><tr><th></th><th style="text-align:right">balance</th><th style="text-align:right">floating</th><th style="text-align:right">equity</th></tr></thead>
     <tbody>

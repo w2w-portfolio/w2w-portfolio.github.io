@@ -211,9 +211,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   </div>
   <p>XAUUSD, NZDUSD y USTEC los operan ambos algoritmos, por eso aparecen en las dos listas: son configuraciones distintas con reglas de entrada distintas, no la misma posición dos veces.</p>
   <p>El <b>RR medio</b>, junto con la tasa de acierto, revela la mecánica de cada fuente: XAUUSD obtiene <b>6,44</b> por unidad de riesgo con una tasa de acierto del 20%: pocas veces, pero mucho; BRENT es lo contrario, <b>0,73</b> con una tasa de acierto del 71%: a menudo y poco. Ambas construcciones son rentables, pero se comportan de forma opuesta y entran en drawdown en momentos distintos.</p>
-  <p>Fíjese en los drawdowns: <b>el drawdown individual de una fuente
-  no se suma al de la cartera</b>: la suma de las dieciséis sería del
-  <b>141%</b>, mientras que la cartera cayó un <b>17,6%</b>.</p>
+  <p>Fíjese en los drawdowns: el drawdown individual de una fuente no se suma al de la cartera: la suma de las dieciséis sería del 142%, mientras que la cartera cayó un 18,1%.</p>
   <p>El oro es el que más aporta: <b>+249%</b> con el Algoritmo 2 y <b>+88%</b>
   con el Algoritmo 1, juntos <b>un tercio</b> del resultado total. La dependencia de él
   se suaviza porque son dos algoritmos distintos con reglas de entrada distintas,
@@ -251,7 +249,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <span><i style="background:var(--series-2)"></i>Algoritmo 1</span>
   <span><i style="background:var(--series-3)"></i>conjunto</span></p>
   </div>
-  <p>Por separado, el Algoritmo 2 tuvo un drawdown del <b>17,6%</b> y el Algoritmo 1 del <b>13,0%</b>, sumando un 30,6%. El drawdown de la cartera se quedó en <b>17,6%</b>, el mismo que el del Algoritmo 2 en solitario, mientras el resultado subía del 729% al 983%. Eso es lo que aporta combinarlos: los cuatro setups del Algoritmo 1 sumaron <b>+254%</b> y ni un punto de drawdown, y la relación entre resultado y drawdown pasó de 41 a 56. Esto está medido, no afirmado: en 556 días de operativa conjunta ambos estuvieron en negativo 144 veces frente a las 153 esperadas por azar.</p>
+  <p>Por separado, el Algoritmo 2 tuvo un drawdown del <b>18,4%</b> y el Algoritmo 1 del <b>13,2%</b>, sumando un 31,6%. La cartera cayó un <b>18,1%</b>, menos que el Algoritmo 2 en solitario, mientras que el resultado es un tercio mayor: 983% frente a 729%. La relación entre resultado y drawdown pasó de 40 a 54: los cuatro setups del Algoritmo 1 sumaron <b>+254%</b> sin profundizar la caída. Esto está medido, no afirmado: en 556 días de operativa conjunta ambos estuvieron en negativo 144 veces frente a las 153 esperadas por azar.</p>
 
   <h3>Balance y equity</h3>
   <p>Todo lo mostrado arriba está calculado <b>sobre el balance</b>, es decir, sobre operaciones cerradas.
@@ -282,17 +280,11 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
 </svg></div>
   <p class="legend"><span><i style="background:var(--series-1)"></i>sobre balance</span>
   <span><i style="background:var(--crit)"></i>sobre equity</span></p></div>
-  <p>Sobre operaciones cerradas la cuenta cayó un <b>17,6%</b>; sobre equity,
-  un <b>22,6%</b>: más profundo por un factor de <b>1,29</b>. El muestreo es horario,
-  31 mil registros por fuente.</p>
+  <p>Sobre operaciones cerradas la cuenta cayó un <b>18,1%</b>; sobre equity, un <b>22,6%</b>: más profundo por un factor de <b>1,25</b>. El drawdown del balance se mide en cada operación cerrada; el de equity, por horas, 31 mil registros por fuente.</p>
   <p class="note"><b>¿Es mucho o poco?</b> La estrategia operará en Tickmill Social Trading y allí hay con qué compararla: de las <b>1 438</b> estrategias públicas de la plataforma, la mitad llega a una caída máxima del <b>98%</b>, es decir, la cuenta prácticamente se vació. Una caída por debajo del 23% entra en el diez por ciento superior. Para saber si es una peculiaridad de una sola plataforma, revisé otras tres — RoboForex CopyFX, MQL5 Signals y Myfxbook: en total <b>9 784 estrategias públicas</b>. El panorama es parecido en todas, y la popularidad apenas guarda relación con la contención del riesgo: en CopyFX el líder, con 2 539 suscriptores, tiene un 99,2% de caída y pérdidas. Las caídas <b>entre</b> plataformas no se pueden comparar: cada una las calcula a su manera. Mi propia cuenta, publicada a la vez en dos sitios, marcó 12,96% y 2,82%: una diferencia de 4,6 veces con rentabilidad y saldo coincidentes al céntimo. Por eso la comparación de arriba es solo dentro de Tickmill, donde se operará. Medición del 2 de septiembre de 2026 sobre datos públicos; la composición cambia con el tiempo. El análisis de cada plataforma con cifras está <a href="https://t.me/w2w_portfolio" target="_blank" rel="noopener">en mi canal de Telegram</a>.</p>
 
   <h3 style="margin-top:22px">De dónde viene la diferencia</h3>
-  <p>El drawdown sobre equity es un <b>5,0%</b> más profundo que el del balance: la diferencia
-  entre el 22,6% y el 17,6%. Cabría esperar que lo explicara una pérdida flotante:
-  las posiciones abiertas entran en negativo y la cuenta cae más. Pero en cinco años la pérdida flotante
-  <b>nunca superó el 1,9%</b> del depósito, casi tres veces menos de lo que haría falta.
-  ¿De dónde sale el resto? Analicemos el peor episodio.</p>
+  <p>El drawdown sobre equity es un <b>4,5%</b> más profundo que el del balance: la diferencia entre el 22,6% y el 18,1%. Cabría esperar que lo explicara una pérdida flotante: las posiciones abiertas entran en negativo y la cuenta cae más. Pero en cinco años la pérdida flotante <b>nunca superó el 1,9%</b> del depósito, menos de la mitad de lo que haría falta. ¿De dónde sale el resto? Analicemos el peor episodio.</p>
   <div class="card" style="padding:0"><table>
     <thead><tr><th></th><th style="text-align:right">balance</th><th style="text-align:right">flotante</th><th style="text-align:right">equity</th></tr></thead>
     <tbody>
