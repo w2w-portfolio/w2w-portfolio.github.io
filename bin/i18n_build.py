@@ -1,18 +1,26 @@
 #!/usr/bin/env python3
-# Собирает сайт из шаблонов tpl/ и словарей i18n/<lang>.json.
-# Русская версия ложится в корень, остальные — в /<lang>/.
-#
-# Помимо перевода строк подставляет четыре служебных маркера:
-#   {{LANG}}       — код языка в <html lang=...>
-#   {{FEED}}       — лента недель из site/tables/weekly.html (строит weekly_report.py)
-#   {{LIVE}}       — таблица живых цифр рядом с расчётными (он же)
-#   {{BASE}}       — путь к assets/ ('' из корня, '../' из подпапки)
-#   {{HREFLANG}}   — ссылки на языковые версии для поисковиков
-#   {{LANGSWITCH}} — переключатель в шапке; ссылки готовые, работает без JS
-#   {{MASTHEAD}}   — логотип из tpl/_masthead.html (общий для всех страниц)
-#   {{NAV}}        — меню; текущий пункт сборщик подсвечивает сам
-# Голова страницы тоже общая — tpl/_head.html, {{TITLE}} в ней разворачивается
-# в ключ заголовка текущей страницы (title.index, title.results и так далее).
+"""Собирает сайт из шаблонов tpl/ и словарей i18n/<lang>.json.
+
+    python3 i18n_build.py            все три языка
+    python3 i18n_build.py es         только испанский
+
+Русская версия ложится в корень, остальные — в /<lang>/.
+
+Помимо перевода строк подставляет служебные маркеры:
+  {{LANG}}       — код языка в <html lang=...>
+  {{FEED}}       — лента недель из site/tables/weekly.html (строит weekly_report.py)
+  {{LIVE}}       — таблица живых цифр рядом с расчётными (он же)
+  {{BASE}}       — путь к assets/ ('' из корня, '../' из подпапки)
+  {{HREFLANG}}   — ссылки на языковые версии для поисковиков
+  {{LANGSWITCH}} — переключатель в шапке; ссылки готовые, работает без JS
+  {{MASTHEAD}}   — логотип из tpl/_masthead.html (общий для всех страниц)
+  {{NAV}}        — меню; текущий пункт сборщик подсвечивает сам
+  {{TOC}}        — оглавление страницы по секциям с якорем
+  {{n.<ключ>}}   — число из расчёта, site/data/numbers.json
+
+Голова страницы тоже общая — tpl/_head.html, {{TITLE}} в ней разворачивается
+в ключ заголовка текущей страницы (title.index, title.results и так далее).
+"""
 import json, re, sys
 from pathlib import Path
 
@@ -27,7 +35,10 @@ MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
 LANGS = ['ru','en','es']
 NAMES = {'ru':'RU','en':'EN','es':'ES'}
 HOST  = 'https://w2w-portfolio.github.io'
-KEY   = re.compile(r'\{\{([a-z][a-z0-9_.]*)\}\}')
+# Ключи словаря. Маркеры чисел {{n.<ключ>}} исключены: они не переводятся,
+# их подставляет put_numbers уже после словаря — иначе счётчик «без перевода»
+# считал бы их пропущенными.
+KEY   = re.compile(r'\{\{(?!n\.)([a-z][a-z0-9_.]*)\}\}')
 # Упоминание страницы в тексте: [[backtest]] разворачивается в ссылку с её
 # названием на нужном языке. На самоё себя страница не ссылается — остаётся
 # просто название. Так читателю не нужно искать, где про это сказано подробно.
@@ -142,8 +153,26 @@ NUMFMT = {
     'dd_bal': (1, False), 'dd_eq': (1, False),
     'years': (0, False), 'sources': (0, False), 'symbols': (0, False),
     'months': (0, False), 'months_up': (0, False),
+    # по алгоритмам
+    'total_a1': (0, False), 'total_a2': (0, False),
+    'dd_a1': (1, False), 'dd_a2': (1, False), 'dd_a12': (1, False),
+    'rdd_a2': (0, False), 'rdd_port': (0, False),
+    'both_days': (0, False), 'both_down': (0, False), 'both_exp': (0, False),
+    # месяцы и годы
+    'month_best': (1, False), 'month_avg': (1, False),
+    'y1': (0, False), 'y2': (0, False), 'y3': (0, False),
+    'y4': (0, False), 'y5': (0, False), 'years_up': (0, False),
+    # золото и просадки источников
+    'gold_a1': (0, False), 'gold_a2': (0, False), 'gold_share': (0, False),
+    'dd_all': (0, False),
+    # после вознаграждения площадки
+    'fee_windows': (0, False),
+    'fee30': (0, False), 'fee30_lo': (0, False),
+    'fee30_mid': (0, False), 'fee30_hi': (0, False),
+    'fee20': (0, False), 'fee20_lo': (0, False),
+    'fee20_mid': (0, False), 'fee20_hi': (0, False),
 }
-NUMKEY = re.compile(r'\{\{n\.([a-z_]+)\}\}')
+NUMKEY = re.compile(r'\{\{n\.([a-z][a-z0-9_]*)\}\}')
 
 
 def numbers():
@@ -237,5 +266,7 @@ if __name__ == '__main__':
     for lang in langs:
         out = SITE if lang == 'ru' else SITE/lang
         miss = build(lang, out)
-        note = f'  ⚠ без перевода: {len(miss)}' if miss else ''
+        uniq = sorted(set(miss))
+        note = (f'  ⚠ без перевода: {len(miss)} ({", ".join(uniq[:5])}'
+                f'{"…" if len(uniq) > 5 else ""})') if miss else ''
         print(f'  {lang} -> {out.relative_to(SITE.parent)}/{note}')

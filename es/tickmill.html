@@ -129,12 +129,14 @@
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html">Resultados</a><a href="backtest.html">Backtests</a><a href="tickmill.html" class="on">Cómo unirse</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
-<section>
+<section id="top">
   <h1>Cómo unirse</h1>
   <p class="lead">Su dinero permanece en su propia cuenta del bróker: no se lo entrega a nadie. La suscripción se formaliza en el área de cliente de Tickmill y, a partir de ahí, las operaciones de la estrategia se repiten en su cuenta automáticamente. No hay que instalar nada ni mantener nada encendido.</p>
 </section>
 
-<section>
+<nav class="toc" aria-label="Contenido"><ol><li><a href="#need">Qué se necesita por su parte</a></li><li><a href="#steps">Orden de los pasos</a></li><li><a href="#size">Cómo ajustar el tamaño y el riesgo</a></li><li><a href="#capacity">Qué pasará cuando haya muchos suscriptores</a></li><li><a href="#cost">Cuánto cuesta</a></li><li><a href="#ask">¿Preguntas?</a></li></ol></nav>
+
+<section id="need">
   <h2>Qué se necesita por su parte</h2>
   <div class="card" style="padding:0"><table>
     <tbody>
@@ -164,7 +166,7 @@
   eliminarla por completo no es posible.</p>
 </section>
 
-<section>
+<section id="steps">
   <h2>Orden de los pasos</h2>
   <ol class="steps">
     <li>Abrir una cuenta en Tickmill, si aún no la tiene, y depositar fondos.</li>
@@ -176,27 +178,27 @@
   <p class="note">Las pantallas y los botones exactos pueden variar: guíese por el manual oficial de Social Trading de Tickmill.</p>
 </section>
 
-<section>
+<section id="size">
   <h2>Cómo ajustar el tamaño y el riesgo</h2>
   <p>Por defecto el volumen copiado se calcula automáticamente: se escala según la proporción entre su saldo y el de la estrategia. Si la cuenta de la estrategia tiene 10.000 y la suya 1.000, una operación de 1 lote se repite en su cuenta como 0,1 lotes. Además puede fijar un <b>multiplicador</b>: uno a la mitad reduce a la mitad tanto la rentabilidad como el drawdown, y es la forma de ajustar el riesgo a su medida.</p>
   <p>Aparte, puede fijar límites de riesgo para toda la suscripción: cerrar las operaciones al alcanzar una pérdida o un beneficio determinados, suspender la copia o darse de baja. Es su propio seguro por encima de lo que hace la estrategia.</p>
 </section>
 
-<section>
+<section id="capacity">
   <h2>Qué pasará cuando haya muchos suscriptores</h2>
   <p>La pregunta es legítima: las estrategias tienen un techo a partir del cual sus propias copias entorpecen la ejecución. El orden de magnitud es este. Si el capital conjunto de los suscriptores llegara a <b>10 millones de dólares</b>, una sola operación de la cartera pesaría unos 74 lotes en oro —unos 30 millones de dólares de nocional— y del orden de 300 lotes en euro-dólar. Para instrumentos de esa clase eso son décimas de punto porcentual del volumen diario: allí se negocian volúmenes varios órdenes de magnitud mayores. También ayuda la baja frecuencia: <b>613 operaciones en el último año</b>, dos o tres al día repartidas entre trece instrumentos. No es operativa de alta frecuencia, donde el volumen ajeno estorba al instante.</p>
   <p>Pero una respuesta honesta debe nombrar el verdadero cuello de botella, y no es el mercado sino el <b>bróker</b>. Las copias se ejecutan a través de su liquidez y se abren casi a la vez, en una sola andanada. A partir de qué tamaño el spread empieza a ampliarse con esa andanada, no lo sé: es la cocina interna de la plataforma y no tengo datos. Prometer que «hay capacidad para todos» sería inventar.</p>
   <div class="note"><p>Se notaría en la tabla de la página <a href="results.html">Resultados</a>: allí, junto a las cifras reales, están las calculadas —porcentaje de aciertos, factor de beneficio, RR medio, drawdown—. La tabla se reconstruye automáticamente cada sábado. Si la capacidad empieza a apretar, lo primero que caerá será el resultado medio por operación, y la diferencia con la columna calculada se hará visible. No tengo una medición directa del deslizamiento en cada operación: con pocas operaciones se pierde en el ruido normal del mercado, y prefiero no prometer lo que no hago.</p></div>
 </section>
 
-<section>
+<section id="cost">
   <h2>Cuánto cuesta</h2>
   <p class="note">Por qué la suscripción está abierta desde el primer día de operativa real: lo explico en la página <a href="about.html">Autor</a>.</p>
   <p>La comisión se cobra como <b>porcentaje del beneficio</b> y solo de él: si no hay beneficio, no hay comisión. La retiene la plataforma, y únicamente del incremento por encima del máximo anterior de la cuenta, así que los meses que solo recuperan una pérdida previa no cuestan nada. La tarifa pública es del <b>30%</b>, la cifra habitual en este mercado, donde copiar cuesta entre el 25% y el 30%.</p>
   <p class="note">Durante el primer año de operativa real, hasta el <b>7 de septiembre de 2027</b>, se aplica una tarifa reducida del <b>20%</b>. La razón es sencilla: mientras el historial real apenas se acumula, no me parece correcto cobrar a todos la tarifa completa. Esa oferta no es pública: envío el enlace de suscripción a petición, y se puede preguntar igual que cualquier otra cosa, en la sección de abajo. Las condiciones de una suscripción vigente no cambian una vez formalizada: quien entra con la tarifa reducida la conserva cuando el año termine.</p>
 </section>
 
-<section>
+<section id="ask">
   <h2>¿Preguntas?</h2>
   <p>Escriba y le respondo. Lo más sencillo es a través del <a href="https://t.me/w2w_portfolio" target="_blank" rel="noopener">canal de Telegram del proyecto</a>: el contacto está en su descripción y allí mismo están el análisis de las plataformas de copia y las notas sobre cómo va la operativa.</p>
   <p>Las preguntas del tipo «¿y qué pasa si…?» son las más útiles: casi todo lo que hay en estas páginas apareció porque alguien preguntó y resultó que no había respuesta.</p>

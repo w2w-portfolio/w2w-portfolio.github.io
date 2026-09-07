@@ -129,12 +129,14 @@
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html">Results</a><a href="backtest.html">Backtests</a><a href="tickmill.html" class="on">How to join</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../tickmill.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/tickmill.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/tickmill.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
-<section>
+<section id="top">
   <h1>How to join</h1>
   <p class="lead">Your money stays in your own account with the broker — you hand it to no one. The subscription is set up in the Tickmill client portal, after which the strategy’s trades are repeated on your account automatically. Nothing to install and nothing to keep running.</p>
 </section>
 
-<section>
+<nav class="toc" aria-label="Contents"><ol><li><a href="#need">What is required from you</a></li><li><a href="#steps">The order of steps</a></li><li><a href="#size">How to set size and risk</a></li><li><a href="#capacity">What happens when there are many subscribers</a></li><li><a href="#cost">What it costs</a></li><li><a href="#ask">Questions</a></li></ol></nav>
+
+<section id="need">
   <h2>What is required from you</h2>
   <div class="card" style="padding:0"><table>
     <tbody>
@@ -164,7 +166,7 @@
   removing it entirely is impossible.</p>
 </section>
 
-<section>
+<section id="steps">
   <h2>The order of steps</h2>
   <ol class="steps">
     <li>Open an account with Tickmill if you do not have one, and fund it.</li>
@@ -176,27 +178,27 @@
   <p class="note">The exact screens and buttons may differ — follow Tickmill’s official Social Trading user manual.</p>
 </section>
 
-<section>
+<section id="size">
   <h2>How to set size and risk</h2>
   <p>By default the copied volume is calculated automatically: it scales by the ratio of your balance to the strategy’s balance. If the strategy account holds 10,000 and yours holds 1,000, a 1-lot trade is repeated on your side as 0.1 lot. On top of that you can set a <b>multiplier</b>: a half multiplier halves both the return and the drawdown — it is a way to fit the risk to yourself.</p>
   <p>Separately, you can set risk limits for the whole subscription: close the trades on reaching a given loss or profit, suspend the copying or unsubscribe. That is your own safety catch on top of what the strategy does.</p>
 </section>
 
-<section>
+<section id="capacity">
   <h2>What happens when there are many subscribers</h2>
   <p>A fair question: strategies do have a ceiling beyond which their own copies start to interfere with execution. Here is the order of magnitude. If the combined capital of subscribers reached <b>10 million dollars</b>, a single trade of the portfolio would weigh about 74 lots in gold — roughly 30 million dollars of notional — and some 300 lots in euro-dollar. For instruments of that class this is a fraction of a percent of daily turnover: the volumes traded there are orders of magnitude larger. The low frequency helps too — <b>613 trades over the past year</b>, two or three a day across thirteen instruments. This is not high-frequency trading, where someone else’s volume gets in the way instantly.</p>
   <p>But an honest answer has to name the real bottleneck, and it is not the market — it is the <b>broker</b>. Copies are executed through its liquidity, and they open almost simultaneously, in one salvo. At what size the spread starts to widen on such a salvo I do not know: that is the platform’s internal kitchen and I have no data on it. Promising that “there is capacity for everyone” would be invention.</p>
   <div class="note"><p>It would show up in the table on the <a href="results.html">Results</a> page: live figures stand there next to the computed ones — share of winners, profit factor, average RR, drawdown. The table is rebuilt automatically every Saturday. If capacity starts to bite, the average result per trade is the first thing to sag, and the gap against the computed column becomes visible. I have no direct measurement of slippage on each individual trade: over a small number of trades it drowns in ordinary market noise, and I would rather not promise something I do not do.</p></div>
 </section>
 
-<section>
+<section id="cost">
   <h2>What it costs</h2>
   <p class="note">Why the subscription is open from the very first day of live trading — I explain that on the <a href="about.html">Author</a> page.</p>
   <p>The fee is taken as a <b>percentage of profit</b> and only from profit: no profit, no fee. The platform withholds it, and only from the gain above the account’s previous high, so months that merely recover a past loss cost nothing. The public rate is <b>30%</b> — the usual figure for this market, where copying costs 25–30%.</p>
   <p class="note">For the first year of live trading, until <b>7 September 2027</b>, a reduced rate of <b>20%</b> applies. The reason is simple: while the live track record is only being built, charging everyone the full rate does not feel right to me. That offer is not public — I send the subscription link on request, and you can ask the same way as with any other question, see the section below. The terms of an existing subscription do not change once it is set up: whoever joins at the reduced rate keeps it after the year is over.</p>
 </section>
 
-<section>
+<section id="ask">
   <h2>Questions</h2>
   <p>Ask — I answer. The easiest way is through the <a href="https://t.me/w2w_portfolio" target="_blank" rel="noopener">project’s Telegram channel</a>: the contact is in its description, and the same place holds the breakdown of copy platforms and notes on how the trading is going.</p>
   <p>Questions of the “what happens if…” kind are the most useful: almost everything on these pages appeared because somebody asked and it turned out there was no answer.</p>
