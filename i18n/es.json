@@ -514,5 +514,5 @@
  "about.why_3": "Y a la pregunta «qué pasará después» una cuenta real no responde en absoluto. El mercado puede cambiar de carácter mañana, igual tras cinco años de cálculo que tras un año de operativa real. Un año en real no reduce ese riesgo: solo añade un sexto año a los cinco, cuatro veces más corto que los demás.",
  "about.why_4": "Una excepción, dicha con honestidad. Los cinco años de cálculo son datos que yo <b>había visto</b> al seleccionar instrumentos y ajustes; incluso con una selección honesta queda un rastro de eso. Una semana en real son datos que no ha visto nadie. Por eso justamente la cuenta es pública y las cifras las toma de ella un servicio externo, no yo. Y por eso mismo no tiene sentido esperar: lo que la operativa real puede comprobar, lo comprueba de inmediato; lo demás es esperar por esperar.",
  "about.why_h": "Por qué la suscripción está abierta desde el primer día de operativa real",
- "tickmill.why_link": "Por qué la suscripción está abierta cuando todavía no hay historial real: lo explico en la página [[about]]."
+ "tickmill.why_link": "Por qué la suscripción está abierta desde el primer día de operativa real: lo explico en la página [[about]]."
 }
