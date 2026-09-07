@@ -397,7 +397,7 @@
  "live.col2": "cuenta real",
  "live.col3": "calculado",
  "live.since": "opera desde",
- "live.since_bt": "5 años de historial",
+ "live.since_bt": "08.2021 — 08.2026",
  "live.deposit": "depósito inicial",
  "live.deposit_bt": "10 000 por fuente",
  "live.trades": "operaciones",
@@ -457,5 +457,10 @@
  "bt.risk_col4": "máximo",
  "bt.risk_2": "El primero es <b>cuánto cuesta de verdad una operación perdedora</b>. El riesgo declarado es del 1% del depósito; si el stop aguanta, la pérdida media se mantiene cerca de −1R en cualquier año. En seis años nunca salió del intervalo de <b>−0,97R a −1,02R</b>: una amplitud de cinco centésimas. La mediana ni se mueve: −1,01R y −1,02R, año tras año.",
  "bt.risk_3": "El segundo es <b>cuántas posiciones están abiertas a la vez</b>: dieciséis fuentes al 1% permitirían hasta un 16% de riesgo simultáneo, y ahí está el peligro de una cartera, no en una operación suelta. La mediana es de <b>dos posiciones</b> en cada uno de los seis años, el 95% del tiempo no hay más de cuatro abiertas y el máximo histórico es siete. Con cinco o más posiciones a la vez la cartera estuvo el <b>1,2% del tiempo</b>.",
- "bt.risk_4": "La ocupación está ponderada por tiempo y no por número de operaciones: «mediana dos» significa que durante la mitad de todas las horas no hubo más de dos posiciones abiertas; de otro modo una operación larga contaría igual que una de una hora. Los fines de semana se incluyen: una posición mantenida durante el fin de semana está en riesgo todas esas horas, y es justo entonces cuando ocurre el hueco de apertura."
+ "bt.risk_4": "La ocupación está ponderada por tiempo y no por número de operaciones: «mediana dos» significa que durante la mitad de todas las horas no hubo más de dos posiciones abiertas; de otro modo una operación larga contaría igual que una de una hora. Los fines de semana se incluyen: una posición mantenida durante el fin de semana está en riesgo todas esas horas, y es justo entonces cuando ocurre el hueco de apertura.",
+ "about.end_h": "Para terminar",
+ "about.end_1": "Seguiré llevando este sitio pase lo que pase con la cuenta. Las semanas malas quedarán a la vista junto a las buenas: de otro modo, todo lo escrito arriba sobre el riesgo no vale nada. Si algún día el sistema llega al umbral de parada, también aparecerá aquí: con la fecha, las cifras y el análisis.",
+ "about.end_2": "Si después de todo esto quedan dudas, escríbame y le responderé. Las preguntas del tipo «¿y qué pasa si…?» son las más útiles: buena parte de lo que hay en estas páginas existe porque alguien preguntó y no había respuesta.",
+ "about.end_3": "Y sobre el nombre. <b>w2w</b> es <i>The Way to Wealth</i>, el folleto de Franklin de 1758 del que procede el epígrafe de la primera página. Él prometía buena suerte a los diligentes, así que no le desearé suerte sino diligencia: un stop en cada operación, umbrales fijados de antemano y la paciencia de dejar que la distancia larga haga su trabajo. Lo demás se verá aquí, en cifras, cada semana.",
+ "about.sign": "Sergey"
 }

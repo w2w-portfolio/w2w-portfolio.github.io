@@ -397,7 +397,7 @@
  "live.col2": "live account",
  "live.col3": "computed",
  "live.since": "trading since",
- "live.since_bt": "5 years of history",
+ "live.since_bt": "08.2021 — 08.2026",
  "live.deposit": "starting deposit",
  "live.deposit_bt": "10,000 per source",
  "live.trades": "trades",
@@ -457,5 +457,10 @@
  "bt.risk_col4": "peak",
  "bt.risk_2": "The first is <b>what a losing trade actually costs</b>. The declared risk is 1% of the deposit; if the stop holds, the average loss stays near −1R in any year. Over six years it never left the range from <b>−0.97R to −1.02R</b>: a spread of five hundredths. The median does not move at all — −1.01R and −1.02R, year after year.",
  "bt.risk_3": "The second is <b>how many positions are open at once</b>: sixteen sources at 1% each would allow up to 16% of risk at a time, and that is where a portfolio’s danger lives, not in a single trade. The median is <b>two positions</b> in each of the six years, 95% of the time no more than four are open, and the all-time peak is seven. The portfolio stood with five or more positions for <b>1.2% of the time</b>.",
- "bt.risk_4": "Occupancy is weighted by time, not by trade count: “median two” means that for half of all hours no more than two positions were open — otherwise one long trade would count the same as an hour-long one. Weekends are included: a position carried through the weekend is at risk for every one of those hours, and that is exactly when a gap at the open happens."
+ "bt.risk_4": "Occupancy is weighted by time, not by trade count: “median two” means that for half of all hours no more than two positions were open — otherwise one long trade would count the same as an hour-long one. Weekends are included: a position carried through the weekend is at risk for every one of those hours, and that is exactly when a gap at the open happens.",
+ "about.end_h": "One last thing",
+ "about.end_1": "I will keep this site going whatever the account turns out to show. Bad weeks will stay in plain view alongside the good ones — otherwise everything written above about risk is worth nothing. If the system ever hits its stop threshold, that will appear here too: with the date, the figures and a post-mortem.",
+ "about.end_2": "If questions remain after all of the above, write to me and I will answer. Questions of the “what happens if…” sort are the most useful ones: a good half of what is on these pages exists because somebody asked and no answer was to be found.",
+ "about.end_3": "And about the name. <b>w2w</b> stands for <i>The Way to Wealth</i>, Franklin’s 1758 pamphlet, the source of the epigraph on the first page. He promised good luck to the diligent, so I will wish you not luck but diligence: a stop on every trade, thresholds set in advance, and the patience to let a long distance do its work. The rest will be visible here — in figures, every week.",
+ "about.sign": "Sergey"
 }
