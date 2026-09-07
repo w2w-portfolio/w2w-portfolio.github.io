@@ -151,6 +151,7 @@ NUMFMT = {
     'pf': (1, False), 'rr': (2, False), 'win_rate': (1, False),
     'avg_win': (2, False), 'avg_loss': (2, False),
     'dd_bal': (1, False), 'dd_eq': (1, False),
+    'dd_eq_1000': (0, True), 'dry_days': (0, False),
     'years': (0, False), 'sources': (0, False), 'symbols': (0, False),
     'months': (0, False), 'months_up': (0, False),
     # по алгоритмам
