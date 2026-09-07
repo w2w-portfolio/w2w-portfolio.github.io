@@ -105,11 +105,53 @@ def load_trades():
             rows.append(dict(
                 t=datetime.strptime(r['close_time'], '%Y.%m.%d %H:%M:%S'),
                 symbol=r['symbol'], magic=int(r['magic']),
-                volume=float(r['volume']), money=float(r['money'])))
+                volume=float(r['volume']), money=float(r['money']),
+                # Появились в выгрузке сторожа 1.10; у старых строк их нет.
+                out_type=r.get('type', ''),
+                price=float(r.get('price') or 0),
+                entry=float(r.get('entry_price') or 0),
+                comment=(r.get('comment') or '').strip()))
         except (ValueError, KeyError):
             continue
     return sorted(rows, key=lambda x: x['t'])
 
+
+def slip(tr):
+    """Проскок мимо уровня, в долях риска: минус — против нас.
+
+    Тем же способом, что и на истории (bin/gaps.py): в комментарии сделки
+    лежит сработавший уровень, расстояние от входа до стопа принимается
+    за 1R. Пока сторож не пишет цену входа и комментарий, возвращается
+    None — старые строки выгрузки этих полей не имеют."""
+    parts = tr['comment'].split()
+    if len(parts) != 2 or parts[0] not in ('sl', 'tp') or tr['entry'] <= 0:
+        return None
+    try:
+        level = float(parts[1])
+    except ValueError:
+        return None
+    dist = abs(tr['entry'] - level)
+    if dist <= 0:
+        return None
+    # out_type — тип сделки ВЫХОДА, направление позиции ему обратно.
+    long_pos = (tr['out_type'] == 'sell')
+    away = (tr['price'] - level) * (-1 if long_pos else 1)
+    if parts[0] == 'sl':
+        return -away / dist
+    share = -away / dist
+    return None if share <= -1 else share
+
+
+def slip_report(trades):
+    """Строка про проскок для отчёта, или пусто — пока считать нечего."""
+    vals = [v for v in (slip(t) for t in trades) if v is not None]
+    if len(vals) < 5:
+        return ''
+    bad = [v for v in vals if v < -0.05]
+    good = [v for v in vals if v > 0.05]
+    return (f'  проскок мимо уровня: {len(vals)} сделок с уровнем, '
+            f'против нас {len(bad)}, в пользу {len(good)}, '
+            f'сумма {sum(vals):+.2f}R')
 
 def curve(trades, start_balance):
     """Кривая баланса и просадки от максимума, в процентах депозита."""
@@ -378,6 +420,9 @@ def main():
     exp_note = (f"{entry['exp_pct']:+.3f}% на сделку" if entry['exp_ready']
                 else f"мало данных ({entry['exp_n']} из {EXP_WINDOW} сделок)")
     print(f"  ожидание: {exp_note}   (порог {EXP_ALERT:+.2f}%)")
+    line = slip_report(trades)
+    if line:
+        print(line)
     if entry['symbols_week']:
         print(f"  инструменты недели: {' '.join(entry['symbols_week'])}")
 
