@@ -447,8 +447,8 @@
  "bt.gapb_col5": "total",
  "bt.gapb_r1": "against us",
  "bt.gapb_r2": "in our favour",
- "bt.gapb_2": "The five-year total is <b>−2.9R</b> — gaps ate three tenths of a percent of the 983% result. They are evenly matched both in count (37 against 34) and in size: the heaviest single case is against us, the higher average is in our favour. The extremes: <b>−4.97R</b> on USDJPY on 6 October 2025 and <b>+1.60R</b> on BRENT on 13 April 2026. Algorithm 1 has <b>zero</b> gaps over five years out of 656 trades closed at a level — in either direction.",
- "bt.gapb_3": "An important limit of this calculation: this is the <b>tester</b>, not a live account. The tester has no execution slippage — only genuine gaps in the quotes show up. On a live account the “against us” side will be somewhat heavier and the “in our favour” side about the same. So −2.9R should be read as a lower bound on the cost, not as a promise.",
+ "bt.gapb_2": "Over five years the gaps came out <b>in our favour</b>: 37 cases against us at −9.9R and 34 in our favour at +11.4R, a net <b>+1.5R</b>. The extremes: −4.97R on USDJPY on 6 October 2025 and +1.60R on BRENT on 13 April 2026. Algorithm 1 has <b>zero</b> gaps over five years out of 656 trades closed at a level — in either direction.",
+ "bt.gapb_3": "An important limit of this calculation: this is the <b>tester</b>, not a live account. The tester has no execution slippage — only genuine gaps in the quotes and the tick size show up. On a live account both figures will be worse, the second one especially: the spread there is wider and it moves. So −2.9R should be read as a lower bound on the cost, not as a promise.",
  "bt.risk_h": "Does the risk creep up year by year?",
  "bt.risk_1": "This is the question worth asking any strategy author: does he push the risk up after a good run, or double down after losses? An attractive equity curve answers none of it — rising risk is exactly what draws an attractive curve, right up until it kills the account. Two numbers settle it, and both are taken from actual trades rather than from settings.",
  "bt.risk_col1": "year",
@@ -462,5 +462,6 @@
  "about.end_1": "I will keep this site going whatever the account turns out to show. Bad weeks will stay in plain view alongside the good ones — otherwise everything written above about risk is worth nothing. If the system ever hits its stop threshold, that will appear here too: with the date, the figures and a post-mortem.",
  "about.end_2": "If questions remain after all of the above, write to me and I will answer. Questions of the “what happens if…” sort are the most useful ones: a good half of what is on these pages exists because somebody asked and no answer was to be found.",
  "about.end_3": "And about the name. <b>w2w</b> stands for <i>The Way to Wealth</i>, Franklin’s 1758 pamphlet, the source of the epigraph on the first page. He promised good luck to the diligent, so I will wish you not luck but diligence: a stop on every trade, thresholds set in advance, and the patience to let a long distance do its work. The rest will be visible here — in figures, every week.",
- "about.sign": "Sergey"
+ "about.sign": "Sergey",
+ "bt.gapb_4": "The money is lost where nobody looks. On the other <b>2,973</b> closes the price runs past the level by a little — hundredths of the risk. That is not a gap but spread and tick size: price does not stop exactly where the level sits. Individually invisible, yet it went past in the worse direction 1,047 times against 498 in the better one, and adds up to <b>−4.4R</b> — three times what all the gaps together produced. Together that makes <b>−2.9R</b> over five years: three tenths of a percent of the 983% result."
 }
