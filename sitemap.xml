@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://w2w-portfolio.github.io/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/index.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/results.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/results.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/results.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/results.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/results.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/backtest.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/backtest.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/tickmill.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/tickmill.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/index.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/results.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/results.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/results.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/results.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/results.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/backtest.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/backtest.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/tickmill.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/tickmill.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/index.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/index.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/index.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/index.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/index.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/results.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/results.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/results.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/results.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/results.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/backtest.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/backtest.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/backtest.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/tickmill.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/tickmill.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/tickmill.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
+  </url>
+</urlset>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://w2w-portfolio.github.io/sitemap.xml

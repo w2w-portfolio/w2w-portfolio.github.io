@@ -76,11 +76,23 @@ def nav(page):
     return f'<nav>{items}</nav>'
 
 
-def shell(page):
-    """Голова и шапка страницы — общие куски tpl/_head.html и _masthead.html."""
+OGLOCALE = {'ru': 'ru_RU', 'en': 'en_US', 'es': 'es_ES'}
+
+
+def shell(page, lang):
+    """Голова и шапка страницы — общие куски tpl/_head.html и _masthead.html.
+
+    Заголовок и описание берутся по имени страницы (title.index, desc.index),
+    канонический адрес и локаль — по языку. Описание нужно и поисковику,
+    и превью ссылки в мессенджерах: без него вместо карточки уходит
+    голая строка."""
     slug = page.replace('.html', '')
     head = (SITE/'tpl'/'_head.html').read_text(encoding='utf-8')
-    head = head.replace('{{TITLE}}', '{{title.' + slug + '}}')
+    canon = f'{HOST}/' + ('' if lang == 'ru' else lang + '/') + page
+    head = (head.replace('{{TITLE}}', '{{title.' + slug + '}}')
+                .replace('{{DESC}}', '{{desc.' + slug + '}}')
+                .replace('{{CANONICAL}}', canon)
+                .replace('{{OGLOCALE}}', OGLOCALE[lang]))
     return head, (SITE/'tpl'/'_masthead.html').read_text(encoding='utf-8')
 
 
@@ -233,7 +245,7 @@ def build(lang, outdir):
     nums = numbers()
     for f in PAGES:
         tpl = (SITE/'tpl'/f).read_text(encoding='utf-8')
-        head, mast = shell(f)
+        head, mast = shell(f, lang)
         tpl = (tpl.replace('{{HEAD}}', head)
                   .replace('{{MASTHEAD}}', mast)
                   .replace('{{NAV}}', nav(f))
@@ -262,6 +274,35 @@ def build(lang, outdir):
         (outdir/f).write_text(page, encoding='utf-8')
     return missing
 
+def sitemap():
+    """Карта сайта: все страницы всех языков, каждая со ссылками на переводы.
+
+    Файл собирается вместе со страницами, поэтому не может от них отстать.
+    Даты не ставим: врать «обновлено сегодня» о неизменившейся странице
+    хуже, чем не сказать ничего."""
+    rows = ['<?xml version="1.0" encoding="UTF-8"?>',
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+            '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    for lang in LANGS:
+        for page in PAGES:
+            loc = f'{HOST}/' + ('' if lang == 'ru' else lang + '/') + page
+            rows.append(f'  <url>\n    <loc>{loc}</loc>')
+            for alt in LANGS:
+                href = f'{HOST}/' + ('' if alt == 'ru' else alt + '/') + page
+                rows.append(f'    <xhtml:link rel="alternate" hreflang="{alt}" href="{href}"/>')
+            rows.append(f'    <xhtml:link rel="alternate" hreflang="x-default" '
+                        f'href="{HOST}/{page}"/>')
+            rows.append('  </url>')
+    rows.append('</urlset>')
+    (SITE/'sitemap.xml').write_text('\n'.join(rows) + '\n', encoding='utf-8')
+
+    (SITE/'robots.txt').write_text(
+        'User-agent: *\n'
+        'Allow: /\n\n'
+        f'Sitemap: {HOST}/sitemap.xml\n', encoding='utf-8')
+    return len(LANGS) * len(PAGES)
+
+
 if __name__ == '__main__':
     langs = sys.argv[1:] or LANGS
     for lang in langs:
@@ -271,3 +312,4 @@ if __name__ == '__main__':
         note = (f'  ⚠ без перевода: {len(miss)} ({", ".join(uniq[:5])}'
                 f'{"…" if len(uniq) > 5 else ""})') if miss else ''
         print(f'  {lang} -> {out.relative_to(SITE.parent)}/{note}')
+    print(f'  карта сайта: {sitemap()} адресов + robots.txt')
