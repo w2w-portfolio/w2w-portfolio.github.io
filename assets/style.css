@@ -58,7 +58,11 @@ b,strong{color:var(--ink);font-weight:600}
 .meta{display:flex;flex-wrap:wrap;gap:5px 20px;margin-top:16px;
  font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-faint)}
 section{display:flex;flex-direction:column;gap:14px}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:5px;padding:18px 20px}
+/* Прокрутка внутри карточки: таблиц на страницах два десятка, часть из них
+   строят скрипты, и на узком экране колонки не сжимаются ниже своего минимума.
+   Без этого таблица растягивала страницу и её уводило вбок вместе с текстом. */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:5px;
+ padding:18px 20px;overflow-x:auto}
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
 .tile{background:var(--surface);border:1px solid var(--line);border-radius:5px;
  padding:15px 17px;display:flex;flex-direction:column;gap:2px}
@@ -67,7 +71,13 @@ section{display:flex;flex-direction:column;gap:14px}
  font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1.2}
 .tile .n{font-size:12.5px;color:var(--ink-soft)}
 .scroll{overflow-x:auto}
-svg{display:block;min-width:660px}
+/* Графики не сжимаем — в узком экране подписи осей налезли бы друг на друга;
+   вместо этого они прокручиваются внутри .scroll. Но min-width обязан
+   действовать ТОЛЬКО на них: по спецификации он сильнее max-width, и общее
+   правило растягивало заодно логотип шапки до 660px, из-за чего вся страница
+   на телефоне ездила вбок. */
+svg{display:block;max-width:100%}
+.scroll svg{min-width:660px;max-width:none}
 .g{stroke:var(--line);stroke-width:1}
 .ax{fill:var(--ink-faint);font-family:"IBM Plex Mono",monospace;font-size:10.5px}
 .lab{fill:var(--ink-soft);font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600}
