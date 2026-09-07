@@ -210,7 +210,7 @@
  "tickmill.t028": "Una misma cuenta no puede ser proveedor de estrategia y seguidor a la vez. Si ya comparte una estrategia propia, necesitará una cuenta aparte para la suscripción.",
  "tickmill.t029": "Abrir una cuenta en Tickmill, si aún no la tiene, y depositar fondos.",
  "tickmill.t030": "Registrarse en Tickmill Social Trading como <b>Follower</b>, con el mismo usuario y contraseña de la cuenta de trading.",
- "tickmill.t031": "Buscar la estrategia w2w y formalizar la suscripción.",
+ "tickmill.t031": "Buscar <a href=\"https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark\" target=\"_blank\" rel=\"noopener\">la ficha de la estrategia w2w</a> y formalizar la suscripción.",
  "tickmill.t032": "Configurar la copia: el multiplicador de volumen y, si lo desea, los límites de riesgo.",
  "tickmill.t033": "<b>Activar la suscripción.</b> Se crea desactivada a propósito, para que tenga tiempo de configurarlo todo antes de la primera operación.",
  "tickmill.t034": "Las pantallas y los botones exactos pueden variar: guíese por el manual oficial de Social Trading de Tickmill.",
@@ -439,5 +439,6 @@
  "about.who_h": "Para quién es esto",
  "about.who_1": "Respuesta directa: para inversores que ya tienen una cartera y mantienen en ella, de forma consciente, una parte en activos de alto riesgo. No para quien busca sustituir un sueldo o duplicar sus últimos mil dólares. A esa persona le irá mal aquí, y prefiero decirlo ahora y no dentro de seis meses.",
  "about.who_2": "El motivo es aritmético, no esnobismo. Rentabilidad y drawdown son lo mismo visto desde dos lados: una cartera que dio un <b>{{n.total}}%</b> en cinco años valió en su peor momento un <b>{{n.dd_eq}}%</b> menos que la víspera, y llegó a pasar {{n.dry_days}} días sin un nuevo máximo. Para quien esto es una parte de su distribución, ese hoyo es un episodio de trabajo. Para quien esto es todo, es un motivo para salir en el fondo.",
- "about.who_3": "Y salir en el fondo es el principal riesgo de la suscripción: está en el suscriptor, no en la estrategia. Por eso el horizonte aquí se mide en años y no en meses: un mes no basta para que el sistema muestre ni lo mejor ni lo peor. Si está dispuesto a atravesar un hoyo de tres meses sin tocar la posición, hablamos de lo mismo."
+ "about.who_3": "Y salir en el fondo es el principal riesgo de la suscripción: está en el suscriptor, no en la estrategia. Por eso el horizonte aquí se mide en años y no en meses: un mes no basta para que el sistema muestre ni lo mejor ni lo peor. Si está dispuesto a atravesar un hoyo de tres meses sin tocar la posición, hablamos de lo mismo.",
+ "tickmill.card_note": "El enlace del tercer paso lleva a la ficha pública: allí está el botón «Invest», con una comisión del 30%. La tarifa reducida del 20% para el primer año se explica más abajo, en «Cuánto cuesta»: no es pública y envío el enlace a quien lo pida."
 }

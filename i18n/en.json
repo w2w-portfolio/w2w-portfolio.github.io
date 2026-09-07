@@ -210,7 +210,7 @@
  "tickmill.t028": "One trading account cannot be a strategy provider and a follower at the same time. If you already share a strategy of your own, a separate account will be needed for the subscription.",
  "tickmill.t029": "Open an account with Tickmill if you do not have one, and fund it.",
  "tickmill.t030": "Register in Tickmill Social Trading as a <b>Follower</b> — with the same login and password as your trading account.",
- "tickmill.t031": "Find the w2w strategy and set up a subscription.",
+ "tickmill.t031": "Find the <a href=\"https://stats.tmsocial.net/widgets/ratings/6517?widgetKey=social_platform_ratings&amp;theme=dark\" target=\"_blank\" rel=\"noopener\">w2w strategy page</a> and set up a subscription.",
  "tickmill.t032": "Configure the copying: the volume multiplier and, if you wish, risk limits.",
  "tickmill.t033": "<b>Activate the subscription.</b> It is created switched off — deliberately, so that you have time to set everything up before the first trade.",
  "tickmill.t034": "The exact screens and buttons may differ — follow Tickmill’s official Social Trading user manual.",
@@ -439,5 +439,6 @@
  "about.who_h": "Who this is for",
  "about.who_1": "A straight answer: for investors who already have a portfolio and deliberately keep a share of high-risk assets in it. Not for someone looking to replace a salary or to double their last thousand. Such a person will have a bad time here, and it is better said now than six months from now.",
  "about.who_2": "The reason is arithmetic, not snobbery. Return and drawdown are the same thing seen from two sides: a portfolio that made <b>{{n.total}}%</b> over five years was at one point worth <b>{{n.dd_eq}}%</b> less than the day before, and went as long as {{n.dry_days}} days without a new high. For someone holding this as part of an allocation, that dip is a working episode. For someone holding it as everything, it is a reason to quit at the bottom.",
- "about.who_3": "And quitting at the bottom is the main risk of a subscription — it lies with the subscriber, not with the strategy. That is why the horizon here is measured in years rather than months: a month is not enough for the system to show either its best or its worst. If you are ready to sit through a three-month dip without touching the position, we are talking about the same thing."
+ "about.who_3": "And quitting at the bottom is the main risk of a subscription — it lies with the subscriber, not with the strategy. That is why the horizon here is measured in years rather than months: a month is not enough for the system to show either its best or its worst. If you are ready to sit through a three-month dip without touching the position, we are talking about the same thing.",
+ "tickmill.card_note": "The link in step three goes to the public page — that is where the “Invest” button is, at the 30% fee. The reduced rate of 20% for the first year is described below, in “What it costs”: it is not public, and I send the link on request."
 }

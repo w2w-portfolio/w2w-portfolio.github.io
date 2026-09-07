@@ -229,6 +229,11 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .next a b{font-family:Newsreader,Georgia,serif;font-size:18px;font-weight:500;color:var(--ink)}
 .next a span{font-size:13.5px;line-height:1.55}
 
+/* Заголовок первого уровня главной: визуально его роль играет логотип,
+   но в разметке он нужен — по нему страницу читают поиск и скринридеры. */
+.vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+ overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
 /* Ссылки внутри текста ведут туда, где о предмете сказано подробно.
    Подчёркивание тонкое и приглушённое: в абзаце их бывает несколько,
    яркая линия мешала бы читать. */
