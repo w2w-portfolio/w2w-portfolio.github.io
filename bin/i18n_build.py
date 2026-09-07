@@ -132,6 +132,46 @@ def localize_axis(html, lang):
         return m.group(1) + body + m.group(3)
     return AXIS.sub(one, html)
 
+# Числа портфеля берутся из расчёта, а не вбиваются в тексты руками:
+# site/data/numbers.json пишет bin/page_numbers.py --json. Формат у каждого
+# свой и задан здесь же — «сколько знаков» это свойство числа, а не языка.
+NUMFMT = {
+    'trades': (0, True), 'total': (0, False), 'per_year': (0, False),
+    'pf': (1, False), 'rr': (2, False), 'win_rate': (1, False),
+    'avg_win': (2, False), 'avg_loss': (2, False),
+    'dd_bal': (1, False), 'dd_eq': (1, False),
+    'years': (0, False), 'sources': (0, False), 'symbols': (0, False),
+    'months': (0, False), 'months_up': (0, False),
+}
+NUMKEY = re.compile(r'\{\{n\.([a-z_]+)\}\}')
+
+
+def numbers():
+    """Числа расчёта; пусто, если файл ещё не собран."""
+    p = SITE / 'data' / 'numbers.json'
+    return json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+
+
+def put_numbers(html, nums, lang, missing):
+    """Подстановка {{n.<ключ>}} — после словаря, чтобы числа внутри
+    переводов тоже разворачивались."""
+    def one(m):
+        k = m.group(1)
+        if k not in nums or k not in NUMFMT:
+            missing.append(f'n.{k}')
+            return m.group(0)
+        digits, thousands = NUMFMT[k]
+        v = f'{nums[k]:.{digits}f}'
+        if thousands:
+            whole, _, frac = v.partition('.')
+            whole = f'{int(whole):,}'.replace(',', THOUSANDS[lang])
+            v = whole + (('.' + frac) if frac else '')
+        if lang == 'es':
+            v = v.replace('.', ',') if not thousands else v
+        return v
+    return NUMKEY.sub(one, html)
+
+
 SECT = re.compile(r'<section id="([a-z0-9-]+)">(.*?)</section>', re.S)
 H2 = re.compile(r'<h2[^>]*>(.*?)</h2>', re.S)
 
@@ -160,6 +200,7 @@ def build(lang, outdir):
     ru = json.loads((SITE/'i18n'/'ru.json').read_text(encoding='utf-8'))
     outdir.mkdir(parents=True, exist_ok=True)
     missing = []
+    nums = numbers()
     for f in PAGES:
         tpl = (SITE/'tpl'/f).read_text(encoding='utf-8')
         head, mast = shell(f)
@@ -186,6 +227,7 @@ def build(lang, outdir):
             if k in d: return d[k]
             missing.append(k); return ru.get(k, m.group(0))
         page = links(KEY.sub(rep, tpl), f, d, ru)
+        page = put_numbers(page, nums, lang, missing)
         page = page.replace('{{TOC}}', toc(page, d.get('toc.label', 'Содержание')))
         (outdir/f).write_text(page, encoding='utf-8')
     return missing
