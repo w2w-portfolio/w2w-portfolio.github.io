@@ -452,6 +452,26 @@ is computed on the past, not the result of live trading. The live account is on 
     </tbody></table></div>
   <p><b>More than half of all trades are opened against the direction of the market — and they are profitable.</b> Not merely tolerable: +0.30R per trade and over half of the entire five-year result. Trading with the trend comes out slightly better, but the gap is about 10% and it holds at any pair of averages — 20/50, 50/200 and 100/200 all give the same picture.</p>
   <p>The two algorithms differ here, and their design explains it. <b>Algorithm 1</b> does <b>better</b> against the trend than with it: +0.345R versus +0.308R. It trades false breakouts, and the stronger the move it enters against, the cleaner the setup. <b>Algorithm 2</b> is the other way round — slightly weaker against the trend: +0.289R versus +0.332R.</p>
+
+  <h3 style="margin-top:26px">Actual trends — check them yourself</h3>
+  <p>So that this does not stay a claim, here are the longest stretches that the moving-average definition marked as trends. Instrument, dates, how far the price travelled, how many trades the portfolio opened there and what it earned. Any row can be checked: open the instrument’s chart, add the 50 and 200 averages and look at those dates.</p>
+  <div class="card" style="padding:0"><div class="scroll"><table>
+    <thead><tr><th style="text-align:left">instrument</th>
+      <th style="text-align:left">trend period</th>
+      <th style="text-align:right">days</th>
+      <th style="text-align:right">price move</th>
+      <th style="text-align:right">trades</th>
+      <th style="text-align:right">result</th></tr></thead>
+    <tbody>
+    <tr><th>XAUUSD</th><td class="l">30.11.2023 — 04.06.2026</td><td>917</td><td>+120%</td><td>434</td><td>+176.4R</td></tr>
+    <tr><th>USTEC</th><td class="l">13.03.2023 — 05.03.2025</td><td>723</td><td>+73%</td><td>93</td><td>+32.0R</td></tr>
+    <tr><th>USDJPY</th><td class="l">10.06.2021 — 02.12.2022</td><td>540</td><td>+24%</td><td>30</td><td>+13.8R</td></tr>
+    <tr><th>JP225</th><td class="l">24.03.2023 — 01.08.2024</td><td>496</td><td>+39%</td><td>38</td><td>+20.6R</td></tr>
+    <tr><th>US500</th><td class="l">02.11.2023 — 07.03.2025</td><td>491</td><td>+34%</td><td>22</td><td>+4.3R</td></tr>
+    <tr><th>EURUSD</th><td class="l">22.07.2021 — 23.11.2022</td><td>489</td><td>−12%</td><td>55</td><td>+0.6R</td></tr>
+    </tbody></table></div></div>
+  <p>The top row is the telling one. Gold spent <b>two and a half years straight</b> in a confirmed uptrend and doubled in price over that time. The counter-trend portfolio opened 434 trades in it and earned <b>+176R</b> — a fifth of the entire five-year result. The bottom row honestly shows the other edge: a year and a half of a falling euro brought exactly nothing, 55 trades for zero. In total there are <b>33</b> such episodes longer than six months, holding 1,621 trades and <b>+515R</b> — more than half of the five-year result was earned while the market was in a sustained trend.</p>
+  <div class="note"><p>Where the quotes come from, so this can be repeated. Daily closes from Yahoo Finance: currency pairs as tickers of the form EURUSD=X, indices as ^NDX (USTEC), ^GDAXI (DE40), ^N225 (JP225), ^GSPC (US500), oil as BZ=F, gold as GC=F. Gold is available there only as a future: its price differs from spot by the basis, but the averages and the trend they show are the same. The trend is read from the daily close: price above the 200-day average and the 50-day average above the 200-day one means an uptrend, the mirror image a downtrend.</p></div>
   <div class="note"><p>How this was computed and what the calculations cannot see. The first method has no quote history at all: the price series is built from the entry prices of the trades themselves — real prices from the reports, but sampled only at the moments when the algorithm was trading, so what is measured is the market as the portfolio saw it. A window must hold at least six trades, so part of the history falls outside it. The second method uses external daily quotes; gold is available there only as a future — its basis to spot differs, but the direction of the trend is the same, and nothing else is taken from it. And in both: for individual instruments the picture is unstable — for DE40 the sign of the result flips with the window length — so the conclusions here are about the portfolio as a whole only.</p></div>
 </section>
 

@@ -452,6 +452,26 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
     </tbody></table></div>
   <p><b>Más de la mitad de las operaciones se abren contra la dirección del mercado, y son rentables.</b> No solo soportables: +0,30R por operación y más de la mitad de todo el resultado de cinco años. A favor de la tendencia sale algo mejor, pero la diferencia ronda el 10% y se mantiene con cualquier par de medias: 20/50, 50/200 y 100/200 dan el mismo cuadro.</p>
   <p>Los dos algoritmos difieren aquí, y su diseño lo explica. El <b>Algoritmo 1</b> va <b>mejor</b> contra la tendencia que a favor: +0,345R frente a +0,308R. Opera rupturas falsas, y cuanto más fuerte es el movimiento contra el que entra, más limpia es la señal. El <b>Algoritmo 2</b> al revés: algo más flojo contra la tendencia, +0,289R frente a +0,332R.</p>
+
+  <h3 style="margin-top:26px">Tendencias concretas: se pueden comprobar</h3>
+  <p>Para que esto no quede en palabras, estos son los tramos más largos que la definición por medias marcó como tendencia. Instrumento, fechas, recorrido del precio, cuántas operaciones abrió la cartera y qué ganó. Cualquier fila puede comprobarse: abra el gráfico del instrumento, añada las medias de 50 y 200 y mire esas fechas.</p>
+  <div class="card" style="padding:0"><div class="scroll"><table>
+    <thead><tr><th style="text-align:left">instrumento</th>
+      <th style="text-align:left">periodo de tendencia</th>
+      <th style="text-align:right">días</th>
+      <th style="text-align:right">recorrido</th>
+      <th style="text-align:right">operaciones</th>
+      <th style="text-align:right">resultado</th></tr></thead>
+    <tbody>
+    <tr><th>XAUUSD</th><td class="l">30.11.2023 — 04.06.2026</td><td>917</td><td>+120%</td><td>434</td><td>+176,4R</td></tr>
+    <tr><th>USTEC</th><td class="l">13.03.2023 — 05.03.2025</td><td>723</td><td>+73%</td><td>93</td><td>+32,0R</td></tr>
+    <tr><th>USDJPY</th><td class="l">10.06.2021 — 02.12.2022</td><td>540</td><td>+24%</td><td>30</td><td>+13,8R</td></tr>
+    <tr><th>JP225</th><td class="l">24.03.2023 — 01.08.2024</td><td>496</td><td>+39%</td><td>38</td><td>+20,6R</td></tr>
+    <tr><th>US500</th><td class="l">02.11.2023 — 07.03.2025</td><td>491</td><td>+34%</td><td>22</td><td>+4,3R</td></tr>
+    <tr><th>EURUSD</th><td class="l">22.07.2021 — 23.11.2022</td><td>489</td><td>−12%</td><td>55</td><td>+0,6R</td></tr>
+    </tbody></table></div></div>
+  <p>La primera fila es la más elocuente. El oro pasó <b>dos años y medio seguidos</b> en tendencia alcista confirmada y duplicó su precio en ese tiempo. La cartera contratendencia abrió allí 434 operaciones y ganó <b>+176R</b>: la quinta parte de todo el resultado de cinco años. La última fila muestra con honestidad el otro extremo: año y medio de caída del euro dejó exactamente cero, 55 operaciones para nada. En total hay <b>33</b> episodios así de más de medio año, con 1.621 operaciones y <b>+515R</b>: más de la mitad del resultado de cinco años se ganó mientras el mercado estaba en tendencia prolongada.</p>
+  <div class="note"><p>De dónde salen las cotizaciones, para poder repetirlo. Cierres diarios de Yahoo Finance: los pares de divisas con tickers del tipo EURUSD=X; los índices, ^NDX (USTEC), ^GDAXI (DE40), ^N225 (JP225), ^GSPC (US500); el petróleo, BZ=F; el oro, GC=F. Allí el oro solo está como futuro: su precio difiere del contado por la base, pero las medias y la tendencia que muestran son las mismas. La tendencia se lee del cierre diario: precio por encima de la media de 200 días y media de 50 por encima de la de 200 es alcista; la imagen especular, bajista.</p></div>
   <div class="note"><p>Cómo se calculó y qué no ven estos cálculos. El primer método no dispone de cotizaciones: la serie de precios se construye con los precios de entrada de las propias operaciones —precios reales, de los informes, pero tomados solo cuando el algoritmo operaba—, así que se mide el mercado tal como lo vio la cartera. Una ventana debe contener al menos seis operaciones, de modo que parte del historial queda fuera. El segundo método usa cotizaciones diarias externas; el oro solo está disponible como futuro: su base respecto al contado es distinta, pero la dirección de la tendencia es la misma y no se toma nada más de ahí. Y en ambos: por instrumentos el cuadro es inestable —en el DE40 el signo del resultado cambia con la longitud de la ventana—, así que las conclusiones se refieren solo a la cartera en conjunto.</p></div>
 </section>
 

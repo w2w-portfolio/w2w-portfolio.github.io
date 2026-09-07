@@ -494,5 +494,15 @@
  "bt.ma_with": "a favor de la tendencia",
  "bt.ma_3": "<b>Más de la mitad de las operaciones se abren contra la dirección del mercado, y son rentables.</b> No solo soportables: +0,30R por operación y más de la mitad de todo el resultado de cinco años. A favor de la tendencia sale algo mejor, pero la diferencia ronda el 10% y se mantiene con cualquier par de medias: 20/50, 50/200 y 100/200 dan el mismo cuadro.",
  "bt.ma_4": "Los dos algoritmos difieren aquí, y su diseño lo explica. El <b>Algoritmo 1</b> va <b>mejor</b> contra la tendencia que a favor: +0,345R frente a +0,308R. Opera rupturas falsas, y cuanto más fuerte es el movimiento contra el que entra, más limpia es la señal. El <b>Algoritmo 2</b> al revés: algo más flojo contra la tendencia, +0,289R frente a +0,332R.",
- "toc.label": "Contenido"
+ "toc.label": "Contenido",
+ "bt.ep_h": "Tendencias concretas: se pueden comprobar",
+ "bt.ep_1": "Para que esto no quede en palabras, estos son los tramos más largos que la definición por medias marcó como tendencia. Instrumento, fechas, recorrido del precio, cuántas operaciones abrió la cartera y qué ganó. Cualquier fila puede comprobarse: abra el gráfico del instrumento, añada las medias de 50 y 200 y mire esas fechas.",
+ "bt.ep_col1": "instrumento",
+ "bt.ep_col2": "periodo de tendencia",
+ "bt.ep_col3": "días",
+ "bt.ep_col4": "recorrido",
+ "bt.ep_col5": "operaciones",
+ "bt.ep_col6": "resultado",
+ "bt.ep_2": "La primera fila es la más elocuente. El oro pasó <b>dos años y medio seguidos</b> en tendencia alcista confirmada y duplicó su precio en ese tiempo. La cartera contratendencia abrió allí 434 operaciones y ganó <b>+176R</b>: la quinta parte de todo el resultado de cinco años. La última fila muestra con honestidad el otro extremo: año y medio de caída del euro dejó exactamente cero, 55 operaciones para nada. En total hay <b>33</b> episodios así de más de medio año, con 1.621 operaciones y <b>+515R</b>: más de la mitad del resultado de cinco años se ganó mientras el mercado estaba en tendencia prolongada.",
+ "bt.ep_3": "De dónde salen las cotizaciones, para poder repetirlo. Cierres diarios de Yahoo Finance: los pares de divisas con tickers del tipo EURUSD=X; los índices, ^NDX (USTEC), ^GDAXI (DE40), ^N225 (JP225), ^GSPC (US500); el petróleo, BZ=F; el oro, GC=F. Allí el oro solo está como futuro: su precio difiere del contado por la base, pero las medias y la tendencia que muestran son las mismas. La tendencia se lee del cierre diario: precio por encima de la media de 200 días y media de 50 por encima de la de 200 es alcista; la imagen especular, bajista."
 }

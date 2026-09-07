@@ -494,5 +494,15 @@
  "bt.ma_with": "with the trend",
  "bt.ma_3": "<b>More than half of all trades are opened against the direction of the market — and they are profitable.</b> Not merely tolerable: +0.30R per trade and over half of the entire five-year result. Trading with the trend comes out slightly better, but the gap is about 10% and it holds at any pair of averages — 20/50, 50/200 and 100/200 all give the same picture.",
  "bt.ma_4": "The two algorithms differ here, and their design explains it. <b>Algorithm 1</b> does <b>better</b> against the trend than with it: +0.345R versus +0.308R. It trades false breakouts, and the stronger the move it enters against, the cleaner the setup. <b>Algorithm 2</b> is the other way round — slightly weaker against the trend: +0.289R versus +0.332R.",
- "toc.label": "Contents"
+ "toc.label": "Contents",
+ "bt.ep_h": "Actual trends — check them yourself",
+ "bt.ep_1": "So that this does not stay a claim, here are the longest stretches that the moving-average definition marked as trends. Instrument, dates, how far the price travelled, how many trades the portfolio opened there and what it earned. Any row can be checked: open the instrument’s chart, add the 50 and 200 averages and look at those dates.",
+ "bt.ep_col1": "instrument",
+ "bt.ep_col2": "trend period",
+ "bt.ep_col3": "days",
+ "bt.ep_col4": "price move",
+ "bt.ep_col5": "trades",
+ "bt.ep_col6": "result",
+ "bt.ep_2": "The top row is the telling one. Gold spent <b>two and a half years straight</b> in a confirmed uptrend and doubled in price over that time. The counter-trend portfolio opened 434 trades in it and earned <b>+176R</b> — a fifth of the entire five-year result. The bottom row honestly shows the other edge: a year and a half of a falling euro brought exactly nothing, 55 trades for zero. In total there are <b>33</b> such episodes longer than six months, holding 1,621 trades and <b>+515R</b> — more than half of the five-year result was earned while the market was in a sustained trend.",
+ "bt.ep_3": "Where the quotes come from, so this can be repeated. Daily closes from Yahoo Finance: currency pairs as tickers of the form EURUSD=X, indices as ^NDX (USTEC), ^GDAXI (DE40), ^N225 (JP225), ^GSPC (US500), oil as BZ=F, gold as GC=F. Gold is available there only as a future: its price differs from spot by the basis, but the averages and the trend they show are the same. The trend is read from the daily close: price above the 200-day average and the 50-day average above the 200-day one means an uptrend, the mirror image a downtrend."
 }
