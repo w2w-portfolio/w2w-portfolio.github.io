@@ -266,6 +266,23 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 
 /* Подпись под текстом от автора: справа, тем же шрифтом, что заголовки —
    так она читается как росчерк в конце письма, а не как ещё один абзац. */
+/* Оглавление длинной страницы: две колонки на широком экране, одна на узком.
+   Нумерация своя, а не маркерами списка — так номер и текст держат общую
+   сетку, когда пункт переносится на вторую строку. */
+.toc{margin:0}
+.toc ol{list-style:none;counter-reset:toc;margin:0;padding:0;
+ columns:2;column-gap:34px}
+.toc li{counter-increment:toc;break-inside:avoid;margin:0 0 7px;
+ padding-left:28px;position:relative;font-size:14.5px}
+.toc li::before{content:counter(toc);position:absolute;left:0;top:1px;
+ font-size:12px;color:var(--ink-faint);font-variant-numeric:tabular-nums}
+.toc a{color:var(--ink-soft);text-decoration:none;
+ border-bottom:1px solid transparent}
+.toc a:hover{color:var(--ink);border-bottom-color:var(--line)}
+@media(max-width:700px){.toc ol{columns:1}}
+/* Прилипающее меню перекрывало бы заголовок при переходе по якорю. */
+section[id]{scroll-margin-top:78px}
+
 /* Подпись прижата к правому краю текстовой колонки, а не страницы: иначе
    она отрывается от последнего абзаца и повисает в пустоте. */
 .signoff{max-width:70ch;text-align:right;font-family:Newsreader,Georgia,serif;

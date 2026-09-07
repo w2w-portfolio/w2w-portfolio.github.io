@@ -129,7 +129,7 @@
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html">Resultados</a><a href="backtest.html" class="on">Backtests</a><a href="tickmill.html">Cómo unirse</a><a href="about.html">Autor</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../backtest.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/backtest.html" hreflang="en" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/backtest.html" hreflang="es" class="on" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
-<section>
+<section id="top">
   <h1>Backtests</h1>
   <p class="lead">Cinco años de historial: cuánto habría ganado la cartera, a qué precio
 y qué quedaría si las operaciones hubieran caído de otro modo. Todo lo de esta página
@@ -138,7 +138,9 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <span>Tickmill</span><span>todo en porcentaje del depósito</span><span>con comisiones y swaps</span></div>
 </section>
 
-<section>
+<nav class="toc" aria-label="Contenido"><ol><li><a href="#data">De dónde salen los datos</a></li><li><a href="#cumulative">Resultado acumulado</a></li><li><a href="#sources">De qué se compone el resultado</a></li><li><a href="#drawdown">Profundidad del drawdown en cada momento</a></li><li><a href="#streaks">Cuántas veces seguidas puede fallar</a></li><li><a href="#gaps">Y si el mercado abre más allá del stop</a></li><li><a href="#risk">¿Crece el riesgo año tras año?</a></li><li><a href="#trend">Qué pasa en una tendencia prolongada</a></li><li><a href="#shuffle">Comprobación del orden de las operaciones</a></li><li><a href="#thresholds">De dónde salen los umbrales</a></li></ol></nav>
+
+<section id="data">
   <h2>De dónde salen los datos</h2>
   <p>Las cifras provienen de los <b>informes del probador de estrategias de MT5</b> sobre el historial de ticks del bróker — tal como los emite el terminal, sin retoques manuales. Cada instrumento se calculó en una cuenta propia, arriesgando el 1% de su saldo, igual que operará en real.</p>
   <p><b>Los costes ya están dentro del resultado:</b> spread, ambas comisiones y swap se restan en cada operación — así se mueve el saldo de verdad. La diferencia es notable: en el Algoritmo 2 los costes de cinco años se comieron <b>67 puntos porcentuales</b> de 814 y profundizaron la caída en 1.0 punto. Aquí no hay salidas idealizadas.</p>
@@ -148,7 +150,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
     <a href="../data/w2w-backtest-trades.csv" download>descargar CSV (250 KB)</a>. Contiene la hora de entrada y salida, el instrumento, el algoritmo, el resultado en unidades de riesgo y en dinero, y cómo terminó la operación: stop o take. La suma de la columna result_r es justamente ese +983%. Si prefiere no calcular a mano, en el mismo repositorio con el que se construye el sitio está <b>bin/check_numbers.py</b>: un script breve, solo con la biblioteca estándar, que lee este archivo e imprime todo lo que figura en la página: el resultado, el drawdown, el factor de beneficio, las rachas de pérdidas y los huecos. El sitio y el informe semanal de la cuenta real se generan con ese mismo código abierto: <a href="https://github.com/w2w-portfolio/w2w-portfolio.github.io">github.com/w2w-portfolio</a>.</p></div>
 </section>
 
-<section>
+<section id="cumulative">
   <h2>Resultado acumulado</h2>
   <p>Porcentaje del depósito con un riesgo del 1% por operación, <b>sin reinversión</b>:
   se trata de una suma aritmética de resultados, no de interés compuesto. <b>983% en cinco años</b>
@@ -195,7 +197,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <div class="note"><p><b>El conjunto no está congelado.</b> Cada nuevo instrumento pasa la misma selección: estabilidad en las dos mitades del historial, control de aleatoriedad, estimación de costes de ejecución y, sobre todo, su aporte a la cartera y no su rentabilidad propia. Lo que no pasa no se añade, aunque por sí solo sea rentable.</p></div>
 </section>
 
-<section>
+<section id="sources">
   <h2>De qué se compone el resultado</h2>
   <p class="legend" style="margin-bottom:10px;color:var(--ink-faint)">las cifras son el % del depósito en 5 años</p>
   <div class="two srcgrid">
@@ -220,7 +222,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   ganadoras del 38,4%.</p>
 </section>
 
-<section>
+<section id="drawdown">
   <h2>Profundidad del drawdown en cada momento</h2>
   <div class="card"><div class="scroll">
     <svg viewBox="0 0 960 260" width="100%" height="260" role="img" aria-label="Drawdown por algoritmo">
@@ -338,7 +340,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
 
 </section>
 
-<section>
+<section id="streaks">
   <h2>Cuántas veces seguidas puede fallar</h2>
   <p>Solo el <b>38.4%</b> de las operaciones son ganadoras, así que las pérdidas llegan en rachas: es aritmética, no una avería. En cinco años hubo <b>793</b> rachas. Así de a menudo se dieron las largas:</p>
   <div class="card" style="padding:0"><table>
@@ -355,7 +357,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <div class="note"><p>Saber esto de antemano importa más que saber la rentabilidad. Las estrategias se abandonan no en la caída en sí, sino en la séptima u octava pérdida seguida, cuando parece que todo se ha roto. Según los números es un suceso corriente: ocurre varias veces al año.</p></div>
 </section>
 
-<section>
+<section id="gaps">
   <h2>Y si el mercado abre más allá del stop</h2>
   <p>El <b>Algoritmo 2</b> mantiene el 29% de sus posiciones toda la noche, y ese es el único punto donde la pérdida puede superar la calculada: si el mercado abre más allá del nivel del stop, la posición se cierra a peor precio. El <b>Algoritmo 1</b> cierra al final de la sesión y no está expuesto. Así se ve en 2 390 operaciones de cinco años:</p>
   <div class="card" style="padding:0"><table>
@@ -386,7 +388,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <div class="note"><p>Un límite importante de este cálculo: esto es el <b>probador</b>, no una cuenta real. En el probador no hay deslizamiento de ejecución: solo se ven los huecos reales de las cotizaciones y el paso de precio. En una cuenta real ambas cifras serán peores, sobre todo la segunda: allí el spread es más ancho y se mueve. Por eso −2,9R debe leerse como una cota inferior del coste, no como una promesa.</p></div>
 </section>
 
-<section>
+<section id="risk">
   <h2>¿Crece el riesgo año tras año?</h2>
   <p>Es la pregunta que conviene hacerle a cualquier autor de una estrategia: ¿sube el riesgo tras una buena racha?, ¿dobla la apuesta tras las pérdidas? Una curva bonita no responde a nada de esto: un riesgo creciente es justo lo que dibuja una curva bonita, hasta que liquida la cuenta. Lo resuelven dos números, y ambos salen de operaciones reales y no de los ajustes.</p>
   <div class="card" style="padding:0"><table>
@@ -407,7 +409,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <div class="note"><p>La ocupación está ponderada por tiempo y no por número de operaciones: «mediana dos» significa que durante la mitad de todas las horas no hubo más de dos posiciones abiertas; de otro modo una operación larga contaría igual que una de una hora. Los fines de semana se incluyen: una posición mantenida durante el fin de semana está en riesgo todas esas horas, y es justo entonces cuando ocurre el hueco de apertura.</p></div>
 </section>
 
-<section>
+<section id="trend">
   <h2>Qué pasa en una tendencia prolongada</h2>
   <p>Ambas lógicas son <b>contratendencia</b>: entran contra el movimiento, contando con un retroceso. De ahí la objeción evidente: en un mercado direccional prolongado el retroceso no llega y un sistema así atrapa cuchillos una y otra vez. La objeción es justa y solo los datos pueden resolverla.</p>
   <p>La fuerza de la tendencia se mide comparando el precio dentro de una ventana consigo mismo: cuánto se alejó al final respecto de la distancia que recorrió por el camino. Uno significa movimiento en un solo sentido sin un solo retroceso; cero, quedarse en el sitio. Eso solo no basta —el precio puede recorrer un camino recto pero mínimo—, así que hay una segunda condición: un recorrido de al menos tres stops. Cualquier definición de tendencia es arbitraria por naturaleza, así que para no apoyar la conclusión en una sola opción cómoda, el cálculo se repite con cinco longitudes de ventana, de seis semanas a un año.</p>
@@ -425,10 +427,35 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
     </tbody></table></div>
   <p>Resultado medio de una operación, en unidades de riesgo. <b>En los periodos de tendencia el sistema sigue siendo rentable con las cinco definiciones</b>: de +0,14R a +0,40R por operación, y la mayoría de esas ventanas cierra en positivo. Es lo único que se mantiene en todos los horizontes, y responde a la objeción inicial: un mercado direccional no rompe el sistema.</p>
   <p>Ahora bien, <b>si trabaja mejor o peor en tendencia que en calma es una pregunta sin respuesta</b>. En horizontes de hasta medio año, en tendencia va claramente peor: con la ventana trimestral la diferencia es de dos veces y media. A nueve meses y a un año, al revés. Lo mismo ocurre con los peores tramos: con la ventana trimestral el más duro es de tendencia, <b>−22R</b> en el oro del 25 de julio al 24 de septiembre de 2024, cuando el precio recorrió 58 stops casi sin retrocesos; con ventanas largas los peores tramos son precisamente los que no son de tendencia. El signo de la diferencia cambia con el horizonte, así que no puedo afirmar que «la tendencia es peor para el sistema»: los datos no lo muestran.</p>
-  <div class="note"><p>Cómo se calculó y qué no ve este cálculo. No dispongo del historial de cotizaciones, así que la serie de precios se construye con los precios de entrada de las propias operaciones: precios reales, de los informes, pero tomados solo en los momentos en que el algoritmo operaba. Lo que se mide, por tanto, es el mercado tal como lo vio la cartera, no el mercado en sí. Una ventana debe contener al menos seis operaciones, de modo que parte del historial queda fuera. Y algo más: por instrumentos el cuadro es inestable —en el DE40 el signo del resultado cambia con la longitud de la ventana—, así que las conclusiones aquí se refieren solo a la cartera en conjunto.</p></div>
+
+  <h3 style="margin-top:26px">Un segundo método: medias móviles</h3>
+  <p>El método anterior deduce la fuerza de la tendencia de los precios de las propias operaciones: es honesto, pero poco habitual. Por eso lo mismo se calculó otra vez con la definición que usa medio mercado: precio por encima de la media de 200 días y media rápida por encima de la lenta significa mercado alcista; la imagen especular, bajista; todo lo demás no es tendencia. Aquí las cotizaciones son externas y diarias, no derivadas de nuestras operaciones. Dos métodos independientes existen para que la conclusión no dependa de una sola técnica: si coinciden, puede creerse; si divergen, no puede creerse ninguno.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">estado del mercado</th>
+      <th style="text-align:right">operaciones</th>
+      <th style="text-align:right">por operación</th>
+      <th style="text-align:right">total</th></tr></thead>
+    <tbody>
+    <tr><th>mercado al alza</th><td>1 748</td><td>+0,37R</td><td>+639,9R</td></tr>
+    <tr><th>mercado a la baja</th><td>838</td><td>+0,20R</td><td>+171,2R</td></tr>
+    <tr><th>sin tendencia</th><td>570</td><td>+0,27R</td><td>+154,8R</td></tr>
+    </tbody></table></div>
+  <p><b>Los tres estados son rentables</b>, lo que coincide con el primer método. Pero la pregunta de verdad es otra: ambas lógicas son contratendencia, así que lo relevante no son las operaciones «en tendencia», sino las que van <b>en contra</b> de ella: compras en un mercado que cae y ventas en uno que sube. La dirección de cada operación se conoce, así que pueden contarse directamente.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">operaciones</th>
+      <th style="text-align:right">operaciones</th>
+      <th style="text-align:right">por operación</th>
+      <th style="text-align:right">total</th></tr></thead>
+    <tbody>
+    <tr><th>contra la tendencia</th><td>1 426</td><td>+0,30R</td><td>+433,8R</td></tr>
+    <tr><th>a favor de la tendencia</th><td>1 160</td><td>+0,33R</td><td>+377,3R</td></tr>
+    </tbody></table></div>
+  <p><b>Más de la mitad de las operaciones se abren contra la dirección del mercado, y son rentables.</b> No solo soportables: +0,30R por operación y más de la mitad de todo el resultado de cinco años. A favor de la tendencia sale algo mejor, pero la diferencia ronda el 10% y se mantiene con cualquier par de medias: 20/50, 50/200 y 100/200 dan el mismo cuadro.</p>
+  <p>Los dos algoritmos difieren aquí, y su diseño lo explica. El <b>Algoritmo 1</b> va <b>mejor</b> contra la tendencia que a favor: +0,345R frente a +0,308R. Opera rupturas falsas, y cuanto más fuerte es el movimiento contra el que entra, más limpia es la señal. El <b>Algoritmo 2</b> al revés: algo más flojo contra la tendencia, +0,289R frente a +0,332R.</p>
+  <div class="note"><p>Cómo se calculó y qué no ven estos cálculos. El primer método no dispone de cotizaciones: la serie de precios se construye con los precios de entrada de las propias operaciones —precios reales, de los informes, pero tomados solo cuando el algoritmo operaba—, así que se mide el mercado tal como lo vio la cartera. Una ventana debe contener al menos seis operaciones, de modo que parte del historial queda fuera. El segundo método usa cotizaciones diarias externas; el oro solo está disponible como futuro: su base respecto al contado es distinta, pero la dirección de la tendencia es la misma y no se toma nada más de ahí. Y en ambos: por instrumentos el cuadro es inestable —en el DE40 el signo del resultado cambia con la longitud de la ventana—, así que las conclusiones se refieren solo a la cartera en conjunto.</p></div>
 </section>
 
-<section>
+<section id="shuffle">
   <h2>Comprobación del orden de las operaciones</h2>
   <p>El historial transcurrió en un orden concreto de operaciones. Para saber
   cuánto depende el resultado de ese orden, lo barajé
@@ -555,7 +582,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <p class="note">La segunda limitación importa más que la primera. En la vida real los periodos malos vienen <b>en rachas</b>: el mercado entra en un régimen incómodo y los instrumentos caen juntos durante semanas. Un orden aleatorio rompe esas rachas. Barajamos por días de negociación completos para conservar al menos que los instrumentos caen juntos dentro de un mismo día, pero el vínculo entre semanas se pierde igualmente. Por eso la tabla debe leerse como un <b>límite inferior de los problemas</b>, no como la lista completa de lo posible: un drawdown prolongado real puede resultar más profundo y más largo. Justo para eso está fijado el umbral de detención de la operativa.</p>
 </section>
 
-<section>
+<section id="thresholds">
   <h2>De dónde salen los umbrales</h2>
   <p>Cada semana se comprueban dos cifras. El drawdown responde a la pregunta «cuánto
   duele ahora mismo»; la esperanza matemática de las últimas 100 operaciones responde a «sigue funcionando

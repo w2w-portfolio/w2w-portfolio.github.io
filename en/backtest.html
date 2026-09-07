@@ -129,7 +129,7 @@
 
 <div class="navbar"><div class="navbar-in"><nav><a href="results.html">Results</a><a href="backtest.html" class="on">Backtests</a><a href="tickmill.html">How to join</a><a href="about.html">Author</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../backtest.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/backtest.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/backtest.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
 <div class="wrap">
-<section>
+<section id="top">
   <h1>Backtests</h1>
   <p class="lead">Five years of history: what the portfolio would have earned, at what cost,
 and what would have remained had the trades fallen differently. Everything on this page
@@ -138,7 +138,9 @@ is computed on the past, not the result of live trading. The live account is on 
   <span>Tickmill</span><span>everything in percent of deposit</span><span>commissions and swaps included</span></div>
 </section>
 
-<section>
+<nav class="toc" aria-label="Contents"><ol><li><a href="#data">Where the data comes from</a></li><li><a href="#cumulative">Cumulative result</a></li><li><a href="#sources">What the result is made of</a></li><li><a href="#drawdown">Drawdown depth at every moment</a></li><li><a href="#streaks">How long a losing run can get</a></li><li><a href="#gaps">What if the market opens beyond the stop</a></li><li><a href="#risk">Does the risk creep up year by year?</a></li><li><a href="#trend">What happens in a sustained trend</a></li><li><a href="#shuffle">Testing the order of trades</a></li><li><a href="#thresholds">Where the thresholds come from</a></li></ol></nav>
+
+<section id="data">
   <h2>Where the data comes from</h2>
   <p>The numbers come from <b>MT5 strategy tester reports</b> on the broker’s tick history — exactly as the terminal produces them, with no manual edits. Each instrument was computed on its own account, risking 1% of that account’s balance, the way it will actually trade.</p>
   <p><b>Costs are already inside the result:</b> spread, both commissions and swap are subtracted per trade — that is how the balance really moves. The difference is material: for Algorithm 2, five years of costs ate <b>67 percentage points</b> out of 814 and deepened the drawdown by 1.0 point. There are no idealised exits «exactly at the take» here.</p>
@@ -148,7 +150,7 @@ is computed on the past, not the result of live trading. The live account is on 
     <a href="../data/w2w-backtest-trades.csv" download>download CSV (250 KB)</a>. It holds entry and exit times, instrument, algorithm, the result in units of risk and in money, and how the trade ended — stop or take. The sum of the result_r column is exactly those +983%. If you would rather not compute by hand, the same repository the site is built from contains <b>bin/check_numbers.py</b>: a short standard-library script that reads this file and prints everything on the page — the result, the drawdown, the profit factor, the losing streaks, the gaps. The site and the weekly live-account report are built by that same open code: <a href="https://github.com/w2w-portfolio/w2w-portfolio.github.io">github.com/w2w-portfolio</a>.</p></div>
 </section>
 
-<section>
+<section id="cumulative">
   <h2>Cumulative result</h2>
   <p>Percent of deposit at 1% risk per trade, <b>without reinvestment</b>:
   this is an arithmetic sum of results, not compound interest. <b>983% over five years</b>
@@ -195,7 +197,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <div class="note"><p><b>The set is not frozen.</b> Every new instrument goes through the same selection: stability across both halves of the history, a randomness check, an estimate of execution costs and — most importantly — its contribution to the portfolio rather than its own return. What does not pass is not added, even if it is profitable on its own.</p></div>
 </section>
 
-<section>
+<section id="sources">
   <h2>What the result is made of</h2>
   <p class="legend" style="margin-bottom:10px;color:var(--ink-faint)">figures — % of deposit over 5 years</p>
   <div class="two srcgrid">
@@ -220,7 +222,7 @@ is computed on the past, not the result of live trading. The live account is on 
   trades of 38.4%.</p>
 </section>
 
-<section>
+<section id="drawdown">
   <h2>Drawdown depth at every moment</h2>
   <div class="card"><div class="scroll">
     <svg viewBox="0 0 960 260" width="100%" height="260" role="img" aria-label="Drawdown by algorithm">
@@ -338,7 +340,7 @@ is computed on the past, not the result of live trading. The live account is on 
 
 </section>
 
-<section>
+<section id="streaks">
   <h2>How long a losing run can get</h2>
   <p>Only <b>38.4%</b> of trades are winners, so losses come in runs — that is arithmetic, not a malfunction. Over five years there were <b>793</b> such runs. Here is how often the long ones happened:</p>
   <div class="card" style="padding:0"><table>
@@ -355,7 +357,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <div class="note"><p>Knowing this in advance matters more than knowing the return. Strategies are abandoned not at the drawdown itself but at the seventh or eighth loss in a row, when it feels like everything is broken. By the numbers it is an ordinary event — it happens several times a year.</p></div>
 </section>
 
-<section>
+<section id="gaps">
   <h2>What if the market opens beyond the stop</h2>
   <p><b>Algorithm 2</b> carries 29% of its positions overnight — the only place where a loss can exceed the planned one: if the market opens beyond the stop level, the position closes at a worse price. <b>Algorithm 1</b> closes by the end of the session and is not exposed to this. Here is how it looks across 2,390 trades over five years:</p>
   <div class="card" style="padding:0"><table>
@@ -386,7 +388,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <div class="note"><p>An important limit of this calculation: this is the <b>tester</b>, not a live account. The tester has no execution slippage — only genuine gaps in the quotes and the tick size show up. On a live account both figures will be worse, the second one especially: the spread there is wider and it moves. So −2.9R should be read as a lower bound on the cost, not as a promise.</p></div>
 </section>
 
-<section>
+<section id="risk">
   <h2>Does the risk creep up year by year?</h2>
   <p>This is the question worth asking any strategy author: does he push the risk up after a good run, or double down after losses? An attractive equity curve answers none of it — rising risk is exactly what draws an attractive curve, right up until it kills the account. Two numbers settle it, and both are taken from actual trades rather than from settings.</p>
   <div class="card" style="padding:0"><table>
@@ -407,7 +409,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <div class="note"><p>Occupancy is weighted by time, not by trade count: “median two” means that for half of all hours no more than two positions were open — otherwise one long trade would count the same as an hour-long one. Weekends are included: a position carried through the weekend is at risk for every one of those hours, and that is exactly when a gap at the open happens.</p></div>
 </section>
 
-<section>
+<section id="trend">
   <h2>What happens in a sustained trend</h2>
   <p>Both logics are <b>counter-trend</b>: they enter against the move, expecting a pullback. Hence the obvious objection — in a sustained directional market the pullback never comes, and such a system catches falling knives over and over. It is a fair objection, and only data can settle it.</p>
   <p>Trendiness is measured by comparing the price inside a window with itself: how far it ended up from where it started, relative to the distance it travelled on the way. One means movement in a single direction without a single pullback, zero means going nowhere. That alone is not enough — a price can travel evenly but barely at all — so a second condition applies: a range of at least three stops. Any definition of a trend is arbitrary by nature, so rather than rest the conclusion on one convenient choice, this is computed at five window lengths, from six weeks to a year.</p>
@@ -425,10 +427,35 @@ is computed on the past, not the result of live trading. The live account is on 
     </tbody></table></div>
   <p>The average result of one trade, in units of risk. <b>In trending periods the system stays profitable under all five definitions</b> — from +0.14R to +0.40R per trade, and most such windows close in the black. That is the one thing which holds at every horizon, and it answers the original objection: a directional market does not break the system.</p>
   <p>Whether it does <b>better or worse in a trend than in calm markets is a question without an answer</b>. At horizons up to six months it is markedly worse — at the quarterly window the gap is two and a half times. At nine months and a year it is the other way round. The same goes for the worst stretches: at the quarterly window the heaviest one is a trend, <b>−22R</b> on gold from 25 July to 24 September 2024, when the price travelled 58 stops with barely a pullback; at long windows the worst stretches are the non-trending ones. The sign of the difference flips with the horizon, so I cannot claim that “a trend is worse for the system” — the data does not show it.</p>
-  <div class="note"><p>How this was computed and what it cannot see. I have no quote history at hand, so the price series is built from the entry prices of the trades themselves — real prices from the reports, but sampled only at the moments when the algorithm was trading. So what is measured is the market as the portfolio saw it, not the market as such. A window must hold at least six trades, so part of the history falls outside the calculation. And one more thing: for individual instruments the picture is unstable — for DE40 the sign of the result flips with the window length — so the conclusions here are about the portfolio as a whole only.</p></div>
+
+  <h3 style="margin-top:26px">A second method: moving averages</h3>
+  <p>The method above derives trendiness from the prices of the trades themselves — honest, but unfamiliar. So the same thing was computed again, using the definition half the market works with: price above the 200-day average and the fast average above the slow one means a rising market, the mirror image means a falling one, everything else is not a trend. The quotes here are external and daily, not derived from our trades. Two independent methods exist so that the conclusion does not rest on one technique: if they agree, it can be trusted; if they diverge, neither can.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">state of the market</th>
+      <th style="text-align:right">trades</th>
+      <th style="text-align:right">per trade</th>
+      <th style="text-align:right">total</th></tr></thead>
+    <tbody>
+    <tr><th>market rising</th><td>1 748</td><td>+0.37R</td><td>+639.9R</td></tr>
+    <tr><th>market falling</th><td>838</td><td>+0.20R</td><td>+171.2R</td></tr>
+    <tr><th>no trend</th><td>570</td><td>+0.27R</td><td>+154.8R</td></tr>
+    </tbody></table></div>
+  <p><b>All three states are profitable</b>, which agrees with the first method. But the real question is a different one: both logics are counter-trend, so what matters is not the trades “in a trend” but the trades taken <b>against</b> it — buying in a falling market and selling in a rising one. The direction of every trade is known, so they can be counted directly.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th style="text-align:left">trades</th>
+      <th style="text-align:right">trades</th>
+      <th style="text-align:right">per trade</th>
+      <th style="text-align:right">total</th></tr></thead>
+    <tbody>
+    <tr><th>against the trend</th><td>1 426</td><td>+0.30R</td><td>+433.8R</td></tr>
+    <tr><th>with the trend</th><td>1 160</td><td>+0.33R</td><td>+377.3R</td></tr>
+    </tbody></table></div>
+  <p><b>More than half of all trades are opened against the direction of the market — and they are profitable.</b> Not merely tolerable: +0.30R per trade and over half of the entire five-year result. Trading with the trend comes out slightly better, but the gap is about 10% and it holds at any pair of averages — 20/50, 50/200 and 100/200 all give the same picture.</p>
+  <p>The two algorithms differ here, and their design explains it. <b>Algorithm 1</b> does <b>better</b> against the trend than with it: +0.345R versus +0.308R. It trades false breakouts, and the stronger the move it enters against, the cleaner the setup. <b>Algorithm 2</b> is the other way round — slightly weaker against the trend: +0.289R versus +0.332R.</p>
+  <div class="note"><p>How this was computed and what the calculations cannot see. The first method has no quote history at all: the price series is built from the entry prices of the trades themselves — real prices from the reports, but sampled only at the moments when the algorithm was trading, so what is measured is the market as the portfolio saw it. A window must hold at least six trades, so part of the history falls outside it. The second method uses external daily quotes; gold is available there only as a future — its basis to spot differs, but the direction of the trend is the same, and nothing else is taken from it. And in both: for individual instruments the picture is unstable — for DE40 the sign of the result flips with the window length — so the conclusions here are about the portfolio as a whole only.</p></div>
 </section>
 
-<section>
+<section id="shuffle">
   <h2>Testing the order of trades</h2>
   <p>History happened to run in one particular order of trades. To see
   how much the result depends on that order, I shuffled it
@@ -555,7 +582,7 @@ is computed on the past, not the result of live trading. The live account is on 
   <p class="note">The second limitation matters more than the first. In real life bad periods come in <b>streaks</b>: the market enters an unfavourable regime and instruments sink together for weeks. A random order breaks those streaks up. We shuffled by whole trading days to preserve at least the fact that instruments fall together within a day — but the link between weeks is lost all the same. So the table should be read as a <b>lower bound on trouble</b>, not as a full list of what is possible: a real prolonged drawdown may turn out deeper and longer. That is exactly what the trading halt threshold is for.</p>
 </section>
 
-<section>
+<section id="thresholds">
   <h2>Where the thresholds come from</h2>
   <p>Two numbers are checked every week. Drawdown answers the question “how much
   does it hurt right now”; expectancy over the last 100 trades answers “is the system

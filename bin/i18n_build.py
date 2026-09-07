@@ -132,6 +132,29 @@ def localize_axis(html, lang):
         return m.group(1) + body + m.group(3)
     return AXIS.sub(one, html)
 
+SECT = re.compile(r'<section id="([a-z0-9-]+)">(.*?)</section>', re.S)
+H2 = re.compile(r'<h2[^>]*>(.*?)</h2>', re.S)
+
+
+def toc(html, label):
+    """Оглавление страницы из секций, у которых есть якорь.
+
+    Собирается после подстановки словаря — иначе в списке оказались бы
+    маркеры вместо заголовков. Секция без h2 в оглавление не идёт:
+    ссылаться там не на что."""
+    items = []
+    for anchor, body in SECT.findall(html):
+        m = H2.search(body)
+        if not m:
+            continue
+        title = re.sub(r'<[^>]+>', '', m.group(1)).strip()
+        items.append(f'<li><a href="#{anchor}">{title}</a></li>')
+    if not items:
+        return ''
+    return (f'<nav class="toc" aria-label="{label}"><ol>'
+            + ''.join(items) + '</ol></nav>')
+
+
 def build(lang, outdir):
     d  = json.loads((SITE/'i18n'/f'{lang}.json').read_text(encoding='utf-8'))
     ru = json.loads((SITE/'i18n'/'ru.json').read_text(encoding='utf-8'))
@@ -162,7 +185,9 @@ def build(lang, outdir):
             k = m.group(1)
             if k in d: return d[k]
             missing.append(k); return ru.get(k, m.group(0))
-        (outdir/f).write_text(links(KEY.sub(rep, tpl), f, d, ru), encoding='utf-8')
+        page = links(KEY.sub(rep, tpl), f, d, ru)
+        page = page.replace('{{TOC}}', toc(page, d.get('toc.label', 'Содержание')))
+        (outdir/f).write_text(page, encoding='utf-8')
     return missing
 
 if __name__ == '__main__':
