@@ -154,12 +154,12 @@
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>Una cuenta en el bróker</th><td class="l">Una cuenta de trading activa en Tickmill, MT4 o MT5, en cualquier servidor. Las cuentas demo, archivadas o restringidas no sirven. La cuenta debe ser <b>de cobertura (hedging)</b>: los dos algoritmos trabajan de forma independiente y pueden mantener posiciones opuestas en un mismo instrumento.</td></tr>
-    <tr><th>Depósito mínimo</th><td class="l"><b>El mínimo para copiar es de 1 000$.</b> La plataforma permite 250$, pero he subido mi umbral cuatro veces: por debajo de esa cifra el volumen choca con el lote mínimo y el suscriptor recibe una estrategia distinta de la que ve en los cálculos. La coincidencia plena con el riesgo declarado empieza en 2 000$.<br><br><b>Depende del riesgo que elija.</b> Cuanto menor es el riesgo por operación, menor es el volumen — y antes choca con el lote mínimo que permite el bróker. Lo que ocurre después no es lo que parece: la operación se abre igualmente, pero <b>con el lote mínimo, y su riesgo resulta mayor que el fijado</b>. Usted creerá que ha reducido el riesgo, pero lo habrá reducido solo sobre el papel.<table style="margin-top:10px;width:auto">
+    <tr><th>Depósito mínimo</th><td class="l"><b>El mínimo para copiar es de 1.000$.</b> La plataforma permite 250$, pero he subido mi umbral cuatro veces: por debajo de esa cifra el volumen choca con el lote mínimo y el suscriptor recibe una estrategia distinta de la que ve en los cálculos. La coincidencia plena con el riesgo declarado empieza en 2.000$.<br><br><b>Depende del riesgo que elija.</b> Cuanto menor es el riesgo por operación, menor es el volumen — y antes choca con el lote mínimo que permite el bróker. Lo que ocurre después no es lo que parece: la operación se abre igualmente, pero <b>con el lote mínimo, y su riesgo resulta mayor que el fijado</b>. Usted creerá que ha reducido el riesgo, pero lo habrá reducido solo sobre el papel.<table style="margin-top:10px;width:auto">
         <tr><th style="padding:4px 16px 4px 0">riesgo del 1% por operación</th>
-            <td style="text-align:left;padding:4px 0"><b>desde 2 000$</b></td></tr>
+            <td style="text-align:left;padding:4px 0"><b>desde 2.000$</b></td></tr>
         <tr><th style="padding:4px 16px 4px 0">riesgo del 0,5%</th>
-            <td style="text-align:left;padding:4px 0"><b>desde 3 000$</b></td></tr>
-      </table> El oro es el más exigente: su stop es el más caro y el límite salta ahí primero. Los umbrales de abajo están calculados sobre las operaciones de 2026 y no sobre las medias de cinco años: en ese tiempo el oro se ha duplicado de precio y el coste de su stop se ha triplicado, así que las medias antiguas subestimarían el requisito. Por ejemplo, con un depósito de 1 000$ un riesgo declarado del 1% sale cerca del 1,5% en el oro, y un 0,5% declarado sale 0,84%: casi el doble de lo elegido.<br><br><b>Por qué mi cuenta empezó con 1 000$.</b> Existe para tener estadística pública, no para obtener ingresos: lo importante es que el historial de operaciones pueda verificarse desde el primer día. El riesgo superior al calculado lo asumo de forma deliberada: alrededor del 1,5% en el oro en lugar del 1%. Es mi dinero y mi decisión; no aconsejaría lo mismo a quien viene a ganar.</td></tr>
+            <td style="text-align:left;padding:4px 0"><b>desde 3.000$</b></td></tr>
+      </table> El oro es el más exigente: su stop es el más caro y el límite salta ahí primero. Los umbrales de abajo están calculados sobre las operaciones de 2026 y no sobre las medias de cinco años: en ese tiempo el oro se ha duplicado de precio y el coste de su stop se ha triplicado, así que las medias antiguas subestimarían el requisito. Por ejemplo, con un depósito de 1.000$ un riesgo declarado del 1% sale cerca del 1,5% en el oro, y un 0,5% declarado sale 0,84%: casi el doble de lo elegido.<br><br><b>Por qué mi cuenta empezó con 1.000$.</b> Existe para tener estadística pública, no para obtener ingresos: lo importante es que el historial de operaciones pueda verificarse desde el primer día. El riesgo superior al calculado lo asumo de forma deliberada: alrededor del 1,5% en el oro en lugar del 1%. Es mi dinero y mi decisión; no aconsejaría lo mismo a quien viene a ganar.</td></tr>
     <tr><th>Apalancamiento</th><td class="l">Desde 1:100. No hay más de siete posiciones
       abiertas a la vez y, la mitad del tiempo, no más de dos, de modo que el margen sobra.
       Con 1:500 la carga del depósito no supera el 10%.</td></tr>
@@ -175,7 +175,7 @@
   de mercado del momento, así que su resultado no coincidirá exactamente con la estrategia: la diferencia
   se acumula por el spread y el deslizamiento (slippage) en cada operación. Con un flujo de unas
   60 operaciones al mes es una magnitud apreciable, y cuanto menor es la cuenta, mayor resulta
-  en porcentaje. Un depósito desde 1.000 $ y una conexión estable reducen la divergencia;
+  en porcentaje. Un depósito desde 1.000$ y una conexión estable reducen la divergencia;
   eliminarla por completo no es posible.</p>
 </section>
 
@@ -196,7 +196,7 @@
   <h2>Cómo ajustar el tamaño y el riesgo</h2>
   <p>Por defecto el volumen copiado se calcula automáticamente: se escala según la proporción entre su saldo y el de la estrategia. Si la cuenta de la estrategia tiene 10.000 y la suya 1.000, una operación de 1 lote se repite en su cuenta como 0,1 lotes. Además puede fijar un <b>multiplicador</b>: uno a la mitad reduce a la mitad tanto la rentabilidad como el drawdown, y es la forma de ajustar el riesgo a su medida.</p>
   <p>Aparte, puede fijar límites de riesgo para toda la suscripción: cerrar las operaciones al alcanzar una pérdida o un beneficio determinados, suspender la copia o darse de baja. Es su propio seguro por encima de lo que hace la estrategia.</p>
-  <div class="note"><p><b>Qué parte destinar.</b> Esto es una parte de alto riesgo de la cartera, no un sustituto de un depósito. El drawdown máximo en cinco años es del <b>22,6%</b> sobre fondos: en una cuenta de 1 000 $ el peor momento habría dejado unos 774 $, y el mayor tiempo sin un nuevo máximo fue de 68 días. Si ese panorama cambia sus planes, la parte destinada es demasiado grande.</p></div>
+  <div class="note"><p><b>Qué parte destinar.</b> Esto es una parte de alto riesgo de la cartera, no un sustituto de un depósito. El drawdown máximo en cinco años es del <b>22,6%</b> sobre fondos: en una cuenta de 1.000$ el peor momento habría dejado unos 774 $, y el mayor tiempo sin un nuevo máximo fue de 68 días. Si ese panorama cambia sus planes, la parte destinada es demasiado grande.</p></div>
 </section>
 
 <section id="capacity">
