@@ -28,23 +28,31 @@ from pathlib import Path
 # site/bin/) или на уровень выше (на маке — personal/bin/).
 _here = Path(__file__).resolve().parent
 SITE  = _here.parent if (_here.parent/'tpl').is_dir() else _here.parent/'site'
-PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html']
+PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html',
+         'important.html', 'copy-trading-market.html']
 # Меню: главной в нём нет намеренно — на неё ведёт логотип, как принято.
 MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
-         ('tickmill.html', 'nav.connect'), ('about.html', 'nav.author')]
+         ('tickmill.html', 'nav.connect'), ('about.html', 'nav.author'),
+         # Пункт ведёт на страницу раздела со вступлением и списком
+         # материалов; сами материалы лежат отдельными страницами
+         # с говорящими адресами.
+         ('important.html', 'nav.research')]
 LANGS = ['ru','en','es']
 NAMES = {'ru':'RU','en':'EN','es':'ES'}
 HOST  = 'https://w2w-portfolio.github.io'
 # Ключи словаря. Маркеры чисел {{n.<ключ>}} исключены: они не переводятся,
 # их подставляет put_numbers уже после словаря — иначе счётчик «без перевода»
 # считал бы их пропущенными.
-KEY   = re.compile(r'\{\{(?!n\.)([a-z][a-z0-9_.]*)\}\}')
+# Дефис в классе обязателен: имена страниц бывают составными
+# (title.copy-trading-market), и без него заголовок оставался маркером.
+KEY   = re.compile(r'\{\{(?!n\.)([a-z][a-z0-9_.-]*)\}\}')
 # Упоминание страницы в тексте: [[backtest]] разворачивается в ссылку с её
 # названием на нужном языке. На самоё себя страница не ссылается — остаётся
 # просто название. Так читателю не нужно искать, где про это сказано подробно.
-LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about)\]\]')
+LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about|important|copy-trading-market)\]\]')
 NAVKEY = {'index': 'nav.home', 'results': 'nav.results', 'backtest': 'nav.backtest',
-          'tickmill': 'nav.connect', 'about': 'nav.author'}
+          'tickmill': 'nav.connect', 'about': 'nav.author',
+          'important': 'nav.research', 'copy-trading-market': 'nav.research'}
 NUM   = re.compile(r'\{\{#(\d+)\}\}')
 # Разделитель тысяч: у русского — неразрывный пробел, у английского запятая,
 # у испанского точка. Маркер {{#3801}} в шаблоне разворачивается по языку.

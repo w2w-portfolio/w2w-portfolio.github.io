@@ -37,6 +37,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
   </url>
   <url>
+    <loc>https://w2w-portfolio.github.io/important.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/important.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/important.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/important.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/important.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/copy-trading-market.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
+  </url>
+  <url>
     <loc>https://w2w-portfolio.github.io/en/index.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/index.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/index.html"/>
@@ -72,6 +86,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
   </url>
   <url>
+    <loc>https://w2w-portfolio.github.io/en/important.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/important.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/important.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/important.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/important.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/en/copy-trading-market.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
+  </url>
+  <url>
     <loc>https://w2w-portfolio.github.io/es/index.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/index.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/index.html"/>
@@ -105,5 +133,19 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/about.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/about.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/about.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/important.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/important.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/important.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/important.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/important.html"/>
+  </url>
+  <url>
+    <loc>https://w2w-portfolio.github.io/es/copy-trading-market.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2w-portfolio.github.io/en/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2w-portfolio.github.io/es/copy-trading-market.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2w-portfolio.github.io/copy-trading-market.html"/>
   </url>
 </urlset>
