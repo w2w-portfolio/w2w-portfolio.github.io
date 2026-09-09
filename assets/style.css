@@ -279,6 +279,12 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
  background:var(--surface)}
 @media(max-width:700px){.tmw{height:560px}}
 
+/* Виджет сигнала MQL5: карточка фиксированной высоты, прокрутки внутри
+   нет — там всего одна строка показателей. */
+.mqw{display:block;width:100%;height:140px;border:0;border-radius:4px;
+ background:var(--surface)}
+@media(max-width:700px){.mqw{height:170px}}
+
 /* Подпись под текстом от автора: справа, тем же шрифтом, что заголовки —
    так она читается как росчерк в конце письма, а не как ещё один абзац. */
 /* Оглавление длинной страницы: две колонки на широком экране, одна на узком.

@@ -581,5 +581,9 @@
  "title.terms": "Subscription terms — w2w",
  "desc.terms": "w2w copying terms: the money stays in your account, the fee is charged on profit only and only above the previous high, a $1,000 minimum, the risk and how to stop.",
  "terms.check_file": "Download all trades (CSV)",
- "terms.check_script": "Download the verification script (Python)"
+ "terms.check_script": "Download the verification script (Python)",
+ "res.mq_h": "The same account on MQL5",
+ "res.mq_note": "A second independent counter: the same trading, but the figures are computed by MQL5 with its own formulas. Subscription there is closed — the account’s leverage is higher than the platform allows for copying — so the card serves only as a cross-check.",
+ "res.mq_alt": "w2w signal widget on MQL5",
+ "res.mq_link": "Signal page on MQL5"
 }

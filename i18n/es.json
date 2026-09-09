@@ -581,5 +581,9 @@
  "title.terms": "Condiciones de suscripción — w2w",
  "desc.terms": "Condiciones de copia de w2w: el dinero sigue en su cuenta, la remuneración solo sobre el beneficio y por encima del máximo anterior, mínimo 1.000$, el riesgo y cómo terminar.",
  "terms.check_file": "Descargar todas las operaciones (CSV)",
- "terms.check_script": "Descargar el script de verificación (Python)"
+ "terms.check_script": "Descargar el script de verificación (Python)",
+ "res.mq_h": "La misma cuenta en MQL5",
+ "res.mq_note": "Un segundo contador independiente: la misma operativa, pero las cifras las calcula MQL5 con sus propias fórmulas. Allí la suscripción está cerrada —el apalancamiento de la cuenta supera lo que la plataforma admite para copiar—, así que la ficha sirve solo como comprobación.",
+ "res.mq_alt": "Widget de la señal w2w en MQL5",
+ "res.mq_link": "Página de la señal en MQL5"
 }
