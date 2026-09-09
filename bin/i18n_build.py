@@ -29,10 +29,10 @@ from pathlib import Path
 _here = Path(__file__).resolve().parent
 SITE  = _here.parent if (_here.parent/'tpl').is_dir() else _here.parent/'site'
 PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html',
-         'important.html', 'copy-trading-market.html']
+         'important.html', 'copy-trading-market.html', 'terms.html']
 # Меню: главной в нём нет намеренно — на неё ведёт логотип, как принято.
 MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
-         ('tickmill.html', 'nav.connect'), ('about.html', 'nav.author'),
+         ('tickmill.html', 'nav.connect'), ('terms.html', 'nav.terms'), ('about.html', 'nav.author'),
          # Пункт ведёт на страницу раздела со вступлением и списком
          # материалов; сами материалы лежат отдельными страницами
          # с говорящими адресами.
