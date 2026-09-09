@@ -573,11 +573,13 @@
  "terms.no_h": "What I do not promise",
  "terms.no_1": "No fixed return, no profit every month, no repeat of past results. The calculation on history shows how the system behaved between 2021 and 2026 and says nothing about the future. Trading on borrowed money, on your last savings, or on money you will need within the year is a bad idea regardless of whose strategy it is.",
  "terms.check_h": "What you can verify yourself",
- "terms.check_1": "All {{n.trades}} trades of the calculation are published as a single file, together with the scripts that turn it into every figure on this site. The live account is visible in the Tickmill card and on Myfxbook, an independent service where the statistics are not computed by the author. Nothing has to be taken on faith.",
+ "terms.check_1": "All {{n.trades}} trades of the calculation are published as a single file, and a small script recomputes the site’s key figures from it — total, drawdown, profit factor, share of winning trades and average RR — and checks them against what is written here. The live account is visible in the Tickmill card and on Myfxbook, an independent service where the statistics are not computed by the author. Nothing has to be taken on faith.",
  "terms.next_connect": "How to connect",
  "terms.next_connect_n": "Step by step: account, leverage, account type, minimum deposit",
  "terms.next_bt": "Backtests",
  "terms.next_bt_n": "Five years of history, drawdowns, risk breakdown and the full trade export",
  "title.terms": "Subscription terms — w2w",
- "desc.terms": "w2w copying terms: the money stays in your account, the fee is charged on profit only and only above the previous high, a $1,000 minimum, the risk and how to stop."
+ "desc.terms": "w2w copying terms: the money stays in your account, the fee is charged on profit only and only above the previous high, a $1,000 minimum, the risk and how to stop.",
+ "terms.check_file": "Download all trades (CSV)",
+ "terms.check_script": "Download the verification script (Python)"
 }

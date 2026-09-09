@@ -573,11 +573,13 @@
  "terms.no_h": "Qué no prometo",
  "terms.no_1": "Ni rentabilidad fija, ni beneficio todos los meses, ni la repetición de resultados pasados. El cálculo sobre el historial muestra cómo se comportó el sistema entre 2021 y 2026 y no dice nada del futuro. Operar con dinero prestado, con los últimos ahorros o con dinero que necesitará dentro del año es mala idea, sea de quien sea la estrategia.",
  "terms.check_h": "Qué puede comprobar usted mismo",
- "terms.check_1": "Las {{n.trades}} operaciones del cálculo están publicadas en un único archivo, junto con los scripts que convierten ese archivo en cada cifra del sitio. La cuenta real se ve en la ficha de Tickmill y en Myfxbook, un servicio independiente donde la estadística no la calcula el autor. No hay que dar nada por supuesto.",
+ "terms.check_1": "Las {{n.trades}} operaciones del cálculo están publicadas en un único archivo, y un pequeño script recalcula a partir de él las cifras clave del sitio —resultado, caída máxima, factor de beneficio, porcentaje de operaciones ganadoras y RR medio— y las compara con lo que aquí se afirma. La cuenta real se ve en la ficha de Tickmill y en Myfxbook, un servicio independiente donde la estadística no la calcula el autor. No hay que dar nada por supuesto.",
  "terms.next_connect": "Cómo conectarse",
  "terms.next_connect_n": "Paso a paso: cuenta, apalancamiento, tipo de cuenta, depósito mínimo",
  "terms.next_bt": "Backtests",
  "terms.next_bt_n": "Cinco años de historial, caídas, análisis de riesgos y exportación de todas las operaciones",
  "title.terms": "Condiciones de suscripción — w2w",
- "desc.terms": "Condiciones de copia de w2w: el dinero sigue en su cuenta, la remuneración solo sobre el beneficio y por encima del máximo anterior, mínimo 1.000$, el riesgo y cómo terminar."
+ "desc.terms": "Condiciones de copia de w2w: el dinero sigue en su cuenta, la remuneración solo sobre el beneficio y por encima del máximo anterior, mínimo 1.000$, el riesgo y cómo terminar.",
+ "terms.check_file": "Descargar todas las operaciones (CSV)",
+ "terms.check_script": "Descargar el script de verificación (Python)"
 }
