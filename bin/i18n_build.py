@@ -39,7 +39,7 @@ MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
          ('important.html', 'nav.research')]
 LANGS = ['ru','en','es']
 NAMES = {'ru':'RU','en':'EN','es':'ES'}
-HOST  = 'https://w2w-portfolio.github.io'
+HOST  = 'https://w2wportfolio.com'
 # Ключи словаря. Маркеры чисел {{n.<ключ>}} исключены: они не переводятся,
 # их подставляет put_numbers уже после словаря — иначе счётчик «без перевода»
 # считал бы их пропущенными.
