@@ -23,5 +23,37 @@
   "exp_n": 0,
   "exp_ready": false,
   "symbols_week": []
+ },
+ {
+  "date": "2026-09-12",
+  "week_from": "2026-09-07",
+  "week_to": "2026-09-13",
+  "account": 55950604,
+  "server": "Tickmill-Live",
+  "account_type": "real",
+  "balance": 1092.52,
+  "equity": 1111.9,
+  "start_balance": 1000.0,
+  "trades_week": 12,
+  "wins_week": 5,
+  "losses_week": 7,
+  "money_week": 93.57,
+  "pf_week": 2.12,
+  "trades_total": 12,
+  "grow_total_pct": 9.36,
+  "dd_now_pct": 4.14,
+  "dd_max_pct": 8.3,
+  "level": "норма",
+  "exp_pct": 0.78,
+  "exp_n": 12,
+  "exp_ready": false,
+  "symbols_week": [
+   "BRENT",
+   "DE40",
+   "EURUSD",
+   "GBPUSD",
+   "NZDUSD",
+   "XAUUSD"
+  ]
  }
 ]
