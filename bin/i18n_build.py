@@ -29,7 +29,8 @@ from pathlib import Path
 _here = Path(__file__).resolve().parent
 SITE  = _here.parent if (_here.parent/'tpl').is_dir() else _here.parent/'site'
 PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html',
-         'important.html', 'copy-trading-market.html', 'terms.html']
+         'important.html', 'copy-trading-market.html', 'copy-trading-etoro.html',
+         'terms.html']
 # Меню: главной в нём нет намеренно — на неё ведёт логотип, как принято.
 MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
          ('tickmill.html', 'nav.connect'), ('terms.html', 'nav.terms'), ('about.html', 'nav.author'),
@@ -49,10 +50,11 @@ KEY   = re.compile(r'\{\{(?!n\.)([a-z][a-z0-9_.-]*)\}\}')
 # Упоминание страницы в тексте: [[backtest]] разворачивается в ссылку с её
 # названием на нужном языке. На самоё себя страница не ссылается — остаётся
 # просто название. Так читателю не нужно искать, где про это сказано подробно.
-LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about|important|copy-trading-market)\]\]')
+LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about|important|copy-trading-market|copy-trading-etoro)\]\]')
 NAVKEY = {'index': 'nav.home', 'results': 'nav.results', 'backtest': 'nav.backtest',
           'tickmill': 'nav.connect', 'about': 'nav.author',
-          'important': 'nav.research', 'copy-trading-market': 'nav.research'}
+          'important': 'nav.research', 'copy-trading-market': 'nav.research',
+          'copy-trading-etoro': 'nav.research'}
 NUM   = re.compile(r'\{\{#(\d+)\}\}')
 # Разделитель тысяч: у русского — неразрывный пробел, у английского запятая,
 # у испанского точка. Маркер {{#3801}} в шаблоне разворачивается по языку.

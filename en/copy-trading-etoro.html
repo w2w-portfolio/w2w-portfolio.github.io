@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>You get what you pay for: 11,193 eToro accounts — w2w</title>
+<meta name="description" content="A study of eToro’s shelf on full data: 11,193 accounts, four reward schemes across four platforms, the risk score, copier churn and the concentration of money. Method and caveats in the open.">
+<link rel="canonical" href="https://w2wportfolio.com/en/copy-trading-etoro.html">
+<!-- Карточка ссылки в мессенджерах и соцсетях: без неё уходит голая строка. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="w2w">
+<meta property="og:title" content="You get what you pay for: 11,193 eToro accounts — w2w">
+<meta property="og:description" content="A study of eToro’s shelf on full data: 11,193 accounts, four reward schemes across four platforms, the risk score, copier churn and the concentration of money. Method and caveats in the open.">
+<meta property="og:url" content="https://w2wportfolio.com/en/copy-trading-etoro.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://w2wportfolio.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/copy-trading-etoro.html">
+<link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-etoro.html">
+<link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-etoro.html">
+<link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-etoro.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+<script>
+/* Статистика посещений — только после согласия.
+   Метрика ставит куки и пишет сессию Вебвизором, поэтому скрипт грузится
+   не сразу, а после ответа посетителя; ответ лежит в localStorage и больше
+   не спрашивается. Отказ так же доступен, как согласие: иначе согласие
+   не согласие. Без ответа не грузится ничего. */
+(function(){
+ var KEY='w2w-stats', ID=112331649;
+ function load(){
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for(var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,
+   a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+ID,'ym');
+  ym(ID,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
+ }
+ var saved=null; try{saved=localStorage.getItem(KEY)}catch(e){}
+ if(saved==='yes'){ load(); return; }
+ if(saved==='no'){ return; }
+ function answer(v){
+  try{localStorage.setItem(KEY,v)}catch(e){}
+  var b=document.getElementById('cookiebar'); if(b) b.remove();
+  if(v==='yes') load();
+ }
+ function bar(){
+  var d=document.createElement('div'); d.id='cookiebar';
+  var t=document.createElement('p'); t.textContent="This site collects anonymous visit statistics: which sections people read and how far they get. No personal data.";
+  var g=document.createElement('div'); g.className='cb-btns';
+  var y=document.createElement('button'); y.textContent="Fine";
+  var n=document.createElement('button'); n.className='cb-no'; n.textContent="No statistics";
+  y.onclick=function(){answer('yes')}; n.onclick=function(){answer('no')};
+  g.appendChild(y); g.appendChild(n); d.appendChild(t); d.appendChild(g);
+  document.body.appendChild(d);
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bar);
+ else bar();
+})();
+</script>
+</head><body>
+
+<div class="masthead">
+  <a class="masthead-logo" href="index.html" aria-label="w2w">
+<svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
+  <defs>
+    <radialGradient id="w2w-field" cx="0.42" cy="0.3" r="0.78">
+      <stop offset="0" stop-color="#17171C"/><stop offset="0.55" stop-color="#0E0E11"/>
+      <stop offset="1" stop-color="#060607"/>
+    </radialGradient>
+    <linearGradient id="w2w-wood" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#C97B4A"/><stop offset="0.32" stop-color="#8A3E1C"/><stop offset="0.55" stop-color="#B05A28"/><stop offset="0.78" stop-color="#6B2C11"/><stop offset="1" stop-color="#A44E22"/></linearGradient>
+    <linearGradient id="w2w-silver" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#EDF2F7"/><stop offset="0.3" stop-color="#8794A3"/><stop offset="0.5" stop-color="#D6E0EA"/><stop offset="0.72" stop-color="#68757F"/><stop offset="1" stop-color="#B4C2CE"/></linearGradient>
+    <linearGradient id="w2w-gold" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#FBEFB4"/><stop offset="0.28" stop-color="#D9A81E"/><stop offset="0.5" stop-color="#F7DE72"/><stop offset="0.75" stop-color="#8E6410"/><stop offset="1" stop-color="#EFC94E"/></linearGradient>
+    <linearGradient id="w2w-rim" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#E0C57E"/><stop offset="0.34" stop-color="#6B5930"/>
+      <stop offset="0.62" stop-color="#4A3E22"/><stop offset="1" stop-color="#A38B4E"/>
+    </linearGradient>
+    <linearGradient id="w2w-kant" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#9C8449"/><stop offset="0.5" stop-color="#463A20"/>
+      <stop offset="1" stop-color="#7A6738"/>
+    </linearGradient>
+    <linearGradient id="w2w-sheen" x1="0.15" y1="0" x2="0.55" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".10"/>
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="w2w-clip"><ellipse cx="150" cy="54" rx="146" ry="50"/></clipPath>
+    <filter id="w2w-lay" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity=".6"/>
+    </filter>
+    <path id="w2w-arc" d="M-9.7 77.9 A 170 70 0 0 0 309.7 77.9" fill="none"/>
+  </defs>
+
+  <ellipse cx="150" cy="54" rx="146" ry="50" fill="url(#w2w-field)"
+           stroke="url(#w2w-rim)" stroke-width="3"/>
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="none" stroke="#000"
+           stroke-width="1.2" opacity=".45"/>
+  <ellipse cx="150" cy="54" rx="137" ry="43" fill="none" stroke="url(#w2w-kant)"
+           stroke-width="1.1" opacity=".7"/>
+
+  <!-- знак лежит на плоскости: штрих убывает вглубь 11.5 → 11 → 10.5, тень падает вниз -->
+  <g clip-path="url(#w2w-clip)" filter="url(#w2w-lay)">
+    <path fill="url(#w2w-wood)" d="M69.2 56.1 62.1 79.1H49.2L35.7 44.1Q32.3 43.2 31.1 42.0L31.9 37.0H51.3L52.2 42.0Q50.8 43.3 47.7 44.0L53.6 61.9Q55.0 65.8 55.7 69.6L55.9 70.6H57.1Q57.1 67.0 58.7 62.0L66.2 37.5H79.1L86.6 61.9Q88.0 66.3 88.5 69.6L88.6 70.7H89.8Q90.0 67.0 91.8 62.0L98.5 44.3Q94.9 43.4 93.6 42.0L94.4 37.0H113.0L113.8 42.0Q112.2 43.5 108.2 44.4L94.1 79.1H80.9L74.1 56.2Q72.9 52.1 72.3 48.2L72.2 46.9H71.0Q70.7 51.1 69.2 56.1Z"/><path fill="url(#w2w-silver)" d="M150.3 28.9Q171.8 28.9 171.8 41.4Q171.8 44.1 169.9 47.2Q168.0 50.2 165.4 52.4L151.0 64.8Q147.8 67.6 143.3 70.2L141.7 71.2L142.2 72.0Q146.8 71.3 151.9 71.3H159.8Q160.5 67.4 162.2 65.2L171.7 65.6Q173.8 68.3 173.8 74.3Q173.8 76.8 173.1 78.8H127.6L125.3 69.9L150.0 50.6Q156.9 45.2 156.9 40.2Q156.9 37.7 155.1 36.4Q153.3 35.2 148.8 35.2Q144.2 35.2 140.9 36.2Q140.0 41.4 138.7 43.1L129.8 42.7Q127.9 40.4 127.7 34.8Q127.7 33.6 127.8 33.1Q136.8 28.9 150.3 28.9Z"/><path fill="url(#w2w-gold)" d="M225.2 56.1 218.2 79.1H205.2L191.8 44.1Q188.3 43.2 187.2 42.0L188.0 37.0H207.4L208.2 42.0Q206.8 43.3 203.7 44.0L209.7 61.9Q211.0 65.8 211.8 69.6L211.9 70.6H213.1Q213.2 67.0 214.7 62.0L222.3 37.5H235.1L242.7 61.9Q244.0 66.3 244.5 69.6L244.7 70.7H245.9Q246.0 67.0 247.9 62.0L254.5 44.3Q251.0 43.4 249.7 42.0L250.5 37.0H269.1L269.9 42.0Q268.3 43.5 264.3 44.4L250.2 79.1H237.0L230.2 56.2Q229.0 52.1 228.4 48.2L228.2 46.9H227.1Q226.7 51.1 225.2 56.1Z"/>
+  </g>
+
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="url(#w2w-sheen)"/>
+
+  <path d="M48 101.5 L50.6 104.5 L48 107.5 L45.4 104.5 Z" fill="#7A6A45"/>
+  <path d="M252 101.5 L254.6 104.5 L252 107.5 L249.4 104.5 Z" fill="#7A6A45"/>
+  <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
+</svg>
+  </a>
+</div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html">Results</a><a href="backtest.html">Backtests</a><a href="tickmill.html">How to join</a><a href="terms.html">Terms</a><a href="about.html">Author</a><a href="important.html">Essentials</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../copy-trading-etoro.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/copy-trading-etoro.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/copy-trading-etoro.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+<div class="wrap">
+<section id="top">
+  <h1>You get what you pay for: 11,193 eToro accounts</h1>
+  <p class="lead">The largest copy-trading platform under a microscope: 11,193 accounts, 66 fields each. How payout rules shape what ends up on the shelf — and why a platform’s badge is no substitute for your own check.</p>
+  <div class="meta"><span>13 September 2026</span><span>11,193 accounts</span><span>eToro</span></div>
+</section>
+
+<nav class="toc" aria-label="Contents"><ol><li><a href="#s1">Why eToro</a></li><li><a href="#s2">What was collected</a></li><li><a href="#s3">Four platforms, four reward schemes</a></li><li><a href="#s4">The programme’s rules are visible in the data</a></li><li><a href="#s5">My filter and the platform’s rules are not the same thing</a></li><li><a href="#s6">The more popular a strategy, the more often people leave it</a></li><li><a href="#s7">Money stands where money already is</a></li><li><a href="#s8">A quarter of the programme is wanted by nobody</a></li><li><a href="#s9">Four filters</a></li><li><a href="#s10">What nobody shows</a></li><li><a href="#s11">How the data was collected</a></li></ol></nav>
+
+<section id="s1">
+  <h2>Why eToro</h2>
+  <p>Last time I pulled the full rankings of three platforms — Tickmill, RoboForex and MQL5, 9,116 strategies. It left a feeling of unfinished work: studying the copy-trading market without eToro is like measuring the car industry by three plants while skipping the biggest one. eToro is larger than all the others combined.</p>
+  <p>But size is not the only reason. eToro publishes something the broker platforms do not: <b>the rules by which it pays the strategy provider.</b> Not a two-word «up to 30% of profit» on the shelf, but a table of tiers with money thresholds, risk requirements and the conditions for being dropped.</p>
+  <p>And payout rules are what shape strategies. A platform does not choose who comes to it; it sets who will find it worthwhile to stay. If four platforms have four different reward schemes, the strategies on them should differ predictably. That can be checked with numbers — which is what I did.</p>
+</section>
+
+<section id="s2">
+  <h2>What was collected</h2>
+  <p>On eToro almost any client can be copied, so «all accounts» means 3.64 million people, and they are not strategies. I took two samples, each in full:</p>
+  <p><b>Those copied by at least one person</b> — 9,577 records out of the 9,795 declared, 97.8% complete.</p>
+  <p><b>Members of the provider programme</b> — 5,557 out of 5,559, 100% complete.</p>
+  <p>Together, without duplicates, 11,193 accounts, 66 fields each. The snapshot was taken on 13 September 2026.</p>
+  <p>One inconsistency I could not resolve. On its own page eToro states that <b>only</b> programme members can be copied. Yet in the data 5,636 accounts have copiers without carrying the membership flag. Perhaps these are older subscriptions left from earlier rules; perhaps the flag marks only the paid tiers. I report it as it is.</p>
+</section>
+
+<section id="s3">
+  <h2>Four platforms, four reward schemes</h2>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>platform</th><th>what the provider is paid for</th></tr></thead>
+    <tbody>
+      <tr><th>Tickmill, RoboForex</th><td>a share of the investor’s profit</td></tr>
+      <tr><th>MQL5</th><td>a fixed monthly subscription</td></tr>
+      <tr><th>ZuluTrade</th><td>volume: 0.5 pip per closed investor trade</td></tr>
+      <tr><th>eToro</th><td>up to 1.5% of assets under copy, monthly</td></tr>
+    </tbody>
+  </table></div>
+  <p>The schemes look similar — «the provider gets something» — but they push in different directions.</p>
+  <p><b>A share of profit</b> pays for results, but only good ones: an investor’s loss costs the provider nothing. It pays to take more risk than you would with your own money.</p>
+  <p><b>A fixed subscription</b> pays for the subscriber staying. It pays not to frighten anyone: a long flat curve is worth more than a rare sprint.</p>
+  <p><b>Payment per volume</b> pays for the number of trades. Nothing to explain here: it pays to trade often, and profitability comes second.</p>
+  <p><b>A percentage of assets under copy</b> pays for money gathered and money kept. It pays to look dependable and to last.</p>
+  <p>eToro spells this scheme out in tiers: Cadet — no payments; Champion — 1.5% of assets under copy, but no less than $250 and no more than $500 a month, from $50,000 under copy; Elite — from $400,000; Elite Pro — from $10 million.</p>
+  <p>Note this: <b>the investor’s profit plays no part in eToro’s scheme at all.</b> The provider receives a percentage of the sum that follows them, whether that sum gained or lost.</p>
+</section>
+
+<section id="s4">
+  <h2>The programme’s rules are visible in the data</h2>
+  <p>To stay in the programme a member must hold: a risk score no higher than 7 out of 10, weekly drawdown no deeper than 25%, no single position above half the portfolio, at least 30% profitable months, at least three instruments traded over a year. Plus a real name, a photo of their face and a monthly post of no fewer than a hundred words.</p>
+  <p><b>What the risk score is.</b> It is not a judgement of a strategy’s quality but a measure of how much its account swings. eToro takes the spread of the portfolio’s value — the standard deviation — and converts it into a number from 1 to 10, where each score has its own ceiling of volatility:</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>score</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr></thead>
+    <tbody>
+      <tr><th>volatility up to</th><td>0,5%</td><td>1,2%</td><td>2,0%</td><td>2,7%</td><td>3,9%</td><td>5,4%</td><td>7,7%</td><td>15,5%</td><td>23,3%</td><td>above</td></tr>
+    </tbody>
+  </table></div>
+  <p>Zero means the portfolio holds only cash and does not swing at all. Over what period the spread is measured is not stated in eToro’s help, and the platform adds its own caveat: «this is not our rating of the portfolio, its success, or how much we think it would be a good fit for you».</p>
+  <p>Notice where the programme’s threshold sits — «no higher than 7». Exactly before the doubling: from score seven to eight the volatility ceiling jumps from 7.7% to 15.5%. What gets cut off is not «slightly riskier» but twice as wide-swinging.</p>
+  <p>And here is what the collected numbers show.</p>
+  <p><b>The median risk score is 4 out of 10</b>, that is volatility up to 2.7%. Scores from 3 to 6 hold 88% of strategies. Above seven — just 1.2%, and among programme members 0.5%.</p>
+  <p><b>The median drawdown from peak is 16%.</b> Deeper than a quarter of the account — only 29%.</p>
+  <p>That looks nothing like the broker shelves, where half the cards are wiped-out accounts and the median drawdown reaches 92%. But the explanation is not that careful people gathered on eToro. The explanation is that the platform throws you out past the threshold: go beyond 25% weekly drawdown and the payments stop.</p>
+  <p><b>The reward scheme and the selection rules make up the shelf.</b> It works both ways: where volume is paid for, the high-frequency ones rise to the top; where keeping money is paid for — the cautious and the long-lived.</p>
+  <h3>The scheme selects not only behaviour but the cast</h3>
+  <p>eToro has one more property that explains the mildness of its shelf better than any guesses about people’s character: <b>you cannot run a trading robot there.</b> There is no MetaTrader on the platform at all, the platform is their own, and it gives clients no programmatic access. So strategies on eToro are made by hand.</p>
+  <p>Add to that what is paid for there. The reward is a percentage of money gathered, not of profit; the risk thresholds are strict, and breaking them stops the payments. Who benefits from such terms? Whoever gathers money and lasts: a broad portfolio, a calm curve, rare sharp moves. Exactly what the numbers show — 88% of strategies swinging up to 5.4%.</p>
+  <p>And the mirror image. Where volume is paid for, trading often pays better; where a share of profit is paid, taking risk pays better — an investor’s loss costs the provider nothing. That is why broker shelves, where robots also work, end up with an entirely different cast: a median drawdown reaching 92% and half the cards wiped out.</p>
+  <p><b>A platform does not so much select strategies as set who will find it worthwhile to come.</b> A shelf is not a sample of the market but an imprint of the platform’s own rules.</p>
+</section>
+
+<section id="s5">
+  <h2>My filter and the platform’s rules are not the same thing</h2>
+  <p>A fair question comes up: if the platform itself watches risk, am I not filtering what has already been filtered? Partly yes. But less than it seems, and that can be measured.</p>
+  <p>eToro’s rule limits <b>weekly</b> drawdown: no deeper than 25% in a week. My filter limits drawdown <b>from the peak</b> — over the account’s whole history. These are different things: a strategy can lose 40% over three months without ever dropping a quarter in a single week.</p>
+  <p>In numbers: 99% of programme members keep their weekly drawdown inside the threshold — the rule works. But of those same compliant ones, <b>a quarter, 1,363 strategies, fails the drawdown-from-peak filter.</b></p>
+  <p>A check from the other side. The sample contains accounts that are copied but are not in the programme — the platform holds them to no rules. Let us compare the two groups:</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th></th><th>programme members</th><th>outside the programme</th></tr></thead>
+    <tbody>
+      <tr><th>weekly drawdown deeper than 25%</th><td>0,9%</td><td>5,4%</td></tr>
+      <tr><th>drawdown from peak deeper than 25%</th><td>25,5%</td><td>32,2%</td></tr>
+      <tr><th>risk score above 7</th><td>0,5%</td><td>1,7%</td></tr>
+    </tbody>
+  </table></div>
+  <p>The rule bites exactly where it is written: on weekly drawdown the difference is sixfold. On drawdown from the peak, which the platform does not limit, the difference nearly disappears — 25.5% against 32.2%.</p>
+  <p>Hence a conclusion worth keeping: <b>a platform’s selection closes off sharp collapses and barely closes off slow ones.</b> The «checked by the platform» badge and your own check are about different things, and the first does not replace the second.</p>
+</section>
+
+<section id="s6">
+  <h2>The more popular a strategy, the more often people leave it</h2>
+  <p>eToro’s feed carries both the number of copiers and the baseline it is counted from — so you can see whether a strategy is gaining people or losing them.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>copiers</th><th>strategies</th><th>losing copiers</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>5 321</td><td>0%</td></tr>
+      <tr><td>2–5</td><td>2 006</td><td>1%</td></tr>
+      <tr><td>6–20</td><td>988</td><td>7%</td></tr>
+      <tr><td>21–100</td><td>576</td><td>28%</td></tr>
+      <tr><td>101–1000</td><td>437</td><td><b>57%</b></td></tr>
+      <tr><th>more than 1000</th><td>135</td><td><b>76%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>The relationship is monotone, without exceptions. Three quarters of the platform’s most-copied strategies now have fewer people than they had.</p>
+  <p>I have no direct explanation and will not invent one. But one guess is testable in future: people come to a popular strategy after a good stretch and leave after the first bad one — and the more arrived on the wave, the more leave on the pullback.</p>
+</section>
+
+<section id="s7">
+  <h2>Money stands where money already is</h2>
+  <p><b>$2,637 million</b> follows eToro strategies. Here is how it is spread:</p>
+  <p><b>The top one percent of strategies holds 80% of all the money.</b> The median is $1,138, the mean $275,367. A gap of 242 times.</p>
+  <p>The median number of copiers is <b>one person</b>.</p>
+  <p>Hence a practical conclusion: any «on average» on such data describes not the market but a few dozen of the largest accounts. A typical eToro strategy leads a thousand dollars and one person.</p>
+</section>
+
+<section id="s8">
+  <h2>A quarter of the programme is wanted by nobody</h2>
+  <p>The provider programme is the platform’s own selection: the member was vetted, holds the risk thresholds and is paid for popularity.</p>
+  <p><b>28% of members — 1,554 people out of 5,557 — have not a single copier.</b></p>
+  <p>The platform’s selection and the investors’ choice are far from always the same. A «checked by the platform» badge speaks of rules kept, not of anyone judging the strategy worth their money.</p>
+</section>
+
+<section id="s9">
+  <h2>Four filters</h2>
+  <p>In the previous study I ran strategies through four conditions any investor would apply: drawdown no deeper than a quarter of the account, age over a year, at least five subscribers, return above 50%. I will run them here too.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>filter</th><th>those copied</th><th>programme members</th></tr></thead>
+    <tbody>
+      <tr><th>base</th><td>9 577</td><td>5 557</td></tr>
+      <tr><th>drawdown from peak below 25%</th><td>6,752 (70.5%)</td><td>4,141 (74.5%)</td></tr>
+      <tr><th>+ older than a year</th><td>4,752 (49.6%)</td><td>4,028 (72.5%)</td></tr>
+      <tr><th>+ five copiers</th><td>1,703 (17.8%)</td><td>1,476 (26.6%)</td></tr>
+      <tr><th>+ return above 50% a year</th><td><b>117 (1.22%)</b></td><td><b>103 (1.85%)</b></td></tr>
+    </tbody>
+  </table></div>
+  <p>Slightly more than one percent survives.</p>
+  <p><b>These percentages cannot be placed next to the previous ones, and I do not place them there.</b> The bases differ: there I took every card with trades in a row, here — those already copied by someone, that is a sample that has passed a selection. And the return threshold here is stricter: 50% a year against 50% over all time.</p>
+  <p>What is honestly comparable is the shape of the funnel. On eToro the first step cuts little: sharp collapses have already been sifted out by the platform’s rules, as discussed above. The last step, return, cuts almost everything that made it through: of 1,703 strategies with five or more copiers, 117 showed a return above 50% a year.</p>
+</section>
+
+<section id="s10">
+  <h2>What nobody shows</h2>
+  <p>The number that matters most to an investor is on none of the four platforms: <b>how much the people who copied a strategy earned.</b> An investor pays not for the author’s result but for their own, and everything stands in between — the moment of entry, the size of the account, slippage, the copy ratio.</p>
+  <p>One detail for anyone digging into the same data. eToro’s feed has a field whose name reads like «copiers’ return», and it sits right next to the strategy’s return. It counts no money: it is the <b>change in the number of copiers</b>, where «−50%» means «there were two copiers, one is left». It checks out by dividing the difference between the current and the baseline copier count — and matches on all 9,525 records where both numbers exist.</p>
+  <p>Hence a rule that is useful more widely: the meaning of a field is worth checking by computing it from neighbouring ones, not by reading its name. Especially when the name matches exactly what you would very much like to find.</p>
+</section>
+
+<section id="s11">
+  <h2>How the data was collected</h2>
+  <p>Everything comes from eToro’s open shelf interface — the same one that shows numbers to their own visitors. No paid exports, no closed interfaces.</p>
+  <p><b>The feed is cut off at 1,500 records.</b> The first page arrives in full, the second truncated, the third empty. Anyone collecting «everything» in a row gets 1,500 records out of 9,795 and computes medians over the top of the ranking. I sliced the population into bands by copier count, and split the largest band further by return until every piece fitted inside the limit.</p>
+  <p><b>Completeness has to be checked with a number.</b> The collector compares what was gathered against what the platform declares and prints the share: 97.8% and 100%. Without such a check an incomplete sample passes in silence: medians computed over the top of a ranking look exactly as convincing as those computed over the whole population.</p>
+  <p><b>The numbers are a snapshot of one day</b>, 13 September 2026. A platform’s make-up changes; a year from now these will be different numbers, which is why the date stands beside them.</p>
+</section>
+
+<footer class="sitefoot">
+  <span>w2w — an algorithmic portfolio</span>
+  <span>everything in percent of deposit</span>
+  <span>Anonymised visit statistics — Yandex Metrica. The results page embeds cards from Myfxbook and Tickmill.</span>
+</footer>
+</div></body></html>
