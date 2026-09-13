@@ -21,3 +21,4 @@ equity/
 
 # Служебное питона
 __pycache__/
+.*.keys.json
