@@ -202,6 +202,20 @@ def svg_line(pts, key, color, title, fname, invert=False):
     (CHARTS / fname).write_text(svg, encoding='utf-8')
 
 
+def notes():
+    """Ключи комментариев к неделям — берём прямо из русского словаря.
+
+    Отдельного реестра нет намеренно: комментарий существует ровно тогда,
+    когда для него написан текст.
+    """
+    p = SITE / 'i18n' / 'ru.json'
+    d = json.loads(p.read_text(encoding='utf-8')) if p.exists() else {}
+    return {k for k in d if k.startswith('week.')}
+
+
+NOTES = None
+
+
 def render_feed(arch):
     """Лента недель для страницы «Контроль» — готовый кусок разметки."""
     TABLES.mkdir(parents=True, exist_ok=True)
@@ -213,6 +227,8 @@ def render_feed(arch):
         html = ('<p class="muted">{{monitor.t020}}</p>')
         (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
         return
+    global NOTES
+    NOTES = notes()
     rows = []
     for a in reversed(arch):                       # свежие сверху
         cls = {'норма': 'ok', 'внимание': 'warn',
@@ -235,6 +251,17 @@ def render_feed(arch):
             f"<td{r}>{a['dd_now_pct']:.1f}%</td>"
             f'<td{r}>{exp}</td>'
             f'<td{r}><span class="lvl {cls}">{{{{{key}}}}}</span></td></tr>')
+        # Комментарий автора к неделе. Текст живёт в словаре под ключом
+        # week.<дата конца недели> — значит переводится наравне со страницей
+        # и не теряется при пересборке в облаке. Ключ подставляется ТОЛЬКО
+        # когда он в словаре есть: иначе сборщик оставит маркер в странице
+        # и посчитает его непереведённым.
+        if f'week.{a["week_to"]}' in NOTES:
+            rows.append(
+                f'<tr class="wknote"><td colspan="7"><details>'
+                f'<summary>{{{{monitor.note_h}}}}</summary>'
+                f'<div class="body">{{{{week.{a["week_to"]}}}}}</div>'
+                f'</details></td></tr>')
     head = '<p class="note">{{monitor.t027}}</p>' if demo_only else ''
     R = ' style="text-align:right"'
     html = (head + '<div class="scroll"><table class="feed">'
@@ -433,6 +460,21 @@ def main():
 
     ARCHIVE.parent.mkdir(parents=True, exist_ok=True)
     arch = json.loads(ARCHIVE.read_text(encoding='utf-8')) if ARCHIVE.exists() else []
+
+    # 🪤 Запись в архив — только когда торговая неделя закрыта, то есть
+    # в субботу или воскресенье (облачный прогон идёт по субботам). Запуск
+    # в будни раньше дописывал в ленту НЕДОЖИТУЮ неделю, и она вставала
+    # в таблицу рядом с полными — читатель сравнивал несравнимое.
+    # Вёрстку при этом пересобираем: так можно обновить ленту, ничего
+    # не испортив. Нужна запись в будний день — ключ --force.
+    if now.weekday() < 5 and '--force' not in sys.argv:
+        print('\nбудний день: неделя ещё не закрыта, архив не тронут '
+              '(вёрстка пересобрана; для записи — --force)')
+        render_feed(arch)
+        render_live(st, trades, base)
+        render_pulse(st, trades, base)
+        return
+
     arch = [a for a in arch if a.get('week_from') != entry['week_from']]
     arch.append(entry)
     arch.sort(key=lambda a: a['week_from'])

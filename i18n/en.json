@@ -702,5 +702,7 @@
  "imp.a2_title": "You get what you pay for: 11,193 eToro accounts",
  "imp.a2_note": "The largest copy-trading platform: how the reward scheme shapes what ends up on the shelf, what the risk score shows, and why the platform’s selection is no substitute for your own check.",
  "imp.a2_date": "September 2026",
- "eto.s6_p2": "The relationship is monotone, without exceptions. Three quarters of the platform’s most-copied strategies now have fewer people than they had."
+ "eto.s6_p2": "The relationship is monotone, without exceptions. Three quarters of the platform’s most-copied strategies now have fewer people than they had.",
+ "monitor.note_h": "Author’s note on the week",
+ "week.2026-09-13": "<p>The week closed with the account up 9.4%, but one number in it needs explaining — risk per trade. In the settings it is <b>one percent</b> of the account. On currencies and oil that is what came out: 0.89–0.95%. On gold it came out at <b>1.49%</b> and <b>1.84%</b>.</p><p>The cause is not the advisors but the minimum lot. A stop on gold costs $15–17, and no position is smaller than 0.01 lots: when the calculation calls for 0.006, what opens is 0.01 — and the risk ends up larger than stated. The more expensive an instrument’s stop, the stronger the effect, and on a $1,000 account gold alone gives one and a half percent.</p><p>I decided to change nothing. The week’s drawdown was 4.1% against a 25% attention threshold, and intervening for the sake of a formal percentage would have broken a portfolio composition tested over five years. But when I count risk on gold I now work from 1.5%, not 1% — including where the trading-halt thresholds are concerned. On accounts from $2,000 up the minimum-lot floor disappears.</p>"
 }

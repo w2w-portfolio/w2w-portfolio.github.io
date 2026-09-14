@@ -702,5 +702,7 @@
  "desc.copy-trading-etoro": "Estudio del escaparate de eToro con datos completos: 11.193 cuentas, cuatro esquemas de remuneración en cuatro plataformas, la puntuación de riesgo, la rotación de copiadores y la concentración del dinero. Método y advertencias a la vista.",
  "imp.a2_title": "Se recibe lo que se paga: 11.193 cuentas de eToro",
  "imp.a2_note": "La mayor plataforma de copia: cómo el esquema de remuneración moldea el escaparate, qué muestra la puntuación de riesgo y por qué la selección de la plataforma no sustituye tu propia comprobación.",
- "imp.a2_date": "septiembre de 2026"
+ "imp.a2_date": "septiembre de 2026",
+ "monitor.note_h": "Comentario del autor sobre la semana",
+ "week.2026-09-13": "<p>La semana cerró con la cuenta un 9,4% arriba, pero una cifra necesita explicación: el riesgo por operación. En los ajustes es el <b>uno por ciento</b> de la cuenta. En divisas y petróleo así salió: 0,89–0,95%. En el oro salió <b>1,49%</b> y <b>1,84%</b>.</p><p>La causa no son los asesores, sino el lote mínimo. Un stop en el oro cuesta 15–17 dólares, y no hay posición menor de 0,01 lotes: cuando el cálculo pide 0,006, se abre 0,01 — y el riesgo resulta mayor que el declarado. Cuanto más caro es el stop de un instrumento, más se nota, y en una cuenta de mil dólares el oro por sí solo da un uno y medio por ciento.</p><p>Decidí no cambiar nada. El drawdown de la semana fue del 4,1% frente a un umbral de atención del 25%, e intervenir por un porcentaje formal habría roto una composición de cartera comprobada en cinco años. Pero al calcular el riesgo en el oro ahora parto del 1,5% y no del 1%, también donde se trata de los umbrales de parada. En cuentas desde dos mil dólares el tope del lote mínimo desaparece.</p>"
 }

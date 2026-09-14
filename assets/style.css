@@ -321,3 +321,15 @@ section[id]{scroll-margin-top:78px}
  text-underline-offset:3px}
 .author-tg a:hover{color:var(--ink)}
 @media (max-width:600px){.author{gap:14px}.author img{width:84px;height:84px}}
+
+/* ── комментарий автора к неделе: раскрывается по клику ───────── */
+tr.wknote td{padding-top:0;border-top:0}
+.wknote summary{cursor:pointer;color:var(--series-1);font-size:13.5px;
+ list-style:none;padding:2px 0}
+.wknote summary::-webkit-details-marker{display:none}
+.wknote summary::before{content:'+ ';font-weight:600}
+.wknote details[open] summary::before{content:'\2212 '}
+.wknote .body{border-left:3px solid var(--series-1);padding:4px 0 4px 16px;
+ margin:8px 0 10px;color:var(--ink-soft);font-size:14.5px;max-width:74ch}
+.wknote .body p{margin:0 0 9px}
+.wknote .body p:last-child{margin:0}
