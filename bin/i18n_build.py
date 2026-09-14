@@ -30,7 +30,7 @@ _here = Path(__file__).resolve().parent
 SITE  = _here.parent if (_here.parent/'tpl').is_dir() else _here.parent/'site'
 PAGES = ['index.html','results.html','backtest.html','tickmill.html','about.html',
          'important.html', 'copy-trading-market.html', 'copy-trading-etoro.html',
-         'terms.html']
+         'copy-trading-darwinex.html', 'terms.html']
 # Меню: главной в нём нет намеренно — на неё ведёт логотип, как принято.
 MENU  = [('results.html', 'nav.results'), ('backtest.html', 'nav.backtest'),
          ('tickmill.html', 'nav.connect'), ('terms.html', 'nav.terms'), ('about.html', 'nav.author'),
@@ -50,11 +50,16 @@ KEY   = re.compile(r'\{\{(?!n\.)([a-z][a-z0-9_.-]*)\}\}')
 # Упоминание страницы в тексте: [[backtest]] разворачивается в ссылку с её
 # названием на нужном языке. На самоё себя страница не ссылается — остаётся
 # просто название. Так читателю не нужно искать, где про это сказано подробно.
-LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about|important|copy-trading-market|copy-trading-etoro)\]\]')
+LINK  = re.compile(r'\[\[(index|results|backtest|tickmill|about|important|copy-trading-market|copy-trading-etoro|copy-trading-darwinex)\]\]')
 NAVKEY = {'index': 'nav.home', 'results': 'nav.results', 'backtest': 'nav.backtest',
           'tickmill': 'nav.connect', 'about': 'nav.author',
-          'important': 'nav.research', 'copy-trading-market': 'nav.research',
-          'copy-trading-etoro': 'nav.research'}
+          'important': 'nav.research',
+          # У статей раздела свои короткие имена: через NAVKEY их подставляет
+          # ссылка [[slug]] в тексте, и «Важное» вместо названия разбора
+          # читалось бы бессмыслицей.
+          'copy-trading-market': 'nav.a_market',
+          'copy-trading-etoro': 'nav.a_etoro',
+          'copy-trading-darwinex': 'nav.a_darwinex'}
 NUM   = re.compile(r'\{\{#(\d+)\}\}')
 # Разделитель тысяч: у русского — неразрывный пробел, у английского запятая,
 # у испанского точка. Маркер {{#3801}} в шаблоне разворачивается по языку.
@@ -137,20 +142,28 @@ BLOB = re.compile(r'<(svg|script|style)\b.*?</\1>', re.S)
 # точка. Граница слова тут не годится: в «1.02R» её между цифрой и буквой нет,
 # и числа с R не локализовались вовсе.
 DEC  = re.compile(r'(?<=\d)\.(?=\d{1,2}(?![\d.]))')
+# Обратное направление, для английского: запятая перед 1–2 цифрами — дробь
+# (44,5% -> 44.5%), перед тремя — разделитель тысяч (11,193), его не трогаем.
+# 🪤 До 14.09.2026 этой замены не было, и в английских версиях статей дроби
+# стояли с русской запятой: у eToro «0,5%» вместо «0.5%».
+DEC_EN = re.compile(r'(?<=\d),(?=\d{1,2}(?![\d,]))')
 
 def localize_decimals(html, lang):
     """Десятичный разделитель в числах, зашитых прямо в разметку.
 
-    В испанском дробь пишется через запятую. Трогаем только текст между тегами
-    (не атрибуты) и только 1–2 знака после точки: 21.2 -> 21,2, но дата 08.2021
-    и разделитель тысяч 1.204 остаются нетронутыми. Применяется к шаблону ДО
-    подстановки словаря — переводы уже приходят с правильными разделителями."""
-    if lang != 'es': return html
+    Источник правды — русский шаблон, где дробь идёт через запятую. Испанскому
+    она подходит, английскому нужна точка. Трогаем только текст между тегами
+    (не атрибуты) и только 1–2 знака после разделителя: 21.2 -> 21,2 и 44,5 ->
+    44.5, но дата 08.2021 и разделители тысяч 1.204 и 11,193 остаются
+    нетронутыми. Применяется к шаблону ДО подстановки словаря — переводы уже
+    приходят с правильными разделителями, и трогать их нельзя."""
+    if lang == 'ru': return html
     keep = []
     def stash(m):
         keep.append(m.group(0)); return f'\x00{len(keep)-1}\x00'
     html = BLOB.sub(stash, html)
-    html = re.sub(r'>([^<]*)<', lambda m: '>' + DEC.sub(',', m.group(1)) + '<', html)
+    rx, to = (DEC, ',') if lang == 'es' else (DEC_EN, '.')
+    html = re.sub(r'>([^<]*)<', lambda m: '>' + rx.sub(to, m.group(1)) + '<', html)
     return re.sub(r'\x00(\d+)\x00', lambda m: keep[int(m.group(1))], html)
 
 AXIS = re.compile(r'(<text[^>]*>)(.*?)(</text>)', re.S)

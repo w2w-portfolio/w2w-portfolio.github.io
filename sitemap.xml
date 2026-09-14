@@ -58,6 +58,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-etoro.html"/>
   </url>
   <url>
+    <loc>https://w2wportfolio.com/copy-trading-darwinex.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
+  </url>
+  <url>
     <loc>https://w2wportfolio.com/terms.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/terms.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/terms.html"/>
@@ -121,6 +128,13 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-etoro.html"/>
   </url>
   <url>
+    <loc>https://w2wportfolio.com/en/copy-trading-darwinex.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
+  </url>
+  <url>
     <loc>https://w2wportfolio.com/en/terms.html</loc>
     <xhtml:link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/terms.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/terms.html"/>
@@ -182,6 +196,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-etoro.html"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-etoro.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-etoro.html"/>
+  </url>
+  <url>
+    <loc>https://w2wportfolio.com/es/copy-trading-darwinex.html</loc>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-darwinex.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-darwinex.html"/>
   </url>
   <url>
     <loc>https://w2wportfolio.com/es/terms.html</loc>

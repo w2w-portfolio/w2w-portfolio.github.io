@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0E1116">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The platform that shows its dead: 17,671 Darwinex strategies — w2w</title>
+<meta name="description" content="Darwinex on complete data: 17,671 strategies, deleted ones included. Survival by year of birth, money concentration, the platform score against returns, and four investor filters. Method and caveats in the open.">
+<link rel="canonical" href="https://w2wportfolio.com/en/copy-trading-darwinex.html">
+<!-- Карточка ссылки в мессенджерах и соцсетях: без неё уходит голая строка. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="w2w">
+<meta property="og:title" content="The platform that shows its dead: 17,671 Darwinex strategies — w2w">
+<meta property="og:description" content="Darwinex on complete data: 17,671 strategies, deleted ones included. Survival by year of birth, money concentration, the platform score against returns, and four investor filters. Method and caveats in the open.">
+<meta property="og:url" content="https://w2wportfolio.com/en/copy-trading-darwinex.html">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://w2wportfolio.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="alternate" hreflang="ru" href="https://w2wportfolio.com/copy-trading-darwinex.html">
+<link rel="alternate" hreflang="en" href="https://w2wportfolio.com/en/copy-trading-darwinex.html">
+<link rel="alternate" hreflang="es" href="https://w2wportfolio.com/es/copy-trading-darwinex.html">
+<link rel="alternate" hreflang="x-default" href="https://w2wportfolio.com/copy-trading-darwinex.html">
+<script>
+/* Выбор языка.
+   Заход по языковому адресу (/en/, /es/) — это явный выбор: уважаем и запоминаем.
+   Догадка по языку браузера работает только на корневой, русской версии и только
+   пока человек не выбрал язык сам. Скрипт стоит в <head> до отрисовки, чтобы
+   страница не мигала чужим языком. */
+(function(){
+ var p=location.pathname, cur=/\/en\//.test(p)?'en':(/\/es\//.test(p)?'es':'ru');
+ if(cur!=='ru'){ try{localStorage.setItem('w2w-lang',cur)}catch(e){} return; }
+ var saved=null; try{saved=localStorage.getItem('w2w-lang')}catch(e){}
+ var want=saved;
+ if(!want){
+   var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ru';
+   n=n.slice(0,2).toLowerCase();
+   want=(n=='ru'||n=='en'||n=='es')?n:'en';   /* прочие языки — английский */
+ }
+ if(want==='ru') return;
+ var f=p.replace(/^\//,''); if(!f) f='index.html';
+ location.replace('/'+want+'/'+f);
+})();
+</script>
+<script>
+/* Статистика посещений — только после согласия.
+   Метрика ставит куки и пишет сессию Вебвизором, поэтому скрипт грузится
+   не сразу, а после ответа посетителя; ответ лежит в localStorage и больше
+   не спрашивается. Отказ так же доступен, как согласие: иначе согласие
+   не согласие. Без ответа не грузится ничего. */
+(function(){
+ var KEY='w2w-stats', ID=112331649;
+ function load(){
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for(var j=0;j<e.scripts.length;j++){if(e.scripts[j].src===r){return}}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,
+   a.parentNode.insertBefore(k,a)})
+  (window,document,'script','https://mc.yandex.ru/metrika/tag.js?id='+ID,'ym');
+  ym(ID,'init',{webvisor:true,clickmap:true,trackLinks:true,accurateTrackBounce:true});
+ }
+ var saved=null; try{saved=localStorage.getItem(KEY)}catch(e){}
+ if(saved==='yes'){ load(); return; }
+ if(saved==='no'){ return; }
+ function answer(v){
+  try{localStorage.setItem(KEY,v)}catch(e){}
+  var b=document.getElementById('cookiebar'); if(b) b.remove();
+  if(v==='yes') load();
+ }
+ function bar(){
+  var d=document.createElement('div'); d.id='cookiebar';
+  var t=document.createElement('p'); t.textContent="This site collects anonymous visit statistics: which sections people read and how far they get. No personal data.";
+  var g=document.createElement('div'); g.className='cb-btns';
+  var y=document.createElement('button'); y.textContent="Fine";
+  var n=document.createElement('button'); n.className='cb-no'; n.textContent="No statistics";
+  y.onclick=function(){answer('yes')}; n.onclick=function(){answer('no')};
+  g.appendChild(y); g.appendChild(n); d.appendChild(t); d.appendChild(g);
+  document.body.appendChild(d);
+ }
+ if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',bar);
+ else bar();
+})();
+</script>
+</head><body>
+
+<div class="masthead">
+  <a class="masthead-logo" href="index.html" aria-label="w2w">
+<svg class="logo" viewBox="0 0 300 138" role="img" aria-label="The Way to Wealth">
+  <defs>
+    <radialGradient id="w2w-field" cx="0.42" cy="0.3" r="0.78">
+      <stop offset="0" stop-color="#17171C"/><stop offset="0.55" stop-color="#0E0E11"/>
+      <stop offset="1" stop-color="#060607"/>
+    </radialGradient>
+    <linearGradient id="w2w-wood" x1="0" y1="0" x2="0.35" y2="1"><stop offset="0" stop-color="#C97B4A"/><stop offset="0.32" stop-color="#8A3E1C"/><stop offset="0.55" stop-color="#B05A28"/><stop offset="0.78" stop-color="#6B2C11"/><stop offset="1" stop-color="#A44E22"/></linearGradient>
+    <linearGradient id="w2w-silver" x1="0" y1="0" x2="0.25" y2="1"><stop offset="0" stop-color="#EDF2F7"/><stop offset="0.3" stop-color="#8794A3"/><stop offset="0.5" stop-color="#D6E0EA"/><stop offset="0.72" stop-color="#68757F"/><stop offset="1" stop-color="#B4C2CE"/></linearGradient>
+    <linearGradient id="w2w-gold" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0" stop-color="#FBEFB4"/><stop offset="0.28" stop-color="#D9A81E"/><stop offset="0.5" stop-color="#F7DE72"/><stop offset="0.75" stop-color="#8E6410"/><stop offset="1" stop-color="#EFC94E"/></linearGradient>
+    <linearGradient id="w2w-rim" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#E0C57E"/><stop offset="0.34" stop-color="#6B5930"/>
+      <stop offset="0.62" stop-color="#4A3E22"/><stop offset="1" stop-color="#A38B4E"/>
+    </linearGradient>
+    <linearGradient id="w2w-kant" x1="0" y1="0" x2="0.15" y2="1">
+      <stop offset="0" stop-color="#9C8449"/><stop offset="0.5" stop-color="#463A20"/>
+      <stop offset="1" stop-color="#7A6738"/>
+    </linearGradient>
+    <linearGradient id="w2w-sheen" x1="0.15" y1="0" x2="0.55" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity=".10"/>
+      <stop offset="0.35" stop-color="#FFFFFF" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="w2w-clip"><ellipse cx="150" cy="54" rx="146" ry="50"/></clipPath>
+    <filter id="w2w-lay" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="3.5" stdDeviation="2.2" flood-color="#000" flood-opacity=".6"/>
+    </filter>
+    <path id="w2w-arc" d="M-9.7 77.9 A 170 70 0 0 0 309.7 77.9" fill="none"/>
+  </defs>
+
+  <ellipse cx="150" cy="54" rx="146" ry="50" fill="url(#w2w-field)"
+           stroke="url(#w2w-rim)" stroke-width="3"/>
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="none" stroke="#000"
+           stroke-width="1.2" opacity=".45"/>
+  <ellipse cx="150" cy="54" rx="137" ry="43" fill="none" stroke="url(#w2w-kant)"
+           stroke-width="1.1" opacity=".7"/>
+
+  <!-- знак лежит на плоскости: штрих убывает вглубь 11.5 → 11 → 10.5, тень падает вниз -->
+  <g clip-path="url(#w2w-clip)" filter="url(#w2w-lay)">
+    <path fill="url(#w2w-wood)" d="M69.2 56.1 62.1 79.1H49.2L35.7 44.1Q32.3 43.2 31.1 42.0L31.9 37.0H51.3L52.2 42.0Q50.8 43.3 47.7 44.0L53.6 61.9Q55.0 65.8 55.7 69.6L55.9 70.6H57.1Q57.1 67.0 58.7 62.0L66.2 37.5H79.1L86.6 61.9Q88.0 66.3 88.5 69.6L88.6 70.7H89.8Q90.0 67.0 91.8 62.0L98.5 44.3Q94.9 43.4 93.6 42.0L94.4 37.0H113.0L113.8 42.0Q112.2 43.5 108.2 44.4L94.1 79.1H80.9L74.1 56.2Q72.9 52.1 72.3 48.2L72.2 46.9H71.0Q70.7 51.1 69.2 56.1Z"/><path fill="url(#w2w-silver)" d="M150.3 28.9Q171.8 28.9 171.8 41.4Q171.8 44.1 169.9 47.2Q168.0 50.2 165.4 52.4L151.0 64.8Q147.8 67.6 143.3 70.2L141.7 71.2L142.2 72.0Q146.8 71.3 151.9 71.3H159.8Q160.5 67.4 162.2 65.2L171.7 65.6Q173.8 68.3 173.8 74.3Q173.8 76.8 173.1 78.8H127.6L125.3 69.9L150.0 50.6Q156.9 45.2 156.9 40.2Q156.9 37.7 155.1 36.4Q153.3 35.2 148.8 35.2Q144.2 35.2 140.9 36.2Q140.0 41.4 138.7 43.1L129.8 42.7Q127.9 40.4 127.7 34.8Q127.7 33.6 127.8 33.1Q136.8 28.9 150.3 28.9Z"/><path fill="url(#w2w-gold)" d="M225.2 56.1 218.2 79.1H205.2L191.8 44.1Q188.3 43.2 187.2 42.0L188.0 37.0H207.4L208.2 42.0Q206.8 43.3 203.7 44.0L209.7 61.9Q211.0 65.8 211.8 69.6L211.9 70.6H213.1Q213.2 67.0 214.7 62.0L222.3 37.5H235.1L242.7 61.9Q244.0 66.3 244.5 69.6L244.7 70.7H245.9Q246.0 67.0 247.9 62.0L254.5 44.3Q251.0 43.4 249.7 42.0L250.5 37.0H269.1L269.9 42.0Q268.3 43.5 264.3 44.4L250.2 79.1H237.0L230.2 56.2Q229.0 52.1 228.4 48.2L228.2 46.9H227.1Q226.7 51.1 225.2 56.1Z"/>
+  </g>
+
+  <ellipse cx="150" cy="54" rx="143" ry="47" fill="url(#w2w-sheen)"/>
+
+  <path d="M48 101.5 L50.6 104.5 L48 107.5 L45.4 104.5 Z" fill="#7A6A45"/>
+  <path d="M252 101.5 L254.6 104.5 L252 107.5 L249.4 104.5 Z" fill="#7A6A45"/>
+  <text class="logo-arc"><textPath href="#w2w-arc" startOffset="50%" text-anchor="middle">THE WAY TO WEALTH</textPath></text>
+</svg>
+  </a>
+</div>
+
+<div class="navbar"><div class="navbar-in"><nav><a href="results.html">Results</a><a href="backtest.html">Backtests</a><a href="tickmill.html">How to join</a><a href="terms.html">Terms</a><a href="about.html">Author</a><a href="important.html">Essentials</a></nav><div class="langsw" role="group" aria-label="Language"><a href="../copy-trading-darwinex.html" hreflang="ru" onclick="try{localStorage.setItem('w2w-lang','ru')}catch(e){}">RU</a><a href="../en/copy-trading-darwinex.html" hreflang="en" class="on" onclick="try{localStorage.setItem('w2w-lang','en')}catch(e){}">EN</a><a href="../es/copy-trading-darwinex.html" hreflang="es" onclick="try{localStorage.setItem('w2w-lang','es')}catch(e){}">ES</a></div></div></div>
+<div class="wrap">
+<section id="top">
+  <h1>The platform that shows its dead: 17,671 Darwinex strategies</h1>
+  <p class="lead">The four copy-trading platforms I studied earlier show whoever survived until today. The fifth one also hands over the deleted — 23,169 records, including those the platform erased itself. Here is what becomes visible once the graveyard stops being invisible: of the strategies born in 2017, 11.9% are still alive, half of all money sits with one percent of them, and 70% have not a single investor.</p>
+  <div class="meta"><span>14 September 2026</span><span>17,671 strategies</span><span>Darwinex</span></div>
+</section>
+
+<nav class="toc" aria-label="Contents"><ol><li><a href="#s1">Why Darwinex</a></li><li><a href="#s2">What was collected</a></li><li><a href="#s3">The trap: a version is not a strategy</a></li><li><a href="#s4">The graveyard</a></li><li><a href="#s5">The survival curve</a></li><li><a href="#s6">The money</a></li><li><a href="#s7">Here the platform's badge does work</a></li><li><a href="#s8">Four filters</a></li><li><a href="#s9">What the platform takes</a></li><li><a href="#s10">My portfolio against the DARWIN index</a></li><li><a href="#s11">What even Darwinex does not show</a></li><li><a href="#s12">How this was collected</a></li></ol></nav>
+
+<section id="s1">
+  <h2>Why Darwinex</h2>
+  <p>All four earlier studies — Tickmill, RoboForex, MQL5 and eToro, 20,309 strategies together — shared one flaw, and I named it at the end every time: <b>how many strategies have vanished is unknown.</b></p>
+  <p>Here a common assumption needs correcting, mine included before the first study. These platforms do not sweep their listings — I checked it in the first study (<a href="copy-trading-market.html">three copy-trading platforms</a>): the oldest account in the Tickmill list is 3,607 days old, nearly ten years, and it is still there; MQL5 keeps signals with a balance of one cent. A wiped-out account is not removed from the listing, which is why the median account in the Tickmill ranking is four dollars, and among accounts older than two years 42% are empty. Part of the dead is visible right in the ranking there — it simply is not separated from the living.</p>
+  <p>Something else is invisible: those the author removed. Take down the signal, close the account — and the card disappears along with its history, leaving no trace. Nobody on the outside knows how many, and that is why <b>survivorship bias</b> — judging the whole by those who remain — has to be mentioned in words on those platforms rather than measured as a number.</p>
+  <p>Darwinex is the opposite. It does clean its listing, and does so itself, without the author — yet what was removed stays in the catalogue with a status: alive, deleted by the trader, deleted by the platform. Some do not clean up after themselves and do not remember the departed; this one cleans up and remembers. For the first time in five studies, survivorship bias can be measured instead of mentioned.</p>
+  <p>The second reason is the model. Here a risk engine stands between the strategy and the investor: it adjusts the size of every trade so that risk is the same across all strategies, no matter what size the author trades. The result is sold as an exchange instrument under a short three- or four-letter code — a ticker; that instrument is what is called a "DARWIN" here. The investor buys not access to someone else's account, but a security whose price follows the strategy at the levelled risk.</p>
+  <p>In other words, the platform itself claims to compare the incomparable correctly. Testing that claim on its own data is a separate interest.</p>
+</section>
+
+<section id="s2">
+  <h2>What was collected</h2>
+  <p>The platform no longer has a public API: the key-issuing page returns 404 and the old host does not answer. But the two endpoints the site itself runs on are open and <b>require neither an account nor a login</b> — I verified that separately, after I had already collected the data from a logged-in session.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>slice</th><th>what it gives</th><th>how many</th></tr></thead>
+    <tbody>
+      <tr><th>catalogue</th><td>every version: status, target risk, dates</td><td>23,169 records — 17,671 strategies</td></tr>
+      <tr><th>listing</th><td>money, investors, return, drawdown, score</td><td>6,744</td></tr>
+    </tbody>
+  </table></div>
+  <p>A full collection takes three minutes and repeats with one command, so the snapshot can be taken again any day and compared with this one. One thing about this data has to be known before reading any percentage.</p>
+  <p><b>The platform's two slices do not agree with each other.</b> The catalogue holds 7,864 live strategies, the listing 6,744 — and 4,047 tickers from the listing are missing from the live catalogue. Do they exist? They do: the platform offers them for investment and quotes prices for them. So the collected total matching the declared one (23,169 of 23,169) proves exactly one thing — the whole declared list was read. Whether the list itself is complete, the platform does not confirm, and I do not know.</p>
+</section>
+
+<section id="s3">
+  <h2>The trap: a version is not a strategy</h2>
+  <p>There are 23,169 records but 17,671 strategies. The difference comes from how names are built: <b>THA.5.12</b>, where the middle digit is the risk standard. Five means the current standard, 6.5% monthly VaR at 95% confidence. VaR (value at risk) is a loss boundary: by the platform's calculation, in nineteen months out of twenty the strategy will lose less than 6.5% of the amount invested, and in one month it may lose more. Four is the previous standard, where the same boundary stood at 10%.</p>
+  <p>I checked every record: the digit in the name matches the declared risk exactly, without a single exception — 15,834 versions under the new standard, 7,335 under the old one.</p>
+  <p><b>5,498 strategies have both versions, and all 5,498 are "four and five" pairs.</b> So a second version appears not because the trader started over, but because the platform changed its risk standard and reissued the instrument. The old version then gets the status "deleted by the platform".</p>
+  <p>Hence the trap I nearly fell into. Counted by versions, the dead come to 64.7% — a number that looks good in a headline. But for 1,006 strategies the old version is dead while the new one is alive: the strategy works, it has simply moved. A mechanical deletion during migration is not a death.</p>
+  <p><b>So everything below is counted by strategies, not by versions.</b></p>
+</section>
+
+<section id="s4">
+  <h2>The graveyard</h2>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th></th><th>strategies</th><th>share</th></tr></thead>
+    <tbody>
+      <tr><th>alive</th><td>7,864</td><td>44.5%</td></tr>
+      <tr><th>dead entirely</th><td>9,768</td><td>55.3%</td></tr>
+      <tr><th>awaiting validation</th><td>39</td><td>0.2%</td></tr>
+    </tbody>
+  </table></div>
+  <p>Thirty-nine are awaiting validation — the check after which an instrument is admitted to trading. Everything else splits in two: more than half of all strategies the platform has ever issued no longer exist.</p>
+  <p>And nearly half of those funerals were not conducted by the trader: for 4,725 dead strategies (48.4% of all the dead, 26.7% of everything ever issued) at least one version was deleted by the platform.</p>
+  <p>Age of the survivors: a median of 3.3 years — that is, half the living strategies are older than that and half younger. Older than five years: 2,590 strategies.</p>
+</section>
+
+<section id="s5">
+  <h2>The survival curve</h2>
+  <p>The clearest view is to sort strategies by year of birth and see how much of each generation lived to September 2026.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>year of birth</th><th>issued</th><th>alive now</th></tr></thead>
+    <tbody>
+      <tr><td>2017</td><td>2,779</td><td><b>11.9%</b></td></tr>
+      <tr><td>2018</td><td>1,851</td><td>15.1%</td></tr>
+      <tr><td>2019</td><td>1,848</td><td>23.7%</td></tr>
+      <tr><td>2020</td><td>2,225</td><td>31.7%</td></tr>
+      <tr><td>2021</td><td>1,775</td><td>39.8%</td></tr>
+      <tr><td>2022</td><td>1,424</td><td>57.0%</td></tr>
+      <tr><td>2023</td><td>1,841</td><td>73.5%</td></tr>
+      <tr><td>2024</td><td>1,705</td><td>77.7%</td></tr>
+      <tr><td>2025</td><td>1,291</td><td>82.3%</td></tr>
+      <tr><td>2026</td><td>932</td><td>91.3%</td></tr>
+    </tbody>
+  </table></div>
+  <p>Of the 2017 generation, one in nine is left. Nine years on, any ranking from that year is a sample of that one ninth; the other eight take no part in it and spoil no statistics.</p>
+  <p>I take the year of birth from a strategy's earliest version. Counted by versions, the curve falls even harder (9.6% for 2017) — precisely because the risk-standard migration stamps new versions onto old strategies.</p>
+</section>
+
+<section id="s6">
+  <h2>The money</h2>
+  <p>There is $330.3 million under copying. The distribution is familiar from all four earlier platforms, only sharper:</p>
+  <ul>
+    <li>the top one percent of strategies holds <b>53.1%</b> of all the money;</li>
+    <li>the ten largest hold 23.8% ($78.8 million), with a maximum of $16.0 million in one;</li>
+    <li>85 strategies gathered more than a million dollars, 319 more than a hundred thousand;</li>
+    <li><b>4,729 strategies (70%) have not a single investor</b>, and the median amount across the whole listing is zero. Money is there for 2,015, and among those the median is $13,085.</li>
+  </ul>
+  <p>In total there are 9,068 investor positions on the platform — across 6,744 offerings. Among those that have investors at all, the median is one.</p>
+  <p>For comparison: on eToro 28% of the programme's participants had no copiers (<a href="copy-trading-etoro.html">the eToro study</a>). Here it is 70%.</p>
+</section>
+
+<section id="s7">
+  <h2>Here the platform's badge does work</h2>
+  <p>The eToro study produced an uncomfortable conclusion: the "verified by the platform" badge said nothing about results. Darwinex has a score of its own — the D-Score from 0 to 100: a composite of twelve attributes, among them risk management, how evenly the strategy earns, and the length of its history. Unlike that badge, it is tied to money directly.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>D-Score</th><th>strategies</th><th>have investors</th><th>money</th><th>median return</th></tr></thead>
+    <tbody>
+      <tr><th>below 30</th><td>982</td><td>24.3%</td><td>$2.6M</td><td>+1.0%</td></tr>
+      <tr><th>30–45</th><td>2,051</td><td>21.8%</td><td>$9.8M</td><td>−3.3%</td></tr>
+      <tr><th>45–60</th><td>2,431</td><td>24.4%</td><td>$39.2M</td><td>+8.1%</td></tr>
+      <tr><th>60–70</th><td>1,026</td><td>51.2%</td><td>$112.4M</td><td>+24.6%</td></tr>
+      <tr><th>above 70</th><td>254</td><td><b>83.5%</b></td><td><b>$166.3M</b></td><td>+49.8%</td></tr>
+    </tbody>
+  </table></div>
+  <p>Two hundred and fifty-four strategies — 3.8% of the listing — hold half of all the money on the platform. Seventeen scored above 80. The listing median is 46.9.</p>
+  <p>This reads two ways, and both readings are honest: either the score really does select the best, or the money follows wherever the score points and a high score becomes self-fulfilling. One snapshot cannot separate the two — that needs a series of measurements over time. The snapshot is taken; the next one will follow.</p>
+</section>
+
+<section id="s8">
+  <h2>Four filters</h2>
+  <p>Four conditions run through the whole series — the ones any investor would apply before handing over money: drawdown no deeper than a quarter of the account, age over a year, at least five subscribers, all-time return above 50%. I run them here too, on the listing, because only the listing has metrics. Age is taken from the DARWIN's first quote date, that is, from the length of its own history.</p>
+  <div class="card" style="padding:0"><table>
+    <thead><tr><th>filter</th><th>strategies</th><th>share of listing</th></tr></thead>
+    <tbody>
+      <tr><th>in the listing</th><td>6,744</td><td>100%</td></tr>
+      <tr><th>drawdown no deeper than 25%</th><td>5,922</td><td>87.8%</td></tr>
+      <tr><th>+ older than a year</th><td>2,886</td><td>42.8%</td></tr>
+      <tr><th>+ at least five investors</th><td>333</td><td>4.9%</td></tr>
+      <tr><th>+ return above 50%</th><td><b>128</b></td><td><b>1.90%</b></td></tr>
+    </tbody>
+  </table></div>
+  <p><b>These percentages cannot be placed next to the earlier ones, and I do not do that.</b> The base here is already filtered: only what has passed the platform's validation and is available for investment enters the listing. What is comparable is the shape of the funnel, not its level.</p>
+  <p>And the shape says this. The first step cuts little — 12% — and that follows directly from the risk engine: once everyone's risk is levelled to one boundary, deep drawdowns are rare. On eToro the first step also cut little, but for a different reason: there the sharp collapses had been screened out by the programme's rules.</p>
+  <p>The harshest step here is the third one — <b>trust.</b> Of 2,886 strategies older than a year, five investors were found for 333: eight out of nine could not gather even five. On MQL5 it was the same, only sharper (of 359 older than a year, five subscribers for six of them), while on eToro it was the return that cut everything. Three platforms, three different bottlenecks.</p>
+  <p>And one last observation, which is why the whole section should not be read as a verdict on the listing: these 128 strategies — 1.9% of the offerings — hold $191.1 million, <b>that is 57.9% of all the money on the platform</b>, and 4,874 investors out of 9,068. The money already sits where the filters point. The median age of those that passed is four years, the median return +71.2% at a drawdown of −15.0%, the median D-Score 73.8.</p>
+</section>
+
+<section id="s9">
+  <h2>What the platform takes</h2>
+  <p>Here the fee is visible as a number, which is rare: the platform exposes a calculation showing what would have happened to a sum invested. I checked it on the strategy that stands first in the return ranking: $10,000 invested in September 2020 produced a +70.6% result — and minus 10.2% in management fees (charged on the amount invested, whatever the outcome), minus 14.1% in performance fees (a share of what was earned). <b>A quarter of the earnings went to payment.</b></p>
+  <p>And one more number the platform publishes itself, with no authorisation at all: <b>53.84% of its clients are losing money.</b> Not one of the four earlier platforms keeps a figure like that on its front page.</p>
+</section>
+
+<section id="s10">
+  <h2>My portfolio against the DARWIN index</h2>
+  <p>The platform has an index of its own — a portfolio of strategies it selects, holding $46.4 million. As of 14 September 2026 it shows +271.63% since inception, <b>+22.38% annualised at a maximum drawdown of −17.21%</b> — drawdown here and below means the deepest fall of the account from a reached peak to the following low.</p>
+  <p>My backtest — running the algorithms over historical prices, trade by trade — gives +983% over 5 years on a portfolio of 16 sources at 1% risk per trade: one stop-loss costs about one percent of the account. Drawdown is 18.1% on closed trades and 22.6% on equity, that is, counting trades still open at the time. Individual years: +142%, +205%, +232%, +180% and +218%.</p>
+  <p>The drawdowns nearly coincide — 17.21% against 18.1%. The returns, however, cannot be put side by side, for four reasons:</p>
+  <ol>
+    <li><b>Theirs is live money, mine is a calculation on history.</b> The index is a result after all costs and fees; my result is a calculation from tester reports: spread, commission and swap are in it, but slippage — the difference between the price a trade is calculated at and the price a broker would fill it at — is not.</li>
+    <li><b>The risk scales differ.</b> Their strategies are levelled to 6.5% monthly VaR; I risk 1% of the account per trade. The same drawdown depth on different scales does not mean the same risk.</li>
+    <li><b>Drawdown is measured by different methods.</b> My 18.1% is per closed trade; on daily samples the same portfolio gives 15.8%, on floating equity 22.6%. Which method produced the index's −17.21% the platform does not say, so the precision of this comparison is capped by the spread between the methods themselves — nearly seven percentage points.</li>
+    <li><b>The percentages are computed differently.</b> Mine are an arithmetic sum of trade results in percent of the deposit, without reinvestment: what is earned does not go into the next trade. The index's annualised figure is the growth of invested money, where profit keeps working. So "how many times more" cannot be computed here at all, however one divides one by the other.</li>
+  </ol>
+  <p>The honest conclusion is therefore different: at a comparable depth of the pit, the platform hands the investor the return of its own risk scale and takes a quarter of the earnings as fees. In exchange the investor gets what my backtest does not have — somebody else's work, live execution, and the option to walk out on any day. My calculation and its caveats are set out on the <a href="backtest.html">Backtests</a> page.</p>
+  <p>One more observation that is easy to turn into a falsehood: a return above 271% over their own history was shown by 6 strategies out of 6,744. That does <b>not</b> mean six of them beat the index: every strategy has its own length of history and the index has its own, and results over different periods cannot be compared. The number says only how rare large figures are on this listing: the all-time median return here is +6.1%, and 30.6% of strategies are in the red.</p>
+</section>
+
+<section id="s11">
+  <h2>What even Darwinex does not show</h2>
+  <p>The graveyard is visible, but the headstones are blank. Listing metrics — return, drawdown, money — exist for only 15 dead versions out of 14,979. How the rest traded, and with what result they died, the platform does not give.</p>
+  <p>So the main thing — how much higher the average return of the survivors is than the average of all — cannot be measured here either. It is known how many strategies died and when they were born. How each one ended is not.</p>
+  <p>It is still more than the four earlier platforms give. There the dead have to be inferred from indirect signs — a wiped-out account nobody removed from the listing — and those the author removed are not visible at all: neither name nor number. But the full picture is still far off, and I will not pretend otherwise.</p>
+</section>
+
+<section id="s12">
+  <h2>How this was collected</h2>
+  <p>The data is a snapshot taken on 14 September 2026: 27,201 records, 21,703 tickers. The collector sits in the same repository this site is built from and repeats the collection with one command. The numbers in this article are computed from that file by code, not copied by eye; every table is reproduced from scratch.</p>
+  <p>What remains unverified is stated above in plain words: the completeness of the catalogue is confirmed by nothing but the platform's own claim; the 4,047-ticker discrepancy between the listing and the catalogue is unexplained; the results of the dead are unavailable.</p>
+</section>
+
+<footer class="sitefoot">
+  <span>w2w — an algorithmic portfolio</span>
+  <span>everything in percent of deposit</span>
+  <span>Anonymised visit statistics — Yandex Metrica. The results page embeds cards from Myfxbook and Tickmill.</span>
+</footer>
+</div></body></html>
