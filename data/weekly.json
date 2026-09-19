@@ -55,5 +55,37 @@
    "NZDUSD",
    "XAUUSD"
   ]
+ },
+ {
+  "date": "2026-09-19",
+  "week_from": "2026-09-14",
+  "week_to": "2026-09-20",
+  "account": 55950604,
+  "server": "Tickmill-Live",
+  "account_type": "real",
+  "balance": 1017.04,
+  "equity": 1034.35,
+  "start_balance": 1000.0,
+  "trades_week": 10,
+  "wins_week": 1,
+  "losses_week": 9,
+  "money_week": -75.06,
+  "pf_week": 0.06,
+  "trades_total": 22,
+  "grow_total_pct": 1.85,
+  "dd_now_pct": 11.64,
+  "dd_max_pct": 11.64,
+  "level": "норма",
+  "exp_pct": 0.084,
+  "exp_n": 22,
+  "exp_ready": false,
+  "symbols_week": [
+   "DE40",
+   "GBPUSD",
+   "JP225",
+   "NZDUSD",
+   "USDCAD",
+   "XAUUSD"
+  ]
  }
 ]
