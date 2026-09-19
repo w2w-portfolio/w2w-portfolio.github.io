@@ -811,5 +811,15 @@
  "imp.a3_title": "La plataforma que muestra a sus muertos: 17.671 estrategias de Darwinex",
  "imp.a3_note": "La única de las cinco plataformas donde se ven las estrategias eliminadas. Supervivencia por año de nacimiento, concentración del dinero, la puntuación de la plataforma frente a la rentabilidad y cuatro filtros del inversor.",
  "imp.a3_date": "septiembre de 2026",
- "week.2026-09-20": "<p>La semana cerró con una pérdida de 75 dólares. El crecimiento acumulado de la cuenta bajó del 9,4% al 1,9%, y la caída desde el máximo es del 11,6%.</p><p>Es una cifra esperada, y así se mide. Los umbrales que vigilo se calcularon barajando el historial por días con la composición actual de dieciséis fuentes: la caída mediana resulta del <b>24,6%</b> y el percentil 95 del <b>36,3%</b>. Una caída del doble de la actual es el caso corriente, no una avería. El primer umbral en el que reviso algo está en el 25%.</p><p>Diez operaciones en la semana es el flujo habitual. Las reglas de seguimiento no prevén ninguna acción en este rango: hasta el 25% es trabajo normal.</p>"
+ "week.2026-09-20": "<p>La semana cerró con una pérdida de 75 dólares. El crecimiento acumulado de la cuenta bajó del 9,4% al 1,9%, y la caída desde el máximo es del 11,6%.</p><p>Es una cifra esperada, y así se mide. Los umbrales que vigilo se calcularon barajando el historial por días con la composición actual de dieciséis fuentes: la caída mediana resulta del <b>24,6%</b> y el percentil 95 del <b>36,3%</b>. Una caída del doble de la actual es el caso corriente, no una avería. El primer umbral en el que reviso algo está en el 25%.</p><p>Diez operaciones en la semana es el flujo habitual. Las reglas de seguimiento no prevén ninguna acción en este rango: hasta el 25% es trabajo normal.</p>",
+ "bt.wk_h": "Con qué frecuencia una semana termina en rojo",
+ "bt.wk_1": "Las rachas de pérdidas se cuentan por operaciones, pero la cuenta se mira de otro modo: el viernes por la tarde. Cinco años suman <b>262</b> semanas completas. Así se reparten.",
+ "bt.wk_r1": "semanas registradas",
+ "bt.wk_r2": "cerraron en positivo",
+ "bt.wk_r3": "cerraron en negativo",
+ "bt.wk_r4": "semana habitual (mediana)",
+ "bt.wk_r5": "media positiva / negativa",
+ "bt.wk_r6": "mejor / peor",
+ "bt.wk_2": "Aproximadamente <b>una de cada tres</b> semanas termina en rojo. Seguidas ocurrieron: dos semanas — <b>13 veces</b>, tres — <b>dos veces</b>, cuatro — <b>una vez</b> en cinco años. Nunca hubo cinco semanas negativas seguidas.",
+ "bt.wk_3": "Lo más importante: una mala semana no anuncia la siguiente. Tras una semana negativa, la siguiente también lo fue en el <b>26.0%</b> de los casos, no más que de costumbre (<b>29.4%</b>). La proporción de semanas negativas se mantiene estable todos los años, entre el 26.5% y el 32.7%. No son rachas de mala suerte, sino el fondo constante sobre el que se construye el resultado."
 }

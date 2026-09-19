@@ -90,3 +90,35 @@ P('случаев за пять лет', len(gaps))
 P('средняя потеря по ним', f'{st.fmean([g[2] for g in gaps]):.2f}R')
 P('худший', f'{min(g[2] for g in gaps):.2f}R  {min(gaps, key=lambda g: g[2])[0]}'
             f' {min(gaps, key=lambda g: g[2])[1]}')
+
+print('\nнедели: как часто минус')
+wk = defaultdict(float)
+for x, v in zip(rows, r):
+    y, m, dd = (int(z) for z in day(x).split('.')) if '.' in day(x) \
+                else (int(z) for z in day(x).split('-'))
+    import datetime as _dt
+    iso = _dt.date(y, m, dd).isocalendar()
+    wk[(iso[0], iso[1])] += v
+wv = [wk[k] for k in sorted(wk)]
+wneg = [x for x in wv if x < 0]
+P('недель в истории', len(wv))
+P('закрылись плюсом', f'{len(wv) - len(wneg)} ({100 * (len(wv) - len(wneg)) / len(wv):.1f}%)')
+P('закрылись минусом', f'{len(wneg)} ({100 * len(wneg) / len(wv):.1f}%)')
+P('обычная неделя (медиана)', f'{st.median(wv):+.1f}R')
+P('средняя плюсовая', f'{st.fmean([x for x in wv if x > 0]):+.2f}R')
+P('средняя минусовая', f'{st.fmean(wneg):+.2f}R')
+P('лучшая', f'{max(wv):+.1f}R')
+P('худшая', f'{min(wv):+.1f}R')
+wruns, wcur = [], 0
+for x in wv:
+    if x < 0:
+        wcur += 1
+    else:
+        if wcur: wruns.append(wcur)
+        wcur = 0
+if wcur: wruns.append(wcur)
+for n in sorted(set(wruns)):
+    P(f'{n} минусовых недель подряд', f'{sum(1 for z in wruns if z == n)} раз')
+after = [wv[i + 1] for i in range(len(wv) - 1) if wv[i] < 0]
+P('минус ПОСЛЕ минусовой', f'{100 * sum(1 for x in after if x < 0) / len(after):.1f}%'
+                           f' (против {100 * len(wneg) / len(wv):.1f}% вообще)')

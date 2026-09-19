@@ -151,7 +151,7 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <span>Tickmill</span><span>todo en porcentaje del depósito</span><span>con comisiones y swaps</span></div>
 </section>
 
-<nav class="toc" aria-label="Contenido"><ol><li><a href="#data">De dónde salen los datos</a></li><li><a href="#cumulative">Resultado acumulado</a></li><li><a href="#sources">De qué se compone el resultado</a></li><li><a href="#drawdown">Profundidad del drawdown en cada momento</a></li><li><a href="#streaks">Cuántas veces seguidas puede fallar</a></li><li><a href="#gaps">Y si el mercado abre más allá del stop</a></li><li><a href="#risk">¿Crece el riesgo año tras año?</a></li><li><a href="#trend">Qué pasa en una tendencia prolongada</a></li><li><a href="#shuffle">Comprobación del orden de las operaciones</a></li><li><a href="#thresholds">De dónde salen los umbrales</a></li></ol></nav>
+<nav class="toc" aria-label="Contenido"><ol><li><a href="#data">De dónde salen los datos</a></li><li><a href="#cumulative">Resultado acumulado</a></li><li><a href="#sources">De qué se compone el resultado</a></li><li><a href="#drawdown">Profundidad del drawdown en cada momento</a></li><li><a href="#streaks">Cuántas veces seguidas puede fallar</a></li><li><a href="#weeks">Con qué frecuencia una semana termina en rojo</a></li><li><a href="#gaps">Y si el mercado abre más allá del stop</a></li><li><a href="#risk">¿Crece el riesgo año tras año?</a></li><li><a href="#trend">Qué pasa en una tendencia prolongada</a></li><li><a href="#shuffle">Comprobación del orden de las operaciones</a></li><li><a href="#thresholds">De dónde salen los umbrales</a></li></ol></nav>
 
 <section id="data">
   <h2>De dónde salen los datos</h2>
@@ -370,6 +370,22 @@ es cálculo sobre el pasado, no resultado real. La cuenta real está en <a href=
   <p>La última columna es el tiempo medio que tardó la cuenta en volver al máximo anterior tras una racha así. La media esconde la dispersión: normalmente se recuperaba en una o dos semanas, pero la vuelta más larga tardó <b>62 días</b>.</p>
   <p>La racha más larga costó <b>14.9R</b>: con un riesgo del 1% eso es el <b>15% del depósito</b>, perdido sin una sola operación ganadora entre medias. Un algoritmo por separado encadena rachas más largas que la cartera: el Algoritmo 1 llegó a 17 seguidas y el oro a 23. La cartera las acorta porque sus fuentes pierden en días distintos.</p>
   <div class="note"><p>Saber esto de antemano importa más que saber la rentabilidad. Las estrategias se abandonan no en la caída en sí, sino en la séptima u octava pérdida seguida, cuando parece que todo se ha roto. Según los números es un suceso corriente: ocurre varias veces al año.</p></div>
+</section>
+
+<section id="weeks">
+  <h2>Con qué frecuencia una semana termina en rojo</h2>
+  <p>Las rachas de pérdidas se cuentan por operaciones, pero la cuenta se mira de otro modo: el viernes por la tarde. Cinco años suman <b>262</b> semanas completas. Así se reparten.</p>
+  <div class="card" style="padding:0"><table>
+    <tbody>
+    <tr><th>semanas registradas</th><td class="l">262</td></tr>
+    <tr><th>cerraron en positivo</th><td class="l">185 — 70,6%</td></tr>
+    <tr><th>cerraron en negativo</th><td class="l">77 — 29,4%</td></tr>
+    <tr><th>semana habitual (mediana)</th><td class="l">+3,2R</td></tr>
+    <tr><th>media positiva / negativa</th><td class="l">+6,84R / −3,66R</td></tr>
+    <tr><th>mejor / peor</th><td class="l">+28,5R / −10,3R</td></tr>
+    </tbody></table></div>
+  <p>Aproximadamente <b>una de cada tres</b> semanas termina en rojo. Seguidas ocurrieron: dos semanas — <b>13 veces</b>, tres — <b>dos veces</b>, cuatro — <b>una vez</b> en cinco años. Nunca hubo cinco semanas negativas seguidas.</p>
+  <div class="note"><p>Lo más importante: una mala semana no anuncia la siguiente. Tras una semana negativa, la siguiente también lo fue en el <b>26.0%</b> de los casos, no más que de costumbre (<b>29.4%</b>). La proporción de semanas negativas se mantiene estable todos los años, entre el 26.5% y el 32.7%. No son rachas de mala suerte, sino el fondo constante sobre el que se construye el resultado.</p></div>
 </section>
 
 <section id="gaps">

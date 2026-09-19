@@ -811,5 +811,15 @@
  "imp.a3_title": "The platform that shows its dead: 17,671 Darwinex strategies",
  "imp.a3_note": "The only one of the five platforms where deleted strategies are visible. Survival by year of birth, money concentration, the platform score against returns, and four investor filters.",
  "imp.a3_date": "September 2026",
- "week.2026-09-20": "<p>The week closed down 75 dollars. Cumulative account growth fell from 9.4% to 1.9%, and the drawdown from the peak is 11.6%.</p><p>This is an expected figure, and here is the yardstick. The thresholds I watch were computed by shuffling the history day by day on the current sixteen-source portfolio: the median drawdown comes out at <b>24.6%</b> and the 95th percentile at <b>36.3%</b>. A drawdown twice as deep as the current one is the ordinary case, not a breakage. The first threshold at which I check anything at all sits at 25%.</p><p>Ten trades in the week is the usual flow. The monitoring rules call for no action in this range: up to 25% is ordinary operation.</p>"
+ "week.2026-09-20": "<p>The week closed down 75 dollars. Cumulative account growth fell from 9.4% to 1.9%, and the drawdown from the peak is 11.6%.</p><p>This is an expected figure, and here is the yardstick. The thresholds I watch were computed by shuffling the history day by day on the current sixteen-source portfolio: the median drawdown comes out at <b>24.6%</b> and the 95th percentile at <b>36.3%</b>. A drawdown twice as deep as the current one is the ordinary case, not a breakage. The first threshold at which I check anything at all sits at 25%.</p><p>Ten trades in the week is the usual flow. The monitoring rules call for no action in this range: up to 25% is ordinary operation.</p>",
+ "bt.wk_h": "How often a week ends in the red",
+ "bt.wk_1": "Losing streaks are counted in trades, but the account gets looked at differently — on Friday evening. Five years add up to <b>262</b> full weeks. Here is how they fall.",
+ "bt.wk_r1": "weeks on record",
+ "bt.wk_r2": "closed positive",
+ "bt.wk_r3": "closed negative",
+ "bt.wk_r4": "typical week (median)",
+ "bt.wk_r5": "average positive / negative",
+ "bt.wk_r6": "best / worst",
+ "bt.wk_2": "Roughly <b>every third</b> week ends in the red. Back to back that happened: two weeks — <b>13 times</b>, three — <b>twice</b>, four — <b>once</b> in five years. Five losing weeks in a row never occurred.",
+ "bt.wk_3": "What matters more: a bad week does not predict the next one. After a losing week the next was also negative in <b>26.0%</b> of cases — no more often than usual (<b>29.4%</b>). The share of losing weeks holds steady across every year, from 26.5% to 32.7%. Not streaks of bad luck, but the constant background the result is built on."
 }
