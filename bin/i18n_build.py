@@ -103,7 +103,12 @@ def shell(page, lang):
     голая строка."""
     slug = page.replace('.html', '')
     head = (SITE/'tpl'/'_head.html').read_text(encoding='utf-8')
-    canon = f'{HOST}/' + ('' if lang == 'ru' else lang + '/') + page
+    # 🪤 Для главной канонический адрес — БЕЗ index.html. Робот приходит
+    #    на «/», а страница указывала на «/index.html»: Google считал это
+    #    разными URL и писал «канонические версии не совпадают»
+    #    (письмо Search Console 16.09.2026).
+    base = f'{HOST}/' + ('' if lang == 'ru' else lang + '/')
+    canon = base if page == 'index.html' else base + page
     head = (head.replace('{{TITLE}}', '{{title.' + slug + '}}')
                 .replace('{{DESC}}', '{{desc.' + slug + '}}')
                 .replace('{{CANONICAL}}', canon)
