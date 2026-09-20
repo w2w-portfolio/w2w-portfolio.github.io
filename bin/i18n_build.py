@@ -308,18 +308,25 @@ def sitemap():
     Файл собирается вместе со страницами, поэтому не может от них отстать.
     Даты не ставим: врать «обновлено сегодня» о неизменившейся странице
     хуже, чем не сказать ничего."""
+    # 🪤 Главная указывается БЕЗ index.html — тем же адресом, что стоит
+    #    в её canonical. Иначе Google видит «/» и «/index.html» как
+    #    разные URL и пишет «канонические версии не совпадают»
+    #    (Search Console, 16.09.2026).
+    def addr(lang, page):
+        base = f'{HOST}/' + ('' if lang == 'ru' else lang + '/')
+        return base if page == 'index.html' else base + page
+
     rows = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
             '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for lang in LANGS:
         for page in PAGES:
-            loc = f'{HOST}/' + ('' if lang == 'ru' else lang + '/') + page
-            rows.append(f'  <url>\n    <loc>{loc}</loc>')
+            rows.append(f'  <url>\n    <loc>{addr(lang, page)}</loc>')
             for alt in LANGS:
-                href = f'{HOST}/' + ('' if alt == 'ru' else alt + '/') + page
-                rows.append(f'    <xhtml:link rel="alternate" hreflang="{alt}" href="{href}"/>')
+                rows.append(f'    <xhtml:link rel="alternate" hreflang="{alt}" '
+                            f'href="{addr(alt, page)}"/>')
             rows.append(f'    <xhtml:link rel="alternate" hreflang="x-default" '
-                        f'href="{HOST}/{page}"/>')
+                        f'href="{addr("ru", page)}"/>')
             rows.append('  </url>')
     rows.append('</urlset>')
     (SITE/'sitemap.xml').write_text('\n'.join(rows) + '\n', encoding='utf-8')
