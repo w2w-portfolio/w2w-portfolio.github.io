@@ -133,6 +133,13 @@ def part_html(name):
     return p.read_text(encoding='utf-8') if p.exists() else ''
 
 
+def part_tpl(name):
+    """Кусок шаблона, общий для нескольких страниц. Плитки сводки стоят
+    и на главной, и на «Бэктестах»: держим их в одном файле, иначе
+    поправленная в одном месте сводка разойдётся со второй страницей."""
+    return (SITE/'tpl'/name).read_text(encoding='utf-8')
+
+
 def hreflang(page):
     out = []
     for L in LANGS:
@@ -283,7 +290,8 @@ def build(lang, outdir):
                   .replace('{{LANGSWITCH}}', langswitch(f, lang))
                   .replace('{{FEED}}', part_html('weekly.html'))
                   .replace('{{LIVE}}', part_html('live.html'))
-                  .replace('{{PULSE}}', part_html('pulse.html')))
+                  .replace('{{PULSE}}', part_html('pulse.html'))
+                  .replace('{{TILES}}', part_tpl('_tiles.html')))
         # Эпиграф Франклина уже приведён в оригинале, по-английски. На английской
         # странице перевод под ним был бы повтором той же строки — убираем.
         tpl = tpl.replace('{{EPI_TRANS}}',
