@@ -302,10 +302,24 @@ def render_live(st, trades, base):
     # «—» вместо процентов, пока сделок совсем мало: доля от трёх сделок
     # это не статистика, а случайность, и показывать её числом нечестно
     few = n < 5
+
+    # Прибыль счёта и она же в пересчёте на одну сделку. Вторая строка нужна
+    # потому, что первая зависит от срока: живой счёт идёт недели, расчёт —
+    # пять лет, и сравнивать их итоги напрямую нельзя. Средняя сделка от срока
+    # не зависит и сопоставима с первого дня.
+    profit_pct = 100 * sum(t['money'] for t in trades) / base if base else 0.0
+    try:                       # ориентир расчёта — из того же файла, что и вся страница
+        nums = json.loads((SITE / 'data' / 'numbers.json').read_text(encoding='utf-8'))
+        avg_bt = f"+{nums['total'] / nums['trades']:.2f}%"
+    except (OSError, ValueError, KeyError, ZeroDivisionError):
+        avg_bt = '—'
+
     rows = [
         ('{{live.since}}', since, '{{live.since_bt}}'),
         ('{{live.deposit}}', f'{base:,.0f}'.replace(',', '\u202f'), '{{live.deposit_bt}}'),
         ('{{live.trades}}', str(n), '3\u202f291'),
+        ('{{live.profit}}', f'{profit_pct:+.1f}%', '+{{n.total}}%'),
+        ('{{live.avg}}', '—' if few else f'{profit_pct / n:+.2f}%', avg_bt),
         ('{{live.winrate}}', '—' if few else f'{100*len(wins)/n:.0f}%', '38.4%'),
         ('{{live.pf}}', '—' if few else f'{pf:.2f}', '1.5'),
         ('{{live.rr}}', '—' if few else f'{rr:.2f}', '2.39'),
@@ -314,7 +328,15 @@ def render_live(st, trades, base):
     body = ''.join(
         f'<tr><th>{k}</th><td class="l">{v}</td><td class="l">{b}</td></tr>'
         for k, v, b in rows)
-    html = ('<div class="card" style="padding:0"><table>'
+    # Дата данных — над таблицей: без неё читатель не знает, насколько
+    # свежие числа перед ним, а срез счёта обновляется раз в неделю.
+    try:
+        asof = datetime.strptime(st.get('time', ''),
+                                 '%Y.%m.%d %H:%M:%S').strftime('%d.%m.%Y')
+    except ValueError:
+        asof = ''
+    html = (f'<p class="note">{{{{live.asof1}}}} {asof} — {{{{live.asof2}}}}</p>'
+            '<div class="card" style="padding:0"><table>'
             '<thead><tr><th style="text-align:left">{{live.col1}}</th>'
             '<th style="text-align:left">{{live.col2}}</th>'
             '<th style="text-align:left">{{live.col3}}</th></tr></thead>'
