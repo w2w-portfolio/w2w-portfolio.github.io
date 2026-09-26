@@ -257,20 +257,39 @@ def render_feed(arch):
         # когда он в словаре есть: иначе сборщик оставит маркер в странице
         # и посчитает его непереведённым.
         if f'week.{a["week_to"]}' in NOTES:
+            # у самой свежей недели комментарий открыт: это живой голос
+            # рядом со свежими числами, остальные — под клик
+            op = ' open' if not rows[:-1] else ''
             rows.append(
-                f'<tr class="wknote"><td colspan="7"><details>'
+                f'<tr class="wknote"><td colspan="7"><details{op}>'
                 f'<summary>{{{{monitor.note_h}}}}</summary>'
                 f'<div class="body">{{{{week.{a["week_to"]}}}}}</div>'
                 f'</details></td></tr>')
     head = '<p class="note">{{monitor.t027}}</p>' if demo_only else ''
     R = ' style="text-align:right"'
-    html = (head + '<div class="scroll"><table class="feed">'
-            '<thead><tr>'
-            '<th>{{monitor.t021}}</th>'
-            f'<th{R}>{{{{monitor.t022}}}}</th><th{R}>{{{{monitor.t023}}}}</th>'
-            f'<th{R}>{{{{monitor.t024}}}}</th><th{R}>{{{{monitor.t025}}}}</th>'
-            f'<th{R}>{{{{monitor.t041}}}}</th><th{R}>{{{{monitor.t026}}}}</th>'
-            '</tr></thead><tbody>' + ''.join(rows) + '</tbody></table></div>')
+    thead = ('<thead><tr>'
+             '<th>{{monitor.t021}}</th>'
+             f'<th{R}>{{{{monitor.t022}}}}</th><th{R}>{{{{monitor.t023}}}}</th>'
+             f'<th{R}>{{{{monitor.t024}}}}</th><th{R}>{{{{monitor.t025}}}}</th>'
+             f'<th{R}>{{{{monitor.t041}}}}</th><th{R}>{{{{monitor.t026}}}}</th>'
+             '</tr></thead>')
+
+    def table(body):
+        return ('<div class="scroll"><table class="feed">' + thead
+                + '<tbody>' + body + '</tbody></table></div>')
+
+    # 🔑 Свежая неделя видна сразу, вся история — под сворачиванием
+    #    (решение Сергея 26.09.2026). Раньше лента росла вниз без предела
+    #    и свежие числа тонули среди старых. Две таблицы, а не скрытые
+    #    строки: <details> нельзя обернуть вокруг <tr>, а JS ради этого
+    #    заводить незачем.
+    first = rows[:1] + [r for r in rows[1:2] if 'wknote' in r]
+    rest = [r for r in rows[len(first):]]
+    html = head + table(''.join(first))
+    if rest:
+        weeks = sum(1 for r in rest if 'wknote' not in r)
+        html += ('<details class="wkhist"><summary>{{monitor.hist_h}}'
+                 f' — {weeks}</summary>' + table(''.join(rest)) + '</details>')
     (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
 
 
@@ -328,14 +347,10 @@ def render_live(st, trades, base):
     body = ''.join(
         f'<tr><th>{k}</th><td class="l">{v}</td><td class="l">{b}</td></tr>'
         for k, v, b in rows)
-    # Дата данных — над таблицей: без неё читатель не знает, насколько
-    # свежие числа перед ним, а срез счёта обновляется раз в неделю.
-    try:
-        asof = datetime.strptime(st.get('time', ''),
-                                 '%Y.%m.%d %H:%M:%S').strftime('%d.%m.%Y')
-    except ValueError:
-        asof = ''
-    html = (f'<p class="note">{{{{live.asof1}}}} {asof} — {{{{live.asof2}}}}</p>'
+    # 🪤 Дату сюда не ставим: она стоит под плитками «Счёт сейчас»,
+    #    прямо над этим разделом (перестановка страницы 26.09.2026).
+    #    Две подписи с одним числом подряд читались как ошибка.
+    html = ('<p class="note">{{live.asof2}}</p>'
             '<div class="card" style="padding:0"><table>'
             '<thead><tr><th style="text-align:left">{{live.col1}}</th>'
             '<th style="text-align:left">{{live.col2}}</th>'
@@ -359,13 +374,14 @@ def render_pulse(st, trades, base):
 
     pts = curve(trades, base)
     dd = pts[-1]['dd'] if pts else 0.0
-    grow = pts[-1]['grow'] if pts else 0.0
+    # 🪤 «Закрыто сделок» и «С запуска» убраны 26.09.2026: те же величины
+    #    стоят в таблице «Что показывает живой счёт», где сравниваются
+    #    с расчётом, и читатель сверял их между собой вместо чтения.
+    #    Здесь остаётся операционное состояние счёта на сейчас.
     cells = [
         ('{{monitor.t033}}', f"{st.get('balance', 0):,.0f}"),
         ('{{monitor.t034}}', f"{st.get('equity', 0):,.0f}"),
         ('{{monitor.t035}}', f"{st.get('open_positions', 0)}"),
-        ('{{monitor.t036}}', f"{st.get('deals', 0)}"),
-        ('{{monitor.t037}}', f"{grow:+.1f}%"),
         ('{{monitor.t038}}', f"{dd:.1f}%"),
     ]
     # плитки — тот же компонент, что на остальных страницах сайта
