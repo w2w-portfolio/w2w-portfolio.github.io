@@ -223,6 +223,14 @@ def render_feed(arch):
     demo_only = bool(arch) and not real
     if real:
         arch = real                      # реал появился — демо в витрину не идёт
+    # 🪤 Недели ДО первой сделки в витрину не идут: счёт запущен 07.09.2026,
+    #    а в архиве лежала неделя 31.08 — 06.09 с нулём сделок, и в ленте она
+    #    читалась как неделя без результата (решение Сергея 26.09.2026).
+    #    Нулевая неделя ПОСРЕДИ истории — факт и остаётся: это тишина
+    #    работающего счёта, её видеть надо.
+    first = next((n for n, a in enumerate(arch) if a.get('trades_week')), None)
+    if first:
+        arch = arch[first:]
     if not arch or all(a['trades_total'] == 0 for a in arch):
         html = ('<p class="muted">{{monitor.t020}}</p>')
         (TABLES / 'weekly.html').write_text(html, encoding='utf-8')
@@ -347,10 +355,15 @@ def render_live(st, trades, base):
     body = ''.join(
         f'<tr><th>{k}</th><td class="l">{v}</td><td class="l">{b}</td></tr>'
         for k, v, b in rows)
-    # 🪤 Дату сюда не ставим: она стоит под плитками «Счёт сейчас»,
-    #    прямо над этим разделом (перестановка страницы 26.09.2026).
-    #    Две подписи с одним числом подряд читались как ошибка.
-    html = ('<p class="note">{{live.asof2}}</p>'
+    # Дата среза — в подписи таблицы: разделы «Счёт сейчас» и этот стоят
+    # в разных местах страницы, и подпись должна читаться сама по себе.
+    # У плиток выше стоит время снимка, здесь — только дата.
+    try:
+        asof = datetime.strptime(st.get('time', ''),
+                                 '%Y.%m.%d %H:%M:%S').strftime('%d.%m.%Y')
+    except ValueError:
+        asof = ''
+    html = (f'<p class="note">{{{{live.asof1}}}} {asof} · {{{{live.asof2}}}}</p>'
             '<div class="card" style="padding:0"><table>'
             '<thead><tr><th style="text-align:left">{{live.col1}}</th>'
             '<th style="text-align:left">{{live.col2}}</th>'
