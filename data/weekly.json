@@ -87,5 +87,39 @@
    "USDCAD",
    "XAUUSD"
   ]
+ },
+ {
+  "date": "2026-09-26",
+  "week_from": "2026-09-21",
+  "week_to": "2026-09-27",
+  "account": 55950604,
+  "server": "Tickmill-Live",
+  "account_type": "real",
+  "balance": 1252.48,
+  "equity": 1252.48,
+  "start_balance": 1000.0,
+  "trades_week": 17,
+  "wins_week": 11,
+  "losses_week": 6,
+  "money_week": 236.64,
+  "pf_week": 4.3,
+  "trades_total": 39,
+  "grow_total_pct": 25.52,
+  "dd_now_pct": 1.99,
+  "dd_max_pct": 11.64,
+  "level": "норма",
+  "exp_pct": 0.654,
+  "exp_n": 39,
+  "exp_ready": false,
+  "symbols_week": [
+   "BRENT",
+   "DE40",
+   "EURUSD",
+   "GBPUSD",
+   "JP225",
+   "NZDUSD",
+   "USDCAD",
+   "XAUUSD"
+  ]
  }
 ]
