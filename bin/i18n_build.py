@@ -295,12 +295,15 @@ def build(lang, outdir):
                   .replace('{{LIVE}}', part_html('live.html'))
                   .replace('{{PULSE}}', part_html('pulse.html'))
                   .replace('{{TILES}}', part_tpl('_tiles.html')))
-        # Таблицы источников по линиям: {{SOURCES_A1}} → tables/sources_a1.html.
-        # Раньше они были вбиты в шаблон числами и расходились с расчётом при
-        # каждом изменении состава — теперь подставляются из того же расчёта,
-        # что и остальные числа страниц.
-        for src in sorted((SITE/'tables').glob('sources_a*.html')):
-            tpl = tpl.replace('{{%s}}' % src.stem.upper(), part_html(src.name))
+        # Любая таблица из site/tables/ подставляется по маркеру со своим
+        # именем в верхнем регистре: weeks.html → {{WEEKS}}, mc.html → {{MC}}.
+        # 27.09.2026: четыре таблицы «Бэктестов» лежали в шаблоне готовой
+        # разметкой и молча показывали числа прежнего состава портфеля,
+        # пока генераторы для них считали новые.
+        for tbl in sorted((SITE/'tables').glob('*.html')):
+            key = '{{%s}}' % tbl.stem.upper()
+            if key in tpl:
+                tpl = tpl.replace(key, part_html(tbl.name))
         # Графики: {{CHART_CUMULATIVE}} → charts/cumulative.svg. Та же история —
         # раньше готовый <svg> лежал в шаблоне целиком (336 КБ), и при смене
         # состава кривые оставались старыми, пока их не перевставят руками.
