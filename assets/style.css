@@ -4,7 +4,7 @@
   color-scheme: dark;
   --ground:#0E1116; --surface:#171B22; --line:#28303A; --ink:#E9EDF2;
   --ink-soft:#9AA5B4; --ink-faint:#6B7686;
-  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70;
+  --series-1:#3987e5; --series-2:#d95926; --series-3:#199e70; --series-4:#8a63d2;
   --bar:#39414D; --warn:#E0A030; --crit:#E66767; --good:#199e70;
 }
 *{box-sizing:border-box}
@@ -116,6 +116,7 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .s1{stroke:var(--series-1);stroke-width:1.5}
 .s2{stroke:var(--series-2);stroke-width:1.5}
 .s3{stroke:var(--series-3);stroke-width:2.2}
+.s4{stroke:var(--series-4);stroke-width:1.5}
 .ddbal{stroke:var(--series-1);stroke-width:1.6}
 .ddeq{stroke:var(--crit);stroke-width:1.6}
 .fl{stroke:var(--series-2);stroke-width:1.2}
@@ -143,7 +144,11 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
  overflow:hidden;opacity:.55}
 .minibar i{display:block;height:100%;border-radius:3px}
 
-.srcgrid{grid-template-columns:2.15fr 1fr}
+/* Три линии состава — три колонки; первая шире, у Алгоритма 2 двенадцать строк.
+   Ширины задаются ТОЛЬКО здесь: правило ниже по файлу раньше перебивало
+   эти медиа-запросы, и на телефоне оставались две колонки вместо одной. */
+.srcgrid{grid-template-columns:2.15fr 1fr 1fr;align-items:start}
+@media (max-width:1040px){.srcgrid{grid-template-columns:1.6fr 1fr}}
 @media (max-width:900px){.srcgrid{grid-template-columns:1fr}}
 .src th{white-space:nowrap}
 .src td:nth-child(n+3){text-align:center;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
@@ -249,7 +254,6 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
 .srccol{display:flex;flex-direction:column;gap:8px}
 .srccol h3{margin:0;font-family:Newsreader,Georgia,serif;font-size:16px;
  font-weight:500;color:var(--ink-soft)}
-.srcgrid{grid-template-columns:1fr 1fr;align-items:start}
 .srccol .src td{padding:6px 8px}
 /* Без min-width:0 колонка грида не даёт таблице сжаться, и правая уезжает за край. */
 .srccol{min-width:0}

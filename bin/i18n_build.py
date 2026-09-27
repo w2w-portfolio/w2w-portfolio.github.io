@@ -201,17 +201,20 @@ NUMFMT = {
     'dd_eq_1000': (0, True), 'dry_days': (0, False),
     'years': (0, False), 'sources': (0, False), 'symbols': (0, False),
     'months': (0, False), 'months_up': (0, False),
-    # по алгоритмам
-    'total_a1': (0, False), 'total_a2': (0, False),
-    'dd_a1': (1, False), 'dd_a2': (1, False), 'dd_a12': (1, False),
-    'rdd_a2': (0, False), 'rdd_port': (0, False),
+    # по алгоритмам — по ключу на линию состава; появится четвёртая линия,
+    # допишутся total_a4 / dd_a4 / gold_a4, остальное трогать не придётся
+    'total_a1': (0, False), 'total_a2': (0, False), 'total_a3': (0, False),
+    'dd_a1': (1, False), 'dd_a2': (1, False), 'dd_a3': (1, False),
+    'dd_sum': (1, False), 'algos': (0, False),
+    'rdd_port': (0, False),
     'both_days': (0, False), 'both_down': (0, False), 'both_exp': (0, False),
     # месяцы и годы
     'month_best': (1, False), 'month_avg': (1, False),
     'y1': (0, False), 'y2': (0, False), 'y3': (0, False),
     'y4': (0, False), 'y5': (0, False), 'years_up': (0, False),
     # золото и просадки источников
-    'gold_a1': (0, False), 'gold_a2': (0, False), 'gold_share': (0, False),
+    'gold_a1': (0, False), 'gold_a2': (0, False), 'gold_a3': (0, False),
+    'gold_all': (0, False), 'gold_share': (0, False),
     'dd_all': (0, False),
     # после вознаграждения площадки
     'fee_windows': (0, False),
@@ -292,6 +295,19 @@ def build(lang, outdir):
                   .replace('{{LIVE}}', part_html('live.html'))
                   .replace('{{PULSE}}', part_html('pulse.html'))
                   .replace('{{TILES}}', part_tpl('_tiles.html')))
+        # Таблицы источников по линиям: {{SOURCES_A1}} → tables/sources_a1.html.
+        # Раньше они были вбиты в шаблон числами и расходились с расчётом при
+        # каждом изменении состава — теперь подставляются из того же расчёта,
+        # что и остальные числа страниц.
+        for src in sorted((SITE/'tables').glob('sources_a*.html')):
+            tpl = tpl.replace('{{%s}}' % src.stem.upper(), part_html(src.name))
+        # Графики: {{CHART_CUMULATIVE}} → charts/cumulative.svg. Та же история —
+        # раньше готовый <svg> лежал в шаблоне целиком (336 КБ), и при смене
+        # состава кривые оставались старыми, пока их не перевставят руками.
+        for svg in sorted((SITE/'charts').glob('*.svg')):
+            key = '{{CHART_%s}}' % svg.stem.upper().replace('-', '_')
+            if key in tpl:
+                tpl = tpl.replace(key, svg.read_text(encoding='utf-8'))
         # Эпиграф Франклина уже приведён в оригинале, по-английски. На английской
         # странице перевод под ним был бы повтором той же строки — убираем.
         tpl = tpl.replace('{{EPI_TRANS}}',

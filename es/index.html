@@ -5,13 +5,13 @@
 <meta name="theme-color" content="#0E1116">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>w2w — cartera algorítmica</title>
-<meta name="description" content="Cartera algorítmica: dos sistemas de trading en trece instrumentos, cinco años de cálculo y las 3.291 operaciones publicadas. Copia vía Tickmill.">
+<meta name="description" content="Cartera algorítmica: varios sistemas de trading en catorce instrumentos, cinco años de cálculo y las 4 033 operaciones publicadas. Copia a través de Tickmill.">
 <link rel="canonical" href="https://w2wportfolio.com/es/">
 <!-- Карточка ссылки в мессенджерах и соцсетях: без неё уходит голая строка. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="w2w">
 <meta property="og:title" content="w2w — cartera algorítmica">
-<meta property="og:description" content="Cartera algorítmica: dos sistemas de trading en trece instrumentos, cinco años de cálculo y las 3.291 operaciones publicadas. Copia vía Tickmill.">
+<meta property="og:description" content="Cartera algorítmica: varios sistemas de trading en catorce instrumentos, cinco años de cálculo y las 4 033 operaciones publicadas. Copia a través de Tickmill.">
 <meta property="og:url" content="https://w2wportfolio.com/es/">
 <meta property="og:locale" content="es_ES">
 <meta property="og:image" content="https://w2wportfolio.com/assets/og.png">
@@ -150,28 +150,28 @@
   <p class="epi-ru">La diligencia es la madre de la buena suerte.</p>
   <figcaption>Benjamin Franklin, «The Way to Wealth», 1758</figcaption>
 </figure>
-  <p class="lead">Dos algoritmos operan con distintas reglas de entrada
-en trece instrumentos. El riesgo por operación es fijo
-y todo se mide en porcentaje del depósito. <b>Las decisiones sobre las
-operaciones las toma el código: no se puede intervenir a mano.</b>
-Por qué está hecho así lo cuento en la página <a href="about.html">Autor</a>.</p>
+  <p class="lead">Varios algoritmos independientes operan con reglas de entrada distintas
+en 14 instrumentos. El riesgo por operación es fijo,
+todo se cuenta en porcentaje del depósito. <b>Las decisiones las toma el código:
+no se puede intervenir a mano.</b> Por qué está montado así lo cuento
+en la página <a href="about.html">Autor</a>.</p>
   <div class="meta"><span>riesgo del <b>1%</b> por operación</span><span>todo en porcentaje del depósito</span>
-  <span>Tickmill</span><span>13 instrumentos, 2 algoritmos</span></div>
+  <span>Tickmill</span><span>14 instrumentos · 3 algoritmos</span></div>
 </header>
 
 <div class="summary"><p><b>El dinero se queda en su cuenta.</b> No se lo entrega a nadie ni lo transfiere: la suscripción de copia repite las operaciones en su propia cuenta del bróker. Puede desactivarla, cambiar el tamaño de la copia o cerrar posiciones usted mismo, en cualquier momento. La comisión es un porcentaje del beneficio y solo de él — sin beneficio, no hay comisión.</p></div>
 
 <div class="tiles">
-  <div class="tile tile-hi"><span class="k">total en 5 años</span><span class="v">+983%</span>
+  <div class="tile tile-hi"><span class="k">total en 5 años</span><span class="v">+1162%</span>
     <span class="n">196% anual de media, sin reinversión y antes de la comisión</span></div>
   <div class="tile"><span class="k">Factor de beneficio</span><span class="v">1,5</span>
     <span class="n">1,5 ganados por cada 1 perdido</span></div>
-  <div class="tile"><span class="k">Drawdown</span><span class="v">22,6%</span>
-    <span class="n">sobre equity; 18,1% sobre operaciones cerradas</span></div>
-  <div class="tile"><span class="k">RR medio</span><span class="v">2,39</span>
-    <span class="n">ganancia del 2,35% frente a pérdida del 0,98%</span></div>
-  <div class="tile"><span class="k">Operaciones</span><span class="v">3.291</span>
-    <span class="n">658 al año, 38,4% ganadoras</span></div>
+  <div class="tile"><span class="k">Drawdown</span><span class="v">22,9%</span>
+    <span class="n">sobre equity; 19,2% sobre operaciones cerradas</span></div>
+  <div class="tile"><span class="k">RR medio</span><span class="v">2,12</span>
+    <span class="n">ganancia del 2,00% frente a pérdida del 0,94%</span></div>
+  <div class="tile"><span class="k">Operaciones</span><span class="v">4.033</span>
+    <span class="n">797 al año, 41,9% ganadoras</span></div>
   <div class="tile"><span class="k">Años en positivo</span><span class="v">5<span
     style="font-size:17px;color:var(--ink-faint)"> / 5</span></span>
     <span class="n">08.2021 — 08.2026</span></div>
@@ -186,13 +186,14 @@ Por qué está hecho así lo cuento en la página <a href="about.html">Autor</a>
     <tbody>
     <tr><th>Algoritmo 1</th><td class="l"><b>Opera contra la ruptura falsa.</b> El precio rompe el máximo o el mínimo del día anterior, no logra afianzarse y vuelve — la entrada acompaña ese regreso. Como mucho dos operaciones al día por instrumento, y la posición se cierra de forma forzosa al final de la sesión.</td></tr>
     <tr><th>Algoritmo 2</th><td class="l"><b>Opera contra el movimiento agotado.</b> Tras el impulso el precio retrocede y muestra una señal de giro — la entrada va contra el impulso.</td></tr>
+    <tr><th>Algoritmo 3</th><td class="l">Entra por continuación del movimiento. El precio se aleja mucho del borde del canal y no vuelve: entrada en el sentido de la salida, con orden pendiente. Si en 20 minutos no se alcanzan ni el objetivo ni el stop, la posición se cierra por tiempo.</td></tr>
     </tbody></table></div>
-  <div class="note"><p><b>Ambas lógicas son contratendencia</b>, y conviene saberlo: por naturaleza no se aseguran entre sí — es concebible un mercado en el que ambas queden del lado equivocado. Su independencia no se deduce del diseño, está medida: correlación de resultados <b>−0,13</b>, los días perdedores coinciden no más de lo que daría el azar, y en cinco años no hubo un solo mes de 61 en el que ambos algoritmos estuvieran en negativo.</p></div>
+  <div class="note"><p><b>Dos de las tres lógicas son contratendencia</b>, la tercera juega la continuación. No están obligadas a cubrirse entre sí: es concebible un mercado en el que todas queden del lado equivocado. La independencia no se deduce del diseño, está medida: la correlación de los resultados diarios entre líneas se sitúa entre −0.05 y +0.08, los días perdedores coinciden no más de lo que coincidirían por azar, y en cinco años no hubo un solo mes de 61 en que las tres estuvieran en negativo a la vez.</p></div>
 </section>
 
 <section>
   <h2>Cómo funciona la operativa</h2>
-  <p>La mecánica es idéntica en ambos algoritmos y no cambia de una operación a otra.</p>
+  <p>La mecánica es la misma en todos los algoritmos y no cambia de una operación a otra.</p>
   <div class="card" style="padding:0"><table>
     <thead><tr><th style="text-align:left">parámetro</th><th style="text-align:left">cómo funciona</th></tr></thead>
     <tbody>
@@ -212,18 +213,20 @@ Por qué está hecho así lo cuento en la página <a href="about.html">Autor</a>
       en el stop es siempre del 1% del depósito, por amplio que resulte ese stop.</td></tr>
     <tr><th>Promediado a la baja, rejillas, martingala</th><td class="l"><b>No se utilizan.</b>
       Una posición perdedora nunca se amplía ni se invierte: se cierra en el stop.</td></tr>
-    <tr><th>Posiciones por instrumento</th><td class="l">Una por cada algoritmo:
-      mientras su operación está abierta, no realiza nuevas entradas en ese instrumento.
-      Los algoritmos son independientes, de modo que un mismo instrumento puede tener
-      dos posiciones a la vez, incluso en direcciones opuestas.</td></tr>
-    <tr><th>Tiempo de permanencia</th><td class="l"><b>Algoritmo 1</b> — 3,6 horas de media,
-      y no mantiene ninguna operación más de un día. <b>Algoritmo 2</b> — 10 horas de media,
-      con un 29% de operaciones mantenidas de un día para otro.</td></tr>
+    <tr><th>Posiciones por instrumento</th><td class="l">Una por algoritmo:
+      mientras su operación está abierta no hace nuevas entradas en ese instrumento.
+      Los algoritmos son independientes, así que un mismo instrumento puede llevar
+      varias posiciones a la vez, incluso opuestas.</td></tr>
+    <tr><th>Tiempo de permanencia</th><td class="l">Algoritmo 1: mediana de 3,1 horas,
+      más de un día solo dos veces en cinco años. Algoritmo 2: mediana de 11 horas,
+      el 29% de las operaciones pasa la noche. Algoritmo 3: 20 minutos, lo que vive
+      la posición si no se alcanzan ni el objetivo ni el stop.</td></tr>
     </tbody></table></div>
   <p>Un stop fijo significa que la pérdida de una operación está limitada al 1% del depósito.
-  La excepción es un hueco de precio en la apertura del mercado: si el precio salta por encima
-  del nivel del stop, la pérdida será mayor que la calculada. El Algoritmo 2, que mantiene posiciones
-  de un día para otro, está expuesto a este riesgo; el Algoritmo 1 casi nunca lo está.</p>
+  La excepción es un hueco de precio en la apertura: si el precio salta por encima del stop,
+  la pérdida será mayor que la calculada. El Algoritmo 2, que mantiene posiciones
+  durante la noche, está expuesto; el Algoritmo 1 cierra al final de la sesión y
+  el Algoritmo 3 mantiene 20 minutos, así que casi no lo están.</p>
 </section>
 
 <section>
@@ -239,15 +242,17 @@ Por qué está hecho así lo cuento en la página <a href="about.html">Autor</a>
   de 2027, doy la tarifa del 20% a petición</b>, mediante un enlace de suscripción aparte.
   Las condiciones de una suscripción vigente no cambian una vez formalizada: quien entra
   al 20% se queda al 20% también cuando el año termine.</p>
-  <p><b>El trabajo sobre el sistema continúa.</b> El conjunto de instrumentos no está cerrado:
-  cada nuevo pasa la misma selección — comprobación de estabilidad en las dos
-  mitades del historial, control frente al azar y evaluación de los costes de ejecución.
-  Lo que no la supera no se añade, aunque parezca rentable.
-  Hay un tercer algoritmo en desarrollo, con una lógica de entrada independiente.</p>
-  <p style="margin-bottom:0">Cada ampliación del conjunto ha reducido el drawdown
-  de la cartera en lugar de aumentarlo: los instrumentos se eligen de modo que pierdan
-  en periodos distintos. Ese es el sentido de añadir nuevos: no tanto aumentar
-  la rentabilidad como suavizar las caídas.</p>
+  <p>El trabajo sobre el sistema continúa. El conjunto de instrumentos no está cerrado:
+  cada nuevo pasa la misma selección: comprobación de estabilidad en las dos mitades
+  de la historia, control de aleatoriedad, estimación de los costes de ejecución.
+  Lo que no pasa no se añade, aunque parezca rentable.
+  El 27 de septiembre de 2026 se añadió a la cartera un tercer algoritmo con lógica
+  de entrada independiente.</p>
+  <p style="margin-bottom:0">Ampliar la composición cambia la cartera no solo en rentabilidad.
+  El tercer algoritmo aportó <b>+179%</b> de resultado y profundizó el
+  drawdown de la cartera algo más de un punto porcentual: los instrumentos y las
+  líneas se eligen para que pierdan en periodos distintos; así el beneficio crece
+  más rápido que las caídas, no al mismo ritmo.</p>
 </section>
 
 <section>
@@ -265,10 +270,10 @@ Por qué está hecho así lo cuento en la página <a href="about.html">Autor</a>
   real. El historial describe el pasado; el futuro puede ser distinto, y el drawdown
   real puede superar el 44%. Las estadísticas en vivo apenas empiezan a acumularse,
   y son ellas las que deben considerarse la prueba principal cuando existan.</p>
-  <p>Los algoritmos son independientes en sus resultados, pero no del todo independientes
-  en su diseño. Es teóricamente posible un régimen de mercado en el que ambos caigan
-  a la vez. En cinco años de historial no ha ocurrido nunca: no hay un solo mes
-  de los 61 en que ambos hayan terminado en negativo.</p>
+  <p>Los algoritmos son independientes en resultados, pero no del todo
+  independientes en diseño. Es concebible un régimen de mercado en el que caigan
+  todos a la vez. En cinco años de historia eso no ocurrió ni una sola vez: no hubo
+  un solo mes de 61 en que los tres resultaran perdedores.</p>
   <p>La copia se ejecuta a precios de mercado, por lo que el resultado del suscriptor será distinto del de la estrategia. En cuentas por debajo de <b>2.000$</b> la diferencia es bastante mayor: el volumen choca con el lote mínimo y el riesgo en algunos instrumentos —sobre todo el oro— resulta superior al fijado. El mínimo para copiar está fijado en <b>1.000$</b>, cuatro veces el umbral de la propia plataforma.</p>
 </footer>
 

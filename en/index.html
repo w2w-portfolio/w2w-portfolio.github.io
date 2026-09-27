@@ -5,13 +5,13 @@
 <meta name="theme-color" content="#0E1116">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>w2w — an algorithmic portfolio</title>
-<meta name="description" content="An algorithmic portfolio: two trading systems on thirteen instruments, five years of calculation, all 3,291 trades published. Copying via Tickmill.">
+<meta name="description" content="An algorithmic portfolio: several trading systems on fourteen instruments, five years of calculation, all 4,033 trades published. Copying via Tickmill.">
 <link rel="canonical" href="https://w2wportfolio.com/en/">
 <!-- Карточка ссылки в мессенджерах и соцсетях: без неё уходит голая строка. -->
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="w2w">
 <meta property="og:title" content="w2w — an algorithmic portfolio">
-<meta property="og:description" content="An algorithmic portfolio: two trading systems on thirteen instruments, five years of calculation, all 3,291 trades published. Copying via Tickmill.">
+<meta property="og:description" content="An algorithmic portfolio: several trading systems on fourteen instruments, five years of calculation, all 4,033 trades published. Copying via Tickmill.">
 <meta property="og:url" content="https://w2wportfolio.com/en/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://w2wportfolio.com/assets/og.png">
@@ -149,28 +149,28 @@
   <blockquote>Diligence is the mother of good luck.</blockquote>
   <figcaption>Benjamin Franklin, “The Way to Wealth”, 1758</figcaption>
 </figure>
-  <p class="lead">Two algorithms trade by different entry rules
-on thirteen instruments. Risk per trade is fixed,
-and everything is measured in percent of the deposit. <b>Trade decisions
-are made by the code — they cannot be overridden by hand.</b> Why it is
-built this way, I explain on the <a href="about.html">Author</a> page.</p>
+  <p class="lead">Several independent algorithms trade by different entry rules
+on 14 instruments. Risk per trade is fixed,
+everything is counted in percent of the deposit. <b>Trade decisions are made by code —
+they cannot be overridden by hand.</b> Why it is built that way I explain
+on the <a href="about.html">Author</a> page.</p>
   <div class="meta"><span>risk <b>1%</b> per trade</span><span>everything in percent of deposit</span>
-  <span>Tickmill</span><span>13 instruments, 2 algorithms</span></div>
+  <span>Tickmill</span><span>14 instruments · 3 algorithms</span></div>
 </header>
 
 <div class="summary"><p><b>The money stays in your account.</b> You hand it to no one and transfer it nowhere: a copy subscription repeats the trades on your own account at the broker. You can switch it off, change the copy size or close positions yourself, at any moment. The fee is a share of the profit and only of the profit — no profit, no fee.</p></div>
 
 <div class="tiles">
-  <div class="tile tile-hi"><span class="k">total, 5 years</span><span class="v">+983%</span>
+  <div class="tile tile-hi"><span class="k">total, 5 years</span><span class="v">+1162%</span>
     <span class="n">196% a year on average, without reinvestment, before the fee</span></div>
   <div class="tile"><span class="k">Profit factor</span><span class="v">1.5</span>
     <span class="n">1.5 earned per 1 lost</span></div>
-  <div class="tile"><span class="k">Drawdown</span><span class="v">22.6%</span>
-    <span class="n">by equity; 18.1% on closed trades</span></div>
-  <div class="tile"><span class="k">Average RR</span><span class="v">2.39</span>
-    <span class="n">2.35% win against 0.98% loss</span></div>
-  <div class="tile"><span class="k">Trades</span><span class="v">3,291</span>
-    <span class="n">658 a year, 38.4% profitable</span></div>
+  <div class="tile"><span class="k">Drawdown</span><span class="v">22.9%</span>
+    <span class="n">by equity; 19.2% on closed trades</span></div>
+  <div class="tile"><span class="k">Average RR</span><span class="v">2.12</span>
+    <span class="n">2.00% win against 0.94% loss</span></div>
+  <div class="tile"><span class="k">Trades</span><span class="v">4,033</span>
+    <span class="n">797 a year, 41.9% profitable</span></div>
   <div class="tile"><span class="k">Years in profit</span><span class="v">5<span
     style="font-size:17px;color:var(--ink-faint)"> / 5</span></span>
     <span class="n">08.2021 — 08.2026</span></div>
@@ -179,19 +179,20 @@ built this way, I explain on the <a href="about.html">Author</a> page.</p>
 <p class="note">This is a <b>calculation over five years of history</b>, not the result of live trading. Live trading starts on <b>7 September 2026</b>. How the calculation was made and what survives of it under the worst run of luck is on the <a href="backtest.html">Backtests</a> page; what is happening on the live account is on the <a href="results.html">Results</a> page.</p>
 
 <section>
-  <h2>How the two algorithms differ</h2>
+  <h2>How the algorithms differ</h2>
   <p>The difference is in the signal that opens a trade. Their risk mechanics are the same and are described in the next section.</p>
   <div class="card" style="padding:0"><table>
     <tbody>
     <tr><th>Algorithm 1</th><td class="l"><b>Trades against a false breakout.</b> Price breaks yesterday’s high or low, fails to hold beyond it and comes back — the entry goes with the return. At most two trades a day per instrument, and the position is force-closed by the end of the session.</td></tr>
     <tr><th>Algorithm 2</th><td class="l"><b>Trades against an exhausted move.</b> After an impulse the price pulls back and shows a reversal sign — the entry goes against the impulse.</td></tr>
+    <tr><th>Algorithm 3</th><td class="l">Enters on continuation. Price travels far beyond the channel boundary and does not come back — entry in the direction of the break, by pending order. If neither target nor stop is hit within 20 minutes, the position is closed on time.</td></tr>
     </tbody></table></div>
-  <div class="note"><p><b>Both are counter-trend logics</b>, and that is worth knowing: by their nature they do not insure each other — a market is conceivable where both end up on the wrong side. Their independence does not follow from the design, it is measured: correlation of results <b>−0.13</b>, losing days coincide no more often than chance would give, and in five years there was not a single month out of 61 where both algorithms were down.</p></div>
+  <div class="note"><p><b>Two of the three logics are counter-trend</b>, the third plays continuation. They are not obliged to insure one another: a market is conceivable where all of them end up on the wrong side. Independence does not follow from the design, it is measured — the correlation of daily results between lines lies between −0.05 and +0.08, losing days coincide no more often than by chance, and in five years there was not a single month out of 61 when all three were negative at once.</p></div>
 </section>
 
 <section>
   <h2>How the trading works</h2>
-  <p>The mechanics are identical for both algorithms and never change from trade to trade.</p>
+  <p>The mechanics are the same for every algorithm and do not change from trade to trade.</p>
   <div class="card" style="padding:0"><table>
     <thead><tr><th style="text-align:left">parameter</th><th style="text-align:left">how it works</th></tr></thead>
     <tbody>
@@ -211,18 +212,20 @@ built this way, I explain on the <a href="about.html">Author</a> page.</p>
       at the stop is always 1% of the deposit, however wide that stop turns out to be.</td></tr>
     <tr><th>Averaging down, grids, martingale</th><td class="l"><b>Not used.</b>
       A losing position is never added to or reversed — it is closed at the stop.</td></tr>
-    <tr><th>Positions per instrument</th><td class="l">One for each algorithm:
-      while its trade is open, it makes no new entries on that instrument.
-      The algorithms are independent, so one instrument can carry two positions
-      at once, including opposing ones.</td></tr>
-    <tr><th>Holding time</th><td class="l"><b>Algorithm 1</b> — 3.6 hours on average,
-      and never holds a trade longer than a day. <b>Algorithm 2</b> — 10 hours on average,
-      with 29% of trades carried overnight.</td></tr>
+    <tr><th>Positions per instrument</th><td class="l">One per algorithm:
+      while its trade is open it makes no new entries on that instrument.
+      The algorithms are independent, so one instrument may carry several
+      positions at once, including opposing ones.</td></tr>
+    <tr><th>Holding time</th><td class="l">Algorithm 1 — median 3.1 hours,
+      held longer than a day twice in five years. Algorithm 2 — median 11 hours,
+      29% of trades carry overnight. Algorithm 3 — 20 minutes: that is how long
+      a position lives if neither target nor stop is hit.</td></tr>
     </tbody></table></div>
-  <p>A fixed stop means the loss on a single trade is capped at 1% of the deposit.
-  The exception is a price gap at the market open: if price jumps over the stop level,
-  the loss will be larger than calculated. Algorithm 2, which carries positions
-  overnight, is exposed to this risk; Algorithm 1 almost never is.</p>
+  <p>A fixed stop means the loss of a single trade is capped at 1% of the deposit.
+  The exception is a price gap at the open: if price jumps over the stop level,
+  the loss will exceed the calculated one. Algorithm 2, which carries positions
+  overnight, is exposed to this; Algorithm 1 closes by the end of the session and
+  Algorithm 3 holds for 20 minutes — they are almost not.</p>
 </section>
 
 <section>
@@ -237,15 +240,17 @@ built this way, I explain on the <a href="about.html">Author</a> page.</p>
   <b>for the first year after launch, until 7 September 2027, I give a 20% rate on request</b> —
   as a separate subscription link. The terms of an existing subscription do not change once
   it is set up: whoever joins at 20% stays at 20% after the year is over.</p>
-  <p><b>Work on the system continues.</b> The set of instruments is not frozen:
-  each new one goes through the same selection — a stability check across the two
-  halves of history, a test against randomness, an assessment of execution costs.
-  Whatever fails is not added, even if it looks profitable.
-  A third algorithm with independent entry logic is in development.</p>
-  <p style="margin-bottom:0">Every expansion of the set has reduced the portfolio’s
-  drawdown rather than increasing it: instruments are chosen so that they lose
-  in different periods. That is the point of adding new ones — not so much a rise
-  in return as a smoothing of the dips.</p>
+  <p>Work on the system continues. The instrument set is not frozen:
+  each new one goes through the same selection — a stability check across two
+  halves of the history, a randomness control, an estimate of execution costs.
+  What does not pass is not added, even if it looks profitable.
+  On 27 September 2026 a third algorithm with independent entry logic was added
+  to the portfolio.</p>
+  <p style="margin-bottom:0">Extending the line-up changes the portfolio not only in return.
+  The third algorithm added <b>+179%</b> of result while deepening the
+  portfolio drawdown by a little over one percentage point: instruments and lines
+  are chosen so that they lose in different periods — then profit grows faster
+  than the dips, not alongside them.</p>
 </section>
 
 <section>
@@ -263,10 +268,10 @@ built this way, I explain on the <a href="about.html">Author</a> page.</p>
   trading. History describes the past; the future may turn out differently, and the actual
   drawdown may exceed 44%. Live statistics are only starting to accumulate —
   and they are what should be treated as the main evidence once they exist.</p>
-  <p>The algorithms are independent in their results, but not entirely independent
-  in their design. A market regime in which both draw down simultaneously is theoretically
-  possible. In five years of history this has never happened: there is not a single month
-  out of 61 in which both would have ended negative.</p>
+  <p>The algorithms are independent in their results but not entirely
+  independent in design. A market regime is conceivable in which all of them draw
+  down at once. In five years of history that never happened: there was not a single
+  month out of 61 when all three were unprofitable.</p>
   <p>Copying is executed at current market prices, so a subscriber’s result will differ from the strategy’s. On accounts below <b>$2,000</b> the gap is noticeably wider: the position size hits the minimum lot, and the risk on some instruments — gold above all — comes out higher than the one set. The minimum for copying is set at <b>$1,000</b> — four times the platform’s own threshold.</p>
 </footer>
 

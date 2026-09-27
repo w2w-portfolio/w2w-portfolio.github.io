@@ -52,7 +52,9 @@ ARCHIVE = SITE / 'data' / 'weekly.json'
 CHARTS = SITE / 'charts'
 TABLES = SITE / 'tables'
 
-DD_OK, DD_WATCH, DD_RARE = 25.0, 36.0, 44.0     # см. МОНИТОРИНГ.md, пересчёт 03.09.2026
+DD_OK, DD_WATCH, DD_RARE = 24.0, 35.0, 42.0     # см. МОНИТОРИНГ.md, пересчёт 27.09.2026
+# 🔴 Те же три числа стоят в МОНИТОРИНГ.md, в bin/watch_sim.py и в наборе
+# наблюдателя на графике профиля MT5. Меняются все четыре места разом.
 # Через сколько часов молчания наблюдателя считать данные протухшими.
 # Он пишет раз в 15 минут, забираем раз в час — два часа тишины это уже
 # поломка, а не задержка. Считается по полю time_utc (наблюдатель 1.01+):
@@ -335,22 +337,33 @@ def render_live(st, trades, base):
     # пять лет, и сравнивать их итоги напрямую нельзя. Средняя сделка от срока
     # не зависит и сопоставима с первого дня.
     profit_pct = 100 * sum(t['money'] for t in trades) / base if base else 0.0
-    try:                       # ориентир расчёта — из того же файла, что и вся страница
+    # Вся расчётная колонка — из numbers.json, того же файла, что и числа
+    # страниц. Раньше половина её была вписана сюда числами и при каждом
+    # изменении состава портфеля тихо расходилась с остальным сайтом.
+    try:
         nums = json.loads((SITE / 'data' / 'numbers.json').read_text(encoding='utf-8'))
-        avg_bt = f"+{nums['total'] / nums['trades']:.2f}%"
-    except (OSError, ValueError, KeyError, ZeroDivisionError):
-        avg_bt = '—'
+    except (OSError, ValueError):
+        nums = {}
+
+    def bt(key, fmt, alt='—'):
+        """Ориентир расчёта: значение из numbers.json в нужном виде."""
+        try:
+            return fmt(nums[key])
+        except (KeyError, TypeError, ValueError, ZeroDivisionError):
+            return alt
 
     rows = [
         ('{{live.since}}', since, '{{live.since_bt}}'),
         ('{{live.deposit}}', f'{base:,.0f}'.replace(',', '\u202f'), '{{live.deposit_bt}}'),
-        ('{{live.trades}}', str(n), '3\u202f291'),
+        ('{{live.trades}}', str(n), bt('trades', lambda v: f'{v:,.0f}'.replace(',', '\u202f'))),
         ('{{live.profit}}', f'{profit_pct:+.1f}%', '+{{n.total}}%'),
-        ('{{live.avg}}', '—' if few else f'{profit_pct / n:+.2f}%', avg_bt),
-        ('{{live.winrate}}', '—' if few else f'{100*len(wins)/n:.0f}%', '38.4%'),
-        ('{{live.pf}}', '—' if few else f'{pf:.2f}', '1.5'),
-        ('{{live.rr}}', '—' if few else f'{rr:.2f}', '2.39'),
-        ('{{live.dd}}', f'{dd_max:.1f}%', '22.6%'),
+        ('{{live.avg}}', '—' if few else f'{profit_pct / n:+.2f}%',
+         bt('total', lambda v: f"+{v / nums['trades']:.2f}%")),
+        ('{{live.winrate}}', '—' if few else f'{100*len(wins)/n:.0f}%',
+         bt('win_rate', lambda v: f'{v:.1f}%')),
+        ('{{live.pf}}', '—' if few else f'{pf:.2f}', bt('pf', lambda v: f'{v:.1f}')),
+        ('{{live.rr}}', '—' if few else f'{rr:.2f}', bt('rr', lambda v: f'{v:.2f}')),
+        ('{{live.dd}}', f'{dd_max:.1f}%', bt('dd_eq', lambda v: f'{v:.1f}%')),
     ]
     body = ''.join(
         f'<tr><th>{k}</th><td class="l">{v}</td><td class="l">{b}</td></tr>'
