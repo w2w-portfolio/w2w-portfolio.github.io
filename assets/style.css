@@ -144,12 +144,18 @@ footer{border-top:1px solid var(--line);padding-top:22px;color:var(--ink-faint);
  overflow:hidden;opacity:.55}
 .minibar i{display:block;height:100%;border-radius:3px}
 
-/* Три линии состава — три колонки; первая шире, у Алгоритма 2 двенадцать строк.
+/* Две колонки: слева Алгоритм 2 (двенадцать строк), справа два коротких
+   списка друг под другом. В три колонки шесть столбцов таблицы не влезают —
+   заголовки начинают налезать друг на друга.
    Ширины задаются ТОЛЬКО здесь: правило ниже по файлу раньше перебивало
    эти медиа-запросы, и на телефоне оставались две колонки вместо одной. */
-.srcgrid{grid-template-columns:2.15fr 1fr 1fr;align-items:start}
-@media (max-width:1040px){.srcgrid{grid-template-columns:1.6fr 1fr}}
+.srcgrid{grid-template-columns:1.2fr 1fr;align-items:start}
 @media (max-width:900px){.srcgrid{grid-template-columns:1fr}}
+/* Между двумя списками правой колонки нужен воздух: иначе подпись второго
+   читается как продолжение первой таблицы. */
+.srccol{gap:8px}
+.srcone{display:flex;flex-direction:column;gap:8px}
+.srcone + .srcone{margin-top:18px}
 .src th{white-space:nowrap}
 .src td:nth-child(n+3){text-align:center;font-variant-numeric:tabular-nums;font-feature-settings:"tnum"}
 .src th:nth-child(n+3){text-align:center}
@@ -347,3 +353,12 @@ tr.wknote td{padding-top:0;border-top:0}
 .wkhist>summary::before{content:"▸ ";color:var(--ink-faint)}
 .wkhist[open]>summary::before{content:"▾ "}
 .wkhist>summary:hover{color:var(--ink)}
+
+/* Шесть столбцов таблицы источников при table-layout:fixed делили ширину
+   поровну, и в узкой правой колонке подписи «просадка» и «результат»
+   не помещались — текст наползал на соседний столбец. Доли заданы под
+   длину самих подписей: инструменту хватает меньшего, числам нужно больше. */
+.srccol .src th:first-child,.srccol .src td:first-child{width:22%}
+.srccol .src th:nth-child(2),.srccol .src td:nth-child(2){width:16%}
+.srccol .src th:nth-child(3),.srccol .src td:nth-child(3){width:17%}
+.srccol .src th:nth-child(n+4),.srccol .src td:nth-child(n+4){width:15%}
