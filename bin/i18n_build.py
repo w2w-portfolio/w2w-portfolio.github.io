@@ -68,10 +68,29 @@ THOUSANDS = {'ru': '\u202f', 'en': ',', 'es': '.'}
 def fmt_num(v, lang):
     return f'{int(v):,}'.replace(',', THOUSANDS[lang])
 
+# 🪤 Главная адресуется КАТАЛОГОМ, а не файлом index.html — и в canonical,
+#    и в sitemap, и в hreflang, и во внутренних ссылках. Если хоть одно место
+#    зовёт её «index.html», Google приходит на этот адрес, получает canonical
+#    «/» и пишет «Вариант страницы с тегом canonical», выбрасывая URL
+#    из индекса (письма Search Console 16.09 и 12.10.2026). Первый раз
+#    поправили canonical и карту сайта, а hreflang и логотип остались —
+#    отсюда второе письмо. Теперь адрес строится ОДНОЙ функцией.
+def page_part(page):
+    """Хвост адреса страницы: у главной его нет, она и есть каталог."""
+    return '' if page == 'index.html' else page
+
+
 def path_to(lang, page, cur_lang):
-    """Относительный путь со страницы cur_lang на ту же страницу языка lang."""
+    """Относительный путь со страницы cur_lang на ту же страницу языка lang.
+
+    На своём же языке путь берётся прямой: «../en/results.html» из /en/
+    ведёт туда же, но лишний крюк через корень незачем показывать ни людям,
+    ни роботу."""
+    if lang == cur_lang:
+        return page_part(page) or './'
     up = '' if cur_lang == 'ru' else '../'
-    return up + ('' if lang == 'ru' else lang + '/') + page
+    rel = up + ('' if lang == 'ru' else lang + '/') + page_part(page)
+    return rel or './'          # пустой href — это ссылка на саму себя
 
 def langswitch(page, cur):
     parts = []
@@ -108,7 +127,7 @@ def shell(page, lang):
     #    разными URL и писал «канонические версии не совпадают»
     #    (письмо Search Console 16.09.2026).
     base = f'{HOST}/' + ('' if lang == 'ru' else lang + '/')
-    canon = base if page == 'index.html' else base + page
+    canon = base + page_part(page)
     head = (head.replace('{{TITLE}}', '{{title.' + slug + '}}')
                 .replace('{{DESC}}', '{{desc.' + slug + '}}')
                 .replace('{{CANONICAL}}', canon)
@@ -141,11 +160,14 @@ def part_tpl(name):
 
 
 def hreflang(page):
+    """Ссылки на переводы. Адреса — КАНОНИЧЕСКИЕ: hreflang, указывающий
+    на неканонический URL, Google игнорирует, а сам URL помечает вариантом."""
     out = []
     for L in LANGS:
-        href = f'{HOST}/' + ('' if L == 'ru' else L + '/') + page
+        href = f'{HOST}/' + ('' if L == 'ru' else L + '/') + page_part(page)
         out.append(f'<link rel="alternate" hreflang="{L}" href="{href}">')
-    out.append(f'<link rel="alternate" hreflang="x-default" href="{HOST}/{page}">')
+    out.append(f'<link rel="alternate" hreflang="x-default" '
+               f'href="{HOST}/{page_part(page)}">')
     return '\n'.join(out)
 
 BLOB = re.compile(r'<(svg|script|style)\b.*?</\1>', re.S)
@@ -341,7 +363,7 @@ def sitemap():
     #    (Search Console, 16.09.2026).
     def addr(lang, page):
         base = f'{HOST}/' + ('' if lang == 'ru' else lang + '/')
-        return base if page == 'index.html' else base + page
+        return base + page_part(page)
 
     rows = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
