@@ -21,7 +21,8 @@
 Голова страницы тоже общая — tpl/_head.html, {{TITLE}} в ней разворачивается
 в ключ заголовка текущей страницы (title.index, title.results и так далее).
 """
-import json, re, sys
+import json, re, subprocess, sys
+from datetime import date
 from pathlib import Path
 
 # Путь к сайту: рядом со скриптом (в облачной сборке скрипт лежит в
@@ -351,12 +352,44 @@ def build(lang, outdir):
         (outdir/f).write_text(page, encoding='utf-8')
     return missing
 
+def changed_now():
+    """Страницы, отличающиеся от закоммиченных прямо сейчас.
+
+    Один вызов git на всю сборку: дальше дата таким страницам ставится
+    сегодняшняя — они действительно изменились этим запуском."""
+    try:
+        r = subprocess.run(['git', 'status', '--porcelain', '--', '.'],
+                           cwd=SITE, capture_output=True, text=True, timeout=20)
+        return {line[3:].strip().strip('"') for line in r.stdout.splitlines()}
+    except Exception:
+        return set()
+
+
+def git_date(rel):
+    """Дата последнего коммита, затронувшего файл. None — если git молчит."""
+    try:
+        r = subprocess.run(['git', 'log', '-1', '--format=%cs', '--', rel],
+                           cwd=SITE, capture_output=True, text=True, timeout=20)
+        return r.stdout.strip() or None
+    except Exception:
+        return None
+
+
 def sitemap():
     """Карта сайта: все страницы всех языков, каждая со ссылками на переводы.
 
     Файл собирается вместе со страницами, поэтому не может от них отстать.
-    Даты не ставим: врать «обновлено сегодня» о неизменившейся странице
-    хуже, чем не сказать ничего."""
+
+    🔑 `lastmod` берётся из git, а не из часов: дата последнего коммита,
+    затронувшего ИМЕННО эту страницу, а для изменённых прямо сейчас —
+    сегодняшняя. Поэтому дата не врёт: страницы с лентой счёта меняются
+    каждую неделю и получают свежую дату, а «Автор» или «Условия» стоят
+    с той, когда их правили в последний раз. Робот по этим датам решает,
+    что перечитать раньше — без такого сигнала он обходит сайт по своему
+    расписанию, неделями (письмо Search Console 12.10.2026).
+
+    🪤 Если git недоступен или файла в нём нет, дата НЕ ставится вовсе:
+    отсутствие сигнала честнее выдуманного."""
     # 🪤 Главная указывается БЕЗ index.html — тем же адресом, что стоит
     #    в её canonical. Иначе Google видит «/» и «/index.html» как
     #    разные URL и пишет «канонические версии не совпадают»
@@ -365,12 +398,22 @@ def sitemap():
         base = f'{HOST}/' + ('' if lang == 'ru' else lang + '/')
         return base + page_part(page)
 
+    dirty = changed_now()
+    today = date.today().isoformat()
+
+    def lastmod(lang, page):
+        rel = ('' if lang == 'ru' else lang + '/') + page
+        return today if rel in dirty else git_date(rel)
+
     rows = ['<?xml version="1.0" encoding="UTF-8"?>',
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
             '        xmlns:xhtml="http://www.w3.org/1999/xhtml">']
     for lang in LANGS:
         for page in PAGES:
             rows.append(f'  <url>\n    <loc>{addr(lang, page)}</loc>')
+            when = lastmod(lang, page)
+            if when:
+                rows.append(f'    <lastmod>{when}</lastmod>')
             for alt in LANGS:
                 rows.append(f'    <xhtml:link rel="alternate" hreflang="{alt}" '
                             f'href="{addr(alt, page)}"/>')
