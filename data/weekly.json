@@ -210,5 +210,30 @@
   "exp_n": 62,
   "exp_ready": false,
   "symbols_week": []
+ },
+ {
+  "date": "2026-10-24",
+  "week_from": "2026-10-19",
+  "week_to": "2026-10-25",
+  "account": 55950604,
+  "server": "Tickmill-Live",
+  "account_type": "real",
+  "balance": 1139.85,
+  "equity": 1139.85,
+  "start_balance": 1000.0,
+  "trades_week": 0,
+  "wins_week": 0,
+  "losses_week": 0,
+  "money_week": 0,
+  "pf_week": null,
+  "trades_total": 62,
+  "grow_total_pct": 14.41,
+  "dd_now_pct": 13.1,
+  "dd_max_pct": 16.27,
+  "level": "норма",
+  "exp_pct": 0.232,
+  "exp_n": 62,
+  "exp_ready": false,
+  "symbols_week": []
  }
 ]
