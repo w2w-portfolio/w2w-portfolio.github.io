@@ -27,13 +27,16 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 # Отчёты наблюдателя приезжают с VDS через Яндекс.Диск: папка терминала
-# MQL5\Files синхронизируется целиком, копировальщик не нужен (w2w_sync.bat
-# и w2w_sync_loop.bat удалены 13.09.2026). Если там пусто —
-# берём из локального терминала: так работает, когда торгуем с мака.
-# Папка терминала на VDS подключена к Яндекс.Диску напрямую
-# (Настройки → Автоматическое сохранение папок), поэтому файлы
-# приезжают сами, без копировальщиков и заданий.
-YD  = Path.home() / 'Yandex.Disk.localized' / 'Компьютер WIN-G1OC1NJFU3O' / 'Files'
+# Два файла кладёт на Диск сам сторож (`w2w_guard.ps1`, функция Copy-ToDisk) —
+# с 14.10.2026, когда новый клиент Диска на VDS потерял «Автоматическое
+# сохранение папок». Папку терминала к Диску не подключаем намеренно: в ней
+# лежит память ботов `w2w_state_*.txt`. Если там пусто — берём из локального
+# терминала: так работает, когда торгуем с мака.
+YD  = Path.home() / 'Yandex.Disk.localized' / '!FOREX_VDS' / 'w2w_live'
+# До 14.10.2026 папка терминала синхронизировалась целиком; оставлено запасным.
+YD_OLD = Path.home() / 'Yandex.Disk.localized' / 'Компьютер WIN-G1OC1NJFU3O' / 'Files'
+if not (YD / 'w2w_status.json').exists() and (YD_OLD / 'w2w_status.json').exists():
+    YD = YD_OLD
 LOC = (Path.home() / 'Library' / 'Application Support'
        / 'net.metaquotes.wine.metatrader5' / 'drive_c'
        / 'Program Files' / 'MetaTrader 5' / 'MQL5' / 'Files')
@@ -458,6 +461,16 @@ def main():
     base = float(st.get('start_balance') or st.get('balance') or 0) or 1.0
 
     now = datetime.now()
+    # --date ГГГГ-ММ-ДД: дописать пропущенную неделю задним числом. Считаем
+    # только сделки до конца той недели; баланс берём из них же, а не
+    # из сегодняшнего снимка наблюдателя (эквити тогда неизвестно — равно балансу).
+    back = next((a.split('=', 1)[1] for a in sys.argv if a.startswith('--date=')), None)
+    if back:
+        now = datetime.strptime(back, '%Y-%m-%d') + timedelta(hours=12)
+        _, w_end = week_bounds(now.date())
+        trades = [t for t in trades if t['t'] < w_end]
+        bal = round(base + sum(t['money'] for t in trades), 2)
+        st = dict(st, balance=bal, equity=bal)
     w_from, w_to = week_bounds(now.date())
     week = [t for t in trades if w_from <= t['t'] < w_to]
 
