@@ -27,7 +27,23 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Скачать отчёты наблюдателя с Яндекс.Диска
+      # Основной путь — ветка live-data: её раз в 15 минут перезаписывает
+      # планировщик на VPS (C:\Tools\w2w-push\push.ps1). Яндекс.Диск — запасной:
+      # с октября 2026 его облако сбоит, а Диск 4 не умеет автосохранение папок.
+      - name: Взять отчёты наблюдателя из ветки live-data
+        id: livedata
+        continue-on-error: true
+        run: |
+          set -eu
+          git fetch --depth 1 origin live-data
+          mkdir -p live
+          for f in w2w_status.json w2w_trades.csv; do
+            git show "FETCH_HEAD:$f" > "live/$f"
+            echo "из live-data $f: $(wc -c < "live/$f") байт"
+          done
+
+      - name: Скачать отчёты наблюдателя с Яндекс.Диска (запасной путь)
+        if: steps.livedata.outcome != 'success'
         env:
           YD_PUBLIC: ${{ secrets.YD_PUBLIC }}
         run: |
