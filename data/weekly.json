@@ -321,5 +321,40 @@
    "USTEC",
    "XAUUSD"
   ]
+ },
+ {
+  "date": "2026-11-14",
+  "week_from": "2026-11-09",
+  "week_to": "2026-11-15",
+  "account": 55950604,
+  "server": "Tickmill-Live",
+  "account_type": "real",
+  "balance": 1020.54,
+  "equity": 1021.6,
+  "start_balance": 1000.0,
+  "trades_week": 16,
+  "wins_week": 4,
+  "losses_week": 12,
+  "money_week": -0.2,
+  "pf_week": 1.0,
+  "trades_total": 149,
+  "grow_total_pct": 3.23,
+  "dd_now_pct": 24.28,
+  "dd_max_pct": 31.94,
+  "level": "внимание",
+  "exp_pct": -0.102,
+  "exp_n": 100,
+  "exp_ready": true,
+  "symbols_week": [
+   "DE40",
+   "EURJPY",
+   "EURUSD",
+   "GBPUSD",
+   "NZDUSD",
+   "USDCHF",
+   "USDJPY",
+   "USTEC",
+   "XAUUSD"
+  ]
  }
 ]
